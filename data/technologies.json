@@ -1,0 +1,11 @@
+[
+  {
+    "id": "example-tech-001",
+    "name": "Example Technology Platform",
+    "sectors": ["medtech", "digital health"],
+    "stage": "pre-seed",
+    "pi": "Dr. Example PI",
+    "description": "A brief description of the technology and its application.",
+    "onePager": "example-tech-001.pdf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "example-vc",
+    "name": "Example Ventures",
+    "aliases": ["Example VC", "EV"],
+    "focus": "medtech, digital health",
+    "sectors": ["medtech", "digital health"],
+    "stage": ["seed", "series-a"],
+    "matchedTechs": ["example-tech-001"]
+  }
+]
