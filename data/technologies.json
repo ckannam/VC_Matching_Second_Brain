@@ -14,7 +14,8 @@
     "id": "3dnamics",
     "name": "3Dnamics",
     "sectors": [
-      "Biotech"
+      "Therapeutics",
+      "Research Technologies"
     ],
     "stage": "",
     "pi": "",
@@ -25,7 +26,7 @@
     "id": "3helix",
     "name": "3Helix",
     "sectors": [
-      "Biotech"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -36,7 +37,7 @@
     "id": "accelevir",
     "name": "Accelevir",
     "sectors": [
-      "Biotech"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -58,7 +59,7 @@
     "id": "agenebio",
     "name": "AgeneBio",
     "sectors": [
-      "Diagnostics"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -102,7 +103,7 @@
     "id": "astropath",
     "name": "Astropath",
     "sectors": [
-      "Oncology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -113,7 +114,7 @@
     "id": "avoid",
     "name": "Avoid",
     "sectors": [
-      "Diagnostics"
+      "Cybersecurity"
     ],
     "stage": "",
     "pi": "",
@@ -124,7 +125,8 @@
     "id": "biolinco",
     "name": "Biolinco",
     "sectors": [
-      "Biotech"
+      "Therapeutics",
+      "Research Technologies"
     ],
     "stage": "",
     "pi": "",
@@ -135,7 +137,7 @@
     "id": "blocksynop",
     "name": "BLOCKsynop",
     "sectors": [
-      "Healthcare AI"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -146,7 +148,7 @@
     "id": "brahm-astra",
     "name": "Brahm Astra",
     "sectors": [
-      "Biotech"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -157,7 +159,7 @@
     "id": "brainbox-solutions",
     "name": "BRAINBox Solutions",
     "sectors": [
-      "Neurology"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -168,7 +170,7 @@
     "id": "bullfrog-ai",
     "name": "BullFrog AI",
     "sectors": [
-      "Healthcare AI"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -179,7 +181,7 @@
     "id": "cardiowise",
     "name": "CardioWise",
     "sectors": [
-      "Cardiovascular"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -190,7 +192,7 @@
     "id": "circlage",
     "name": "CIRCLAGE",
     "sectors": [
-      "Surgical Robotics"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -223,7 +225,7 @@
     "id": "curiedx",
     "name": "CurieDx",
     "sectors": [
-      "Oncology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -245,7 +247,7 @@
     "id": "deep-root-biolabs",
     "name": "Deep Root Biolabs",
     "sectors": [
-      "Biotech"
+      "Agricultural Tech"
     ],
     "stage": "",
     "pi": "",
@@ -256,7 +258,7 @@
     "id": "delfi-diagnostics",
     "name": "Delfi Diagnostics",
     "sectors": [
-      "Oncology"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -278,7 +280,7 @@
     "id": "edac-labs",
     "name": "EDAC Labs",
     "sectors": [
-      "Biotech"
+      "Clean Tech"
     ],
     "stage": "",
     "pi": "",
@@ -300,7 +302,7 @@
     "id": "emc2-bio",
     "name": "EMC2 Bio",
     "sectors": [
-      "Diagnostics"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -322,7 +324,7 @@
     "id": "erada-technology-alliance",
     "name": "Erada Technology Alliance",
     "sectors": [
-      "Neurology"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -333,7 +335,7 @@
     "id": "etch",
     "name": "ETCH",
     "sectors": [
-      "Biotech"
+      "Clean Tech"
     ],
     "stage": "",
     "pi": "",
@@ -344,7 +346,7 @@
     "id": "foragerone",
     "name": "ForagerOne",
     "sectors": [
-      "Biotech"
+      "Cybersecurity"
     ],
     "stage": "",
     "pi": "",
@@ -377,7 +379,7 @@
     "id": "geothermal-technologies",
     "name": "Geothermal Technologies",
     "sectors": [
-      "Biotech"
+      "Clean Tech"
     ],
     "stage": "",
     "pi": "",
@@ -399,7 +401,7 @@
     "id": "i-cordis",
     "name": "I-Cordis",
     "sectors": [
-      "Cardiovascular"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -410,7 +412,7 @@
     "id": "icapath",
     "name": "ICaPath",
     "sectors": [
-      "Healthcare AI"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -421,7 +423,8 @@
     "id": "infinity-bio",
     "name": "Infinity Bio",
     "sectors": [
-      "Diagnostics"
+      "Diagnostics",
+      "Research Technologies"
     ],
     "stage": "",
     "pi": "",
@@ -432,7 +435,7 @@
     "id": "junebrain",
     "name": "JuneBrain",
     "sectors": [
-      "Neurology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -443,7 +446,7 @@
     "id": "kreftect",
     "name": "Kreftect",
     "sectors": [
-      "Oncology"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -454,7 +457,7 @@
     "id": "kubanda-cryotherapy",
     "name": "Kubanda Cryotherapy",
     "sectors": [
-      "Biotech"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -465,7 +468,7 @@
     "id": "longeviti-neuro-solutions",
     "name": "Longeviti Neuro Solutions",
     "sectors": [
-      "Neurology"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -476,7 +479,7 @@
     "id": "lumiinus",
     "name": "Lumiinus",
     "sectors": [
-      "Oncology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -487,7 +490,7 @@
     "id": "mi-helper",
     "name": "Mi-Helper",
     "sectors": [
-      "Digital Health"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -498,7 +501,7 @@
     "id": "myocardial-solutions",
     "name": "Myocardial Solutions",
     "sectors": [
-      "Cardiovascular"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -520,7 +523,7 @@
     "id": "neurologic-solutions",
     "name": "Neurologic Solutions",
     "sectors": [
-      "Neurology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -531,7 +534,7 @@
     "id": "neuropass-by-cranius",
     "name": "NeuroPass by CraniUS",
     "sectors": [
-      "Neurology"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -542,7 +545,7 @@
     "id": "oncospace",
     "name": "Oncospace",
     "sectors": [
-      "Oncology"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -553,7 +556,7 @@
     "id": "oncosting",
     "name": "OncoSTING",
     "sectors": [
-      "Healthcare AI"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -564,7 +567,7 @@
     "id": "oncoswitch-therapeutics",
     "name": "OncoSwitch Therapeutics",
     "sectors": [
-      "Oncology"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -575,7 +578,7 @@
     "id": "pearl-diagnostics",
     "name": "Pearl Diagnostics",
     "sectors": [
-      "Oncology"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -586,7 +589,7 @@
     "id": "phantom-neuro",
     "name": "Phantom Neuro",
     "sectors": [
-      "Neurology"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -597,7 +600,7 @@
     "id": "previse",
     "name": "Previse",
     "sectors": [
-      "Healthcare AI"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -619,7 +622,7 @@
     "id": "read-ahead",
     "name": "Read Ahead",
     "sectors": [
-      "Healthcare AI"
+      "Cybersecurity"
     ],
     "stage": "",
     "pi": "",
@@ -630,7 +633,7 @@
     "id": "relavo",
     "name": "Relavo",
     "sectors": [
-      "Cardiovascular"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -641,7 +644,7 @@
     "id": "safetower",
     "name": "SafeTower",
     "sectors": [
-      "Healthcare AI"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -663,7 +666,7 @@
     "id": "semaphor",
     "name": "Semaphor",
     "sectors": [
-      "Surgical Robotics"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -674,7 +677,7 @@
     "id": "sereneuro",
     "name": "SereNeuro",
     "sectors": [
-      "Neurology"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -685,7 +688,7 @@
     "id": "shuriken-medical",
     "name": "Shuriken Medical",
     "sectors": [
-      "Surgical Robotics"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -696,7 +699,7 @@
     "id": "solv-endotherapy",
     "name": "Solv Endotherapy",
     "sectors": [
-      "Surgical Robotics"
+      "Therapeutics"
     ],
     "stage": "",
     "pi": "",
@@ -707,7 +710,7 @@
     "id": "somnair",
     "name": "Somnair",
     "sectors": [
-      "Digital Health"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -718,7 +721,7 @@
     "id": "sonavex",
     "name": "Sonavex",
     "sectors": [
-      "Cardiovascular"
+      "Diagnostics"
     ],
     "stage": "",
     "pi": "",
@@ -729,7 +732,7 @@
     "id": "sonavi-labs",
     "name": "Sonavi Labs",
     "sectors": [
-      "Cardiovascular"
+      "Digital Health"
     ],
     "stage": "",
     "pi": "",
@@ -740,7 +743,7 @@
     "id": "sotelix-endoscopy",
     "name": "Sotelix Endoscopy",
     "sectors": [
-      "Surgical Robotics"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -751,7 +754,7 @@
     "id": "tanzen-medical",
     "name": "Tanzen Medical",
     "sectors": [
-      "Surgical Robotics"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -762,7 +765,7 @@
     "id": "virtuoso-surgical",
     "name": "Virtuoso Surgical",
     "sectors": [
-      "Surgical Robotics"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -784,7 +787,7 @@
     "id": "vixiar-medical",
     "name": "Vixiar Medical",
     "sectors": [
-      "Cardiovascular"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",
@@ -806,7 +809,7 @@
     "id": "x-cor",
     "name": "X-COR",
     "sectors": [
-      "Cardiovascular"
+      "Medical Devices"
     ],
     "stage": "",
     "pi": "",

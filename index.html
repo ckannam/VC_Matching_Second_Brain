@@ -70,32 +70,32 @@
 
   // ── Domain icons ──────────────────────────────────────────────────────────
   const DOMAIN_ICONS = {
-    'Surgical Robotics': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z"/><path d="M12 14v6M9 20h6"/></svg>`,
-    'Neurology':         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3C6 3 4 5 4 8c0 2 1 3.5 2.5 4.5C5 14 4 16 4 18h16c0-2-1-4-2.5-5.5C19 11.5 20 10 20 8c0-3-2-5-5-5-1 0-2 .3-3 1-1-.7-2-1-3-1z"/></svg>`,
-    'Oncology':          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>`,
-    'Therapeutics':      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 014 0v2M12 11v6M9 14h6"/></svg>`,
-    'Digital Health':    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
-    'Healthcare AI':     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg>`,
-    'Cardiovascular':    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>`,
-    'Diagnostics':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
-    'Biotech':           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v11a3 3 0 006 0V3"/><path d="M6 8h12"/></svg>`,
+    'Digital Health':        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+    'Medical Devices':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6M12 9v6"/></svg>`,
+    'Clean Tech':            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 4-3 7-7 9-4-2-7-5-7-9a7 7 0 017-7z"/><path d="M12 9v6M9 12h6"/></svg>`,
+    'Cybersecurity':         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 4.4-3.4 8.5-8 10-4.6-1.5-8-5.6-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>`,
+    'Therapeutics':          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 014 0v2M12 11v6M9 14h6"/></svg>`,
+    'Diagnostics':           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
+    'Agricultural Tech':     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12M12 12C12 7 7 4 3 6c4 0 7 3 9 6zM12 12c0-5 5-8 9-6-4 0-7 3-9 6z"/></svg>`,
+    'Research Technologies': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v11a3 3 0 006 0V3"/><path d="M6 8h12"/><path d="M5 21h14"/></svg>`,
   };
 
   // ── Domain browse ─────────────────────────────────────────────────────────
   function renderDomainBrowse() {
     const byDomain = {};
     for (const t of TECHS) {
-      const sector = (t.sectors && t.sectors[0]) || 'Other';
-      if (!byDomain[sector]) byDomain[sector] = [];
-      byDomain[sector].push(t);
+      const secs = (t.sectors && t.sectors.length > 0) ? t.sectors : ['Other'];
+      for (const sec of secs) {
+        if (!byDomain[sec]) byDomain[sec] = [];
+        byDomain[sec].push(t);
+      }
     }
 
     const domainOrder = [
-      'Surgical Robotics','Neurology','Oncology','Therapeutics',
-      'Digital Health','Healthcare AI','Cardiovascular','Diagnostics','Biotech','Other'
+      'Digital Health','Medical Devices','Clean Tech','Cybersecurity',
+      'Therapeutics','Diagnostics','Agricultural Tech','Research Technologies','Other'
     ];
     const sorted = domainOrder.filter(d => byDomain[d]);
-    const total = sorted.length;
 
     const cards = sorted.map(d => domainCardHTML(d, byDomain[d])).join('');
 
@@ -103,7 +103,7 @@
       <div class="catalog-section">
         <div class="catalog-header">
           <h2>Browse the catalog by domain</h2>
-          <button class="view-all-link" onclick="viewAllTechs()">View all ${total} →</button>
+          <button class="view-all-link" onclick="viewAllTechs()">View all ${TECHS.length} →</button>
         </div>
         <div class="domain-grid">${cards}</div>
       </div>
