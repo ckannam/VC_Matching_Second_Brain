@@ -2,7 +2,9 @@
   {
     "id": "28bio",
     "name": "28bio",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -11,7 +13,9 @@
   {
     "id": "3dnamics",
     "name": "3Dnamics",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -20,7 +24,9 @@
   {
     "id": "3helix",
     "name": "3Helix",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -29,7 +35,9 @@
   {
     "id": "accelevir",
     "name": "Accelevir",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -38,7 +46,9 @@
   {
     "id": "adventris-pharmaceuticals",
     "name": "Adventris Pharmaceuticals",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -47,7 +57,9 @@
   {
     "id": "agenebio",
     "name": "AgeneBio",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -56,7 +68,9 @@
   {
     "id": "agnos-therapeutics",
     "name": "Agnos Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -65,7 +79,9 @@
   {
     "id": "aliquantumrx",
     "name": "AliquantumRx",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -74,7 +90,9 @@
   {
     "id": "ashvattha-therapeutics",
     "name": "Ashvattha Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -83,7 +101,9 @@
   {
     "id": "astropath",
     "name": "Astropath",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -92,7 +112,9 @@
   {
     "id": "avoid",
     "name": "Avoid",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -101,7 +123,9 @@
   {
     "id": "biolinco",
     "name": "Biolinco",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -110,7 +134,9 @@
   {
     "id": "blocksynop",
     "name": "BLOCKsynop",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -119,7 +145,9 @@
   {
     "id": "brahm-astra",
     "name": "Brahm Astra",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -128,7 +156,9 @@
   {
     "id": "brainbox-solutions",
     "name": "BRAINBox Solutions",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -137,7 +167,9 @@
   {
     "id": "bullfrog-ai",
     "name": "BullFrog AI",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -146,7 +178,9 @@
   {
     "id": "cardiowise",
     "name": "CardioWise",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -155,7 +189,9 @@
   {
     "id": "circlage",
     "name": "CIRCLAGE",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -164,7 +200,9 @@
   {
     "id": "corrie-health",
     "name": "Corrie Health",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -173,7 +211,9 @@
   {
     "id": "cove-therapeutics",
     "name": "Cove Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -182,7 +222,9 @@
   {
     "id": "curiedx",
     "name": "CurieDx",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -191,7 +233,9 @@
   {
     "id": "curveassure",
     "name": "CurveAssure",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -200,7 +244,9 @@
   {
     "id": "deep-root-biolabs",
     "name": "Deep Root Biolabs",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -209,7 +255,9 @@
   {
     "id": "delfi-diagnostics",
     "name": "Delfi Diagnostics",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -218,7 +266,9 @@
   {
     "id": "drul",
     "name": "Drul",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -227,7 +277,9 @@
   {
     "id": "edac-labs",
     "name": "EDAC Labs",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -236,7 +288,9 @@
   {
     "id": "egret-therapeutics",
     "name": "Egret Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -245,7 +299,9 @@
   {
     "id": "emc2-bio",
     "name": "EMC2 Bio",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -254,7 +310,9 @@
   {
     "id": "epiwatch",
     "name": "EpiWatch",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -263,7 +321,9 @@
   {
     "id": "erada-technology-alliance",
     "name": "Erada Technology Alliance",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -272,7 +332,9 @@
   {
     "id": "etch",
     "name": "ETCH",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -281,7 +343,9 @@
   {
     "id": "foragerone",
     "name": "ForagerOne",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -290,7 +354,9 @@
   {
     "id": "fyodor-biotechnologies",
     "name": "Fyodor Biotechnologies",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -299,7 +365,9 @@
   {
     "id": "genie-therapeutics",
     "name": "Genie Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -308,7 +376,9 @@
   {
     "id": "geothermal-technologies",
     "name": "Geothermal Technologies",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -317,7 +387,9 @@
   {
     "id": "glyscend-therapeutics",
     "name": "Glyscend Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -326,7 +398,9 @@
   {
     "id": "i-cordis",
     "name": "I-Cordis",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -335,7 +409,9 @@
   {
     "id": "icapath",
     "name": "ICaPath",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -344,7 +420,9 @@
   {
     "id": "infinity-bio",
     "name": "Infinity Bio",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -353,7 +431,9 @@
   {
     "id": "junebrain",
     "name": "JuneBrain",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -362,7 +442,9 @@
   {
     "id": "kreftect",
     "name": "Kreftect",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -371,7 +453,9 @@
   {
     "id": "kubanda-cryotherapy",
     "name": "Kubanda Cryotherapy",
-    "sectors": [],
+    "sectors": [
+      "Biotech"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -380,7 +464,9 @@
   {
     "id": "longeviti-neuro-solutions",
     "name": "Longeviti Neuro Solutions",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -389,7 +475,9 @@
   {
     "id": "lumiinus",
     "name": "Lumiinus",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -398,7 +486,9 @@
   {
     "id": "mi-helper",
     "name": "Mi-Helper",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -407,7 +497,9 @@
   {
     "id": "myocardial-solutions",
     "name": "Myocardial Solutions",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -416,7 +508,9 @@
   {
     "id": "nervmyo-therapeutics",
     "name": "NervMyo Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Therapeutics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -425,7 +519,9 @@
   {
     "id": "neurologic-solutions",
     "name": "Neurologic Solutions",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -434,7 +530,9 @@
   {
     "id": "neuropass-by-cranius",
     "name": "NeuroPass by CraniUS",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -443,7 +541,9 @@
   {
     "id": "oncospace",
     "name": "Oncospace",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -452,7 +552,9 @@
   {
     "id": "oncosting",
     "name": "OncoSTING",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -461,7 +563,9 @@
   {
     "id": "oncoswitch-therapeutics",
     "name": "OncoSwitch Therapeutics",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -470,7 +574,9 @@
   {
     "id": "pearl-diagnostics",
     "name": "Pearl Diagnostics",
-    "sectors": [],
+    "sectors": [
+      "Oncology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -479,7 +585,9 @@
   {
     "id": "phantom-neuro",
     "name": "Phantom Neuro",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -488,7 +596,9 @@
   {
     "id": "previse",
     "name": "Previse",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -497,7 +607,9 @@
   {
     "id": "prompt-diagnostics",
     "name": "Prompt Diagnostics",
-    "sectors": [],
+    "sectors": [
+      "Diagnostics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -506,7 +618,9 @@
   {
     "id": "read-ahead",
     "name": "Read Ahead",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -515,7 +629,9 @@
   {
     "id": "relavo",
     "name": "Relavo",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -524,7 +640,9 @@
   {
     "id": "safetower",
     "name": "SafeTower",
-    "sectors": [],
+    "sectors": [
+      "Healthcare AI"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -533,7 +651,9 @@
   {
     "id": "scene-health",
     "name": "Scene Health",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -542,7 +662,9 @@
   {
     "id": "semaphor",
     "name": "Semaphor",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -551,7 +673,9 @@
   {
     "id": "sereneuro",
     "name": "SereNeuro",
-    "sectors": [],
+    "sectors": [
+      "Neurology"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -560,7 +684,9 @@
   {
     "id": "shuriken-medical",
     "name": "Shuriken Medical",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -569,7 +695,9 @@
   {
     "id": "solv-endotherapy",
     "name": "Solv Endotherapy",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -578,7 +706,9 @@
   {
     "id": "somnair",
     "name": "Somnair",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -587,7 +717,9 @@
   {
     "id": "sonavex",
     "name": "Sonavex",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -596,7 +728,9 @@
   {
     "id": "sonavi-labs",
     "name": "Sonavi Labs",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -605,7 +739,9 @@
   {
     "id": "sotelix-endoscopy",
     "name": "Sotelix Endoscopy",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -614,7 +750,9 @@
   {
     "id": "tanzen-medical",
     "name": "Tanzen Medical",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -623,7 +761,9 @@
   {
     "id": "virtuoso-surgical",
     "name": "Virtuoso Surgical",
-    "sectors": [],
+    "sectors": [
+      "Surgical Robotics"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -632,7 +772,9 @@
   {
     "id": "visilant",
     "name": "VISILANT",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -641,7 +783,9 @@
   {
     "id": "vixiar-medical",
     "name": "Vixiar Medical",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -650,7 +794,9 @@
   {
     "id": "wearable-labs",
     "name": "Wearable Labs",
-    "sectors": [],
+    "sectors": [
+      "Digital Health"
+    ],
     "stage": "",
     "pi": "",
     "description": "",
@@ -659,7 +805,9 @@
   {
     "id": "x-cor",
     "name": "X-COR",
-    "sectors": [],
+    "sectors": [
+      "Cardiovascular"
+    ],
     "stage": "",
     "pi": "",
     "description": "",

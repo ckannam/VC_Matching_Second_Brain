@@ -8,37 +8,52 @@
 </head>
 <body>
 
-<header>
-  <h1>JHTV Second Brain</h1>
-  <span>VC–Technology Matching Tool</span>
-</header>
-
-<main class="container">
-
-  <div class="search-card">
-    <label for="vcInput">Enter a VC firm name</label>
-    <div class="search-row">
-      <input type="text" id="vcInput" placeholder="e.g. Blueprint Health, Andreessen Horowitz..." autocomplete="off">
-      <button class="btn btn-primary" onclick="search()">Search</button>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">JH</div>
+      <span class="nav-name">JHTV Second Brain</span>
     </div>
-    <div class="browse-toggle">
-      <button class="btn-link" onclick="toggleBrowse()">Browse all technologies</button>
+    <div class="nav-links">
+      <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
+      <button class="nav-link">Saved briefs</button>
+      <button class="nav-link nav-link-bold">Contact JHTV</button>
     </div>
   </div>
+</nav>
 
-  <div id="results"></div>
-
-  <div id="emptyState" class="empty-state">
-    Search a VC above to see matched JHTV technology one-pagers,<br>or browse the full technology catalog below.
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">INVESTOR MATCHING</p>
+    <h1 class="hero-title">Which Hopkins technologies fit<br>your investor?</h1>
+    <p class="hero-sub">Search a VC firm to surface matched technologies and export a tailored brief.</p>
+    <div class="hero-search">
+      <div class="search-row">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="8.5" cy="8.5" r="5.5"/><path d="M15 15l-3-3"/>
+        </svg>
+        <input type="text" id="vcInput" placeholder="Search a VC firm — e.g. Lux Capital" autocomplete="off">
+        <button class="btn btn-dark" onclick="search()">Search</button>
+      </div>
+      <div class="popular-row">
+        <span class="popular-label">Popular:</span>
+        <button class="chip" onclick="searchFor('Lux Capital')">Lux Capital</button>
+        <button class="chip" onclick="searchFor('NEA')">NEA</button>
+        <button class="chip" onclick="searchFor('Felicis')">Felicis</button>
+      </div>
+    </div>
   </div>
+</section>
 
-</main>
+<section class="page-body">
+  <div id="results" style="display:none"></div>
+  <div id="domainBrowse"></div>
+</section>
 
 <script>
   // ── Data ──────────────────────────────────────────────────────────────────
   let VCS   = [];
   let TECHS = [];
-  let browseOpen = false;
 
   async function loadData() {
     try {
@@ -46,18 +61,105 @@
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
       ]);
+      renderDomainBrowse();
     } catch (e) {
-      document.getElementById('emptyState').textContent =
-        'Failed to load data. Run the app via a local server or GitHub Pages.';
+      document.getElementById('domainBrowse').textContent =
+        'Failed to load data. Run via a local server or GitHub Pages.';
     }
   }
 
-  // ── Search ────────────────────────────────────────────────────────────────
-  const input   = document.getElementById('vcInput');
-  const results = document.getElementById('results');
-  const empty   = document.getElementById('emptyState');
+  // ── Domain icons ──────────────────────────────────────────────────────────
+  const DOMAIN_ICONS = {
+    'Surgical Robotics': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z"/><path d="M12 14v6M9 20h6"/></svg>`,
+    'Neurology':         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3C6 3 4 5 4 8c0 2 1 3.5 2.5 4.5C5 14 4 16 4 18h16c0-2-1-4-2.5-5.5C19 11.5 20 10 20 8c0-3-2-5-5-5-1 0-2 .3-3 1-1-.7-2-1-3-1z"/></svg>`,
+    'Oncology':          `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>`,
+    'Therapeutics':      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 014 0v2M12 11v6M9 14h6"/></svg>`,
+    'Digital Health':    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+    'Healthcare AI':     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg>`,
+    'Cardiovascular':    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>`,
+    'Diagnostics':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
+    'Biotech':           `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3v11a3 3 0 006 0V3"/><path d="M6 8h12"/></svg>`,
+  };
 
+  // ── Domain browse ─────────────────────────────────────────────────────────
+  function renderDomainBrowse() {
+    const byDomain = {};
+    for (const t of TECHS) {
+      const sector = (t.sectors && t.sectors[0]) || 'Other';
+      if (!byDomain[sector]) byDomain[sector] = [];
+      byDomain[sector].push(t);
+    }
+
+    const domainOrder = [
+      'Surgical Robotics','Neurology','Oncology','Therapeutics',
+      'Digital Health','Healthcare AI','Cardiovascular','Diagnostics','Biotech','Other'
+    ];
+    const sorted = domainOrder.filter(d => byDomain[d]);
+    const total = sorted.length;
+
+    const cards = sorted.map(d => domainCardHTML(d, byDomain[d])).join('');
+
+    document.getElementById('domainBrowse').innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>Browse the catalog by domain</h2>
+          <button class="view-all-link" onclick="viewAllTechs()">View all ${total} →</button>
+        </div>
+        <div class="domain-grid">${cards}</div>
+      </div>
+    `;
+  }
+
+  function domainCardHTML(sector, techs) {
+    const icon = DOMAIN_ICONS[sector] || DOMAIN_ICONS['Biotech'];
+    const count = techs.length;
+    const names = techs.slice(0, 4).map(t =>
+      `<span class="domain-tech-link" onclick="downloadTech('${t.onePager}')" title="Download one-pager">${t.name}</span>`
+    ).join('');
+    const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
+    return `
+      <div class="domain-card">
+        <div class="domain-card-top">
+          <div class="domain-icon">${icon}</div>
+          <div>
+            <div class="domain-name">${sector}</div>
+            <div class="domain-count">${count} technolog${count === 1 ? 'y' : 'ies'}</div>
+          </div>
+        </div>
+        <div class="domain-techs">${names}${more}</div>
+      </div>
+    `;
+  }
+
+  function showDomainBrowse() {
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('domainBrowse').style.display = 'block';
+    document.getElementById('vcInput').value = '';
+  }
+
+  function viewAllTechs() {
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    r.style.display = 'block';
+    r.innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>${TECHS.length} technologies in catalog</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to domains</button>
+        </div>
+        <div class="tech-grid">${TECHS.map(t => techCardHTML(t)).join('')}</div>
+      </div>
+    `;
+  }
+
+  // ── Search ────────────────────────────────────────────────────────────────
+  const input = document.getElementById('vcInput');
   input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+
+  function searchFor(name) {
+    input.value = name;
+    search();
+  }
 
   // ── Fuzzy matching ────────────────────────────────────────────────────────
   function norm(s) {
@@ -99,55 +201,36 @@
 
   function search() {
     const q = input.value.trim().toLowerCase();
-    browseOpen = false;
 
     if (!q) {
-      showEmpty();
+      showDomainBrowse();
       return;
     }
 
     const techMap = Object.fromEntries(TECHS.map(t => [t.id, t]));
+    const r = document.getElementById('results');
 
     const match = VCS.find(vc =>
       vc.name.toLowerCase().includes(q) ||
       (vc.aliases || []).some(a => a.toLowerCase().includes(q))
     );
 
-    results.style.display = 'block';
-    empty.style.display   = 'none';
+    document.getElementById('domainBrowse').style.display = 'none';
+    r.style.display = 'block';
 
     if (match) {
       const technologies = (match.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-      results.innerHTML = foundHTML(match, technologies);
+      r.innerHTML = `<div class="catalog-section">${foundHTML(match, technologies)}</div>`;
       return;
     }
 
     const fuzzy = bestFuzzyMatch(input.value.trim());
     if (fuzzy) {
       const technologies = (fuzzy.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-      results.innerHTML = didYouMeanHTML(fuzzy.name) + foundHTML(fuzzy, technologies);
+      r.innerHTML = `<div class="catalog-section">${didYouMeanHTML(fuzzy.name)}${foundHTML(fuzzy, technologies)}</div>`;
     } else {
-      results.innerHTML = notFoundHTML(input.value.trim());
+      r.innerHTML = `<div class="catalog-section">${notFoundHTML(input.value.trim())}</div>`;
     }
-  }
-
-  // ── Browse mode ───────────────────────────────────────────────────────────
-  function toggleBrowse() {
-    browseOpen = !browseOpen;
-    if (!browseOpen) { showEmpty(); return; }
-
-    results.style.display = 'block';
-    empty.style.display   = 'none';
-    results.innerHTML = `
-      <p class="section-label">${TECHS.length} technolog${TECHS.length === 1 ? 'y' : 'ies'} in catalog</p>
-      <div class="tech-grid">${TECHS.map(t => techCardHTML(t)).join('')}</div>
-    `;
-  }
-
-  function showEmpty() {
-    results.style.display = 'none';
-    empty.style.display   = 'block';
-    results.innerHTML = '';
   }
 
   // ── Render helpers ────────────────────────────────────────────────────────
