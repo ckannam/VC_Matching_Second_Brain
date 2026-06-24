@@ -59,6 +59,44 @@
 
   input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
 
+  // ── Fuzzy matching ────────────────────────────────────────────────────────
+  function norm(s) {
+    return s.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function levenshtein(a, b) {
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m + 1}, () => Array(n + 1).fill(0));
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    for (let i = 1; i <= m; i++)
+      for (let j = 1; j <= n; j++)
+        dp[i][j] = a[i-1] === b[j-1]
+          ? dp[i-1][j-1]
+          : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    return dp[m][n];
+  }
+
+  function bestFuzzyMatch(query) {
+    const q = norm(query);
+    if (!q || q.length < 2) return null;
+
+    let best = null;
+    let bestScore = Infinity;
+
+    for (const vc of VCS) {
+      const candidates = [vc.name, ...(vc.aliases || [])];
+      for (const c of candidates) {
+        const key = norm(c);
+        const dist = levenshtein(q, key);
+        if (dist < bestScore) { bestScore = dist; best = vc; }
+      }
+    }
+
+    const threshold = Math.max(2, Math.floor(q.length * 0.4));
+    return bestScore <= threshold ? best : null;
+  }
+
   function search() {
     const q = input.value.trim().toLowerCase();
     browseOpen = false;
@@ -78,16 +116,19 @@
     results.style.display = 'block';
     empty.style.display   = 'none';
 
-    if (!match) {
-      results.innerHTML = notFoundHTML(input.value.trim());
+    if (match) {
+      const technologies = (match.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
+      results.innerHTML = foundHTML(match, technologies);
       return;
     }
 
-    const technologies = (match.matchedTechs || [])
-      .map(id => techMap[id])
-      .filter(Boolean);
-
-    results.innerHTML = foundHTML(match, technologies);
+    const fuzzy = bestFuzzyMatch(input.value.trim());
+    if (fuzzy) {
+      const technologies = (fuzzy.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
+      results.innerHTML = didYouMeanHTML(fuzzy.name) + foundHTML(fuzzy, technologies);
+    } else {
+      results.innerHTML = notFoundHTML(input.value.trim());
+    }
   }
 
   // ── Browse mode ───────────────────────────────────────────────────────────
@@ -155,6 +196,10 @@
         <div class="actions">${downloadBtn}</div>
       </div>
     `;
+  }
+
+  function didYouMeanHTML(name) {
+    return `<div class="did-you-mean">Did you mean <strong>${name}</strong>?</div>`;
   }
 
   function notFoundHTML(q) {
