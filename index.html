@@ -16,8 +16,7 @@
     </div>
     <div class="nav-links">
       <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
-      <button class="nav-link">Saved briefs</button>
-      <button class="nav-link nav-link-bold">Contact JHTV</button>
+      <button class="nav-link" onclick="showSavedBriefs()">Saved briefs</button>
     </div>
   </div>
 </nav>
@@ -68,6 +67,18 @@
     }
   }
 
+  // ── Domain colors ─────────────────────────────────────────────────────────
+  const DOMAIN_COLORS = {
+    'Digital Health':        '#0891B2',
+    'Medical Devices':       '#2563EB',
+    'Clean Tech':            '#16A34A',
+    'Cybersecurity':         '#DC2626',
+    'Therapeutics':          '#7C3AED',
+    'Diagnostics':           '#D97706',
+    'Agricultural Tech':     '#65A30D',
+    'Research Technologies': '#64748B',
+  };
+
   // ── Domain icons ──────────────────────────────────────────────────────────
   const DOMAIN_ICONS = {
     'Digital Health':        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
@@ -111,16 +122,19 @@
   }
 
   function domainCardHTML(sector, techs) {
-    const icon = DOMAIN_ICONS[sector] || DOMAIN_ICONS['Research Technologies'];
+    const icon  = DOMAIN_ICONS[sector] || DOMAIN_ICONS['Research Technologies'];
+    const color = DOMAIN_COLORS[sector] || '#64748B';
     const count = techs.length;
     const names = techs.slice(0, 4).map(t =>
       `<span class="domain-tech-link" onclick="event.stopPropagation();downloadTech('${t.onePager}')" title="Download one-pager">${t.name}</span>`
     ).join('');
     const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
+    // Subtle tint: icon bg is 10% opacity of domain color; icon stroke uses domain color
+    const iconStyle = `background:${color}18; color:${color}`;
     return `
       <div class="domain-card" onclick="viewDomain('${sector.replace(/'/g,"\\'")}')">
         <div class="domain-card-top">
-          <div class="domain-icon">${icon}</div>
+          <div class="domain-icon" style="${iconStyle}">${icon}</div>
           <div>
             <div class="domain-name">${sector}</div>
             <div class="domain-count">${count} technolog${count === 1 ? 'y' : 'ies'}</div>
@@ -133,16 +147,22 @@
 
   function viewDomain(sector) {
     const filtered = TECHS.filter(t => (t.sectors || []).includes(sector));
+    const color    = DOMAIN_COLORS[sector] || '#64748B';
+    const icon     = DOMAIN_ICONS[sector]  || DOMAIN_ICONS['Research Technologies'];
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     r.style.display = 'block';
     r.innerHTML = `
       <div class="catalog-section">
-        <div class="catalog-header">
-          <h2>${sector} <span class="catalog-count">(${filtered.length})</span></h2>
+        <div class="domain-catalog-header" style="border-left:4px solid ${color}">
+          <div class="domain-catalog-icon" style="background:${color}20;color:${color}">${icon}</div>
+          <div>
+            <div class="domain-catalog-name" style="color:${color}">${sector}</div>
+            <div class="domain-catalog-count">${filtered.length} technolog${filtered.length === 1 ? 'y' : 'ies'}</div>
+          </div>
           <button class="view-all-link" onclick="showDomainBrowse()">← Back to domains</button>
         </div>
-        <div class="tech-grid">${filtered.map(t => techCardHTML(t)).join('')}</div>
+        <div class="tech-grid domain-tech-grid" data-color="${color}">${filtered.map(t => techCardHTML(t, color)).join('')}</div>
       </div>
     `;
   }
@@ -151,6 +171,33 @@
     document.getElementById('results').style.display = 'none';
     document.getElementById('domainBrowse').style.display = 'block';
     document.getElementById('vcInput').value = '';
+  }
+
+  function showSavedBriefs() {
+    const withBriefs = VCS.filter(vc => vc.vcOnePager);
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    r.style.display = 'block';
+    r.innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>Saved VC Briefs <span class="catalog-count">(${withBriefs.length})</span></h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button>
+        </div>
+        <div class="vc-brief-grid">
+          ${withBriefs.map(vc => `
+            <div class="vc-brief-card">
+              <div class="vc-brief-name">${vc.name}</div>
+              ${vc.focus ? `<p class="vc-brief-focus">${vc.focus}</p>` : ''}
+              <div class="vc-brief-actions">
+                <button class="btn btn-gold btn-sm" onclick="downloadVC('${vc.vcOnePager}')">Download PDF</button>
+                <button class="btn btn-secondary btn-sm" onclick="searchFor('${vc.name.replace(/'/g,"\\'")}')">View matched techs</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
   }
 
   function viewAllTechs() {
@@ -285,14 +332,18 @@
     `;
   }
 
-  function techCardHTML(t) {
-    const tags        = (t.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
+  function techCardHTML(t, accentColor) {
+    const tags        = (t.sectors || []).map(s => {
+      const c = accentColor || DOMAIN_COLORS[s] || '#64748B';
+      return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
+    }).join('');
     const downloadBtn = t.onePager
       ? `<button class="btn btn-primary btn-sm" onclick="downloadTech('${t.onePager}')">Download .docx</button>`
       : `<button class="btn btn-primary btn-sm" disabled>No file</button>`;
+    const topBorder = accentColor ? `border-top:3px solid ${accentColor}` : '';
 
     return `
-      <div class="tech-card">
+      <div class="tech-card" style="${topBorder}">
         <h3>${t.name}</h3>
         ${t.pi          ? `<p class="pi">${t.pi}</p>` : ''}
         ${t.description ? `<p class="desc">${t.description}</p>` : ''}

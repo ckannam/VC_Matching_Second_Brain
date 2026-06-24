@@ -195,6 +195,50 @@ body {
 }
 .view-all-link:hover { text-decoration: underline; }
 
+/* ── Domain catalog header (click-through view) ───────────────────────────── */
+.domain-catalog-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+.domain-catalog-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.domain-catalog-icon svg { width: 24px; height: 24px; stroke: currentColor; }
+.domain-catalog-name  { font-size: 1.1rem; font-weight: 800; }
+.domain-catalog-count { font-size: .85rem; color: var(--muted); margin-top: 2px; }
+.domain-catalog-header .view-all-link { margin-left: auto; }
+
+/* ── Saved briefs grid ────────────────────────────────────────────────────── */
+.vc-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.vc-brief-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.vc-brief-name   { font-size: .95rem; font-weight: 700; }
+.vc-brief-focus  { font-size: .83rem; color: var(--muted); line-height: 1.5; }
+.vc-brief-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; flex-wrap: wrap; }
+
 /* ── Domain cards ─────────────────────────────────────────────────────────── */
 .domain-grid {
   display: grid;
@@ -230,7 +274,7 @@ body {
 .domain-icon svg {
   width: 20px;
   height: 20px;
-  stroke: var(--blue);
+  stroke: currentColor;
 }
 .domain-name  { font-size: .95rem; font-weight: 700; }
 .domain-count { font-size: .8rem; color: var(--muted); margin-top: 2px; }
