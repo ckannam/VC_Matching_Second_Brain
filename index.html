@@ -111,14 +111,14 @@
   }
 
   function domainCardHTML(sector, techs) {
-    const icon = DOMAIN_ICONS[sector] || DOMAIN_ICONS['Biotech'];
+    const icon = DOMAIN_ICONS[sector] || DOMAIN_ICONS['Research Technologies'];
     const count = techs.length;
     const names = techs.slice(0, 4).map(t =>
-      `<span class="domain-tech-link" onclick="downloadTech('${t.onePager}')" title="Download one-pager">${t.name}</span>`
+      `<span class="domain-tech-link" onclick="event.stopPropagation();downloadTech('${t.onePager}')" title="Download one-pager">${t.name}</span>`
     ).join('');
     const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
     return `
-      <div class="domain-card">
+      <div class="domain-card" onclick="viewDomain('${sector.replace(/'/g,"\\'")}')">
         <div class="domain-card-top">
           <div class="domain-icon">${icon}</div>
           <div>
@@ -127,6 +127,22 @@
           </div>
         </div>
         <div class="domain-techs">${names}${more}</div>
+      </div>
+    `;
+  }
+
+  function viewDomain(sector) {
+    const filtered = TECHS.filter(t => (t.sectors || []).includes(sector));
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    r.style.display = 'block';
+    r.innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>${sector} <span class="catalog-count">(${filtered.length})</span></h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to domains</button>
+        </div>
+        <div class="tech-grid">${filtered.map(t => techCardHTML(t)).join('')}</div>
       </div>
     `;
   }
@@ -248,7 +264,12 @@
          </button>`
       : '';
 
+    const provisionalBanner = vc.provisional
+      ? `<div class="provisional-banner">Provisional profile — generated from public web data only, no Pitchbook. Review before using in outreach.</div>`
+      : '';
+
     return `
+      ${provisionalBanner}
       <div class="vc-header">
         <div>
           <h2>${vc.name}</h2>
@@ -285,11 +306,35 @@
     return `<div class="did-you-mean">Did you mean <strong>${name}</strong>?</div>`;
   }
 
+  function triggerResearch(vcName) {
+    const cmd = `ANTHROPIC_API_KEY=sk-... node scripts/generate_vc.js "${vcName}"`;
+    const box = document.getElementById('research-cmd');
+    if (box) {
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+      return;
+    }
+    // future: replace this block with a fetch('/api/research-vc', { method:'POST', body: JSON.stringify({ vcName }) })
+    const el = document.createElement('div');
+    el.id = 'research-cmd';
+    el.className = 'research-cmd-box';
+    el.innerHTML = `
+      <p class="research-cmd-label">Run this command in your terminal, then commit and push:</p>
+      <pre class="research-cmd-code"><code>${cmd.replace(/</g,'&lt;')}</code></pre>
+      <p class="research-cmd-note">Replace <code>sk-...</code> with your Anthropic API key. The script researches the firm, matches 4 technologies, and appends an entry to <code>data/vcs.json</code>. After pushing, refresh this page and search again.</p>
+    `;
+    document.querySelector('#research-cmd-anchor').after(el);
+  }
+
   function notFoundHTML(q) {
+    const safe = q.replace(/"/g, '&quot;');
     return `
       <div class="not-found">
         <h2>No results for &ldquo;${q}&rdquo;</h2>
-        <p>This VC isn&rsquo;t in the database yet. Add them to <code>data/vcs.json</code>.</p>
+        <p>${q} hasn&rsquo;t been researched yet. Want to generate a provisional profile and matched technology one-pagers?</p>
+        <div id="research-cmd-anchor">
+          <button class="btn btn-primary" onclick="triggerResearch('${safe}')">Research this VC &rarr;</button>
+        </div>
+        <p style="margin-top:16px;font-size:.8rem;color:var(--muted)">Provisional profiles use public web data only (no Pitchbook). Review before using in outreach.</p>
       </div>
     `;
   }
