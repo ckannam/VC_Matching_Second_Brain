@@ -114,9 +114,13 @@
     const stagePills  = (vc.stage   || []).map(s => `<span class="pill">${s}</span>`).join('');
     const sectorPills = (vc.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
 
+    const vcBriefBtn = vc.vcOnePager
+      ? `<button class="btn btn-gold" onclick="downloadVC('${vc.vcOnePager}')">Download VC Brief (PDF)</button>`
+      : '';
+
     const downloadAllBtn = techs.length > 1
-      ? `<button class="btn btn-gold" onclick="downloadAll(${JSON.stringify(techs.map(t => t.onePager))})">
-           Download All (${techs.length} PDFs)
+      ? `<button class="btn btn-secondary" onclick="downloadAllTech(${JSON.stringify(techs.map(t => t.onePager))})">
+           Download All Tech One-Pagers (${techs.length})
          </button>`
       : '';
 
@@ -126,7 +130,10 @@
           <h2>${vc.name}</h2>
           <div class="vc-meta">${sectorPills}${stagePills}</div>
         </div>
-        ${downloadAllBtn}
+        <div class="vc-actions">
+          ${vcBriefBtn}
+          ${downloadAllBtn}
+        </div>
       </div>
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
       <div class="tech-grid">${techs.map(t => techCardHTML(t)).join('')}</div>
@@ -136,8 +143,8 @@
   function techCardHTML(t) {
     const tags        = (t.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
     const downloadBtn = t.onePager
-      ? `<button class="btn btn-primary btn-sm" onclick="downloadOne('${t.onePager}')">Download PDF</button>`
-      : `<button class="btn btn-primary btn-sm" disabled>No PDF</button>`;
+      ? `<button class="btn btn-primary btn-sm" onclick="downloadTech('${t.onePager}')">Download .docx</button>`
+      : `<button class="btn btn-primary btn-sm" disabled>No file</button>`;
 
     return `
       <div class="tech-card">
@@ -154,26 +161,30 @@
     return `
       <div class="not-found">
         <h2>No results for &ldquo;${q}&rdquo;</h2>
-        <p>This VC isn&rsquo;t in the database yet. Add them to <code>data/vcs.json</code>
-           or run <code>node scripts/generate_vc.js "${q}"</code> to generate an AI profile.</p>
-        <button class="btn btn-primary" disabled title="Run generate_vc.js locally to add this VC">
-          AI Profile Generation (CLI)
-        </button>
+        <p>This VC isn&rsquo;t in the database yet. Add them to <code>data/vcs.json</code>.</p>
       </div>
     `;
   }
 
   // ── Downloads ─────────────────────────────────────────────────────────────
-  function downloadOne(filename) {
+  function downloadFile(href, filename) {
     const a = document.createElement('a');
-    a.href     = `one-pagers/${filename}`;
+    a.href     = href;
     a.download = filename;
     a.click();
   }
 
-  function downloadAll(filenames) {
+  function downloadTech(filename) {
+    downloadFile(`one-pagers/Tech One Pagers/${filename}`, filename);
+  }
+
+  function downloadVC(filename) {
+    downloadFile(`one-pagers/VC One Pagers/Completed One Pagers /${filename}`, filename);
+  }
+
+  function downloadAllTech(filenames) {
     filenames.forEach((filename, i) => {
-      setTimeout(() => downloadOne(filename), i * 800);
+      setTimeout(() => downloadTech(filename), i * 800);
     });
   }
 

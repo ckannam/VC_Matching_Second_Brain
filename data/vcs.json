@@ -1,11 +1,191 @@
 [
   {
-    "id": "example-vc",
-    "name": "Example Ventures",
-    "aliases": ["Example VC", "EV"],
-    "focus": "medtech, digital health",
-    "sectors": ["medtech", "digital health"],
-    "stage": ["seed", "series-a"],
-    "matchedTechs": ["example-tech-001"]
+    "id": "2048-ventures",
+    "name": "2048 Ventures",
+    "aliases": [
+      "2048"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "circlage",
+      "safetower",
+      "curveassure",
+      "curiedx"
+    ],
+    "vcOnePager": "2048_Ventures_One_Pager.pdf"
+  },
+  {
+    "id": "8vc",
+    "name": "8VC",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "curveassure",
+      "epiwatch",
+      "scene-health",
+      "avoid"
+    ],
+    "vcOnePager": "8_VC_One_Pager.pdf"
+  },
+  {
+    "id": "amplify-partners",
+    "name": "Amplify Partners",
+    "aliases": [
+      "Amplify"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "curveassure",
+      "brainbox-solutions",
+      "semaphor",
+      "oncospace"
+    ],
+    "vcOnePager": "Amplify_Partners_One_Pager.pdf"
+  },
+  {
+    "id": "dimension",
+    "name": "Dimension",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "astropath",
+      "infinity-bio",
+      "28bio",
+      "biolinco"
+    ],
+    "vcOnePager": "Dimension.pdf"
+  },
+  {
+    "id": "felicis",
+    "name": "Felicis",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "curveassure",
+      "epiwatch",
+      "curiedx",
+      "safetower"
+    ],
+    "vcOnePager": "Felicis.pdf"
+  },
+  {
+    "id": "frazier-life-sciences",
+    "name": "Frazier Life Sciences",
+    "aliases": [
+      "Frazier"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "adventris-pharmaceuticals",
+      "egret-therapeutics",
+      "ashvattha-therapeutics",
+      "agnos-therapeutics"
+    ],
+    "vcOnePager": "Frazier Life Sciences.pdf"
+  },
+  {
+    "id": "fusion-fund",
+    "name": "Fusion Fund",
+    "aliases": [
+      "Fusion"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": "Fusion_Fund_OnePager.pdf"
+  },
+  {
+    "id": "hanabi-capital",
+    "name": "Hanabi Capital",
+    "aliases": [
+      "Hanabi"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "safetower",
+      "oncospace",
+      "curiedx",
+      "circlage"
+    ],
+    "vcOnePager": "Hanabi Capital.pdf"
+  },
+  {
+    "id": "lux-capital",
+    "name": "Lux Capital",
+    "aliases": [
+      "Lux"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "semaphor",
+      "curveassure",
+      "brainbox-solutions",
+      "oncospace"
+    ],
+    "vcOnePager": "Lux Capital.pdf"
+  },
+  {
+    "id": "mayfield",
+    "name": "Mayfield",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "delfi-diagnostics",
+      "egret-therapeutics",
+      "adventris-pharmaceuticals",
+      "ashvattha-therapeutics"
+    ],
+    "vcOnePager": "Mayfield.pdf"
+  },
+  {
+    "id": "nea",
+    "name": "NEA",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "curiedx",
+      "curveassure",
+      "semaphor",
+      "safetower"
+    ],
+    "vcOnePager": "NEA.pdf"
+  },
+  {
+    "id": "emergence-capital",
+    "name": "Emergence Capital",
+    "aliases": [
+      "Emergence"
+    ],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [
+      "oncospace",
+      "curveassure",
+      "foragerone",
+      "semaphor"
+    ],
+    "vcOnePager": "emergence_capital.pdf"
   }
 ]

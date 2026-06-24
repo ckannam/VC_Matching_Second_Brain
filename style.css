@@ -74,8 +74,9 @@ header span { font-size: .85rem; opacity: .65; }
   transition: opacity .15s;
 }
 .btn:hover { opacity: .88; }
-.btn-primary { background: var(--blue); color: #fff; }
-.btn-gold    { background: var(--gold); color: #fff; }
+.btn-primary   { background: var(--blue); color: #fff; }
+.btn-gold      { background: var(--gold); color: #fff; }
+.btn-secondary { background: #fff; color: var(--blue); border: 1.5px solid var(--blue); }
 .btn-sm      { padding: 6px 14px; font-size: .85rem; font-weight: 600; }
 .btn:disabled { opacity: .4; cursor: not-allowed; }
 
@@ -95,6 +96,7 @@ header span { font-size: .85rem; opacity: .65; }
 }
 .vc-header h2 { font-size: 1.1rem; }
 .vc-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.vc-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .pill {
   display: inline-block;

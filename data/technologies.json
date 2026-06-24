@@ -1,11 +1,668 @@
 [
   {
-    "id": "example-tech-001",
-    "name": "Example Technology Platform",
-    "sectors": ["medtech", "digital health"],
-    "stage": "pre-seed",
-    "pi": "Dr. Example PI",
-    "description": "A brief description of the technology and its application.",
-    "onePager": "example-tech-001.pdf"
+    "id": "28bio",
+    "name": "28bio",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "28bio_One_Pager.docx"
+  },
+  {
+    "id": "3dnamics",
+    "name": "3Dnamics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "3Dnamics_One_Pager.docx"
+  },
+  {
+    "id": "3helix",
+    "name": "3Helix",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "3Helix_One_Pager.docx"
+  },
+  {
+    "id": "accelevir",
+    "name": "Accelevir",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Accelevir_One_Pager.docx"
+  },
+  {
+    "id": "adventris-pharmaceuticals",
+    "name": "Adventris Pharmaceuticals",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Adventris_Pharmaceuticals_One_Pager.docx"
+  },
+  {
+    "id": "agenebio",
+    "name": "AgeneBio",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "AgeneBio_One_Pager.docx"
+  },
+  {
+    "id": "agnos-therapeutics",
+    "name": "Agnos Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Agnos_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "aliquantumrx",
+    "name": "AliquantumRx",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "AliquantumRx_One_Pager.docx"
+  },
+  {
+    "id": "ashvattha-therapeutics",
+    "name": "Ashvattha Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Ashvattha_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "astropath",
+    "name": "Astropath",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Astropath_One_Pager.docx"
+  },
+  {
+    "id": "avoid",
+    "name": "Avoid",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Avoid_One_Pager.docx"
+  },
+  {
+    "id": "biolinco",
+    "name": "Biolinco",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Biolinco_One_Pager.docx"
+  },
+  {
+    "id": "blocksynop",
+    "name": "BLOCKsynop",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "BLOCKsynop_One_Pager.docx"
+  },
+  {
+    "id": "brahm-astra",
+    "name": "Brahm Astra",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Brahm_Astra_One_Pager.docx"
+  },
+  {
+    "id": "brainbox-solutions",
+    "name": "BRAINBox Solutions",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "BRAINBox_Solutions_One_Pager.docx"
+  },
+  {
+    "id": "bullfrog-ai",
+    "name": "BullFrog AI",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "BullFrog_AI_One_Pager.docx"
+  },
+  {
+    "id": "cardiowise",
+    "name": "CardioWise",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "CardioWise_One_Pager.docx"
+  },
+  {
+    "id": "circlage",
+    "name": "CIRCLAGE",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "CIRCLAGE_One_Pager.docx"
+  },
+  {
+    "id": "corrie-health",
+    "name": "Corrie Health",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Corrie_Health_One_Pager.docx"
+  },
+  {
+    "id": "cove-therapeutics",
+    "name": "Cove Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Cove_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "curiedx",
+    "name": "CurieDx",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "CurieDx_One_Pager.docx"
+  },
+  {
+    "id": "curveassure",
+    "name": "CurveAssure",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "CurveAssure_One_Pager.docx"
+  },
+  {
+    "id": "deep-root-biolabs",
+    "name": "Deep Root Biolabs",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Deep_Root_Biolabs_One_Pager.docx"
+  },
+  {
+    "id": "delfi-diagnostics",
+    "name": "Delfi Diagnostics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Delfi_Diagnostics_One_Pager.docx"
+  },
+  {
+    "id": "drul",
+    "name": "Drul",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Drul_One_Pager.docx"
+  },
+  {
+    "id": "edac-labs",
+    "name": "EDAC Labs",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "EDAC_Labs_One_Pager.docx"
+  },
+  {
+    "id": "egret-therapeutics",
+    "name": "Egret Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Egret_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "emc2-bio",
+    "name": "EMC2 Bio",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "EMC2_Bio_One_Pager.docx"
+  },
+  {
+    "id": "epiwatch",
+    "name": "EpiWatch",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "EpiWatch_One_Pager.docx"
+  },
+  {
+    "id": "erada-technology-alliance",
+    "name": "Erada Technology Alliance",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Erada_Technology_Alliance_One_Pager.docx"
+  },
+  {
+    "id": "etch",
+    "name": "ETCH",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "ETCH_One_Pager.docx"
+  },
+  {
+    "id": "foragerone",
+    "name": "ForagerOne",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "ForagerOne_One_Pager.docx"
+  },
+  {
+    "id": "fyodor-biotechnologies",
+    "name": "Fyodor Biotechnologies",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Fyodor_Biotechnologies_One_Pager.docx"
+  },
+  {
+    "id": "genie-therapeutics",
+    "name": "Genie Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Genie_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "geothermal-technologies",
+    "name": "Geothermal Technologies",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Geothermal_Technologies_One_Pager.docx"
+  },
+  {
+    "id": "glyscend-therapeutics",
+    "name": "Glyscend Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Glyscend_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "i-cordis",
+    "name": "I-Cordis",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "I-Cordis_One_Pager.docx"
+  },
+  {
+    "id": "icapath",
+    "name": "ICaPath",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "ICaPath_One_Pager.docx"
+  },
+  {
+    "id": "infinity-bio",
+    "name": "Infinity Bio",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Infinity_Bio_One_Pager.docx"
+  },
+  {
+    "id": "junebrain",
+    "name": "JuneBrain",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "JuneBrain_One_Pager.docx"
+  },
+  {
+    "id": "kreftect",
+    "name": "Kreftect",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Kreftect_One_Pager.docx"
+  },
+  {
+    "id": "kubanda-cryotherapy",
+    "name": "Kubanda Cryotherapy",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Kubanda_Cryotherapy_One_Pager.docx"
+  },
+  {
+    "id": "longeviti-neuro-solutions",
+    "name": "Longeviti Neuro Solutions",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Longeviti_Neuro_Solutions_One_Pager.docx"
+  },
+  {
+    "id": "lumiinus",
+    "name": "Lumiinus",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Lumiinus_One_Pager.docx"
+  },
+  {
+    "id": "mi-helper",
+    "name": "Mi-Helper",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Mi-Helper_One_Pager.docx"
+  },
+  {
+    "id": "myocardial-solutions",
+    "name": "Myocardial Solutions",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Myocardial_Solutions_One_Pager.docx"
+  },
+  {
+    "id": "nervmyo-therapeutics",
+    "name": "NervMyo Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "NervMyo_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "neurologic-solutions",
+    "name": "Neurologic Solutions",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Neurologic_Solutions_One_Pager.docx"
+  },
+  {
+    "id": "neuropass-by-cranius",
+    "name": "NeuroPass by CraniUS",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "NeuroPass_by_CraniUS_One_Pager.docx"
+  },
+  {
+    "id": "oncospace",
+    "name": "Oncospace",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Oncospace_One_Pager.docx"
+  },
+  {
+    "id": "oncosting",
+    "name": "OncoSTING",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "OncoSTING_One_Pager.docx"
+  },
+  {
+    "id": "oncoswitch-therapeutics",
+    "name": "OncoSwitch Therapeutics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "OncoSwitch_Therapeutics_One_Pager.docx"
+  },
+  {
+    "id": "pearl-diagnostics",
+    "name": "Pearl Diagnostics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Pearl_Diagnostics_One_Pager.docx"
+  },
+  {
+    "id": "phantom-neuro",
+    "name": "Phantom Neuro",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Phantom_Neuro_One_Pager.docx"
+  },
+  {
+    "id": "previse",
+    "name": "Previse",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Previse_One_Pager.docx"
+  },
+  {
+    "id": "prompt-diagnostics",
+    "name": "Prompt Diagnostics",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Prompt_Diagnostics_One_Pager.docx"
+  },
+  {
+    "id": "read-ahead",
+    "name": "Read Ahead",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Read_Ahead_One_Pager.docx"
+  },
+  {
+    "id": "relavo",
+    "name": "Relavo",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Relavo_One_Pager.docx"
+  },
+  {
+    "id": "safetower",
+    "name": "SafeTower",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "SafeTower_One_Pager.docx"
+  },
+  {
+    "id": "scene-health",
+    "name": "Scene Health",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Scene_Health_One_Pager.docx"
+  },
+  {
+    "id": "semaphor",
+    "name": "Semaphor",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Semaphor_One_Pager.docx"
+  },
+  {
+    "id": "sereneuro",
+    "name": "SereNeuro",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "SereNeuro_One_Pager.docx"
+  },
+  {
+    "id": "shuriken-medical",
+    "name": "Shuriken Medical",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Shuriken_Medical_One_Pager.docx"
+  },
+  {
+    "id": "solv-endotherapy",
+    "name": "Solv Endotherapy",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Solv_Endotherapy_One_Pager.docx"
+  },
+  {
+    "id": "somnair",
+    "name": "Somnair",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Somnair_One_Pager.docx"
+  },
+  {
+    "id": "sonavex",
+    "name": "Sonavex",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Sonavex_One_Pager.docx"
+  },
+  {
+    "id": "sonavi-labs",
+    "name": "Sonavi Labs",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Sonavi_Labs_One_Pager.docx"
+  },
+  {
+    "id": "sotelix-endoscopy",
+    "name": "Sotelix Endoscopy",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Sotelix_Endoscopy_One_Pager.docx"
+  },
+  {
+    "id": "tanzen-medical",
+    "name": "Tanzen Medical",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Tanzen_Medical_One_Pager.docx"
+  },
+  {
+    "id": "virtuoso-surgical",
+    "name": "Virtuoso Surgical",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Virtuoso_Surgical_One_Pager.docx"
+  },
+  {
+    "id": "visilant",
+    "name": "VISILANT",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "VISILANT_One_Pager.docx"
+  },
+  {
+    "id": "vixiar-medical",
+    "name": "Vixiar Medical",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Vixiar_Medical_One_Pager.docx"
+  },
+  {
+    "id": "wearable-labs",
+    "name": "Wearable Labs",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "Wearable_Labs_One_Pager.docx"
+  },
+  {
+    "id": "x-cor",
+    "name": "X-COR",
+    "sectors": [],
+    "stage": "",
+    "pi": "",
+    "description": "",
+    "onePager": "X-COR_One_Pager.docx"
   }
 ]

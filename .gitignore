@@ -1,3 +1,18 @@
 node_modules/
 .env
 .DS_Store
+
+# Local working copies / source folders not served by the app
+Second Brain Workings/
+one-pagers/VC One Pagers/One Pagers In Progress/
+one-pagers/VC One Pagers/Other Important/
+one-pagers/VC One Pagers/skill_update/
+
+# Large source PDFs not needed by the app
+one-pagers/Tech One Pagers/Venture 1 Pagers_STARTUPS copy.pdf
+one-pagers/Tech One Pagers/NYU_1.pdf
+one-pagers/Tech One Pagers/NYU_2.pdf
+one-pagers/Tech One Pagers/JHTV_Master_Checklist.xlsx
+
+# Word temp lock files
+~$*
