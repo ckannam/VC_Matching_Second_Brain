@@ -28,16 +28,24 @@ Everything runs client-side. `index.html` fetches `data/vcs.json` and `data/tech
 
 **Page layout:** sticky white nav → full-width navy hero (headline + search + popular chips) → `#results` or `#domainBrowse` section below.
 
-**Default state:** `#domainBrowse` is visible, `#results` is hidden. `renderDomainBrowse()` groups `TECHS` by all entries in `sectors[]` into 8 domain cards. Clicking a domain card calls `viewDomain(sector)` which renders a filtered catalog for that domain.
+**Nav links:** "Catalog" → `showDomainBrowse()` | "Saved briefs" → `showSavedBriefs()`
+
+**Default state:** `#domainBrowse` is visible, `#results` is hidden. `renderDomainBrowse()` groups `TECHS` by all entries in `sectors[]` (not just `sectors[0]`) into 8 domain cards — dual-sector techs appear in both their domain cards.
+
+**Domain colors:** `DOMAIN_COLORS` maps each of the 8 domains to a hex color. Used at two intensities:
+- *Landing cards:* 10% opacity tint on the icon background (`${color}18`), full color on the SVG stroke via `currentColor`
+- *Domain catalog view:* solid left-border stripe on the header block, 20% tint on the icon, full color on the domain name, 3px top border on each tech card, colored sector tag pills
+
+**Clicking a domain card** calls `viewDomain(sector)` — hides `#domainBrowse`, shows `#results` with a color-coded header and filtered tech grid. "← Back to domains" restores the browse.
 
 **Search flow:**
 1. Exact substring match on `vc.name` and `vc.aliases`
 2. If no exact match → Levenshtein fuzzy match across all VCs (threshold: `max(2, floor(query.length × 0.4))`)
 3. Fuzzy hit → auto-show that VC's results with a "Did you mean X?" banner
-4. No match → not-found state
-5. On any search result: `#domainBrowse` hides, `#results` shows. "Catalog" nav link restores browse.
+4. No match → `notFoundHTML()` — shows "Research this VC →" button (see provisional flow below)
+5. On any result: `#domainBrowse` hides, `#results` shows
 
-**Downloads:** `downloadTech(filename)` and `downloadVC(filename)` construct `<a>` tags and `.click()` them. `downloadAllTech()` staggers clicks 800ms apart. Downloads are always user-triggered.
+**Downloads:** `downloadTech(filename)` and `downloadVC(filename)` construct `<a>` tags and `.click()` them. `downloadAllTech()` staggers clicks 800ms apart. Downloads are always individually user-triggered.
 
 ## Data files
 
@@ -45,13 +53,28 @@ Everything runs client-side. `index.html` fetches `data/vcs.json` and `data/tech
 ```json
 { "id", "name", "sectors", "stage", "pi", "description", "onePager" }
 ```
-`sectors[0]` is the primary domain used for browse grouping. `onePager` is the bare filename, resolved to `one-pagers/Tech One Pagers/<filename>` at download time.
+`sectors[]` is an array of domain names — most techs have one, three have two (3Dnamics, Biolinco, Infinity Bio). `onePager` is the bare filename, resolved to `one-pagers/Tech One Pagers/<filename>` at download time. `stage` is currently empty for all entries.
 
-**`data/vcs.json`** — 12 entries (plus provisional entries added by `generate_vc.js`):
+**`data/vcs.json`** — 12 base entries (plus provisional entries added by `generate_vc.js`):
 ```json
 { "id", "name", "aliases", "focus", "sectors", "stage", "matchedTechs", "vcOnePager", "provisional?" }
 ```
-`matchedTechs` is an array of technology IDs — each active VC has exactly 4. `vcOnePager` is the bare PDF filename. `provisional: true` triggers a yellow banner in the UI for AI-generated entries (no Pitchbook data). Provisional entries also have `checkSize: { min, max }` for the matching score.
+Each active VC has exactly 4 `matchedTechs` IDs. `vcOnePager` is the bare PDF filename. `provisional: true` entries (from `generate_vc.js`) also carry `checkSize: { min, max }` and trigger a yellow banner in the UI.
+
+## Domain assignments (all 74 techs)
+
+| Domain | Count | Key techs |
+|---|---|---|
+| Therapeutics | 23 | Accelevir, AgeneBio, Ashvattha, 3Dnamics†, Biolinco† … |
+| Medical Devices | 15 | BrainBox Solutions, Phantom Neuro, Virtuoso Surgical … |
+| Digital Health | 17 | Astropath, Bullfrog AI, Circlage, EpiWatch … |
+| Diagnostics | 12 | 28Bio, CardioWise, Delfi Diagnostics, Infinity Bio† … |
+| Research Technologies | 3 | 3Dnamics†, Biolinco†, Infinity Bio† (all dual-sector) |
+| Clean Tech | 3 | EDAC Labs, Etch, Geothermal Technologies |
+| Cybersecurity | 3 | Avoid, ForagerOne, Read-Ahead |
+| Agricultural Tech | 1 | Deep Root BioLabs |
+
+† Dual-sector: appears in both domain cards.
 
 ## Scripts
 
@@ -62,54 +85,43 @@ node scripts/populate_technologies.js   # rebuilds data/technologies.json from *
 node scripts/populate_vcs.js            # rebuilds data/vcs.json from VC PDFs
 ```
 
-`populate_vcs.js` requires Python/pdfminer (`pip3 install pdfminer.six`). It finds the "JHTV PORTFOLIO MATCHES" → "WHO WE ARE MEETING WITH" section in each VC PDF and matches company names to tech IDs via:
-1. Exact normalized match (lowercase, strip non-alphanumeric)
-2. 8-char prefix match — handles partial names like "BrainBox" → `brainbox-solutions`
-
-VC names come from filenames, not PDF text (which is all-caps). `nameFromFilename()` handles `8_VC_One_Pager.pdf` → `"8VC"`, `emergence_capital.pdf` → `"Emergence Capital"`, etc.
+`populate_vcs.js` requires Python/pdfminer (`pip3 install pdfminer.six`). It finds the "JHTV PORTFOLIO MATCHES" → "WHO WE ARE MEETING WITH" section in each VC PDF and matches company names to tech IDs via exact normalized match then 8-char prefix match. VC names come from filenames, not PDF text (which is all-caps).
 
 ## Adding a new technology
 
 1. Drop the `.docx` into `one-pagers/Tech One Pagers/`
 2. Run `node scripts/populate_technologies.js` — regenerates the full list from filenames
-3. Manually add a `sectors` value to the new entry in `data/technologies.json` (determines which domain card it appears under)
+3. Manually add a `sectors` value to the new entry in `data/technologies.json`
 4. Commit and push
 
-## Adding a new VC
+## Adding a researched VC (with one-pager PDF)
 
 1. Drop the PDF into `one-pagers/VC One Pagers/Completed One Pagers /` (trailing space)
 2. Run `node scripts/populate_vcs.js` — expect 4 matched techs per VC in console output
 3. Review/correct `matchedTechs` and add `aliases[]` for common name variations in `data/vcs.json`
 4. Commit and push
 
-## Deployment
+## Provisional VC research flow (unresearched firms)
 
-- GitHub Pages source: `main` branch, root `/`
-- No build step — push to `main` = live in ~1 minute
-
-## Future work (deferred)
-
-| Feature | Status |
-|---|---|
-| `generate_vc.js` — auto-research and match | **Implemented** — requires `ANTHROPIC_API_KEY` env var; run from terminal |
-| Not-found → provisional research prompt | **Implemented** — shows terminal command, `triggerResearch()` is the swap point for Phase 2B (Vercel) |
-| Provisional result banner | **Implemented** — yellow banner when `vc.provisional === true` |
-| Domain cards → filtered catalog | **Implemented** — `viewDomain(sector)` |
-| Populate `pi`, `description` in tech JSON | Phase 2 — requires reading `.docx` content via Claude API |
-| Vercel backend for in-browser research | Phase 2B — swap `triggerResearch()` to `fetch('/api/research-vc')` |
-| Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
-| "Saved briefs" and "Contact JHTV" nav links | Currently placeholders — no functionality |
-
-## Provisional VC research flow
-
-When a searched VC isn't in the database, `notFoundHTML()` shows a "Research this VC →" button. Clicking it calls `triggerResearch(vcName)` which reveals a terminal command block. The user runs:
+When a searched VC isn't in the database, `notFoundHTML()` shows a "Research this VC →" button. Clicking calls `triggerResearch(vcName)` which reveals a terminal command block. The user runs:
 
 ```bash
 ANTHROPIC_API_KEY=sk-... node scripts/generate_vc.js "Firm Name"
 ```
 
-`generate_vc.js` uses Claude's `web_search_20250305` tool to research the firm, scores all 74 technologies (50% industry match, 30% stage, 20% check size), and appends a `provisional: true` entry to `data/vcs.json`. The user then commits and pushes.
+`generate_vc.js` uses Claude Opus with the `web_search_20250305` tool to research the firm, then scores all 74 technologies and picks the top 4. Scoring: 50% industry match (`INDUSTRY_TO_DOMAIN` keyword table), 30% stage compatibility, 20% check-size vs domain maturity tier. Appends a `provisional: true` entry to `data/vcs.json`. User commits and pushes; the app then shows the result with a yellow "Provisional — no Pitchbook data" banner.
 
-**Matching logic:** `INDUSTRY_TO_DOMAIN` maps VC focus strings (e.g. "Life Sciences") to JHTV tech domains. Domain maturity tiers (`DOMAIN_MATURITY`) inform check-size scoring. Tech `stage` field is currently empty for most entries — those default to 0.5 (neutral) in the stage score.
+**Phase 2B:** replace `triggerResearch()` body with `fetch('/api/research-vc', { method:'POST', body: JSON.stringify({ vcName }) })` pointing at a Vercel serverless function. No other changes needed.
 
-**Phase 2B swap:** replace the `triggerResearch()` function body with a `fetch('/api/research-vc', ...)` call to a Vercel serverless function. No other changes needed.
+## Deployment
+
+- GitHub Pages source: `main` branch, root `/`
+- No build step — push to `main` = live in ~1 minute
+
+## Deferred
+
+| Feature | Notes |
+|---|---|
+| Populate `pi`, `description` in tech JSON | Requires reading `.docx` content via Claude API |
+| Vercel backend for in-browser VC research | Swap `triggerResearch()` — see Phase 2B above |
+| Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
