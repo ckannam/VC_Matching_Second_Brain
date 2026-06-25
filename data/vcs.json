@@ -187,5 +187,42 @@
       "semaphor"
     ],
     "vcOnePager": "emergence_capital.pdf"
+  },
+  {
+    "id": "deerfield-management-company-l-p",
+    "name": "Deerfield Management Company, L.P.",
+    "aliases": [
+      "Deerfield",
+      "Deerfield Management"
+    ],
+    "focus": "Deerfield is dedicated to advancing healthcare through investment, intelligence, and philanthropy, deploying flexible capital across the entire healthcare ecosystem from early-stage startups to mature companies. The firm backs promising therapeutics, medical technology, care delivery models, and paradigm-shifting technologies including AI and machine learning to improve health outcomes.",
+    "sectors": [
+      "Therapeutics",
+      "Medical Devices",
+      "Healthcare Services",
+      "Diagnostics",
+      "Digital Health",
+      "Biotechnology",
+      "Life Sciences",
+      "Healthcare AI"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 5,
+      "max": 75
+    },
+    "matchedTechs": [
+      "3dnamics",
+      "biolinco",
+      "infinity-bio",
+      "28bio"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
