@@ -367,5 +367,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "sequoia-capital-operations-llc",
+    "name": "Sequoia Capital Operations, LLC",
+    "aliases": [
+      "Sequoia Capital",
+      "Sequoia"
+    ],
+    "focus": "Sequoia pursues a market-first investing philosophy, targeting large addressable markets and partnering early with outlier founders capable of building generational, category-defining businesses. Through its evergreen fund structure, it backs companies from seed through IPO and beyond as a long-term partner.",
+    "sectors": [
+      "AI/ML",
+      "Enterprise Software",
+      "Fintech",
+      "Consumer Internet",
+      "Cybersecurity",
+      "Healthcare",
+      "Robotics",
+      "Crypto"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 200
+    },
+    "geographicFocus": "West Coast",
+    "matchedTechs": [
+      "avoid",
+      "foragerone",
+      "read-ahead",
+      "28bio"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
