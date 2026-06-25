@@ -331,5 +331,41 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "tola-capital-management-llc",
+    "name": "Tola Capital Management, LLC",
+    "aliases": [
+      "Tola Capital",
+      "Tola"
+    ],
+    "focus": "Tola Capital practices hypothesis-based investing in the next generation of enterprise software companies enabled by artificial intelligence, partnering long-term with founders building transformational products powered by new data and cloud platforms. The firm targets companies with 'real invention'—the right team, technology, large addressable market, and culture to build category-leading, multibillion-dollar businesses.",
+    "sectors": [
+      "Enterprise Software",
+      "Artificial Intelligence/ML",
+      "AI SaaS Applications",
+      "Domain-specific Foundation Models",
+      "AI Compliance and Governance",
+      "AI Security Tools",
+      "Cloud Computing",
+      "Data Platforms"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 4
+    },
+    "matchedTechs": [
+      "avoid",
+      "foragerone",
+      "read-ahead",
+      "28bio"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
