@@ -140,8 +140,8 @@ function scoreTech(tech, vcProfile) {
   const geo     = geographyScore(vcProfile.geographicFocus);
   const checkSz = checkSizeScore(vcProfile.checkSizeMin, vcProfile.checkSizeMax, techDomains[0]);
 
-  // Weights: 45% industry, 30% stage, 15% geography (all JHTV techs are Baltimore-based), 10% check size
-  return 0.45 * industryScore + 0.30 * stage + 0.15 * geo + 0.10 * checkSz;
+  // Weights: 37.5% industry, 30% stage, 22.5% check size, 10% geography
+  return 0.375 * industryScore + 0.30 * stage + 0.10 * geo + 0.225 * checkSz;
 }
 
 // ── Claude research (exported) ────────────────────────────────────────────────
