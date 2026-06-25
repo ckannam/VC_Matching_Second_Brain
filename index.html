@@ -69,6 +69,11 @@
 </div>
 
 <script>
+  // ── Config ────────────────────────────────────────────────────────────────
+  const RESEARCH_SERVER = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? `${location.protocol}//${location.hostname}:3000`
+    : 'https://REPLACE_WITH_RENDER_URL.onrender.com';
+
   // ── Data ──────────────────────────────────────────────────────────────────
   let VCS   = [];
   let TECHS = [];
@@ -387,33 +392,46 @@
     const status = document.createElement('p');
     status.id = 'research-status';
     status.style.cssText = 'margin-top:12px;font-size:.88rem;color:var(--muted)';
-    status.textContent = 'Researching ' + vcName + ' — this takes 30–60 seconds…';
+    // Free Render plan spins down after inactivity — first request wakes it (~30s)
+    status.textContent = 'Starting research server… (first use may take up to 30s)';
     anchor.after(status);
 
-    const VERCEL_URL = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-      ? location.protocol + '//' + location.hostname + ':3000'
-      : 'https://REPLACE_WITH_VERCEL_URL';
-
     try {
-      const res  = await fetch(VERCEL_URL + '/api/research-vc', {
+      const postRes = await fetch(RESEARCH_SERVER + '/api/research-vc', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ vcName }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Server error ' + res.status);
+      const postData = await postRes.json();
+      if (!postRes.ok) throw new Error(postData.error || 'Server error ' + postRes.status);
 
-      // Inject into live VCS array and re-render with provisional banner
-      const idx = VCS.findIndex(v => v.id === data.entry.id);
-      if (idx >= 0) VCS[idx] = data.entry; else VCS.push(data.entry);
-      document.getElementById('vcInput').value = data.entry.name;
+      status.textContent = 'Researching ' + vcName + '… ⏳';
+
+      const entry = await pollJob(postData.jobId, status);
+
+      const idx = VCS.findIndex(v => v.id === entry.id);
+      if (idx >= 0) VCS[idx] = entry; else VCS.push(entry);
+      document.getElementById('vcInput').value = entry.name;
       search();
 
     } catch (err) {
       const s = document.getElementById('research-status');
-      if (s) { s.style.color = '#DC2626'; s.textContent = 'Research failed: ' + err.message; }
+      if (s) { s.style.color = '#DC2626'; s.textContent = 'Research failed: ' + err.message + ' — try again.'; }
       if (btn) btn.disabled = false;
     }
+  }
+
+  function pollJob(jobId) {
+    return new Promise((resolve, reject) => {
+      const iv = setInterval(async () => {
+        try {
+          const res = await fetch(RESEARCH_SERVER + '/api/job/' + jobId);
+          const job = await res.json();
+          if (job.status === 'done')  { clearInterval(iv); resolve(job.result); }
+          if (job.status === 'error') { clearInterval(iv); reject(new Error(job.error || 'Research failed')); }
+        } catch (e) { clearInterval(iv); reject(e); }
+      }, 3000);
+    });
   }
 
   function notFoundHTML(q) {

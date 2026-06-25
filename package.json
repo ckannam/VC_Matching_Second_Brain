@@ -4,9 +4,11 @@
   "description": "JHTV Second Brain — VC–Technology Matching Tool",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "generate-vc": "node scripts/generate_vc.js"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.104.2"
+    "@anthropic-ai/sdk": "^0.104.2",
+    "express": "^4.19.2"
   }
 }
