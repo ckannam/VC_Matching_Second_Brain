@@ -297,5 +297,39 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "tcp-venture-capital",
+    "name": "TCP Venture Capital",
+    "aliases": [
+      "TCP",
+      "Propel Baltimore Fund"
+    ],
+    "focus": "TCP Venture Capital addresses the critical gap in early-stage capital for Baltimore City, investing in high-growth, scalable, capital-efficient technology companies that commit to headquartering in Baltimore in order to generate strong returns while creating high-paying local jobs and stimulating regional economic development.",
+    "sectors": [
+      "Cybersecurity",
+      "Digital Health",
+      "Education Technology",
+      "Data Analytics",
+      "Enterprise SaaS",
+      "Advanced Materials",
+      "Identity Solutions"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 7
+    },
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
