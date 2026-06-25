@@ -90,12 +90,13 @@ function mapFocusTodomains(focusStrings) {
 function stageScore(vcStages, techStage) {
   if (!techStage) return 0.5;
   const techNorm = techStage.toLowerCase();
+  // Maps VC investment stage → compatible tech stages (financing rounds + dev-stage keywords)
   const stageMap = {
-    'seed':       ['pre-clinical','pre-product','concept','early','ind-enabling','ind enabling'],
-    'series a':   ['pre-clinical','clinical','mvp','pilot','ind-enabling','phase i','phase 1','phase ii','phase 2'],
-    'series b':   ['clinical','commercial','revenue','phase ii','phase 2','phase iii','phase 3','fda'],
-    'growth':     ['commercial','revenue','scale','fda-cleared','fda cleared'],
-    'late stage': ['commercial','revenue','scale','fda-cleared','fda cleared'],
+    'seed':       ['pre-seed','newco','seed','pre-clinical','pre-product','concept','early','ind-enabling'],
+    'series a':   ['seed','series a','pre-clinical','clinical','mvp','pilot','phase i','phase 1','phase ii','phase 2'],
+    'series b':   ['series a','series b','clinical','commercial','revenue','phase ii','phase 2','phase iii','phase 3','fda'],
+    'growth':     ['series b','series c','series d','growth','commercial','revenue','scale','fda-cleared'],
+    'late stage': ['series b','series c','series d','growth','commercial','revenue','scale','public'],
   };
   for (const vs of vcStages) {
     const compatible = stageMap[vs.toLowerCase()] || [];
