@@ -332,7 +332,7 @@
       : '';
 
     const downloadAllBtn = techs.length > 1
-      ? `<button class="btn btn-secondary" onclick="downloadAllTech(${JSON.stringify(techs.map(t => t.onePager))})">
+      ? `<button class="btn btn-secondary" onclick="downloadAllTech(${JSON.stringify(techs.map(t => t.onePager)).replace(/"/g, '&quot;')})">
            Download All Tech One-Pagers (${techs.length})
          </button>`
       : '';
@@ -386,16 +386,14 @@
   }
 
   async function triggerResearch(vcName) {
-    const anchor = document.getElementById('research-cmd-anchor');
-    const btn    = anchor.querySelector('.btn');
-    if (btn) btn.disabled = true;
+    const r = document.getElementById('results');
+    r.style.display = 'block';
+    document.getElementById('domainBrowse').style.display = 'none';
 
-    const status = document.createElement('p');
-    status.id = 'research-status';
-    status.style.cssText = 'margin-top:12px;font-size:.88rem;color:var(--muted)';
-    // Free Render plan spins down after inactivity — first request wakes it (~30s)
-    status.textContent = 'Starting research server… (first use may take up to 30s)';
-    anchor.after(status);
+    r.innerHTML = `<div class="catalog-section"><div class="not-found">
+      <h2>Researching ${vcName}…</h2>
+      <p id="research-status" style="color:var(--muted);font-size:.88rem">Starting research server… (first use may take up to 30s)</p>
+    </div></div>`;
 
     try {
       const postRes = await fetch(RESEARCH_SERVER + '/api/research-vc', {
@@ -406,9 +404,9 @@
       const postData = await postRes.json();
       if (!postRes.ok) throw new Error(postData.error || 'Server error ' + postRes.status);
 
-      status.textContent = 'Researching ' + vcName + '… ⏳';
+      document.getElementById('research-status').textContent = 'Researching ' + vcName + '… ⏳';
 
-      const entry = await pollJob(postData.jobId, status);
+      const entry = await pollJob(postData.jobId);
 
       const idx = VCS.findIndex(v => v.id === entry.id);
       if (idx >= 0) VCS[idx] = entry; else VCS.push(entry);
@@ -418,7 +416,6 @@
     } catch (err) {
       const s = document.getElementById('research-status');
       if (s) { s.style.color = '#DC2626'; s.textContent = 'Research failed: ' + err.message + ' — try again.'; }
-      if (btn) btn.disabled = false;
     }
   }
 
