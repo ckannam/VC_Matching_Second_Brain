@@ -379,23 +379,41 @@
     return `<div class="did-you-mean">Did you mean <strong>${name}</strong>?</div>`;
   }
 
-  function triggerResearch(vcName) {
-    const cmd = `ANTHROPIC_API_KEY=sk-... node scripts/generate_vc.js "${vcName}"`;
-    const box = document.getElementById('research-cmd');
-    if (box) {
-      box.style.display = box.style.display === 'none' ? 'block' : 'none';
-      return;
+  async function triggerResearch(vcName) {
+    const anchor = document.getElementById('research-cmd-anchor');
+    const btn    = anchor.querySelector('.btn');
+    if (btn) btn.disabled = true;
+
+    const status = document.createElement('p');
+    status.id = 'research-status';
+    status.style.cssText = 'margin-top:12px;font-size:.88rem;color:var(--muted)';
+    status.textContent = 'Researching ' + vcName + ' — this takes 30–60 seconds…';
+    anchor.after(status);
+
+    const VERCEL_URL = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+      ? location.protocol + '//' + location.hostname + ':3000'
+      : 'https://REPLACE_WITH_VERCEL_URL';
+
+    try {
+      const res  = await fetch(VERCEL_URL + '/api/research-vc', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ vcName }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Server error ' + res.status);
+
+      // Inject into live VCS array and re-render with provisional banner
+      const idx = VCS.findIndex(v => v.id === data.entry.id);
+      if (idx >= 0) VCS[idx] = data.entry; else VCS.push(data.entry);
+      document.getElementById('vcInput').value = data.entry.name;
+      search();
+
+    } catch (err) {
+      const s = document.getElementById('research-status');
+      if (s) { s.style.color = '#DC2626'; s.textContent = 'Research failed: ' + err.message; }
+      if (btn) btn.disabled = false;
     }
-    // future: replace this block with a fetch('/api/research-vc', { method:'POST', body: JSON.stringify({ vcName }) })
-    const el = document.createElement('div');
-    el.id = 'research-cmd';
-    el.className = 'research-cmd-box';
-    el.innerHTML = `
-      <p class="research-cmd-label">Run this command in your terminal, then commit and push:</p>
-      <pre class="research-cmd-code"><code>${cmd.replace(/</g,'&lt;')}</code></pre>
-      <p class="research-cmd-note">Replace <code>sk-...</code> with your Anthropic API key. The script researches the firm, matches 4 technologies, and appends an entry to <code>data/vcs.json</code>. After pushing, refresh this page and search again.</p>
-    `;
-    document.querySelector('#research-cmd-anchor').after(el);
   }
 
   function notFoundHTML(q) {

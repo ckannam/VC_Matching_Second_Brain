@@ -1,6 +1,8 @@
 node_modules/
 .env
+.env.local
 .DS_Store
+.vercel
 
 # Local working copies / source folders not served by the app
 Second Brain Workings/
