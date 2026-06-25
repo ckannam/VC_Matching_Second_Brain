@@ -315,7 +315,7 @@
     const fuzzy = bestFuzzyMatch(input.value.trim());
     if (fuzzy) {
       const technologies = (fuzzy.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-      r.innerHTML = `<div class="catalog-section">${didYouMeanHTML(fuzzy.name)}${foundHTML(fuzzy, technologies)}</div>`;
+      r.innerHTML = `<div class="catalog-section">${didYouMeanHTML(fuzzy.name, input.value.trim())}${foundHTML(fuzzy, technologies)}</div>`;
     } else {
       r.innerHTML = `<div class="catalog-section">${notFoundHTML(input.value.trim())}</div>`;
     }
@@ -380,8 +380,9 @@
     `;
   }
 
-  function didYouMeanHTML(name) {
-    return `<div class="did-you-mean">Did you mean <strong>${name}</strong>?</div>`;
+  function didYouMeanHTML(name, originalQuery) {
+    const safe = (originalQuery || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+    return `<div class="did-you-mean">Did you mean <strong>${name}</strong>? <a href="#" style="margin-left:12px;font-size:.85em;font-weight:400;color:var(--muted);text-decoration:underline" onclick="event.preventDefault();triggerResearch('${safe}')">No, research &ldquo;${originalQuery}&rdquo; instead</a></div>`;
   }
 
   async function triggerResearch(vcName) {
