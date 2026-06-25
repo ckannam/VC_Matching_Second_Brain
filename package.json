@@ -5,10 +5,12 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "generate-vc": "node scripts/generate_vc.js"
+    "generate-vc": "node scripts/generate_vc.js",
+    "enrich-tech-data": "node scripts/enrich_tech_data.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.2",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mammoth": "^1.8.0"
   }
 }

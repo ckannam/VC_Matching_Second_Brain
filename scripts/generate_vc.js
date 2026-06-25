@@ -91,17 +91,25 @@ function stageScore(vcStages, techStage) {
   if (!techStage) return 0.5;
   const techNorm = techStage.toLowerCase();
   const stageMap = {
-    'seed':       ['pre-clinical','pre-product','concept','early'],
-    'series a':   ['pre-clinical','clinical','mvp','pilot'],
-    'series b':   ['clinical','commercial','revenue'],
-    'growth':     ['commercial','revenue','scale'],
-    'late stage': ['commercial','revenue','scale'],
+    'seed':       ['pre-clinical','pre-product','concept','early','ind-enabling','ind enabling'],
+    'series a':   ['pre-clinical','clinical','mvp','pilot','ind-enabling','phase i','phase 1','phase ii','phase 2'],
+    'series b':   ['clinical','commercial','revenue','phase ii','phase 2','phase iii','phase 3','fda'],
+    'growth':     ['commercial','revenue','scale','fda-cleared','fda cleared'],
+    'late stage': ['commercial','revenue','scale','fda-cleared','fda cleared'],
   };
   for (const vs of vcStages) {
     const compatible = stageMap[vs.toLowerCase()] || [];
     if (compatible.some(s => techNorm.includes(s))) return 1;
   }
   return 0.2;
+}
+
+function geographyScore(vcGeoFocus) {
+  const g = (vcGeoFocus || '').toLowerCase();
+  if (!g || g.includes('national')) return 0.8;
+  if (g.includes('mid-atlantic') || g.includes('east coast')) return 1.0;
+  if (g.includes('west coast') || g.includes('international')) return 0.4;
+  return 0.7;
 }
 
 function checkSizeScore(vcMin, vcMax, techDomain) {
@@ -128,9 +136,11 @@ function scoreTech(tech, vcProfile) {
   }
 
   const stage   = stageScore(vcProfile.stages, tech.stage);
+  const geo     = geographyScore(vcProfile.geographicFocus);
   const checkSz = checkSizeScore(vcProfile.checkSizeMin, vcProfile.checkSizeMax, techDomains[0]);
 
-  return 0.5 * industryScore + 0.3 * stage + 0.2 * checkSz;
+  // Weights: 45% industry, 30% stage, 15% geography (all JHTV techs are Baltimore-based), 10% check size
+  return 0.45 * industryScore + 0.30 * stage + 0.15 * geo + 0.10 * checkSz;
 }
 
 // ── Claude research (exported) ────────────────────────────────────────────────
@@ -147,12 +157,14 @@ async function researchVC(name) {
   "stages": ["Seed", "Series A", "Series B", "Growth"],
   "checkSizeMin": 1,
   "checkSizeMax": 20,
-  "thesis": "1-2 sentence description of their investment thesis"
+  "thesis": "1-2 sentence description of their investment thesis",
+  "geographicFocus": "National | East Coast | Mid-Atlantic | West Coast | International"
 }
 
 For investmentFocus, be specific (e.g. "Digital Health", "Medical Devices", "Life Sciences", "Oncology", "Cybersecurity", "Clean Tech") not generic.
 For stages, only include stages they actually invest in.
 For checkSize, use millions USD. If unknown, use 1 for min and 25 for max.
+For geographicFocus: use "National" if they invest across the US with no stated geographic restriction. Use "Mid-Atlantic" or "East Coast" if they have explicit focus or strong presence in Baltimore/DC/NY/Boston. Use "West Coast" if they primarily back Bay Area or LA companies. Use "International" if they focus outside the US.
 
 Return ONLY valid JSON, no other text.`;
 
@@ -214,16 +226,17 @@ function buildEntry(vcProfile, techs) {
 
   const slug = vcProfile.fullName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   return {
-    id:           slug,
-    name:         vcProfile.fullName,
-    aliases:      vcProfile.aliases || [],
-    focus:        vcProfile.thesis  || '',
-    sectors:      vcProfile.investmentFocus,
-    stage:        vcProfile.stages,
-    checkSize:    { min: vcProfile.checkSizeMin, max: vcProfile.checkSizeMax },
-    matchedTechs: scored.slice(0, 4).map(({ tech }) => tech.id),
-    vcOnePager:   null,
-    provisional:  true,
+    id:              slug,
+    name:            vcProfile.fullName,
+    aliases:         vcProfile.aliases || [],
+    focus:           vcProfile.thesis  || '',
+    sectors:         vcProfile.investmentFocus,
+    stage:           vcProfile.stages,
+    checkSize:       { min: vcProfile.checkSizeMin, max: vcProfile.checkSizeMax },
+    geographicFocus: vcProfile.geographicFocus || 'National',
+    matchedTechs:    scored.slice(0, 4).map(({ tech }) => tech.id),
+    vcOnePager:      null,
+    provisional:     true,
   };
 }
 
