@@ -49,6 +49,25 @@
   <div id="domainBrowse"></div>
 </section>
 
+<div id="previewModal" onclick="if(event.target===this)closePreview()">
+  <div id="previewBox">
+    <div id="previewHeader">
+      <span id="previewTitle"></span>
+      <div id="previewHeaderActions">
+        <button class="btn btn-secondary btn-sm" onclick="downloadCurrentPreview()">Download</button>
+        <button id="previewClose" onclick="closePreview()" title="Close">&#x2715;</button>
+      </div>
+    </div>
+    <div id="previewBody">
+      <iframe id="previewFrame" src=""></iframe>
+      <div id="previewFallback">
+        <p>Office documents can&rsquo;t be previewed locally &mdash; run via GitHub Pages for live preview.</p>
+        <button class="btn btn-primary btn-sm" onclick="downloadCurrentPreview()">Download to view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   // ── Data ──────────────────────────────────────────────────────────────────
   let VCS   = [];
@@ -126,7 +145,7 @@
     const color = DOMAIN_COLORS[sector] || '#64748B';
     const count = techs.length;
     const names = techs.slice(0, 4).map(t =>
-      `<span class="domain-tech-link" onclick="event.stopPropagation();downloadTech('${t.onePager}')" title="Download one-pager">${t.name}</span>`
+      `<span class="domain-tech-link" onclick="event.stopPropagation();previewTech('${t.onePager}')" title="Preview one-pager">${t.name}</span>`
     ).join('');
     const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
     // Subtle tint: icon bg is 10% opacity of domain color; icon stroke uses domain color
@@ -190,6 +209,7 @@
               <div class="vc-brief-name">${vc.name}</div>
               ${vc.focus ? `<p class="vc-brief-focus">${vc.focus}</p>` : ''}
               <div class="vc-brief-actions">
+                ${vc.vcOnePager ? `<button class="btn btn-secondary btn-sm" onclick="previewVC('${vc.vcOnePager}')">Preview</button>` : ''}
                 <button class="btn btn-gold btn-sm" onclick="downloadVC('${vc.vcOnePager}')">Download PDF</button>
                 <button class="btn btn-secondary btn-sm" onclick="searchFor('${vc.name.replace(/'/g,"\\'")}')">View matched techs</button>
               </div>
@@ -302,7 +322,8 @@
     const sectorPills = (vc.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
 
     const vcBriefBtn = vc.vcOnePager
-      ? `<button class="btn btn-gold" onclick="downloadVC('${vc.vcOnePager}')">Download VC Brief (PDF)</button>`
+      ? `<button class="btn btn-secondary" onclick="previewVC('${vc.vcOnePager}')">Preview VC Brief</button>
+         <button class="btn btn-gold" onclick="downloadVC('${vc.vcOnePager}')">Download PDF</button>`
       : '';
 
     const downloadAllBtn = techs.length > 1
@@ -338,7 +359,8 @@
       return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
     }).join('');
     const downloadBtn = t.onePager
-      ? `<button class="btn btn-primary btn-sm" onclick="downloadTech('${t.onePager}')">Download .docx</button>`
+      ? `<button class="btn btn-secondary btn-sm" onclick="previewTech('${t.onePager}')">Preview</button>
+         <button class="btn btn-primary btn-sm" onclick="downloadTech('${t.onePager}')">Download</button>`
       : `<button class="btn btn-primary btn-sm" disabled>No file</button>`;
     const topBorder = accentColor ? `border-top:3px solid ${accentColor}` : '';
 
@@ -389,6 +411,67 @@
       </div>
     `;
   }
+
+  // ── Preview ───────────────────────────────────────────────────────────────
+  let _previewFile = null;
+  let _previewType = null;
+
+  function previewTech(filename) {
+    _previewFile = filename;
+    _previewType = 'tech';
+    const title = filename.replace(/\.[^.]+$/, '');
+    const frame = document.getElementById('previewFrame');
+    const fallback = document.getElementById('previewFallback');
+
+    document.getElementById('previewTitle').textContent = title;
+    frame.src = '';
+    fallback.style.display = 'none';
+
+    if (filename.toLowerCase().endsWith('.docx')) {
+      if (location.hostname.includes('github.io')) {
+        const base = 'https://ckannam.github.io/VC_Matching_Second_Brain/';
+        const encodedPath = 'one-pagers/Tech%20One%20Pagers/' + encodeURIComponent(filename);
+        frame.src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(base + encodedPath);
+      } else {
+        fallback.style.display = 'flex';
+      }
+    } else {
+      frame.src = `one-pagers/Tech One Pagers/${filename}`;
+    }
+    _openPreviewModal();
+  }
+
+  function previewVC(filename) {
+    _previewFile = filename;
+    _previewType = 'vc';
+    const title = filename.replace(/\.[^.]+$/, '');
+
+    document.getElementById('previewTitle').textContent = title;
+    document.getElementById('previewFallback').style.display = 'none';
+    document.getElementById('previewFrame').src = `one-pagers/VC One Pagers/Completed One Pagers /${filename}`;
+    _openPreviewModal();
+  }
+
+  function _openPreviewModal() {
+    document.getElementById('previewModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePreview() {
+    document.getElementById('previewModal').classList.remove('open');
+    document.getElementById('previewFrame').src = '';
+    document.body.style.overflow = '';
+    _previewFile = null;
+    _previewType = null;
+  }
+
+  function downloadCurrentPreview() {
+    if (!_previewFile) return;
+    if (_previewType === 'tech') downloadTech(_previewFile);
+    else downloadVC(_previewFile);
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePreview(); });
 
   // ── Downloads ─────────────────────────────────────────────────────────────
   function downloadFile(href, filename) {

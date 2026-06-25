@@ -362,7 +362,7 @@ body {
 .tech-card .pi   { font-size: .8rem; color: var(--muted); }
 .tech-card .desc { font-size: .85rem; color: #444; }
 .tech-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tech-card .actions { margin-top: auto; padding-top: 12px; }
+.tech-card .actions { margin-top: auto; padding-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 
 /* ── States ───────────────────────────────────────────────────────────────── */
 .not-found {
@@ -413,3 +413,89 @@ body {
   margin-bottom: 10px;
 }
 .research-cmd-note { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+/* ── Preview modal ────────────────────────────────────────────────────────── */
+#previewModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+#previewModal.open { display: flex; }
+#previewBox {
+  background: #fff;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 960px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.28);
+}
+#previewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 12px;
+}
+#previewTitle {
+  font-size: .92rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#previewHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+#previewClose {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--muted);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background .15s, color .15s;
+}
+#previewClose:hover { background: var(--gray); color: var(--text); }
+#previewBody {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: var(--gray);
+}
+#previewFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+#previewFallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--gray);
+}
+#previewFallback p { font-size: .9rem; color: var(--muted); }
