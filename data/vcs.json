@@ -260,5 +260,42 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "lightspeed-china-partners",
+    "name": "Lightspeed China Partners",
+    "aliases": [
+      "Lightspeed China",
+      "LCP"
+    ],
+    "focus": "A leading China-focused venture capital firm serving entrepreneurs as a lead investor in early-stage and emerging growth companies, partnering closely with founders to build transformational, sustainable industry leaders in sectors aligned with global innovation trends.",
+    "sectors": [
+      "Deep Tech",
+      "Enterprise Tech",
+      "Green Tech / Clean Tech",
+      "Health Tech",
+      "Consumer Internet",
+      "Semiconductors",
+      "Artificial Intelligence",
+      "Fintech"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 10
+    },
+    "matchedTechs": [
+      "astropath",
+      "bullfrog-ai",
+      "circlage",
+      "corrie-health"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
