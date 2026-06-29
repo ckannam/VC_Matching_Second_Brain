@@ -103,10 +103,22 @@ node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .
 - **Frontend:** push to `main` = live in ~1 min. No build step. `.nojekyll` prevents Jekyll processing.
 - **Backend:** Render auto-deploys from `main` via `render.yaml`. Env vars required: `ANTHROPIC_API_KEY`, `GITHUB_TOKEN` (fine-grained PAT, Contents: read+write, scoped to this repo).
 
+## One-pager generator (built, button hidden)
+
+`generateOnePager(vc, techs)` lives at the bottom of `index.html` (above `// ── Init ──`). It opens a new tab with a print-ready HTML one-pager that mirrors the PDF layout: navy header, auto-generated gold banner, 3-box stats row, Hopkins connection box, two-column body (FIRM OVERVIEW + LAST 10 INVESTMENTS left; SECTOR FOCUS + JHTV PORTFOLIO MATCHES right), partner placeholder, footer.
+
+Fields that need PitchBook (fund size, AUM, dry powder, active cos, TTM investments, last 10 investments, partner bios) render as italic gray `—*` placeholders.
+
+The "Build One-Pager" button is intentionally removed from `foundHTML()` and `showSavedBriefs()` — the function is ready but not yet exposed in the UI. To re-add, insert in `foundHTML()`:
+```js
+window[`_vcTechs_${vc.id}`] = techs; // at top of foundHTML
+// then in vc-actions div:
+`<button class="btn btn-dark" onclick="generateOnePager(VCS.find(v=>v.id==='${vc.id}'),window['_vcTechs_${vc.id}'])">Build One-Pager</button>`
+```
+
 ## Deferred
 
 | Feature | Notes |
 |---|---|
-| Auto-generated VC one-pager | ✅ Implemented — `generateOnePager(vc, techs)` in `index.html`; "Build One-Pager" button in `foundHTML()` and `showSavedBriefs()` |
 | Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
 | Redis job store for backend | In-memory jobs lost on Render restart; low priority on free plan |
