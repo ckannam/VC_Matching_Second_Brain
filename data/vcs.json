@@ -405,5 +405,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "ain-ventures-academy-investor-network",
+    "name": "AIN Ventures (Academy Investor Network)",
+    "aliases": [
+      "AIN",
+      "AIN Ventures",
+      "Academy Investor Network"
+    ],
+    "focus": "AIN Ventures is a pre-seed and seed-stage venture fund investing in dual-use deep technology with both commercial and government/national security applications, as well as in veteran-led startups, prioritizing founders with leadership, determination, and grit.",
+    "sectors": [
+      "Defense Tech",
+      "Space Technology",
+      "Digital Health",
+      "Clean Tech / Sustainability",
+      "Civic Tech",
+      "AI/ML Infrastructure",
+      "Dual-Use Deep Tech"
+    ],
+    "stage": [
+      "Seed"
+    ],
+    "checkSize": {
+      "min": 0.05,
+      "max": 1
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "edac-labs",
+      "etch",
+      "3dnamics",
+      "accelevir"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
