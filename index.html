@@ -198,38 +198,10 @@
   }
 
   function showSavedBriefs() {
-    const techMap    = Object.fromEntries(TECHS.map(t => [t.id, t]));
     const withBriefs = VCS.filter(vc => vc.vcOnePager);
-    const provisional = VCS.filter(vc => vc.provisional);
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     r.style.display = 'block';
-
-    const provisionalSection = provisional.length ? `
-      <div style="margin-top:36px;">
-        <div class="catalog-header" style="margin-bottom:12px;">
-          <h2>Auto-Generated Briefs <span class="catalog-count">(${provisional.length})</span></h2>
-        </div>
-        <div class="vc-brief-grid">
-          ${provisional.map(vc => {
-            const techs = (vc.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-            window[`_vcTechs_${vc.id}`] = techs;
-            const vcId = vc.id.replace(/'/g, "\\'");
-            return `
-              <div class="vc-brief-card" style="border-top:4px solid #C8973A;">
-                <div class="vc-brief-name">${vc.name}</div>
-                ${vc.sectors?.length ? `<p style="font-size:11px;color:var(--muted);margin:4px 0 2px;">${vc.sectors.join(' · ')}</p>` : ''}
-                ${vc.stage?.length   ? `<p style="font-size:11px;color:var(--muted);margin:0 0 6px;">${vc.stage.join(', ')}</p>` : ''}
-                ${vc.focus ? `<p class="vc-brief-focus">${vc.focus.length > 120 ? vc.focus.substring(0, 120) + '…' : vc.focus}</p>` : ''}
-                <div class="vc-brief-actions">
-                  <button class="btn btn-dark btn-sm" onclick="generateOnePager(VCS.find(v=>v.id==='${vcId}'),window['_vcTechs_${vcId}'])">Build One-Pager</button>
-                  <button class="btn btn-secondary btn-sm" onclick="searchFor('${vc.name.replace(/'/g,"\\'")}')">View matched techs</button>
-                </div>
-              </div>`;
-          }).join('')}
-        </div>
-      </div>` : '';
-
     r.innerHTML = `
       <div class="catalog-section">
         <div class="catalog-header">
@@ -249,7 +221,6 @@
             </div>
           `).join('')}
         </div>
-        ${provisionalSection}
       </div>
     `;
   }
@@ -368,8 +339,6 @@
          </button>`
       : '';
 
-    const onePagerBtn = `<button class="btn btn-dark" onclick="generateOnePager(VCS.find(v=>v.id==='${vc.id}'),window['_vcTechs_${vc.id}'])">Build One-Pager</button>`;
-
     const provisionalBanner = vc.provisional
       ? `<div class="provisional-banner">Provisional profile — generated from public web data only, no Pitchbook. Review before using in outreach.</div>`
       : '';
@@ -384,7 +353,6 @@
         <div class="vc-actions">
           ${vcBriefBtn}
           ${downloadAllBtn}
-          ${onePagerBtn}
         </div>
       </div>
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
