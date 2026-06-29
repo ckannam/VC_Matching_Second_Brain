@@ -107,6 +107,6 @@ node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .
 
 | Feature | Notes |
 |---|---|
-| Auto-generated VC one-pager | Print-ready HTML tab from research data — plan in `~/.claude/plans/for-now-just-know-jiggly-rocket.md` |
+| Auto-generated VC one-pager | ✅ Implemented — `generateOnePager(vc, techs)` in `index.html`; "Build One-Pager" button in `foundHTML()` and `showSavedBriefs()` |
 | Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
 | Redis job store for backend | In-memory jobs lost on Render restart; low priority on free plan |

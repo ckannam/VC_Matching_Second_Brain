@@ -198,10 +198,38 @@
   }
 
   function showSavedBriefs() {
+    const techMap    = Object.fromEntries(TECHS.map(t => [t.id, t]));
     const withBriefs = VCS.filter(vc => vc.vcOnePager);
+    const provisional = VCS.filter(vc => vc.provisional);
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     r.style.display = 'block';
+
+    const provisionalSection = provisional.length ? `
+      <div style="margin-top:36px;">
+        <div class="catalog-header" style="margin-bottom:12px;">
+          <h2>Auto-Generated Briefs <span class="catalog-count">(${provisional.length})</span></h2>
+        </div>
+        <div class="vc-brief-grid">
+          ${provisional.map(vc => {
+            const techs = (vc.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
+            window[`_vcTechs_${vc.id}`] = techs;
+            const vcId = vc.id.replace(/'/g, "\\'");
+            return `
+              <div class="vc-brief-card" style="border-top:4px solid #C8973A;">
+                <div class="vc-brief-name">${vc.name}</div>
+                ${vc.sectors?.length ? `<p style="font-size:11px;color:var(--muted);margin:4px 0 2px;">${vc.sectors.join(' · ')}</p>` : ''}
+                ${vc.stage?.length   ? `<p style="font-size:11px;color:var(--muted);margin:0 0 6px;">${vc.stage.join(', ')}</p>` : ''}
+                ${vc.focus ? `<p class="vc-brief-focus">${vc.focus.length > 120 ? vc.focus.substring(0, 120) + '…' : vc.focus}</p>` : ''}
+                <div class="vc-brief-actions">
+                  <button class="btn btn-dark btn-sm" onclick="generateOnePager(VCS.find(v=>v.id==='${vcId}'),window['_vcTechs_${vcId}'])">Build One-Pager</button>
+                  <button class="btn btn-secondary btn-sm" onclick="searchFor('${vc.name.replace(/'/g,"\\'")}')">View matched techs</button>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>` : '';
+
     r.innerHTML = `
       <div class="catalog-section">
         <div class="catalog-header">
@@ -221,6 +249,7 @@
             </div>
           `).join('')}
         </div>
+        ${provisionalSection}
       </div>
     `;
   }
@@ -323,6 +352,8 @@
 
   // ── Render helpers ────────────────────────────────────────────────────────
   function foundHTML(vc, techs) {
+    window[`_vcTechs_${vc.id}`] = techs;
+
     const stagePills  = (vc.stage   || []).map(s => `<span class="pill">${s}</span>`).join('');
     const sectorPills = (vc.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
 
@@ -336,6 +367,8 @@
            Download All Tech One-Pagers (${techs.length})
          </button>`
       : '';
+
+    const onePagerBtn = `<button class="btn btn-dark" onclick="generateOnePager(VCS.find(v=>v.id==='${vc.id}'),window['_vcTechs_${vc.id}'])">Build One-Pager</button>`;
 
     const provisionalBanner = vc.provisional
       ? `<div class="provisional-banner">Provisional profile — generated from public web data only, no Pitchbook. Review before using in outreach.</div>`
@@ -351,6 +384,7 @@
         <div class="vc-actions">
           ${vcBriefBtn}
           ${downloadAllBtn}
+          ${onePagerBtn}
         </div>
       </div>
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
@@ -527,6 +561,95 @@
     filenames.forEach((filename, i) => {
       setTimeout(() => downloadTech(filename), i * 800);
     });
+  }
+
+  // ── One-Pager Generator ───────────────────────────────────────────────────
+  function generateOnePager(vc, techs) {
+    if (!vc) return;
+    const matchedTechs = (techs || []).slice(0, 4);
+
+    const sectorPills = (vc.sectors || []).map(s => {
+      const color = DOMAIN_COLORS[s] || '#64748B';
+      return `<span style="background:${color};color:#fff;padding:3px 10px;border-radius:12px;font-size:11px;margin:2px;display:inline-block;">${s}</span>`;
+    }).join('');
+
+    const techCards = matchedTechs.map(tech => {
+      const color = DOMAIN_COLORS[(tech.sectors || [])[0]] || '#003B6F';
+      return `<div style="flex:1;border:1px solid #ddd;border-top:4px solid ${color};padding:12px;min-width:0;">
+        <div style="font-weight:700;font-size:13px;margin-bottom:4px;">${tech.name}</div>
+        <div style="font-size:11px;color:#555;margin-bottom:6px;">${(tech.sectors||[]).join(' · ')}${tech.stage ? ' · ' + tech.stage : ''}</div>
+        ${tech.pi ? `<div style="font-size:11px;color:#777;margin-bottom:4px;">PI: ${tech.pi}</div>` : ''}
+        <div style="font-size:11px;line-height:1.4;color:#333;">${tech.description||''}</div>
+      </div>`;
+    }).join('');
+
+    const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${vc.name} — JHTV Brief</title>
+<style>
+  @page { size: letter portrait; margin: 0.6in 0.5in; }
+  * { box-sizing: border-box; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+  body { font-size: 12px; color: #222; background: #fff; }
+  .print-btn { padding: 12px 0; }
+  @media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+<div class="print-btn">
+  <button onclick="window.print()" style="background:#003B6F;color:#fff;border:none;padding:8px 20px;cursor:pointer;border-radius:4px;font-size:13px;">Print / Save as PDF</button>
+</div>
+
+<div style="background:#003B6F;color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:flex-start;">
+  <div>
+    <div style="font-size:20px;font-weight:700;">${vc.name}</div>
+    <div style="font-size:12px;opacity:0.85;margin-top:4px;">Venture Capital${vc.geographicFocus ? ' · ' + vc.geographicFocus : ''}</div>
+  </div>
+  <div style="text-align:right;font-size:11px;opacity:0.85;">
+    <div>${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
+    <div style="margin-top:4px;">Provisional Brief</div>
+  </div>
+</div>
+
+<div style="background:#C8973A;color:#fff;padding:7px 18px;font-size:11px;font-weight:600;">
+  ⚡ AUTO-GENERATED — Web research only. No PitchBook data. Verify fund details before meeting.
+</div>
+
+<div style="display:flex;gap:24px;padding:16px 18px;">
+  <div style="flex:0 0 190px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#003B6F;margin-bottom:8px;border-bottom:2px solid #003B6F;padding-bottom:4px;">FIRM OVERVIEW</div>
+    <table style="width:100%;font-size:11px;border-collapse:collapse;">
+      ${(vc.stage||[]).length ? `<tr><td style="color:#777;padding:3px 0;white-space:nowrap;vertical-align:top;">Stage</td><td style="padding:3px 0 3px 8px;">${vc.stage.join(', ')}</td></tr>` : ''}
+      ${vc.checkSize ? `<tr><td style="color:#777;padding:3px 0;white-space:nowrap;">Check Size</td><td style="padding:3px 0 3px 8px;">$${vc.checkSize.min}M – $${vc.checkSize.max}M</td></tr>` : ''}
+      ${vc.geographicFocus ? `<tr><td style="color:#777;padding:3px 0;white-space:nowrap;">Geography</td><td style="padding:3px 0 3px 8px;">${vc.geographicFocus}</td></tr>` : ''}
+    </table>
+  </div>
+  <div style="flex:1;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#003B6F;margin-bottom:8px;border-bottom:2px solid #003B6F;padding-bottom:4px;">INVESTMENT FOCUS</div>
+    <div style="margin-bottom:12px;">${sectorPills || '<span style="color:#999;font-size:11px;">—</span>'}</div>
+    ${vc.focus ? `<div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#003B6F;margin-bottom:6px;">THESIS</div>
+    <div style="font-size:12px;line-height:1.5;color:#333;">${vc.focus}</div>` : ''}
+  </div>
+</div>
+
+<div style="padding:0 18px 16px;">
+  <div style="font-size:10px;font-weight:700;letter-spacing:1px;color:#003B6F;margin-bottom:10px;border-bottom:2px solid #003B6F;padding-bottom:4px;">JHTV PORTFOLIO MATCHES</div>
+  <div style="display:flex;gap:12px;">
+    ${techCards || '<div style="color:#999;font-size:12px;">No matched technologies found.</div>'}
+  </div>
+</div>
+
+<div style="background:#f0f0f0;padding:8px 18px;display:flex;justify-content:space-between;font-size:10px;color:#666;">
+  <span>Johns Hopkins Technology Ventures · jhtv.jhu.edu</span>
+  <span>Confidential — Internal Use Only</span>
+</div>
+</body>
+</html>`;
+
+    const newTab = window.open('', '_blank');
+    newTab.document.write(html);
+    newTab.document.close();
   }
 
   // ── Init ──────────────────────────────────────────────────────────────────
