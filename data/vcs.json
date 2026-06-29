@@ -477,5 +477,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "insight-venture-management-llc",
+    "name": "Insight Venture Management, LLC",
+    "aliases": [
+      "Insight Partners",
+      "Insight Venture Partners"
+    ],
+    "focus": "Insight Partners is a software-first investor built on the belief that software founders need more than capital to scale: they need operational expertise, talent networks, and strategic guidance delivered through its embedded Insight Onsite team. The firm backs high-growth technology and 'ScaleUp' software companies from seed to IPO, partnering with proven product-market-fit businesses to accelerate growth.",
+    "sectors": [
+      "Enterprise Software / SaaS",
+      "Cybersecurity",
+      "Fintech",
+      "Artificial Intelligence / Machine Learning",
+      "DevOps / Developer Tools",
+      "Healthtech",
+      "Property Technology",
+      "Internet & Marketplaces"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 5,
+      "max": 500
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
