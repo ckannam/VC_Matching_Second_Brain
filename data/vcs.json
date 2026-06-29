@@ -515,5 +515,42 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "tiger-global-management-llc",
+    "name": "Tiger Global Management, LLC",
+    "aliases": [
+      "Tiger Global",
+      "Tiger"
+    ],
+    "focus": "Tiger Global pursues a crossover strategy of identifying high-quality global companies leveraging technological innovation across secular growth trends, deploying patient, long-term capital from early stage through IPO with minimal governance involvement. Its post-2022 strategy emphasizes fewer, larger, high-conviction concentrated bets.",
+    "sectors": [
+      "Enterprise Software",
+      "FinTech",
+      "Consumer Internet",
+      "E-Commerce",
+      "AI Infrastructure",
+      "Vertical SaaS",
+      "Developer Tools"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 114
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "28bio",
+      "3dnamics",
+      "3helix",
+      "accelevir"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
