@@ -440,5 +440,42 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "general-catalyst-group-management-llc",
+    "name": "General Catalyst Group Management, LLC",
+    "aliases": [
+      "General Catalyst",
+      "GC"
+    ],
+    "focus": "General Catalyst partners with ambitious entrepreneurs to drive resilience and applied AI, backing transformative companies from seed to growth stage under CEO Hemant Taneja's 'unscaling' thesis of using data and AI to personalize core societal services. The firm builds foundational enterprise technologies and consumer brands while operating as both a venture fund and transformation sponsor.",
+    "sectors": [
+      "Applied AI / Enterprise Software",
+      "Digital Health",
+      "Fintech",
+      "Defense Technology",
+      "Cybersecurity",
+      "Climate Tech",
+      "Consumer Tech"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 100
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
