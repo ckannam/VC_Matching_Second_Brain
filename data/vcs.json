@@ -659,5 +659,39 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "early-charm-ventures-llc",
+    "name": "Early Charm Ventures, LLC",
+    "aliases": [
+      "Early Charm",
+      "ECV"
+    ],
+    "focus": "Early Charm is a venture studio that co-founds and operates companies with entrepreneurial researchers, transforming early-stage university scientific discoveries into sustainable, revenue-generating businesses rather than chasing quick exits.",
+    "sectors": [
+      "Drug Design / Therapeutics",
+      "Advanced Materials",
+      "Aquaculture Technologies (Blue Tech)",
+      "Machine Vision",
+      "Advanced Manufacturing",
+      "Life Sciences",
+      "Engineered Products"
+    ],
+    "stage": [
+      "Seed"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "28bio",
+      "astropath",
+      "blocksynop",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
