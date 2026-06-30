@@ -365,13 +365,26 @@
       'Growth':     ['Series B', 'Series C', 'Growth', 'Commercial'],
       'Late Stage': ['Series B', 'Growth', 'Commercial'],
     };
-    const parts = [];
     const shared = (tech.sectors || []).filter(s => (vc.sectors || []).includes(s));
-    if (shared.length) parts.push(shared.join(' & ') + ' focus');
     const stageOk = (vc.stage || []).some(vs => (STAGE_COMPAT[vs] || []).includes(tech.stage));
-    if (stageOk && tech.stage) parts.push(tech.stage + ' stage');
-    if (!parts.length) return null;
-    return `${vc.name} fits this tech's ${parts.join(' and ')}.`;
+    if (!shared.length && !stageOk) return null;
+
+    const vcStageStr  = (vc.stage || []).join('/') || null;
+    const sectorStr   = shared.length ? shared.join(' & ') : null;
+    let sentence1, sentence2;
+
+    if (sectorStr && stageOk) {
+      sentence1 = `${vc.name} invests in ${sectorStr} companies${vcStageStr ? ` at the ${vcStageStr} stage` : ''}.`;
+      sentence2 = `This technology's ${tech.stage ? tech.stage + ' ' : ''}${sectorStr} profile is a direct fit with their portfolio focus.`;
+    } else if (sectorStr) {
+      sentence1 = `${vc.name} has a strong ${sectorStr} investment focus.`;
+      sentence2 = `This technology's ${sectorStr} domain aligns with their thesis, though the financing stage may differ.`;
+    } else {
+      sentence1 = `${vc.name} targets ${vcStageStr ? vcStageStr + ' stage' : ''} investments.`;
+      sentence2 = `This technology is at the ${tech.stage} stage, which falls within their investment range.`;
+    }
+
+    return `${sentence1} ${sentence2}`;
   }
 
   function foundHTML(vc, techs) {
