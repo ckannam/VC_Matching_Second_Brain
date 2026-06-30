@@ -360,7 +360,8 @@ body {
 }
 .tech-card h3    { font-size: .95rem; font-weight: 700; line-height: 1.35; }
 .tech-card .pi   { font-size: .8rem; color: var(--muted); }
-.tech-card .desc { font-size: .85rem; color: #444; }
+.tech-card .match-reason { font-size: .78rem; color: var(--blue); font-style: italic; border-left: 2px solid var(--gold); padding-left: 8px; line-height: 1.4; }
+.tech-card .desc { font-size: .85rem; color: #444; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
 .tech-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tech-card .actions { margin-top: auto; padding-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 

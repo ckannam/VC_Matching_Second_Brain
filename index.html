@@ -355,6 +355,25 @@
   }
 
   // ── Render helpers ────────────────────────────────────────────────────────
+  function matchReason(vc, tech) {
+    const STAGE_COMPAT = {
+      'Pre-Seed':   ['NewCo', 'Pre-Seed', 'Seed'],
+      'Seed':       ['NewCo', 'Pre-Seed', 'Seed'],
+      'Series A':   ['Seed', 'Series A'],
+      'Series B':   ['Series A', 'Series B'],
+      'Series C':   ['Series B', 'Series C', 'Growth'],
+      'Growth':     ['Series B', 'Series C', 'Growth', 'Commercial'],
+      'Late Stage': ['Series B', 'Growth', 'Commercial'],
+    };
+    const parts = [];
+    const shared = (tech.sectors || []).filter(s => (vc.sectors || []).includes(s));
+    if (shared.length) parts.push(shared.join(' & ') + ' focus');
+    const stageOk = (vc.stage || []).some(vs => (STAGE_COMPAT[vs] || []).includes(tech.stage));
+    if (stageOk && tech.stage) parts.push(tech.stage + ' stage');
+    if (!parts.length) return null;
+    return `${vc.name} fits this tech's ${parts.join(' and ')}.`;
+  }
+
   function foundHTML(vc, techs) {
     window[`_vcTechs_${vc.id}`] = techs;
 
@@ -405,11 +424,11 @@
       </div>
       ${jhuSection}
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
-      <div class="tech-grid">${techs.map(t => techCardHTML(t)).join('')}</div>
+      <div class="tech-grid">${techs.map(t => techCardHTML(t, null, matchReason(vc, t))).join('')}</div>
     `;
   }
 
-  function techCardHTML(t, accentColor) {
+  function techCardHTML(t, accentColor, reason) {
     const tags        = (t.sectors || []).map(s => {
       const c = accentColor || DOMAIN_COLORS[s] || '#64748B';
       return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
@@ -424,6 +443,7 @@
       <div class="tech-card" style="${topBorder}">
         <h3>${t.name}</h3>
         ${t.pi          ? `<p class="pi">${t.pi}</p>` : ''}
+        ${reason        ? `<p class="match-reason">${reason}</p>` : ''}
         ${t.description ? `<p class="desc">${t.description}</p>` : ''}
         <div class="tags">${tags}${t.stage ? `<span class="pill">${t.stage}</span>` : ''}</div>
         <div class="actions">${downloadBtn}</div>
