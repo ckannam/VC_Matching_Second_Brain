@@ -1,0 +1,5791 @@
+[
+  {
+    "name": "R. Jacob Vogelstein, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "PhD BME JHU SOM; former faculty JHU APL + Whiting School of Engineering; son of Hopkins cancer legend Bert Vogelstein",
+    "role": "Co-Founder, Managing Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "George Petrocheilos",
+    "firm": "Catalio Capital Management",
+    "connection": "BA Financial Economics, JHU; Advisory Board, JHU Center for Financial Economics",
+    "role": "Co-Founder, Managing Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "John Henry Iucker, CFA",
+    "firm": "Catalio Capital Management",
+    "connection": "BA Financial Economics, JHU",
+    "role": "Founding Partner, Head of Credit",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Ajay Mantha",
+    "firm": "Catalio Capital Management",
+    "connection": "BA & MS Cellular/Molecular Neuroscience, JHU",
+    "role": "Partner (Public Equities)",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Nicholas von Guionneau, MD",
+    "firm": "Catalio Capital Management",
+    "connection": "Hopkins-trained MD (surgery/research)",
+    "role": "Partner / Investment Professional",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "William R. Brody, MD, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "Former President of Johns Hopkins University (1996–2009)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Elias Zerhouni, MD",
+    "firm": "Catalio Capital Management",
+    "connection": "Former JHU radiology professor and Exec VP Dean, JHU School of Medicine",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Bert Vogelstein, MD",
+    "firm": "Catalio Capital Management",
+    "connection": "MD JHU SOM; Clayton Professor of Oncology; Co-Director Ludwig Center at Kimmel",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Drew Pardoll, MD, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "Director, Bloomberg-Kimmel Institute (current JHU faculty)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Gregg Semenza, MD, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "Armstrong Professor of Genetic Medicine, JHU (Nobel Prize 2019)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Justin Hanes, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "Director, Center for Nanomedicine, JHU (current faculty)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Henry Brem, MD",
+    "firm": "Catalio Capital Management",
+    "connection": "Director of Neurosurgery, JHU (current faculty)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Barbara Slusher, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "PhD Pharmacology JHU SOM; MAS JHU Carey; Professor of Neurology, JHU",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Joshua Vogelstein, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "Associate Professor of BME, JHU Whiting School of Engineering (current faculty)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Adam Riess, PhD",
+    "firm": "Catalio Capital Management",
+    "connection": "JHU Bloomberg Distinguished Professor (Nobel Prize, Physics)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "David Stonko, MD",
+    "firm": "Catalio Capital Management",
+    "connection": "Hopkins-trained surgeon",
+    "role": "Investment Professional",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Olga Maltseva",
+    "firm": "Catalio Capital Management",
+    "connection": "MBA, JHU Carey Business School; former COO, Healytics (co-developed with JHU Medicine)",
+    "role": "Partner & Head of Operations",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Jay Markowitz, MD",
+    "firm": "ARCH Venture Partners",
+    "connection": "Former transplant surgeon at JHU",
+    "role": "Senior Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Luciana Borio, MD",
+    "firm": "ARCH Venture Partners",
+    "connection": "Infectious-disease fellowship JHU; Adjunct Asst Professor of Medicine, JHU (2003–present)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Jake Simson, PhD",
+    "firm": "RA Capital Management",
+    "connection": "PhD BME, JHU",
+    "role": "Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Alana MacDonald, PhD",
+    "firm": "RA Capital Management",
+    "connection": "PhD Immunology, JHU SOM",
+    "role": "Senior Associate, TechAtlas",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Jacqueline Rhuda",
+    "firm": "RA Capital Management",
+    "connection": "BS Molecular/Cellular Biology + Earth Sciences, JHU",
+    "role": "Analyst, Quantitative Research",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Gwyn Alexander",
+    "firm": "RA Capital Management",
+    "connection": "BS BME + BA Economics, JHU",
+    "role": "Research Assistant",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Hyung Chun, MD",
+    "firm": "Foresite Capital",
+    "connection": "MD JHU SOM",
+    "role": "Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Dorothy Margolskee, MD",
+    "firm": "Foresite Capital",
+    "connection": "MD, JHU School of Medicine (Alpha Omega Alpha); Internal Medicine Residency, JHU Hospital",
+    "role": "Managing Director",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Christopher Kersey, MD, MBA",
+    "firm": "Havencrest Capital",
+    "connection": "Chairman, Johns Hopkins Medicine International (2011–17+); Board, JHU Aramco Healthcare",
+    "role": "Founder / Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Misti Ushio, PhD",
+    "firm": "Digitalis Ventures",
+    "connection": "BS Chemical Engineering, JHU '94; JHTV IDEA Advisory Board",
+    "role": "Managing Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Alex Harding, MD, MBA",
+    "firm": "Atlas Venture",
+    "connection": "MD with honors, JHU School of Medicine; completed internal medicine residency at MGH; co-founded Triplet Therapeutics, Vedere Bio, Third Harmonic Bio, and Remix Therapeutics while at Atlas",
+    "role": "Entrepreneur in Residence (EiR); CEO, Stealth NewCo",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Amir Zamani, MD",
+    "firm": "Bain Capital Life Sciences",
+    "connection": "MD, JHU School of Medicine (Alpha Omega Alpha honor society); Hopkins-trained physician turned life sciences investor",
+    "role": "Managing Director",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Beth Seidenberg, MD",
+    "firm": "Westlake Village BioPartners",
+    "connection": "Medical residency, Johns Hopkins Hospital; co-founding managing director of Westlake Village BioPartners; former Kleiner Perkins partner; incubated 40+ biotech ventures",
+    "role": "Founding Managing Director",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Ross Jaffe, MD",
+    "firm": "Versant Ventures",
+    "connection": "MD, Johns Hopkins School of Medicine; co-founded Versant Ventures in 1999; focuses on early-stage medical device and drug delivery investing",
+    "role": "Co-Founder & Managing Director",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Simeon George, MD",
+    "firm": "SR One Capital",
+    "connection": "BA Neuroscience, JHU (Phi Beta Kappa, Class of 2000); MD, University of Pennsylvania; former Bain & Goldman Sachs; now CEO of GSK-heritage healthcare VC",
+    "role": "CEO & Co-Founder",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Jill Carroll",
+    "firm": "SR One Capital",
+    "connection": "MS Biochemistry, Johns Hopkins University (1999); BS Chemistry, Duke University (1997); partner focused on biopharma investments including Arcellx",
+    "role": "Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Michael Ehlers, PhD",
+    "firm": "Apple Tree Partners",
+    "connection": "MD/PhD, Johns Hopkins School of Medicine; former HHMI Investigator; neuroscientist-turned-VC; co-founded Ascidian Therapeutics, Aulos Bioscience, and Replicate Bioscience at ATP",
+    "role": "Chief Scientific Officer & Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Kevin Kinsella",
+    "firm": "Avalon Ventures",
+    "connection": "MA International Relations, Johns Hopkins SAIS (1969); member, JHU SAIS Dean's Advisory Council; founder of pioneering biotech VC Avalon Ventures",
+    "role": "Founder",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Charles Homcy, MD",
+    "firm": "Third Rock Ventures",
+    "connection": "AB and MD, Johns Hopkins University; current JHU Trustee; conceived idea for Maze Therapeutics during medical training at JHU; co-founded Portola Pharmaceuticals",
+    "role": "Special Advisor / Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Scott Brun, MD",
+    "firm": "Abingworth",
+    "connection": "MD, Johns Hopkins School of Medicine; ophthalmology residency at Mass Eye & Ear/Harvard; former Head of R&D at AbbVie; venture partner at Abingworth (Carlyle Group)",
+    "role": "Venture Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Joel Braunstein, MD, MBA",
+    "firm": "LifeTech Development Partners",
+    "connection": "MBA (Distinguished Alumnus), JHU Carey Business School; Robert Wood Johnson Clinical Scholar Fellow, JHU Medical Institutions; former JHU Assistant Professor of Cardiology; JHU Carey School advisor",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Louis J. Forster",
+    "firm": "Green Visor Capital",
+    "connection": "BA International Studies JHU '82; MA SAIS '83; Current Chair, JHU Board of Trustees (since 2019)",
+    "role": "General Partner",
+    "entityType": "VC – Software"
+  },
+  {
+    "name": "Alex Shtarkman",
+    "firm": "Revolution Ventures",
+    "connection": "BA Int'l Studies (Phi Beta Kappa) JHU; MA JHU SAIS; JHTV FastForward mentor",
+    "role": "Operating Partner / VP",
+    "entityType": "VC – Software"
+  },
+  {
+    "name": "Nick Superina",
+    "firm": "QuestMark Partners",
+    "connection": "JHU Carey PEVC alumni network",
+    "role": "Partner",
+    "entityType": "VC – Software"
+  },
+  {
+    "name": "Russell Fleischer",
+    "firm": "Battery Ventures",
+    "connection": "BA Economics, Johns Hopkins University; three-time software CEO before joining Battery as General Partner focusing on enterprise software",
+    "role": "General Partner",
+    "entityType": "VC – Software"
+  },
+  {
+    "name": "Frank Bonsal, Jr.",
+    "firm": "NEA (New Enterprise Associates)",
+    "connection": "Trustee, Johns Hopkins Hospital; JHH Endowment Board",
+    "role": "Co-Founder NEA; Special Partner (Bonsal Capital)",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Hugh Rienhoff, Jr., MD",
+    "firm": "NEA (New Enterprise Associates)",
+    "connection": "MD JHU SOM; Osler House Staff; Hematology Fellow, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Tim Schaller",
+    "firm": "NEA (New Enterprise Associates)",
+    "connection": "MS Financial Management, JHU",
+    "role": "COO & CFO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Alex Sharata",
+    "firm": "NEA (New Enterprise Associates)",
+    "connection": "JHU alumnus (per LinkedIn)",
+    "role": "Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "John Kettle",
+    "firm": "NEA (New Enterprise Associates)",
+    "connection": "JHU alumnus (per LinkedIn)",
+    "role": "Investment Team",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Robert Mittendorff, MD, MBA",
+    "firm": "B Capital Group",
+    "connection": "BS BME (honors) JHU '98; JHU Leadership Fellow",
+    "role": "GP, Global Head of Healthcare",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Karen Page",
+    "firm": "B Capital Group",
+    "connection": "MS Advanced Behavioral Science & Organizational Development, JHU Carey Business School; member, JHU Carey Dean's Advisory Council",
+    "role": "General Partner & COO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jorge Conde",
+    "firm": "a16z (Andreessen Horowitz)",
+    "connection": "BA Biology, JHU",
+    "role": "General Partner, Bio + Health",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Colin Rom",
+    "firm": "a16z (Andreessen Horowitz)",
+    "connection": "JHU alumnus",
+    "role": "Public Policy Lead, Bio + Health",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Stephen Zachary",
+    "firm": "Sands Capital Ventures",
+    "connection": "PhD Neuroscience, JHU SOM",
+    "role": "Managing Partner (Life Sciences)",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Halle Tecco",
+    "firm": "Giant Ventures",
+    "connection": "MPH JHU Bloomberg School of Public Health",
+    "role": "Board Partner (also Rock Health founder)",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Elizabeth Galbut",
+    "firm": "A-Level Capital",
+    "connection": "Dual MBA, JHU Carey / MICA; co-founded firm at JHU",
+    "role": "Co-Founder (also founder, SoGal Ventures)",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Demilade Obayomi",
+    "firm": "A-Level Capital",
+    "connection": "JHU Whiting School of Engineering",
+    "role": "Co-Founder",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mira Amin",
+    "firm": "A-Level Capital",
+    "connection": "BS Chemical & Biomolecular Engineering, JHU (A-Level Capital student fund)",
+    "role": "Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Dave McClure",
+    "firm": "500 Global",
+    "connection": "JHU alumnus",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Elena Viboch",
+    "firm": "General Catalyst",
+    "connection": "MS Biotechnology, Johns Hopkins University; MBA (Baker Scholar), Harvard Business School; formerly SoftBank Vision Fund healthcare; invests in health assurance and digital health",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jessica Zeaske, PhD",
+    "firm": "Echo Health Ventures",
+    "connection": "MHS and PhD, Johns Hopkins Bloomberg School of Public Health; invests in tech-enabled health services, insurtech, and digital health at Echo (backed by Cambia + LexisNexis)",
+    "role": "Managing Partner",
+    "entityType": "VC – Biotech"
+  },
+  {
+    "name": "Michael Wong",
+    "firm": "Fusion Fund",
+    "connection": "BS Computer Science, JHU (2025)",
+    "role": "Investor",
+    "entityType": "VC – AI"
+  },
+  {
+    "name": "David McClure",
+    "firm": "Practical Ventures",
+    "connection": "BS Mathematical Engineering (Applied Mathematics), JHU, 1988",
+    "role": "Co-Founder, Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Yonit Serkin",
+    "firm": "Sapir Ventures",
+    "connection": "BA, JHU; MA International Studies & Economics, JHU SAIS",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Paul Grossinger",
+    "firm": "Flight Ventures",
+    "connection": "BA Political Science, JHU; co-founded Blue Jay Syndicate (JHU alumni investment group); adviser, A-Level Capital (JHU student VC)",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Eric Rosenblum",
+    "firm": "Xora Innovation",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Lisa Dolan",
+    "firm": "Link Ventures",
+    "connection": "BA International Studies, JHU",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jehan Chu",
+    "firm": "Kenetic Capital",
+    "connection": "BA International Relations, JHU, 1998",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Christopher Bissonnette",
+    "firm": "Pallasite Ventures",
+    "connection": "BA Cellular Neuroscience, JHU (1997–2001)",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Kim MD",
+    "firm": "DigiTX Partners",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Managing Director & CEO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Dan Teran",
+    "firm": "Gutter Capital",
+    "connection": "BA International Studies, JHU; co-founded Gutter Capital with JHU classmate",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "James Gettinger",
+    "firm": "Gutter Capital",
+    "connection": "BA Economics & Computer Science, JHU; co-founded Gutter Capital with JHU classmate",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Paul Matteucci",
+    "firm": "1st Course Capital",
+    "connection": "MA International Studies, JHU SAIS; MBA, Stanford",
+    "role": "Co-Founder & Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Hirsch Ph.D",
+    "firm": "Longitude Capital",
+    "connection": "BA Biology, JHU",
+    "role": "Industry Advisory Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Brian Liu MD",
+    "firm": "Longitude Capital",
+    "connection": "BS Biomedical Engineering, JHU",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "James Gauer Ph.D",
+    "firm": "Palomar Ventures",
+    "connection": "PhD Candidate, Mathematics & Philosophy, JHU",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jeffrey Maters",
+    "firm": "Network Ventures",
+    "connection": "BS Chemical Engineering, JHU",
+    "role": "Founder & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Christian Siegele",
+    "firm": "Capnamic Ventures",
+    "connection": "Diploma International Relations, JHU SAIS (Bologna)",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Rosskamp Ph.D",
+    "firm": "Magnetic Ventures",
+    "connection": "MA (with distinction), JHU SAIS",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "JJ Kasper JD",
+    "firm": "Blue Collective",
+    "connection": "Computer Science certification, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Manpreet Singh",
+    "firm": "Singh Capital",
+    "connection": "Professor of Psychiatry and Behavioral Sciences, JHU School of Medicine",
+    "role": "Chief Investment Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Xin Huang MD",
+    "firm": "Co-Win Ventures",
+    "connection": "PhD, JHU",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Yu Chen",
+    "firm": "Yunqi Partners",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ranjeet Bhatia",
+    "firm": "Saffron Hill Ventures",
+    "connection": "MA International Relations & Economics, JHU SAIS",
+    "role": "Co-Founder & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Anne Osdoit",
+    "firm": "Sofinnova Partners",
+    "connection": "MS Biomedical Engineering, JHU, 2003–2004",
+    "role": "Partner, MDStart Strategy",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mingu Lee",
+    "firm": "Cleveland Avenue",
+    "connection": "MS Information & Telecommunication Systems, JHU",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "C.R. Sincock II",
+    "firm": "Transhuman Capital",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Shermaine Tilley Ph.D",
+    "firm": "CTI Life Sciences",
+    "connection": "PhD Biochemistry, JHU School of Medicine",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Stella Robertson Ph.D",
+    "firm": "Bios Partners",
+    "connection": "PhD Biology-Immunology, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kentucky Morrow",
+    "firm": "DIA (Healthcare)",
+    "connection": "MS Health Care Management, JHU; co-founded 1891 Angels (JHU alumni investor network)",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ali Farahanchi Ph.D",
+    "firm": "DHVC",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Partner & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ruby Lu",
+    "firm": "Atypical Ventures",
+    "connection": "MA, JHU SAIS, 1996",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Adam Kočík",
+    "firm": "J&T Ventures",
+    "connection": "MBA International Relations & International Finance, JHU SAIS",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Eric Shiozaki Ph.D",
+    "firm": "Revelation Partners",
+    "connection": "BA Biophysics, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ndubuisi Ekekwe, PhD",
+    "firm": "Tekedia Capital",
+    "connection": "PhD Electrical & Computer Engineering (Microelectronics & Medical Robotics), JHU",
+    "role": "Founder & Chairman",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Atul Varadhachary, MD, PhD",
+    "firm": "Fannin",
+    "connection": "PhD Physiology, JHU",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kristi Ebong",
+    "firm": "HealthX Ventures",
+    "connection": "MBA, JHU Carey Business School; MPH, JHU Bloomberg SPH; former President, Johns Hopkins Medicine (digital health)",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Green",
+    "firm": "Mountain State Ventures",
+    "connection": "MS Numerical Science, JHU",
+    "role": "Co-Founder & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Neil Cohen",
+    "firm": "Emerald Development",
+    "connection": "BS Mathematical Sciences, JHU, 1983; donor, Cohen Translational Engineering Fund at JHU; Advisory Board, JHU Whiting School of Engineering",
+    "role": "Founder & Chairman",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ian Tolfree Ph.D",
+    "firm": "Emerald Development",
+    "connection": "PhD Theoretical Physics, JHU; Manager, JHU FastForward incubator",
+    "role": "Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Shaun Kirkpatrick",
+    "firm": "Research Corporation Technologies",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "President, Biotechnology",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Abhijit Mazumder, PhD",
+    "firm": "Illumina Ventures",
+    "connection": "BS, JHU; Advisory Board, JHU Biomedical Engineering",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Harry Jacobson MD",
+    "firm": "TriStar Health Ventures",
+    "connection": "Internal Medicine training, Johns Hopkins Hospital",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Paul Rabii",
+    "firm": "Rabil Ventures",
+    "connection": "BA Political Science, JHU, 2008; JHU lacrosse",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ben Walker",
+    "firm": "Ridgeline",
+    "connection": "MA International Affairs & International Economics, JHU SAIS, 2013–2015",
+    "role": "Co-Founder & General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ethan Imboden",
+    "firm": "Tuesday Capital",
+    "connection": "BS Electrical Engineering & Computer Science, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Hussam Khoury",
+    "firm": "Jabbar Internet Group",
+    "connection": "BS Biomedical Engineering, JHU",
+    "role": "Co-Founder & President",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Bill Cherman",
+    "firm": "Solar Eco Fund",
+    "connection": "MS Biotechnology Enterprise & Entrepreneurship, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Evans",
+    "firm": "Sentiero Ventures",
+    "connection": "Beneficial Hodson Scholar, JHU",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Keith Flaherty MD",
+    "firm": "Apricity Health",
+    "connection": "MD, JHU School of Medicine, 1997",
+    "role": "Co-Founder & Co-CEO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Koshu Kunii",
+    "firm": "Lifetime Ventures",
+    "connection": "MA International Economics & Finance, JHU SAIS, 2014–2015",
+    "role": "General Partner & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mattew Coleman",
+    "firm": "Skyview Ventures",
+    "connection": "BA Environmental Science, JHU, 1992–1996",
+    "role": "Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Andrew Karetsky",
+    "firm": "Skyview Ventures",
+    "connection": "BA History, JHU; varsity baseball, club ice hockey, wrestling at JHU",
+    "role": "Founder & President",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Suprotik Basu",
+    "firm": "Helena Special Investments",
+    "connection": "BA Psychology, JHU; MHS International Health, JHU Bloomberg SPH; Chair, JHU Bloomberg SPH Advisory Board",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Merrill Anovick",
+    "firm": "25madison",
+    "connection": "BA Political Science & Economics (with honors), JHU, 2014",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Grant Silow",
+    "firm": "25madison",
+    "connection": "BA International Studies, JHU",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mike Cormack",
+    "firm": "Renewal Funds",
+    "connection": "BA Economics, JHU",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Paige Soya",
+    "firm": "K Street Capital",
+    "connection": "BA Economics, JHU, 2009; MBA Finance, JHU Carey Business School",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Anna Raptis",
+    "firm": "Amplifica Capital",
+    "connection": "MA, JHU SAIS",
+    "role": "Founder & General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Bobing Ren",
+    "firm": "Sinovation Ventures",
+    "connection": "MBA, JHU Carey Business School, 2013–2014",
+    "role": "Executive Director & General Manager, Frontier Tech Fund",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kelly Trumpbour MD",
+    "firm": "See Jane Invest",
+    "connection": "MBA, JHU Carey Business School, 2004",
+    "role": "Founder",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Marcus Watson",
+    "firm": "KawiSafi Ventures",
+    "connection": "MA International Development & Economics, JHU SAIS",
+    "role": "Investment Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Severino MD",
+    "firm": "Flagship Pioneering",
+    "connection": "MD, JHU School of Medicine (Alpha Omega Alpha)",
+    "role": "Chief Executive Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Raj Panjabi",
+    "firm": "Flagship Pioneering",
+    "connection": "MPH Epidemiology, JHU Bloomberg School of Public Health",
+    "role": "Senior Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Robert Lord MD",
+    "firm": "LionBird",
+    "connection": "MD, JHU School of Medicine; co-founded Protenus (digital health startup) from JHU network",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sean Kelly",
+    "firm": "The Family Fund",
+    "connection": "attended JHU (Biomedical Engineering), 2001–2002",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Todd Marks",
+    "firm": "Mindgrub Ventures",
+    "connection": "Attended JHU (1999–2000); Baltimore-based digital entrepreneur",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Wen Qi Ho Ph.D",
+    "firm": "ClaystBio",
+    "connection": "BSc Molecular & Cellular Biology, JHU",
+    "role": "Therapeutics Lead",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Walker",
+    "firm": "Slyfox Solutions",
+    "connection": "MS Electrical Engineering + MA, JHU",
+    "role": "President & Chief Executive Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Gabriel Hammond",
+    "firm": "Emles Advisors",
+    "connection": "BA Economics & International Relations, JHU, 2001",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Dave Saxena",
+    "firm": "Emles Advisors",
+    "connection": "BS Biomedical Engineering, JHU, 2001",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sarah Morgenstern",
+    "firm": "Flourish Ventures",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Stephen Auvil",
+    "firm": "TEDCO",
+    "connection": "MS Biotechnology, JHU; former Asst Director, Office of Technology Licensing, JHU SOM",
+    "role": "Chief Federal Engagement Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Linda Cureton Ph.D",
+    "firm": "TEDCO",
+    "connection": "MS Applied Mathematics & post-Masters advanced certificate, JHU",
+    "role": "Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "William Roberts",
+    "firm": "TEDCO",
+    "connection": "MBA Management, JHU Carey Business School",
+    "role": "Board Member & Trustee",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Teodoro Forcht Dagi, MD",
+    "firm": "Broadview Ventures",
+    "connection": "MD and MPH, JHU",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Daniel Gorfine JD",
+    "firm": "Plural VC",
+    "connection": "MA, JHU SAIS; adjunct faculty, JHU SAIS",
+    "role": "Senior Advisor & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Henry Crumpton",
+    "firm": "Crumpton Ventures",
+    "connection": "MA International Public Policy (with honors), JHU SAIS, 2003",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jarred Bressner MD",
+    "firm": "Activate Venture Partners",
+    "connection": "BS Engineering (first in class), JHU; MD, JHU School of Medicine; Orthopaedic Surgery residency, JHU Hospital",
+    "role": "Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jessica Thomas",
+    "firm": "Notion Capital",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jun Jeon MD",
+    "firm": "Khosla Ventures",
+    "connection": "BS Chemical & Biomolecular Engineering, JHU",
+    "role": "Partner & Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Nicole Fraenkel Ph.D",
+    "firm": "Khosla Ventures",
+    "connection": "BS Neuroscience (Phi Beta Kappa, Hodson Trust Merit Scholar, Goldwater Scholar), JHU; DPhil Oxford (Rhodes Scholar, NIH Oxford-Cambridge Program)",
+    "role": "Partner & Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Martin Akhavan",
+    "firm": "Anthro Ventures",
+    "connection": "MS Bioengineering, JHU",
+    "role": "Founder & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Denning",
+    "firm": "Blu Venture Investors",
+    "connection": "MBA Information Systems, JHU, 1998–2001",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Miljana Vujosevic",
+    "firm": "Maycomb Capital",
+    "connection": "MA International Relations & Economics, JHU SAIS",
+    "role": "Partner and Head of Custom Strategies",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Neil Keegan",
+    "firm": "Marlinspike",
+    "connection": "MA International Relations (Finance concentration), JHU SAIS, 2000–2002",
+    "role": "Co-Founder, Co-Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Neil Patel",
+    "firm": "Redesign Health",
+    "connection": "BS Biomedical Engineering, JHU, 2005",
+    "role": "Head of Ventures",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sam Yilmaz",
+    "firm": "Bioccelerate",
+    "connection": "BA Environmental Science/Anthropology/Psychology, JHU; MSE Materials Science & Engineering, JHU",
+    "role": "General Partner & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sean Casey MD",
+    "firm": "Omphalos Ventures",
+    "connection": "BA Natural Sciences, JHU (1982–1986); MD, JHU School of Medicine (1986–1990)",
+    "role": "Co-Founder, Chairman",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Altar Munis Ph.D",
+    "firm": "LifeSpan Vision",
+    "connection": "BSc Chemical & Biomolecular Engineering, JHU",
+    "role": "Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Antonia Schaell",
+    "firm": "responsAbility Investments",
+    "connection": "Postgraduate Diploma in International Relations, JHU SAIS",
+    "role": "Deputy Head, Direct Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Crystal Liu Ph.D",
+    "firm": "Apricot Capital",
+    "connection": "PhD Public Health, JHU",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Daniel Lankford",
+    "firm": "Brown Venture Group",
+    "connection": "BS (with honors), JHU",
+    "role": "Partner & Strategic Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Comiskey",
+    "firm": "ROC Venture Group",
+    "connection": "MA Global Security Studies, JHU, 2011–2013",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Eric Quan",
+    "firm": "Telos Ventures",
+    "connection": "BA Economics & Sociology, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jan Cherim",
+    "firm": "Small Enterprise Assistance Funds",
+    "connection": "educated at JHU and London School of Economics",
+    "role": "Executive Committee Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Tom Monaco",
+    "firm": "Small Enterprise Assistance Funds",
+    "connection": "degree, JHU",
+    "role": "Executive Committee Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Joe Mechlinski",
+    "firm": "Conscious Ventures",
+    "connection": "BA Economics, JHU, 1999; JHU football",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "John Schveibinz",
+    "firm": "Old Line Capital",
+    "connection": "MS Electrical Engineering, JHU, 1991",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jerry Schepers",
+    "firm": "Old Line Capital",
+    "connection": "MS Computer Science, JHU, 1987–1990; Adjunct Professor, JHU",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Quentin Smith",
+    "firm": "Old Line Capital",
+    "connection": "MS Electrical Engineering, JHU, 1988–1992",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jun Wu Ph.D",
+    "firm": "Amino Capital",
+    "connection": "MS & PhD Computer Science, JHU, 2002; JHU Whiting School Distinguished Alumni Award; Board, JHU Whiting School of Engineering",
+    "role": "Founding Partner and Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Keith Winter",
+    "firm": "Teal Ventures",
+    "connection": "MS Data Analytics & Policy, JHU, 2020–2023",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mahima Kaul",
+    "firm": "Fusen World",
+    "connection": "degree, JHU (2021–2022); worked at JHU Technology Ventures",
+    "role": "Venture Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Matthias Loening, PhD",
+    "firm": "Beldon Global",
+    "connection": "MA, JHU SAIS",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Chang",
+    "firm": "Global Health Investments",
+    "connection": "BA International Relations, JHU; MPH, JHU Bloomberg School of Public Health",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Melinda Hamer",
+    "firm": "Global Health Investments",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Operating Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Derby",
+    "firm": "TardiMed Sciences",
+    "connection": "BS Biomedical Engineering (with honors), JHU, 1991–1995",
+    "role": "Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Patti Chu",
+    "firm": "Mana Impact Capital",
+    "connection": "MA International Development & Economics, JHU SAIS",
+    "role": "Co-Founder and Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Chen Zhu",
+    "firm": "Mana Impact Capital",
+    "connection": "MA International Development, JHU SAIS, 2004–2006",
+    "role": "Co-Founder & Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ray Wang",
+    "firm": "Constellation Brands",
+    "connection": "MPH (Health Finance & Management), JHU Bloomberg School of Public Health",
+    "role": "Founder, Principal & CEO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Samir Abhyankar",
+    "firm": "Lightrock",
+    "connection": "MA, JHU SAIS",
+    "role": "Investment Team Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Shani Taylor",
+    "firm": "SignalFire",
+    "connection": "MHS Health Communication, JHU Bloomberg School of Public Health",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Silveth Khawaja",
+    "firm": "Safinac Capital",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Founder & Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Tan Ching",
+    "firm": "CDBI Partners",
+    "connection": "MS Biomedical Engineering, JHU",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Victoria White",
+    "firm": "Accion",
+    "connection": "MA, JHU SAIS; Adjunct Professor, JHU SAIS, 2005–2015",
+    "role": "Managing Director, Global Advisory Solutions",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Alex Qian",
+    "firm": "Accion",
+    "connection": "MS Finance, JHU Carey Business School, 2009–2011",
+    "role": "Senior Investment Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Amir Soltanianzadeh",
+    "firm": "Solardis Health",
+    "connection": "MSE Bioengineering Innovation & Design, JHU",
+    "role": "Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Andrew Maus",
+    "firm": "Ai Capital",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Erik Hewlett",
+    "firm": "UVA LVG Seed Fund",
+    "connection": "MD, JHU; Professor Emeritus of Medicine & Microbiology, UVA (JHU-trained physician scientist)",
+    "role": "Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Gary Gordon Ph.D",
+    "firm": "Potentia Fund",
+    "connection": "MD and PhD, JHU School of Medicine",
+    "role": "Advisory Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Gloria Jacobovitz Ph.D",
+    "firm": "University of Maryland",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Advisory Board",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Graham Day",
+    "firm": "Spring Impact Capital",
+    "connection": "MA International Affairs & Economics, JHU SAIS",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jeff Greene",
+    "firm": "Vallen",
+    "connection": "BA Economics & Sociology, JHU",
+    "role": "Vice President",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jeffery George",
+    "firm": "Maytai Capital",
+    "connection": "MA, JHU SAIS",
+    "role": "Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "John Inglis",
+    "firm": "Paladin Capital Group",
+    "connection": "MS Computer Science, JHU, 1984",
+    "role": "Senior Strategic Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Neil Littman",
+    "firm": "Bioverge Ventures",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Co-Founder, Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Rick Gibb",
+    "firm": "Bioverge Ventures",
+    "connection": "MS, JHU",
+    "role": "Co-Founder, Chief Operating Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Niclas Düring",
+    "firm": "Triii Impact",
+    "connection": "MA International Economics & International Relations, JHU SAIS",
+    "role": "Impact Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Nicole Etchart",
+    "firm": "NESsT",
+    "connection": "MA International Studies, JHU SAIS, 1982–1984",
+    "role": "Founder & Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Olivia Wang",
+    "firm": "Olive Capital",
+    "connection": "BA International Studies, JHU",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Peter Pronovost Ph.D",
+    "firm": "Aurora Forge",
+    "connection": "MD/PhD, JHU SOM; Founding Director, Armstrong Institute for Patient Safety and Quality, JHU (20+ years)",
+    "role": "Co-Founder",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Shruti Shah",
+    "firm": "Symphonic Capital",
+    "connection": "MS Education (Urban Education focus), JHU",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Suzanne Angell",
+    "firm": "Casdin Capital",
+    "connection": "MA English Literature, JHU, 2004–2007",
+    "role": "Director of Therapeutics",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "James Flynn",
+    "firm": "Deerfield Management",
+    "connection": "MS Biotechnology, Johns Hopkins University; orchestrated the JHU–Deerfield Bluefield Innovations collaboration to catalyze early-stage JHU therapeutic research",
+    "role": "Managing Partner",
+    "entityType": "Healthcare Fund"
+  },
+  {
+    "name": "Jonathan Leff",
+    "firm": "Deerfield Management",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Partner (Therapeutics); Chair, Deerfield Institute",
+    "entityType": "Healthcare Fund"
+  },
+  {
+    "name": "Brian Bizoza, MD",
+    "firm": "Deerfield Management",
+    "connection": "BA Natural Sciences/Public Health, JHU; JHU Krieger School Advisory Board member",
+    "role": "Partner (Therapeutics)",
+    "entityType": "Healthcare Fund"
+  },
+  {
+    "name": "Veranika Razhkova",
+    "firm": "Deerfield Management",
+    "connection": "Advanced Academic Programs certificate, JHU, 2016–2018",
+    "role": "Principal",
+    "entityType": "Healthcare Fund"
+  },
+  {
+    "name": "Katherine Lazar",
+    "firm": "Deerfield Management",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Principal, Portfolio Management",
+    "entityType": "Healthcare Fund"
+  },
+  {
+    "name": "Yan Ke Ph.D",
+    "firm": "Northern Lights Venture Capital",
+    "connection": "MS & PhD Computer Science, JHU Whiting School; co-founded NetScreen Technologies",
+    "role": "Co-Founder & Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Aaron Stibel",
+    "firm": "Bryant Stibel",
+    "connection": "BS Computer Science (Mathematics & Applied Mathematics), JHU",
+    "role": "Founding Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Adam Schlegel",
+    "firm": "Maelstrom",
+    "connection": "MA, JHU SAIS",
+    "role": "Partner, Maelstrom Fund",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ajay Verma MD",
+    "firm": "Formation Ventures",
+    "connection": "MD, JHU SOM; PhD, JHU School of Public Health (Solomon Snyder lab)",
+    "role": "General Partner, Fund Manager",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Alic Chen Ph.D",
+    "firm": "Blue Bear Ventures",
+    "connection": "BS Mechanical Engineering, JHU",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Andrew Chen Ph.D",
+    "firm": "Social Finance",
+    "connection": "BS Materials Science & Engineering, JHU",
+    "role": "Vice President, Impact Investing",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Katy Li",
+    "firm": "Social Finance",
+    "connection": "BA, JHU",
+    "role": "Senior Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ankit Mahadevia MD",
+    "firm": "Curie.Bio",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Co-CXO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Chandler Lewis",
+    "firm": "360 Social Impact",
+    "connection": "MS Organizational Leadership, JHU School of Education, 2017–2019",
+    "role": "Co-Founder & Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Charles Kahn III",
+    "firm": "Shoni Health Ventures",
+    "connection": "BA Social and Behavioral Sciences, JHU",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Christopher Lee Ph.D",
+    "firm": "Despierta",
+    "connection": "Master's, JHU Biodesign program (Bioengineering)",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "David Kaplan MD",
+    "firm": "Norwest",
+    "connection": "Internal Medicine Residency, JHU SOM (1997–2000)",
+    "role": "Senior Advisor, Healthcare",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Suraj Shah",
+    "firm": "Norwest",
+    "connection": "attended JHU",
+    "role": "Vice President, Venture Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Edouard Grutering",
+    "firm": "Nausicaa Ventures",
+    "connection": "MA International Finance, JHU SAIS (2006-2008)",
+    "role": "General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Geoffrey Chalmers",
+    "firm": "AV Ventures",
+    "connection": "MA, JHU SAIS",
+    "role": "Managing Director and President",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Gerald Elfenbein MD",
+    "firm": "Ellington Healthcare Partners",
+    "connection": "MD, JHU School of Medicine, 1966–1970; Medical Residency and Fellowship in Medical Oncology, JHU Hospital",
+    "role": "Managing Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Hui Hsing Ma",
+    "firm": "Blue7",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Co-Founder and Senior Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Jay Hess Ph.D",
+    "firm": "BioCrossroads",
+    "connection": "MD & PhD, JHU School of Medicine",
+    "role": "Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "José Lacerda",
+    "firm": "MSW Capital",
+    "connection": "post-grad in International Commerce & External Politics, JHU",
+    "role": "Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Josh Devon",
+    "firm": "MissionOG",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Justin Lee",
+    "firm": "Taiwania Capital",
+    "connection": "MS Finance, JHU",
+    "role": "Global Investment Manager",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Karan Teckchandani",
+    "firm": "Antler",
+    "connection": "Masters in Finance, JHU",
+    "role": "Senior Investment Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kathleen Starr",
+    "firm": "Flat World Partners",
+    "connection": "MA International Relations & Economics, JHU SAIS",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kathryn Gleason JD",
+    "firm": "TEAMFund",
+    "connection": "BA, JHU",
+    "role": "Co-Founder and Co-CEO",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kayarash Karimian, PhD",
+    "firm": "Cure Ventures",
+    "connection": "PhD, JHU School of Medicine (NSF Graduate Fellow; telomere biology under Nobel Laureate Carol Greider)",
+    "role": "Senior Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kenneth Fischbeck, MD",
+    "firm": "MDA Venture Investors",
+    "connection": "MD, JHU",
+    "role": "Advisory Committee Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kristen Gendron",
+    "firm": "Wild Wood Ventures",
+    "connection": "BA, JHU; women's soccer at JHU",
+    "role": "Principal & Chief Operating Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Lara Viada",
+    "firm": "Creas Impacto",
+    "connection": "MA International Development & Economics, JHU SAIS",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Laura Gerald MD",
+    "firm": "Kate B. Reynolds Charitable Trust",
+    "connection": "MD, JHU School of Medicine; pediatric clinical training, JHU",
+    "role": "President",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Lexi Lei",
+    "firm": "African Renaissance Holdings",
+    "connection": "MA, JHU SAIS",
+    "role": "Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Liat Cherkes-Bishkowitz",
+    "firm": "Turner Impact Capital",
+    "connection": "BA English Literature (minor Psychology), JHU",
+    "role": "Managing Director and Business Development",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Lily McGonagle",
+    "firm": "FedTech",
+    "connection": "BS and MEng Chemical & Biomolecular Engineering, JHU",
+    "role": "Program Manager, Portfolio Companies",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Lynda Moyer",
+    "firm": "Moai Capital",
+    "connection": "degree, JHU Carey Business School",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Manan Atit",
+    "firm": "Netra Health",
+    "connection": "BSE + MSE Biomedical Engineering, JHU",
+    "role": "Co-Founder & Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Puneet Gupta",
+    "firm": "Netra Health",
+    "connection": "BSE + MSE Biomedical Engineering & Engineering Mechanics, JHU",
+    "role": "Co-Founder & Investor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Marcia Lima",
+    "firm": "Viopas Ventures",
+    "connection": "Master of International Public Policy, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mariah Grubb",
+    "firm": "Renew Capital",
+    "connection": "MA Global Risk, JHU SAIS (2019–2020)",
+    "role": "Senior Consultant",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Marissa Moore",
+    "firm": "OMERS Ventures",
+    "connection": "MBA Health Care Management & MS Biotechnology, JHU",
+    "role": "Principal, Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Martin O'Connor II",
+    "firm": "Grit Capital Partners",
+    "connection": "BA Behavioral Sciences, JHU",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mary Egan",
+    "firm": "Seaya Capital",
+    "connection": "BA Economics & French Literature, JHU",
+    "role": "Senior Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kacey Wulff",
+    "firm": "Commonweal Investments",
+    "connection": "MPH Health Policy & Ethics, JHU Bloomberg School of Public Health",
+    "role": "Advisor",
+    "entityType": "Other"
+  },
+  {
+    "name": "Michael Catanzaro",
+    "firm": "Commonweal Investments",
+    "connection": "MA Government, JHU",
+    "role": "Senior Advisor",
+    "entityType": "Other"
+  },
+  {
+    "name": "Michael Kim MD",
+    "firm": "Regent Partners",
+    "connection": "BA, JHU",
+    "role": "Senior Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Pratt",
+    "firm": "Select Ventures",
+    "connection": "MS Marketing, JHU",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michael Weiner MD",
+    "firm": "Dolby Family Ventures",
+    "connection": "MPH Health Policy & Management, JHU; residency/fellowship training at JHU",
+    "role": "Scientific Advisory Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Michelle Zhou",
+    "firm": "GSR Ventures",
+    "connection": "BA Public Health Studies & Applied Math/Statistics, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Micol Chiesa Ph.D",
+    "firm": "Planet Fund",
+    "connection": "MA Environmental Economics, JHU SAIS",
+    "role": "Co-Founder & Head of Research",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mike Brooks",
+    "firm": "Alpine Consolidated",
+    "connection": "MA Applied Economics + BA International Studies, JHU",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Mike Steinmetz",
+    "firm": "College Hill Ventures",
+    "connection": "graduate of Peabody Institute of JHU",
+    "role": "Director & General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Miloni Madan",
+    "firm": "IVP",
+    "connection": "BA International Studies & Economics (with honors), JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Namho Kim Ph.D",
+    "firm": "Averin",
+    "connection": "PhD Chemical & Biomolecular Engineering, JHU",
+    "role": "Director, Asia",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Nao Gamo Ph.D",
+    "firm": "Verte Opportunity Fund",
+    "connection": "postdoctoral fellow + Research Associate, Biomedical Engineering, JHU",
+    "role": "Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Neil Sherman JD",
+    "firm": "Glilot Capital",
+    "connection": "BA, JHU",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Nicholas Java",
+    "firm": "Beyond Capital",
+    "connection": "BA, JHU",
+    "role": "Director of Due Diligence",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Olivia Gao",
+    "firm": "Verod-Kepple Africa Managers",
+    "connection": "MA International Economics & Development, JHU SAIS",
+    "role": "Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Pavan Arora",
+    "firm": "Millennium Network",
+    "connection": "BA Political Science & Economics, JHU",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Percy Li Ph.D",
+    "firm": "SWaN & Legend Venture Partners",
+    "connection": "PhD Applied Math & Statistics, JHU",
+    "role": "Financial Quantitative Analyst",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Peter Epstein",
+    "firm": "Allocate",
+    "connection": "MA International Relations & International Economics, JHU SAIS",
+    "role": "Managing Director of Relationship Management",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Phillip Down",
+    "firm": "VMDVC Ventures",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Phillip Liu MD",
+    "firm": "Archon.Capital",
+    "connection": "BA Biology & Economics, JHU",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Poppy Crum",
+    "firm": "Giant Step Capital",
+    "connection": "Postdoctoral Research Faculty, Dept of BME, JHU School of Medicine",
+    "role": "Managing Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Randy Washington",
+    "firm": "TCP Venture Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ravindra Airlangga",
+    "firm": "Vynn Capital",
+    "connection": "MS, JHU (2016)",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Reid Wiseman",
+    "firm": "Scientia Ventures",
+    "connection": "MS Systems Engineering, JHU, 2006",
+    "role": "Consultant",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Robert Carr MD",
+    "firm": "Stony Lonesome Group",
+    "connection": "MPH '86, JHU Bloomberg SPH; member, JHU Bloomberg SPH Advisory Board",
+    "role": "Venture Partner & Board Observer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Rochelle Walensky, MD",
+    "firm": "Flare Capital Partners",
+    "connection": "MD, JHU School of Medicine, 1995; Internal Medicine Residency, JHU Hospital (1995–1998)",
+    "role": "Executive Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ron Boger",
+    "firm": "Compound",
+    "connection": "BS Biomedical Engineering & MS Computer Science, JHU; Piano Performance, Peabody Institute of JHU",
+    "role": "Venture Partner, Clinical",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Ron Chiong",
+    "firm": "AvantFaire",
+    "connection": "MS Space Systems Engineering, JHU Whiting School of Engineering (2022–2024)",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Rumi Yokota",
+    "firm": "Joyance Partners",
+    "connection": "MBA Healthcare Management, Technology & Innovation, JHU",
+    "role": "Venture Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Salil Patel",
+    "firm": "Virtuosity",
+    "connection": "graduate, JHU School of Medicine",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sam Dreyfuss",
+    "firm": "Blumberg Capital",
+    "connection": "MS Applied Economics (Econometrics & Data Science), JHU",
+    "role": "Data Scientist",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Samuel Austin",
+    "firm": "Energize Capital",
+    "connection": "BA International Studies, JHU",
+    "role": "Principal, Endurance",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sara Taylor",
+    "firm": "British International Investment",
+    "connection": "MA International Development, JHU SAIS",
+    "role": "Director and Head of Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Stephen Priestley",
+    "firm": "British International Investment",
+    "connection": "MA International Affairs, JHU SAIS",
+    "role": "Managing Director, Financial Services Group",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Scott Pyne",
+    "firm": "TRAC VC",
+    "connection": "BS Engineering, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Scott Rubin",
+    "firm": "Lux Capital",
+    "connection": "MA Writing Seminars (Fiction), JHU",
+    "role": "Partner, Marketing",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sergej Kalaschnikow",
+    "firm": "Verve Ventures",
+    "connection": "MA International Affairs, JHU SAIS (Energy, Resources & Environment)",
+    "role": "Partner & Chief Financial Officer",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sharon Weinberg JD",
+    "firm": "Blue Leaf Ventures",
+    "connection": "BA, JHU; women's lacrosse at JHU",
+    "role": "Co-Founder",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Shawn Wang",
+    "firm": "MindWorks Ventures",
+    "connection": "MS Finance, JHU",
+    "role": "Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sherri Ramsay",
+    "firm": "Cambridge Global",
+    "connection": "MS (with honors), JHU",
+    "role": "Senior Advisor, National Security",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Sidh Chaudhary",
+    "firm": "Arboretum Ventures",
+    "connection": "BS Chemical & Biomolecular Engineering, JHU",
+    "role": "Analyst",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Signe Fosgaard",
+    "firm": "Green Finance Institute",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Director, Denmark",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Simon Barnett",
+    "firm": "Dimension",
+    "connection": "BS Chemical & Biomolecular Engineering, JHU",
+    "role": "Partner and Head of Research",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Spencer Kimber",
+    "firm": "Shannon Life Sciences",
+    "connection": "MS Regulatory Sciences, JHU",
+    "role": "Venture Principal",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Joseph Kim Ph.D",
+    "firm": "Linea Investments",
+    "connection": "PhD, JHU",
+    "role": "Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Stanley Jung",
+    "firm": "Linea Investments",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Theodore Lee",
+    "firm": "25m Health",
+    "connection": "GP, A-Level Capital (JHU-focused micro fund); researcher at JHU",
+    "role": "Senior Associate",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Theodore Schenkein, MD",
+    "firm": "NeuroImmune Therapeutics",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Tianjun Bai",
+    "firm": "Z&Y Capital",
+    "connection": "degree, JHU Carey Business School",
+    "role": "Founding Partner & Managing Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Tyler Frank",
+    "firm": "AGE Crypto",
+    "connection": "MA International Economics & International Relations, JHU SAIS",
+    "role": "Co-Founder & General Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Van Truskett",
+    "firm": "Big Idea Ventures",
+    "connection": "PhD Chemical Engineering, JHU",
+    "role": "Discovery Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Kris Jenner, DPhil/MD",
+    "firm": "Rock Springs Capital",
+    "connection": "MD, Johns Hopkins School of Medicine; completed general surgery residency at JHU Hospital; endowed a named professorship at JHU; founded Baltimore-based healthcare hedge fund in 2013; JHU Carey Executive in Residence",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Veric Tan",
+    "firm": "Rock Springs Capital",
+    "connection": "BS, JHU (computational materials research at KT Ramesh Group)",
+    "role": "Analyst",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Vincent Faber",
+    "firm": "Elaia Partners",
+    "connection": "BA Mathematics, JHU",
+    "role": "Investment Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Weibo Shao",
+    "firm": "Summer Capital",
+    "connection": "MS, JHU Bloomberg School of Public Health",
+    "role": "Healthcare Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "William Hendricks, MD",
+    "firm": "Vetted Capital",
+    "connection": "degree, JHU School of Medicine",
+    "role": "Scientific Advisor & Board Member",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "William McNulty",
+    "firm": "UA1",
+    "connection": "MA Government, JHU",
+    "role": "Partner",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Wouter Vandersypelaere",
+    "firm": "Kampani",
+    "connection": "MA International Relations and Economics, JHU SAIS",
+    "role": "Executive Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Wu Chenxu",
+    "firm": "HJ Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Investment Director",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Wu Jie",
+    "firm": "MPM BioImpact",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Head of APAC, Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Xiaoban Xin Ph.D",
+    "firm": "H7 BioCapital",
+    "connection": "postdoctoral training, JHU School of Medicine",
+    "role": "Advisor",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Yan Hai MD",
+    "firm": "In Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Technical Consultant",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Yi-fan Zhu MD",
+    "firm": "Shenzhen Yifeng Investments",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Healthcare Investments",
+    "entityType": "VC – Generalist"
+  },
+  {
+    "name": "Melissa Fensterstock, MBA",
+    "firm": "Material Impact",
+    "connection": "BA Neuroscience, JHU; current Executive in Residence at JHU; previously spun out therapeutics companies from JHU labs; MPhil Bioscience Enterprise (Cambridge), MBA (HBS)",
+    "role": "Managing Partner",
+    "entityType": "VC – Energy"
+  },
+  {
+    "name": "Anna Brady-Estevez, PhD",
+    "firm": "American DeepTech",
+    "connection": "BS Chemical Engineering, JHU (varsity athlete and team captain); PhD Chemical & Environmental Engineering, Yale (NSF Fellow); former NSF SBIR Program Director managing $250M+ in deep tech grants",
+    "role": "Founding Partner",
+    "entityType": "VC – Energy"
+  },
+  {
+    "name": "Hillel Moerman",
+    "firm": "Goldman Sachs Growth",
+    "connection": "MBA, Johns Hopkins Carey Business School; Goldman Sachs Partner and Co-Head, Private Capital Group Americas",
+    "role": "Managing Director & Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Christopher Pacitti",
+    "firm": "Elsewhere Partners",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Chris Dimitropoulos",
+    "firm": "Alpha Wave Global",
+    "connection": "MS Biotechnology, JHU, 2004; Advisory Board, JHU Biomedical Engineering",
+    "role": "Managing Director, Biotechnology Investments (Private and Public)",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Adam Emmert",
+    "firm": "Tiger Infrastructure Partners",
+    "connection": "MA International Affairs & International Economics, JHU SAIS",
+    "role": "Senior Managing Director",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Alan Freudenstein",
+    "firm": "NEXT Investors",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder, Managing Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Stephane Kurgan",
+    "firm": "TCV",
+    "connection": "Diploma International Relations, JHU SAIS",
+    "role": "Executive Advisor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Edward Chan",
+    "firm": "1315 Capital",
+    "connection": "BS Biomedical Engineering, JHU",
+    "role": "Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "David Morehous ESQ",
+    "firm": "Sixeight",
+    "connection": "BA, JHU (1993)",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Jun II Kwun",
+    "firm": "Actium (Dallas)",
+    "connection": "MA International Relations, JHU (1991–1993)",
+    "role": "Founder & Managing Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Tae-Heum Jeong Ph.D",
+    "firm": "KSV Global Innovations",
+    "connection": "JHU alumnus (per PitchBook; specific degree unverified)",
+    "role": "Co-Founder & Executive Director",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Brandon Pettagrue",
+    "firm": "Stonehenge Capital",
+    "connection": "MA, JHU SAIS, 1997–1999",
+    "role": "Director",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "David Rauber",
+    "firm": "Health Enterprise Partners",
+    "connection": "BS Economics, JHU, 2012–2016",
+    "role": "Vice President",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Frank Sands Jr.",
+    "firm": "Sands Capital",
+    "connection": "MS, JHU, 1993",
+    "role": "Co-Chief Investment Officer",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Massimo Marolo",
+    "firm": "Sands Capital",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "Senior Research Analyst",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Shreya Singh",
+    "firm": "Sands Capital",
+    "connection": "BS & MS Biomedical Engineering, JHU",
+    "role": "Senior Associate",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "André-Xavier Cooreman",
+    "firm": "Ackermans & van Haaren",
+    "connection": "postgraduate studies, International Relations, JHU SAIS Bologna (1988)",
+    "role": "Executive Committee Member",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Edward Sappin",
+    "firm": "Sappin Global Investments",
+    "connection": "MA International Relations (Boren & Bradley Fellow), JHU SAIS",
+    "role": "Chief Executive Officer",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Max Levine",
+    "firm": "Cynosure Partners",
+    "connection": "BA Psychology, JHU",
+    "role": "Director",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Darsh Patel",
+    "firm": "Bessemer Venture Partners",
+    "connection": "BS Biomedical Engineering & Applied Mathematics (with honors), JHU",
+    "role": "Investor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "J. David Selvia",
+    "firm": "The Cathay Fund",
+    "connection": "degree, JHU",
+    "role": "Managing Director",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Justin Han JD",
+    "firm": "Emigrant Partners",
+    "connection": "BA History, JHU, 2006–2010",
+    "role": "Deputy General Counsel",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Kate Kelberg",
+    "firm": "Long Arc Capital",
+    "connection": "BA International Studies (with honors), JHU",
+    "role": "Managing Director, Chief Operating Officer",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Katharine Garvin",
+    "firm": "Noteus Partners",
+    "connection": "BA Economics (with honors), JHU",
+    "role": "Chief Operating Officer",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Lefei Sun",
+    "firm": "General Atlantic",
+    "connection": "MS Neurosciences, JHU School of Medicine, 2006",
+    "role": "Managing Director and Head of Healthcare for China",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Peter Choe",
+    "firm": "General Atlantic",
+    "connection": "BS Biomedical Engineering & Computer Science, JHU",
+    "role": "Vice President, Mergers & Acquisitions",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Liz Fowler Ph.D",
+    "firm": "Heritage Group",
+    "connection": "PhD, JHU Bloomberg SPH; Distinguished Scholar, JHU Bloomberg SPH & Carey Business School",
+    "role": "Advisor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Mona Siddiqui",
+    "firm": "Heritage Group",
+    "connection": "MD, JHU; former senior role at JHU Hospital",
+    "role": "Advisor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Marissa Lowman",
+    "firm": "New Markets Venture Partners",
+    "connection": "BA, JHU",
+    "role": "Senior Advisor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Matthew Auran",
+    "firm": "Vanara Capital",
+    "connection": "BA, JHU (Krieger School of Arts & Sciences)",
+    "role": "Partner & Head of Investments",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Sidney Kullar",
+    "firm": "Catalyst Investors",
+    "connection": "BA Applied Mathematics & Statistics, JHU",
+    "role": "Vice President",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Stephanie Zhang",
+    "firm": "Garnett Station Partners",
+    "connection": "BA, JHU",
+    "role": "Senior Associate",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Stephen Marksheid",
+    "firm": "Ample Luck International",
+    "connection": "MA International Affairs, JHU (1980)",
+    "role": "Team Member, Investments",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Steven Wang Ph.D",
+    "firm": "OrbiMed",
+    "connection": "PhD Medicinal Chemistry, JHU",
+    "role": "Partner",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Talia Kirschbaum",
+    "firm": "MVM Partners",
+    "connection": "BS Biomedical Engineering, JHU; research at JHU Hospital",
+    "role": "Healthcare Investor",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Tara Guelig",
+    "firm": "Lightsmith Group",
+    "connection": "MS Finance, JHU Carey Business School",
+    "role": "Director of Sustainability",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Vanessa Stachtou",
+    "firm": "Elikonos Capital",
+    "connection": "MA, JHU SAIS",
+    "role": "Investment Manager",
+    "entityType": "Growth Equity"
+  },
+  {
+    "name": "Morris Offit",
+    "firm": "Offit Capital Advisors",
+    "connection": "BA JHU '57; Trustee Emeritus and Past Chair, JHU Board of Trustees",
+    "role": "Chairman",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Ryland Sumner, JD, CFA",
+    "firm": "Pointfield Partners",
+    "connection": "JHTV IDEA Advisory Board member (non-alumnus; operationally entangled with JHU via Bisciotti's Blackbird funding)",
+    "role": "President",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Jonathan Sinex",
+    "firm": "Cordish Private Ventures",
+    "connection": "Active JHU PEVC speaker; Carey ecosystem participant",
+    "role": "Managing Director",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Heather Miller",
+    "firm": "Private Investor / JHU Trustee",
+    "connection": "BA JHU '88; current JHU Trustee; former Merrill Lynch MD",
+    "role": "Active Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Charles Huang",
+    "firm": "Charles Huang",
+    "connection": "BA Public Health, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Andrew Ackerman",
+    "firm": "Andrew Ackerman",
+    "connection": "BA, JHU (A&S), 1993",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Joachim Gfoeller Jr.",
+    "firm": "Nottingham Spirk",
+    "connection": "MA Economics & Latin American Studies (with honors), JHU SAIS, 1983",
+    "role": "President",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Ryo Ishizuka",
+    "firm": "Ryo Ishizuka",
+    "connection": "BA Economics, JHU (2001)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Ahmad Ishaq",
+    "firm": "Spectre Holdings",
+    "connection": "MA Government, JHU",
+    "role": "Founder & Managing Director",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Samuel Klatt",
+    "firm": "10 East Partners",
+    "connection": "BA Economics (minor Entrepreneurship & Management), JHU; MS Real Estate, Columbia",
+    "role": "Founder and Chief Executive Officer",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Charles Clavit",
+    "firm": "Clavit Capital",
+    "connection": "BA Economics, JHU (1978)",
+    "role": "Chief Executive Officer",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Elliot Menschik Ph.D",
+    "firm": "Elliot Menschik",
+    "connection": "BSE & MSE Electrical & Computer Engineering, JHU, 1993; MD & PhD, UPenn",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Tim Junio Ph.D",
+    "firm": "Tim Junio",
+    "connection": "BA and MA, JHU (PhD from UPenn)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Adam Toll",
+    "firm": "Adam Toll",
+    "connection": "BA History and Writing, JHU (1988-1992)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Raaid Ahmad",
+    "firm": "Raaid Ahmad",
+    "connection": "BS Computer Science & BS Applied Math/Statistics, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Andrew Koslow DC",
+    "firm": "Andrew Koslow",
+    "connection": "BS and MS, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Catherine Chiu",
+    "firm": "Catherine Chiu",
+    "connection": "BS Electrical Engineering, JHU (1978)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Pierfrancesco Pozzato",
+    "firm": "Pierfrancesco Investments",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Tim Graczewski",
+    "firm": "Tim Graczewski",
+    "connection": "MA International Relations and Economics, JHU SAIS",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Aris Melissaratos",
+    "firm": "Aris Melissaratos",
+    "connection": "BS Engineering, JHU; Enterprise Development Advisor to JHU President (2007–2013); Executive-in-Residence, JHU Carey Business School",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Ben Shapiro",
+    "firm": "Ben Shapiro",
+    "connection": "BA Economics and International Studies, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Caspar Schauseil",
+    "firm": "Caspar Schauseil",
+    "connection": "MA International Relations and Economics, JHU SAIS (2005-2007)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Colin Reid",
+    "firm": "Colin Reid",
+    "connection": "MS Applied Economics, JHU (2012-2014)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "David Hughes Ph.D",
+    "firm": "David Hughes",
+    "connection": "PhD candidate, JHU",
+    "role": "Partner",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "George Schlossnagle",
+    "firm": "George Schlossnagle",
+    "connection": "MA Mathematics, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Hemal Parthasarathy",
+    "firm": "Hemal Parthasarathy",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Howard Xu",
+    "firm": "Howard Xu",
+    "connection": "BS Electrical Engineering and Economics, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "James Abraham",
+    "firm": "James Abraham",
+    "connection": "MA International Relations, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Kenneth Lehman",
+    "firm": "KKP Group",
+    "connection": "BA, JHU",
+    "role": "Managing Partner",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Khalid Itum",
+    "firm": "Khalid Itum",
+    "connection": "BA International Affairs/Finance/Entrepreneurship (2002) and MA International Affairs/Finance (2003), JHU SAIS",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Mark Belinsky",
+    "firm": "Mark Belinsky",
+    "connection": "degree, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Matthew Arnold",
+    "firm": "NatureVest",
+    "connection": "MA International Relations, JHU",
+    "role": "Global Head, Impact Investing",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Matthew Daimler",
+    "firm": "Matthew Daimler",
+    "connection": "BS Computer Engineering (minor Entrepreneurship), JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Maxim Budyansky",
+    "firm": "Maxim Budyansky",
+    "connection": "MSE Bioengineering Innovation and Design, JHU (2011)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Michael Schump Ph.D",
+    "firm": "Michael Schump",
+    "connection": "degree, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Nilay Jhaveri",
+    "firm": "Nilay Jhaveri",
+    "connection": "BS Economics and Computer Science, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Oussama Himani, PhD",
+    "firm": "Parkview",
+    "connection": "PhD Economics, JHU",
+    "role": "Chief Investment Officer",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Paul Intlekofer JD",
+    "firm": "Paul Intlekofer",
+    "connection": "BA, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Pete Huitsing",
+    "firm": "Pete Huitsing",
+    "connection": "MS Computer Science, JHU",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Peter Wang",
+    "firm": "Oshen Holdings",
+    "connection": "MBA Healthcare, Technology & Innovation, JHU Carey Business School",
+    "role": "Managing Partner",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Sean Kraus JD",
+    "firm": "Whittier Trust",
+    "connection": "BA International Studies, JHU",
+    "role": "Senior Vice President",
+    "entityType": "Family Office"
+  },
+  {
+    "name": "Thomas Deveney",
+    "firm": "Thomas Devenney",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Victor Oviedo",
+    "firm": "Victor Oviedo",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "Angel Investor",
+    "entityType": "Angel Investor"
+  },
+  {
+    "name": "Michael D. Hankin",
+    "firm": "Brown Advisory",
+    "connection": "Emeritus Trustee of both JHU and JHM; former Chair, APL Board of Managers (2015–21)",
+    "role": "Co-CEO",
+    "entityType": "Wealth Manager"
+  },
+  {
+    "name": "Tom Geddes",
+    "firm": "Brown Advisory",
+    "connection": "Graduate degree, JHU",
+    "role": "Partner / Senior Advisor / Portfolio Manager",
+    "entityType": "Wealth Manager"
+  },
+  {
+    "name": "Mark Kelly",
+    "firm": "Brown Advisory",
+    "connection": "JHU Bloomberg School of Public Health",
+    "role": "Healthcare Equity Analyst",
+    "entityType": "Wealth Manager"
+  },
+  {
+    "name": "Chris Hoehn-Saric",
+    "firm": "Sterling Partners",
+    "connection": "JHU Engineering alumnus; current JHU Trustee; both parents were JHU Psychiatry faculty",
+    "role": "Co-Founder, Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Rudolf Hoehn-Saric",
+    "firm": "Sterling Partners",
+    "connection": "BA, JHU, 1983; Trustee, JHU Board of Trustees",
+    "role": "Co-Founder & Senior Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "John Avirett",
+    "firm": "StepStone Group",
+    "connection": "BA Political Science, JHU; JHU football alum; funds JHU FastForward U Innovation & Entrepreneurship Challenge",
+    "role": "Partner, VC & Growth Equity",
+    "entityType": "Fund of Funds"
+  },
+  {
+    "name": "Alvin Mak",
+    "firm": "StepStone Group",
+    "connection": "JHU undergraduate (KSAS '23); former A-Level Capital member",
+    "role": "Senior Analyst",
+    "entityType": "Fund of Funds"
+  },
+  {
+    "name": "Yanrong Dai",
+    "firm": "StepStone Group",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Analyst / Associate",
+    "entityType": "Fund of Funds"
+  },
+  {
+    "name": "Burke Griffin",
+    "firm": "StepStone Group",
+    "connection": "JHU Master's student; JHU football roster 2023",
+    "role": "Analyst, VC & Growth Equity",
+    "entityType": "Fund of Funds"
+  },
+  {
+    "name": "Bosun Hau",
+    "firm": "Tybourne Capital",
+    "connection": "MSc Biotechnology, JHU; JHTV IDEA Board member; JHU Leadership Fellow",
+    "role": "MD & Co-Head Private Investments",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Matt Tremblay, PhD",
+    "firm": "Blackbird Laboratories",
+    "connection": "Leads Hopkins-anchored drug discovery accelerator (Bisciotti Foundation funded)",
+    "role": "CEO / Managing Director",
+    "entityType": "Biotech Accelerator"
+  },
+  {
+    "name": "Geoff Lynn, MD, PhD",
+    "firm": "Blackbird Laboratories",
+    "connection": "MD JHU SOM; Avidea Technologies founded at JHU FastForward",
+    "role": "Entrepreneur in Residence",
+    "entityType": "Biotech Accelerator"
+  },
+  {
+    "name": "Esther Park, PhD",
+    "firm": "Blackbird Laboratories",
+    "connection": "PhD Molecular Biophysics, JHU SOM (Rachel Green lab)",
+    "role": "Associate Director, Ventures",
+    "entityType": "Biotech Accelerator"
+  },
+  {
+    "name": "Eddie Cherok",
+    "firm": "Blackbird Laboratories",
+    "connection": "Staff at Hopkins-partnered VC accelerator",
+    "role": "Chief Business Officer",
+    "entityType": "Biotech Accelerator"
+  },
+  {
+    "name": "Barbara Slusher, PhD",
+    "firm": "Bluefield Innovations (JHU–Deerfield JV)",
+    "connection": "PhD Pharmacology JHU SOM; MAS JHU Carey; Professor of Neurology, JHU SOM",
+    "role": "Steering Committee",
+    "entityType": "Innovation JV"
+  },
+  {
+    "name": "Jeanine Pennington, PhD",
+    "firm": "Bluefield Innovations (JHU–Deerfield JV)",
+    "connection": "JHTV Portfolio Director (JHU staff)",
+    "role": "Portfolio Director, JHTV",
+    "entityType": "Innovation JV"
+  },
+  {
+    "name": "Michael Weinmann",
+    "firm": "MVolution Partners",
+    "connection": "JHU Whiting School of Engineering",
+    "role": "Founder",
+    "entityType": "Venture Debt"
+  },
+  {
+    "name": "John Schilling, MD",
+    "firm": "TPG Capital",
+    "connection": "MS Biomedical Engineering, JHU (Bozzelli Scholar); general surgery residency, Johns Hopkins Hospital; MD, University of Chicago",
+    "role": "Co-Managing Partner, TPG Capital",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Samy Ramadane",
+    "firm": "TPG Capital",
+    "connection": "BS Biomedical Engineering, JHU (Dean's List, NSCAA Scholar All-American); undergraduate researcher, JHU Medicine & BME Design; JHU Men's Soccer team",
+    "role": "Associate (Life Sciences / Healthcare)",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sam Chawla",
+    "firm": "Perceptive Advisors",
+    "connection": "BA Economics, Johns Hopkins University; member, JHU Krieger School of Arts & Sciences Dean's Advisory Board; healthcare-focused portfolio manager",
+    "role": "Portfolio Manager",
+    "entityType": "Healthcare HF"
+  },
+  {
+    "name": "Jeffrey Aronson, JD",
+    "firm": "Centerbridge Partners",
+    "connection": "BA JHU (with honors) 1980; JD, NYU Law; former Chair, JHU Board of Trustees (elected 2013); endowed $10M Aronson Center for International Studies at JHU; co-founded Centerbridge in 2005",
+    "role": "Co-Founder & Managing Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Vance Vanier, MD",
+    "firm": "Chicago Pacific Founders",
+    "connection": "MD, Johns Hopkins School of Medicine; co-founded Chicago Pacific Founders, a PE firm focused on health services and senior living",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Healthcare PE"
+  },
+  {
+    "name": "Ken Stoll",
+    "firm": "Chicago Pacific Founders",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Senior Advisor",
+    "entityType": "Healthcare PE"
+  },
+  {
+    "name": "Nimesh Shah",
+    "firm": "K2 HealthVentures",
+    "connection": "BS Biomedical Engineering, Johns Hopkins University; formerly Domain Associates (healthcare VC) and Hercules Capital; leads venture lending to life sciences companies",
+    "role": "Managing Director",
+    "entityType": "Venture Debt"
+  },
+  {
+    "name": "David Lee JD",
+    "firm": "Samsung NEXT",
+    "connection": "BA Physics/Mathematics, JHU",
+    "role": "Head",
+    "entityType": "Corp. VC"
+  },
+  {
+    "name": "Boris Gutin",
+    "firm": "GCP Capital Partners",
+    "connection": "BA (with honors), JHU, 1996",
+    "role": "Co-Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Vasudev Bailey Ph.D",
+    "firm": "Hologen",
+    "connection": "PhD Biomedical Engineering, JHU School of Medicine (Siebel Scholar, Medtronic Scholar); Board, JHU BME",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Garrick Ahn",
+    "firm": "Caltius Equity Partners",
+    "connection": "BS & MS Electrical & Computer Engineering, JHU; MBA Harvard",
+    "role": "Co-Founder & Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Jeffrey Raider",
+    "firm": "Mammoth Brands",
+    "connection": "BA & MA International Studies, JHU (A&S '03, SAIS '04)",
+    "role": "Co-Founder & Co-CEO",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Cohen",
+    "firm": "BIG Summit",
+    "connection": "MS, JHU (1993)",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Emilie Choi",
+    "firm": "Coinbase Global",
+    "connection": "BA Economics, JHU",
+    "role": "Chief Operating Officer",
+    "entityType": "Custodian"
+  },
+  {
+    "name": "Barry Uphoff",
+    "firm": "Martis Capital",
+    "connection": "BA Biochemistry (Phi Beta Kappa), JHU; Rhodes Scholar",
+    "role": "Founder & Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Luke Schroeder",
+    "firm": "Gryphon Investors",
+    "connection": "BA Economics, JHU; MBA Stanford",
+    "role": "Deal Partner & Co-Investor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Jeffrey Barber",
+    "firm": "TA Associates",
+    "connection": "BA Political Science (all honors), JHU, 1995; Chair, JHU Board of Trustees (2025–)",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Michael Pollan",
+    "firm": "Omnes Capital",
+    "connection": "MA, JHU SAIS",
+    "role": "Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Ryan Rakestraw",
+    "firm": "Temasek Holdings",
+    "connection": "MS Electrical Engineering, JHU",
+    "role": "Director",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Ethan Leder JD",
+    "firm": "Precision BioSciences",
+    "connection": "BA Political Science & Economics, JHU, 1984; Trustee, JHU Board of Trustees",
+    "role": "Co-Founder & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Ralph Gootee",
+    "firm": "TigerEye",
+    "connection": "MS Applied Mathematics, JHU; software engineer at JHU Applied Physics Lab",
+    "role": "Co-Founder & Chief Technology Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Barbara Hill",
+    "firm": "NexPhase Capital",
+    "connection": "BA and MS, JHU; former senior executive at JHU Health System",
+    "role": "Operating Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "C. Daniels",
+    "firm": "Prairie Capital",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Donald Brown MD",
+    "firm": "Authentickx",
+    "connection": "MS Biotechnology, JHU (2017)",
+    "role": "Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Christophe Fraise",
+    "firm": "Hostfully",
+    "connection": "BA Economics, JHU",
+    "role": "Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Daniel Yardley",
+    "firm": "Patriot Capital",
+    "connection": "MBA Finance, JHU Carey Business School",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Edward Dunn",
+    "firm": "Patriot Capital",
+    "connection": "BS Mechanical Engineering, JHU",
+    "role": "Executive Advisory Board Member",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Scott Schafer",
+    "firm": "Cortec Group",
+    "connection": "BA, JHU",
+    "role": "Founding Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Beckett Jackson",
+    "firm": "AE Industrial Partners",
+    "connection": "BA International Studies, JHU",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "David Guyer MD",
+    "firm": "EyePoint Pharmaceuticals",
+    "connection": "MD, JHU School of Medicine; Ophthalmology Residency, Wilmer Eye Institute, JHU Hospital",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Fanny Letier",
+    "firm": "GENEO Capital Entrepreneurs",
+    "connection": "undergraduate degree, JHU (also Sciences Po and ENA)",
+    "role": "Co-Founder & Strategic Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Robert Finkel",
+    "firm": "Forbidden Root",
+    "connection": "BA, JHU (Class of 1985)",
+    "role": "Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Emmett T. Cunningham, Jr., MD, PhD, MPH",
+    "firm": "Galera Therapeutics",
+    "connection": "MD & MPH Epidemiology, JHU; Fellowship, Wilmer Eye Institute; Innovator in Residence, JHTV",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Leonard Levie",
+    "firm": "American Kraft",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Oliver-Kurt Drews",
+    "firm": "Clifftop Colony",
+    "connection": "MA International Economics, JHU SAIS (1992)",
+    "role": "Managing Partner",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Robert Parker",
+    "firm": "American Terawatt",
+    "connection": "BA, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Adegoke Olubusi",
+    "firm": "Helium Health",
+    "connection": "MS Engineering & Industrial Management, JHU Whiting School of Engineering (2014–2016)",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Jesse Watson",
+    "firm": "Virgo Investments",
+    "connection": "BA International Relations (with highest honors, Phi Beta Kappa), JHU; studied at JHU SAIS",
+    "role": "Founder, Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Mark Perez",
+    "firm": "Virgo Investments",
+    "connection": "BS Chemical Engineering, JHU, 1998; co-founded Virgo with fellow JHU alum Jesse Watson",
+    "role": "Founding Partner and Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Kyle Teamey",
+    "firm": "ESS Tech",
+    "connection": "MA International Finance & Energy Policy, JHU SAIS",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Sanju Bansal",
+    "firm": "EverQuote",
+    "connection": "MS Computer Science, JHU; co-founder MicroStrategy",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Stephen Markscheid",
+    "firm": "Charlton Aria Capital",
+    "connection": "MA International Affairs, JHU (1980)",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Christoph Lengauer, PhD",
+    "firm": "Hookipa Pharma",
+    "connection": "Postdoc, Vogelstein lab, JHU SOM (from 1994); Assoc. Professor, Sidney Kimmel Cancer Center, JHU SOM; MBA, JHU Carey; Adjunct Assoc. Professor, JHU SOM (15+ years)",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Rafael Beyar MD",
+    "firm": "Innovations in Vision",
+    "connection": "Cardiology Fellowship, JHU (1985–1987); MPH, JHU Bloomberg SPH (2008); founded JHU-Technion collaboration program; JHU Society of Scholars Medal",
+    "role": "Co-Founder & Board Member",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Thomas Clark",
+    "firm": "Partners Group",
+    "connection": "BA International Relations (Hodson Scholar, Phi Beta Kappa), JHU; graduate coursework, JHU SAIS; MBA, Harvard",
+    "role": "Managing Director, Private Equity Goods and Products",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Wesley Nichols",
+    "firm": "MarketingNPV",
+    "connection": "MA Business, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Bruce Friedrich JD",
+    "firm": "Good Food Institute",
+    "connection": "MA Education, JHU",
+    "role": "Co-Founder, President & CEO",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Kathy Mitsuko Koii",
+    "firm": "Fast Retailing",
+    "connection": "MA, JHU SAIS",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Kenan Turnacioglu, PhD",
+    "firm": "Clasp Therapeutics",
+    "connection": "attended JHU School of Medicine",
+    "role": "Investor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Mellody Hobson",
+    "firm": "JP Morgan Chase",
+    "connection": "Honorary Doctorate, JHU; Board Director, JP Morgan Chase",
+    "role": "Board Member",
+    "entityType": "Investment Bank"
+  },
+  {
+    "name": "Michael Jackson",
+    "firm": "Ironwood Partners",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Co-Founder & Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Ryan Lanpher",
+    "firm": "Informatica",
+    "connection": "BA International Studies, JHU",
+    "role": "Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Thomas Jetter Ph.D",
+    "firm": "OSF Invest",
+    "connection": "post-graduate International Relations, JHU SAIS; SAIS Europe Advisory Council",
+    "role": "Board Member",
+    "entityType": "Other"
+  },
+  {
+    "name": "Bruce Schulman",
+    "firm": "NGP Energy Technology Partners",
+    "connection": "MA International Affairs, JHU SAIS",
+    "role": "Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Casey Hammontree",
+    "firm": "Resolute Capital",
+    "connection": "MS Biotechnology Enterprise & Entrepreneurship, JHU",
+    "role": "Partner & Chief Operating Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Eric Rowinsky MD",
+    "firm": "Purple Biotech",
+    "connection": "Oncology Fellowship, JHU; Associate Professor of Oncology, JHU SOM (1988–1996)",
+    "role": "Chairman",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Franklin Berger Ph.D",
+    "firm": "Atea Pharmaceuticals",
+    "connection": "BA International Relations & MA International Economics, JHU",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "John Lewis",
+    "firm": "Unitas Capital",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "Chief Executive Officer",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "David Apple",
+    "firm": "ScreenPlay",
+    "connection": "BS Mechanical Engineering, JHU (1999-2003)",
+    "role": "Chief Business Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Gautam Ivatury",
+    "firm": "Melar Acquisition Corp. I",
+    "connection": "MA, JHU SAIS (International Economics & International Studies)",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Joseph Lipscomb",
+    "firm": "Arborview Capital",
+    "connection": "MA, JHU SAIS; advisory board member at JHU SAIS",
+    "role": "Co-Founder & Co-CEO",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Mahesh Krishnan MD",
+    "firm": "DaVita Ventures",
+    "connection": "Nephrology Fellowship, JHU; MPH, JHU Bloomberg SPH; MBA, JHU Carey Business School",
+    "role": "Group Vice President",
+    "entityType": "Corp. VC"
+  },
+  {
+    "name": "Patrick Lee",
+    "firm": "Ares Life Sciences",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Todd Fisher",
+    "firm": "KKR Real Estate Finance",
+    "connection": "MA International Affairs, JHU SAIS; Advisory Council member at SAIS",
+    "role": "Board Member",
+    "entityType": "Real Estate"
+  },
+  {
+    "name": "Vladimir Gutin",
+    "firm": "TZP Group",
+    "connection": "BA Economics, JHU",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Alexander Zhavoronkov",
+    "firm": "InSilico Medicine",
+    "connection": "MS Biotechnology, JHU; founded Insilico Medicine at JHU, Baltimore (2014)",
+    "role": "Co-Founder, Co-Chairman",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Aneesh Chopra",
+    "firm": "CareJourney",
+    "connection": "BA Public Health, JHU, 1994",
+    "role": "Investor",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Caroline Popper MD",
+    "firm": "Eaton Square",
+    "connection": "Internal Medicine internship, JHU/Bayview (1985–1987); Anatomic & Clinical Pathology residency, JHU SOM (1987–1991); MPH, JHU Bloomberg SPH, 1991; member, JHU Bloomberg SPH Advisory Board",
+    "role": "Principal",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Crissy Behrens",
+    "firm": "Insight Partners",
+    "connection": "BA, JHU; MBA, University of Chicago",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Steven Udvarhelyi, MD",
+    "firm": "Insight Partners",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Senior Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "David Koehn",
+    "firm": "The Batchery",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Erik Harrell",
+    "firm": "Duett",
+    "connection": "BA International Relations, JHU (1988); also studied at JHU SAIS",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "George Kikvadze",
+    "firm": "BitFury",
+    "connection": "MA International Relations & Economics, JHU SAIS, 2002",
+    "role": "Executive Vice Chairman",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Girish Rishi",
+    "firm": "Cognite",
+    "connection": "MA International Public Policy, JHU SAIS",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Javier Romero",
+    "firm": "ChinaLink ESG Technologies",
+    "connection": "International Finance graduate studies, JHU SAIS",
+    "role": "Founder & Chairman",
+    "entityType": "Corp. VC"
+  },
+  {
+    "name": "John Dills",
+    "firm": "Great Plains Capital",
+    "connection": "degree, JHU",
+    "role": "Founder & Chief Executive Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Michael Kauffman, MD, PhD",
+    "firm": "Verastem",
+    "connection": "MD & PhD, JHU School of Medicine, 1992",
+    "role": "Board Member & President",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Wooseok Jun",
+    "firm": "ICG",
+    "connection": "BA International Studies, JHU",
+    "role": "Head of Asia Pacific",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Anshul Thakral",
+    "firm": "Launch Therapeutics",
+    "connection": "BS and MSE Biomedical Engineering, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Carmine Petrone",
+    "firm": "Advent International",
+    "connection": "BA, JHU; Trustee of JHU",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Mark Dirzulaitis",
+    "firm": "Advent International",
+    "connection": "BA + MA (honors), JHU SAIS",
+    "role": "Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Seva Karpauskaite",
+    "firm": "Advent International",
+    "connection": "MA International Economics & International Relations, JHU SAIS",
+    "role": "Assistant Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Christina Bui",
+    "firm": "Protiviti",
+    "connection": "Executive MBA, JHU Carey Business School; Dean's Advisory Board member",
+    "role": "Vice President of Marketing",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Edward Chalfin",
+    "firm": "SurveySnap",
+    "connection": "MS, JHU; Technology Manager, JHU APL",
+    "role": "Board Member & Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Giovanni Traverso, MD, PhD",
+    "firm": "Celero Systems",
+    "connection": "PhD, Vogelstein lab, JHU (advisor: Bert Vogelstein)",
+    "role": "Co-Founder, Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "John Leonard MD",
+    "firm": "Intellia Therapeutics",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Rajeev Goel",
+    "firm": "PubMatic",
+    "connection": "BA Economics, Political Science & Spanish, JHU; Trustee, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Shekar Ayyar Ph.D",
+    "firm": "Arrcus",
+    "connection": "MS & PhD Electrical Engineering, JHU (1989, 1992)",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Andrew Levy",
+    "firm": "Aircover",
+    "connection": "BS Computer Science, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Bharadwaj Srinivasan",
+    "firm": "Intangible",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Co-Founder, Co-Chairman",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Brian Peters",
+    "firm": "The Firmament",
+    "connection": "BA, JHU (Class of 2012)",
+    "role": "Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Darsh Singh",
+    "firm": "Hazoor Partners",
+    "connection": "MS Financial Mathematics, JHU",
+    "role": "Co-Founder, Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Diane Seimetz Ph.D",
+    "firm": "Humacyte Global",
+    "connection": "Conducted research at JHU",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Gaurav Gupta MD",
+    "firm": "JP Morgan Asset Management",
+    "connection": "BS & MSE Biomedical Engineering, JHU; MD, Stanford (Paul & Daisy Soros Fellow)",
+    "role": "Managing Partner",
+    "entityType": "Asset Manager"
+  },
+  {
+    "name": "Jonathan Jacobs",
+    "firm": "MidCap Financial",
+    "connection": "BA International Studies, JHU",
+    "role": "Managing Director, Financial Sponsors & Leveraged Finance",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Josh Groman Ph.D",
+    "firm": "MidCap Financial",
+    "connection": "PhD Human Genetics & Molecular Biology, JHU School of Medicine",
+    "role": "Chief Investment Officer",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Josh Putterman",
+    "firm": "Bluejay Capital",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Billy Hart",
+    "firm": "Bluejay Capital",
+    "connection": "degree, JHU Carey Business School",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Leroy Hood Ph.D",
+    "firm": "Institute for Systems Biology",
+    "connection": "MD, JHU School of Medicine, 1964",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Oliver Markl",
+    "firm": "Pava",
+    "connection": "diploma in International Relations, JHU SAIS Bologna",
+    "role": "Partner",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Samuel Palmisano",
+    "firm": "Exxon Mobil (Former)",
+    "connection": "BA History, JHU, 1973",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Shahab Vagefi",
+    "firm": "Thomas H. Lee Partners",
+    "connection": "BA & MA, JHU; MBA, Kellogg",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Alexander Karnal",
+    "firm": "Braidwell",
+    "connection": "MS, JHU",
+    "role": "Co-Founder & Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Casey Gordon",
+    "firm": "TCP Health Ventures",
+    "connection": "BA Sociology, JHU",
+    "role": "Managing Partner",
+    "entityType": "Corp. VC"
+  },
+  {
+    "name": "Christopher Torrance",
+    "firm": "PhoreMost",
+    "connection": "postdoctoral researcher, Bert Vogelstein lab, JHU",
+    "role": "Co-Founder & Chairman",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "J.M. Schapirio",
+    "firm": "Continental Realty",
+    "connection": "MS Real Estate, JHU Carey Business School (1994-1996)",
+    "role": "Chief Executive Officer",
+    "entityType": "Real Estate"
+  },
+  {
+    "name": "Jan Kreminski",
+    "firm": "Nova Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Partner & Board Member",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Jason Ollison",
+    "firm": "Apis & Heritage",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Managing Director and Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Les Schmidt",
+    "firm": "BRIIA",
+    "connection": "Data Science specialization, JHU",
+    "role": "Co-Founder & Executive Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "Lloyd Taylor",
+    "firm": "Alembic Technologies",
+    "connection": "BS Computer Science & Electrical Engineering + MS Electrical Engineering, JHU",
+    "role": "Chief Operating Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Maulik Majmudar MD",
+    "firm": "Biofourmis",
+    "connection": "Internal Medicine Residency, JHU Hospital; research year, JHU Dept of Emergency Medicine; Faculty, JHU Carey Business School",
+    "role": "Co-Founder and Chief Medical Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Michael White",
+    "firm": "Gannett Company",
+    "connection": "Sector Head, Air and Missile Defense, JHU APL",
+    "role": "Director, Operations",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Nicholas Lewin",
+    "firm": "Crown Predator",
+    "connection": "BA Political Science, JHU",
+    "role": "Founding Partner & Chief Investment Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Patrick Mascia",
+    "firm": "Building Industry Partners",
+    "connection": "BA, JHU",
+    "role": "Partner and Head of Investments",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Reza Dana MD",
+    "firm": "Sightstream",
+    "connection": "MD, JHU School of Medicine; MPH, JHU Bloomberg SPH",
+    "role": "Co-Founder & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Sacha Mann",
+    "firm": "Diadem Biotherapeutics",
+    "connection": "MS, JHU",
+    "role": "Co-Founder & Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Samuel Cassatt",
+    "firm": "Layer",
+    "connection": "BA & graduate research in Cognitive Sciences, JHU",
+    "role": "Co-Founder & Chief Business Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Sertac Yeltekin Ph.D",
+    "firm": "Talet-e",
+    "connection": "MA International Economic Relations, JHU SAIS",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Teresa Shea",
+    "firm": "SandboxAQ",
+    "connection": "MS Electrical Engineering, JHU",
+    "role": "Investor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Adam Berke",
+    "firm": "The Predictive Index",
+    "connection": "BA, JHU",
+    "role": "Chief Product Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Adam Garson",
+    "firm": "Apax Partners",
+    "connection": "BA, JHU",
+    "role": "Partner,tech team",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Amir Kazmi",
+    "firm": "Ralliant",
+    "connection": "MS Systems Engineering, JHU",
+    "role": "Chief Technology & Growth Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Andrea Weiss",
+    "firm": "Premier Investments",
+    "connection": "Master of Administrative Science, JHU (1986)",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Bassil Dahiyat Ph.D",
+    "firm": "Xencor",
+    "connection": "BS & MSE Biomedical Engineering, JHU",
+    "role": "Founder, President & CEO",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Charles Sawyers MD",
+    "firm": "ORIC Pharmaceuticals",
+    "connection": "MD, JHU School of Medicine, 1985",
+    "role": "Co-Founder & Scientific Advisor",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Christopher Ballard",
+    "firm": "Rockerbox",
+    "connection": "degree, JHU Carey Business School (1999-2002)",
+    "role": "Principal",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Daniel Corbett",
+    "firm": "Heartland Growth Capital",
+    "connection": "BA Economics & Management, JHU",
+    "role": "Principal, Private Equity",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "David Gutelius Ph.D",
+    "firm": "Motiva AI",
+    "connection": "PhD Economic History, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "David Jacofsky MD",
+    "firm": "HOPCo",
+    "connection": "fellowship, Orthopedic Oncology & Adult Reconstruction, JHU",
+    "role": "Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "David Troy",
+    "firm": "410 Labs",
+    "connection": "BA Liberal Arts (Computer Science), JHU, 1996",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Dean D'Angelo",
+    "firm": "Stellus Capital Management",
+    "connection": "MA International Economics & Relations, JHU SAIS",
+    "role": "Founding Partner, Co-Head of Private Credit",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Edward Steiner JD",
+    "firm": "Squire Patton Boggs",
+    "connection": "MA, JHU",
+    "role": "Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Erin Simpson",
+    "firm": "Wilshire",
+    "connection": "MS Information & Telecommunication Systems, JHU",
+    "role": "Head of Operations",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Harpreet Grewal",
+    "firm": "Volante Technologies",
+    "connection": "MA International Studies, JHU",
+    "role": "Co-Chief Operating Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Ilker Yoney",
+    "firm": "Dogan Family Office",
+    "connection": "MA Applied Economics, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Jordan Siskin",
+    "firm": "Wafra",
+    "connection": "BS Economics, Statistics & Applied Mathematics, JHU",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Richard Safranek",
+    "firm": "Wafra",
+    "connection": "BA International Relations, JHU",
+    "role": "Senior Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sean Villa",
+    "firm": "Wafra",
+    "connection": "BS Economics, Statistics & Applied Mathematics, JHU",
+    "role": "Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Joseph Swanson",
+    "firm": "Houlihan Lokey",
+    "connection": "BA International Economics, JHU; Diploma in International Studies, JHU SAIS",
+    "role": "Senior Managing Director",
+    "entityType": "Investment Bank"
+  },
+  {
+    "name": "Karim Shariff",
+    "firm": "Majlis Investments",
+    "connection": "MA, JHU SAIS",
+    "role": "Founder & Principal",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Maggie Dorn",
+    "firm": "The Motley Fool",
+    "connection": "MA, JHU Zanvyl Krieger School of Arts & Sciences",
+    "role": "Chief Network Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "N. Coles MD",
+    "firm": "Regeneron Pharmaceuticals",
+    "connection": "BA, JHU; Trustee, JHU Board of Trustees; MD, Duke; MPH, Harvard",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Nabil Lawandy Ph.D",
+    "firm": "Spectra Systems",
+    "connection": "BA Physics, MS Chemistry & PhD Chemical Physics, JHU (1977, 1979, 1980); tenured Professor, Brown",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Niles Utlaut MD",
+    "firm": "AmideBio",
+    "connection": "MD, JHU School of Medicine (1977)",
+    "role": "Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Work",
+    "firm": "RTX",
+    "connection": "MA International Policy, JHU; Senior Fellow, JHU Applied Physics Lab (2017–)",
+    "role": "Board Member, Managing Director",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Sam Huleatt",
+    "firm": "Intangible Ventures",
+    "connection": "MBA, JHU Carey Business School; member, JHU Carey Dean's Alumni Advisory Board",
+    "role": "Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Steven Basta",
+    "firm": "Phathom Pharmaceuticals",
+    "connection": "BA Biomedical Engineering, JHU; MBA, Kellogg",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Thomas Finegan",
+    "firm": "Clarkston Consulting",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Yury Yakubchyk",
+    "firm": "Unified Vision",
+    "connection": "degree, JHU",
+    "role": "Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Aleksander Koenig",
+    "firm": "Settle",
+    "connection": "BS Mechanical Engineering & Mathematics, JHU",
+    "role": "Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Alex Nisichenko",
+    "firm": "TowerBrook Capital Partners",
+    "connection": "BA, JHU",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Amit Pamecha",
+    "firm": "Premier Franchise Capital",
+    "connection": "MS Robotics, JHU",
+    "role": "Partner",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Andrew Fulford",
+    "firm": "Makai Capital",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Founder & Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Andrew Parmentier",
+    "firm": "LockerVerse",
+    "connection": "MA Applied Economics & Mathematics, JHU (2001)",
+    "role": "Chief Growth Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Arthur Young JD",
+    "firm": "Tensile Capital",
+    "connection": "BA Economics (honors), JHU",
+    "role": "Co-Founder, Portfolio Manager",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Bassam AlWabel",
+    "firm": "The Space (Riyadh)",
+    "connection": "degree, JHU (2012–2014)",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Christian Wipf",
+    "firm": "Gyrus Capital",
+    "connection": "MA Economics & Political Science, JHU SAIS",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Daniel Shapero",
+    "firm": "LinkedIn",
+    "connection": "BS Applied Mathematics, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Dennis Lockhart",
+    "firm": "Navigation Capital Partners",
+    "connection": "MA International Economics & American Foreign Policy, JHU SAIS, 1971; Adjunct Professor, JHU SAIS; Board of Advisors, JHU SAIS",
+    "role": "Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Edward Zyszkowski",
+    "firm": "Personal Digital",
+    "connection": "BS + graduate studies, Biophysics, JHU; ECE Advisory Committee member",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Eileen Fargis",
+    "firm": "One Power Company",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Chief Financial Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Elizabeth Daniel",
+    "firm": "Stephens",
+    "connection": "BA, JHU",
+    "role": "Managing Director, Mergers and Acquisitions",
+    "entityType": "Investment Bank"
+  },
+  {
+    "name": "Eric Herzfeld",
+    "firm": "Herzfeld Credit Management",
+    "connection": "BA Economics & Mathematics, JHU, 1995",
+    "role": "Board Member & President",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Fay Chetnakarnkul",
+    "firm": "Norfund",
+    "connection": "MA Finance & Economics, JHU SAIS",
+    "role": "Regional Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "George Magrath MD",
+    "firm": "Opus Genetics",
+    "connection": "MA Applied Economics, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Gregory Leong",
+    "firm": "Vivia",
+    "connection": "MIPP, JHU SAIS",
+    "role": "Chief Strategy Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Henry Lowman Ph.D",
+    "firm": "CytomX Therapeutics",
+    "connection": "BA Chemistry, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Jeffrey Hausfeld MD",
+    "firm": "BioFactura",
+    "connection": "MBA Healthcare, JHU Carey Business School",
+    "role": "Chief Medical Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "John Kish Ph.D",
+    "firm": "The Riverside Company",
+    "connection": "PhD Logic, JHU",
+    "role": "Senior Operating Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Matthew Green Ph.D",
+    "firm": "Sealance",
+    "connection": "MS & PhD Computer Science, JHU (2005, 2008); Associate Professor of CS, JHU Information Security Institute (current faculty)",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Max Dworin",
+    "firm": "Cinntrifuse Capital",
+    "connection": "degree, JHU (2007–2011)",
+    "role": "Vice President",
+    "entityType": "Other"
+  },
+  {
+    "name": "Max Klejdan",
+    "firm": "BidMyCommunity",
+    "connection": "MS Real Estate & Infrastructure, JHU Carey Business School",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Michael Ragheb",
+    "firm": "Shackleton AI",
+    "connection": "degree, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Oksana Tledt",
+    "firm": "Velocitas Partners",
+    "connection": "MA International Economics & International Relations, JHU SAIS",
+    "role": "Co-Founder & Partner",
+    "entityType": "Asset Manager"
+  },
+  {
+    "name": "Patrick Deem",
+    "firm": "Aquarian Holdings",
+    "connection": "BA International Studies & Russian, JHU",
+    "role": "Principal, Strategic Investments",
+    "entityType": "Other"
+  },
+  {
+    "name": "Philip Stanger",
+    "firm": "Olyns",
+    "connection": "BMus, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Avery MD",
+    "firm": "California Retirement System",
+    "connection": "MD + ophthalmology residency & fellowship, JHU Wilmer Eye Institute",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Silberman",
+    "firm": "Par Pacific Holdings",
+    "connection": "MA International Economics, JHU SAIS, 1990; Board of Visitors, JHU SAIS",
+    "role": "Chairman & Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Robin Shah",
+    "firm": "Thyme Care",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Co-Founder and Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Ryan O'Grady Ph.D",
+    "firm": "ROW Asset Management",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder, Principal",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Susan Molineaux, PhD",
+    "firm": "Calithera",
+    "connection": "PhD Molecular Biology, JHU",
+    "role": "Co-Founder, President & CEO",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Terry Browne JD",
+    "firm": "Tritium Partners",
+    "connection": "MBA, JHU",
+    "role": "Managing Partner, COO & CCO",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Allan Soto",
+    "firm": "ABLE Kids",
+    "connection": "BA Economics, JHU",
+    "role": "Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Alyson Watson",
+    "firm": "Modern Health",
+    "connection": "BA Global Sustainability & Health (with honors), JHU; JHU lacrosse",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Andrea Nelson",
+    "firm": "Heartwood Partners",
+    "connection": "BA, JHU",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Anjan Aralihalli",
+    "firm": "Raya Therapeutics",
+    "connection": "MSc Biotechnology, JHU",
+    "role": "Founder & President",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Arthur Weiss Ph.D",
+    "firm": "Nurix Therapeutics",
+    "connection": "BA, JHU; MD & PhD, University of Chicago",
+    "role": "Co-Founder & Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Bhuvan Srinivasan",
+    "firm": "Ultrahuman",
+    "connection": "BS + MS Biomedical Engineering, JHU",
+    "role": "Chief Business Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Bill Yu",
+    "firm": "ESO Fund",
+    "connection": "BS Computer Science & Neuroscience, JHU (2014)",
+    "role": "Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Bruce Belliveau",
+    "firm": "Basemark",
+    "connection": "MIPP, JHU SAIS",
+    "role": "Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Byron Wilson",
+    "firm": "Manhattan Atlantic",
+    "connection": "MSc Strategic Marketing, JHU",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Cenk Sidar",
+    "firm": "Enquire.ai",
+    "connection": "MA International Economics & International Relations, JHU SAIS; postgrad European Studies, JHU SAIS Bologna Center",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Chad Glazer MD",
+    "firm": "Fruit Street",
+    "connection": "MD + residency Otolaryngology, JHU School of Medicine",
+    "role": "Advisor",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Cyrus Mistry",
+    "firm": "WealthyPlanet",
+    "connection": "degree, JHU",
+    "role": "Chief Product Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "David Boyd",
+    "firm": "Kion",
+    "connection": "MS Technical Management, JHU",
+    "role": "Co-Founder & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "David Cordish",
+    "firm": "The Cordish Companies",
+    "connection": "BA, JHU, 1960; MLA, JHU, 1965; donor, Cordish Lacrosse Center at JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Real Estate"
+  },
+  {
+    "name": "David Narrow",
+    "firm": "Sonavex",
+    "connection": "MSE Bioengineering Innovation & Design, JHU, 2013",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Derek Mazur",
+    "firm": "Cedar Pine",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Elizabeth Cho-Fertikh",
+    "firm": "MEDA Angels",
+    "connection": "BA, JHU",
+    "role": "Co-Founder, General Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Ezra Friedberg",
+    "firm": "Multiplier Capital",
+    "connection": "MAS (Master of Administrative Science), JHU",
+    "role": "Co-Founder & General Partner",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Freda Lewis-Hall MD",
+    "firm": "Pyxis Oncology",
+    "connection": "BA, JHU; MD, Howard University College of Medicine",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "G. Tuttle",
+    "firm": "Silicon Laboratories",
+    "connection": "BS Electrical Engineering, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Alessandro Piovaccari",
+    "firm": "Silicon Laboratories",
+    "connection": "Post-Grad EECS (summa cum laude), JHU",
+    "role": "Chief Technology Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "George Batsakis",
+    "firm": "Groundswell",
+    "connection": "MS Business, JHU Carey Business School",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Gorkem Sevinc",
+    "firm": "Qualytics",
+    "connection": "MSE Computer Science & Surgical Robotics, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "James Hildreth Ph.D",
+    "firm": "Meharry Medical College",
+    "connection": "MD, JHU SOM; first African American full tenured professor in basic research at JHU SOM; postdoctoral fellowship in pharmacology, JHU",
+    "role": "President, Board Member & CEO",
+    "entityType": "Other"
+  },
+  {
+    "name": "Jason Somerville",
+    "firm": "Courage Capital",
+    "connection": "BA, JHU; Bologna Center Certificate, JHU SAIS",
+    "role": "Co-Founder",
+    "entityType": "Venture Debt"
+  },
+  {
+    "name": "Jeffrey Muscatello",
+    "firm": "Jetty Value Partners",
+    "connection": "Master's degree, JHU Carey Business School",
+    "role": "Founder & Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Jeremiah Kaye",
+    "firm": "Third Road Management",
+    "connection": "BA Economics, JHU",
+    "role": "Co-CFO",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Jia Shen",
+    "firm": "GC Turbo",
+    "connection": "BS Electrical Engineering/Computer Science, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Jonathan Lawrence",
+    "firm": "Andean Cacao",
+    "connection": "MA International Economics and EEST, JHU SAIS; Co-Founded JHU Discovery Council",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Justin Szilas",
+    "firm": "A2A Battery",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Advisor & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Kay Kapoor",
+    "firm": "ComSovereign",
+    "connection": "Master's in Business, JHU; Dean's Advisory Council member",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Keith Carlton",
+    "firm": "Newronika",
+    "connection": "BS Biomedical Engineering & Engineering Mechanics, JHU",
+    "role": "Executive Chairman",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Krishna Potarazu",
+    "firm": "JMI Equity",
+    "connection": "BS Electrical Engineering, JHU",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Isaac Scoville",
+    "firm": "JMI Equity",
+    "connection": "BA Economics, JHU; Managing Partner, A-Level Capital (JHU student VC)",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Melissa Guttman",
+    "firm": "JMI Equity",
+    "connection": "MBA, JHU Carey Business School (2012–2015)",
+    "role": "Principal, Talent",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Laurence Hirsch JD",
+    "firm": "Highlander Partners",
+    "connection": "MIPP, JHU",
+    "role": "Co-Founder & Chairman",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Lijun Lu Ph.D",
+    "firm": "netElastic Systems",
+    "connection": "research affiliate, JHU Dept of Radiology and Electrical & Computer Engineering",
+    "role": "Founder & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Margaret Roth",
+    "firm": "Yet Analytics",
+    "connection": "BA English & Environmental Earth Science, JHU, 2011; MA Teaching, JHU, 2012; co-founded Yet Analytics from JHU classroom network",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Marie Bober JD",
+    "firm": "Moelis Asset Management",
+    "connection": "BA Psychology, JHU",
+    "role": "Chief Compliance Officer",
+    "entityType": "Asset Manager"
+  },
+  {
+    "name": "Marina Niforos",
+    "firm": "Logos Global Management",
+    "connection": "Diploma in International Relations, JHU SAIS",
+    "role": "Founder & Principal",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Mark Coleman MD",
+    "firm": "Axsome Therapeutics",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Matt Carey",
+    "firm": "Boathouse Capital",
+    "connection": "BS Economics, JHU (2011–2015)",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Michael Barry",
+    "firm": "Johns Hopkins University",
+    "connection": "Vice President & Secretary, Johns Hopkins University (current JHU staff)",
+    "role": "Vice President and Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Mike Waters",
+    "firm": "Lish",
+    "connection": "BS Electrical and Electronics Engineering, JHU (2006)",
+    "role": "Chief Operating Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Nabiha Syed",
+    "firm": "Mozilla Foundation",
+    "connection": "BA, JHU",
+    "role": "Executive Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "Nicholas Franco",
+    "firm": "HMC Capital",
+    "connection": "BA International Relations, JHU (2002–2006)",
+    "role": "Partner and Head of Investments",
+    "entityType": "Asset Manager"
+  },
+  {
+    "name": "Nihar Salt",
+    "firm": "Arctaris Impact Investors",
+    "connection": "MA, JHU SAIS",
+    "role": "Managing Director",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Paul Kurtz",
+    "firm": "Nisos",
+    "connection": "MA International Security, JHU SAIS",
+    "role": "Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Peter Uddo",
+    "firm": "Praesidium Investment Management",
+    "connection": "BA, JHU (1991)",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Raghav Nayar",
+    "firm": "Grainger Corporation",
+    "connection": "MS Finance, JHU",
+    "role": "Managing Director, Co-Head of U.S. Investments",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Rajiv Shenoy",
+    "firm": "Boston Consulting Group",
+    "connection": "BS + MS Environmental Engineering, JHU",
+    "role": "Partner & Associate",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Ralph O'Connor",
+    "firm": "American Shores Capital",
+    "connection": "BA Biology, JHU (Class of 1951)",
+    "role": "Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Richard Popp MD",
+    "firm": "Hospl",
+    "connection": "MD, JHU School of Medicine (1964)",
+    "role": "Co-Founder and Founding Partner",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Rob Pietroforte",
+    "firm": "Fortified",
+    "connection": "BA Economics, JHU (2004–2008)",
+    "role": "Partner",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Bush Jr.",
+    "firm": "Mutombo Coffee",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Ericson JD",
+    "firm": "Atlantic Aluminum",
+    "connection": "BA + MA, JHU",
+    "role": "Chief Legal Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Gould Ph.D",
+    "firm": "Fulcrum Therapeutics",
+    "connection": "Postdoctoral fellow in neuropharmacology, JHU",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Robert Murray",
+    "firm": "StyleMatters",
+    "connection": "Senior Lecturer and Director, MS Global Innovation and Leadership, JHU Whiting School of Engineering",
+    "role": "Founder, Owner & Managing Partner",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Ron Howard",
+    "firm": "Equity Partners",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Owner, Principal & CEO",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Ronald Schmelzer",
+    "firm": "Cognilytica",
+    "connection": "MBA, JHU",
+    "role": "Co-Managing Partner",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Sergei Filipov",
+    "firm": "Catalur Capital",
+    "connection": "MS International Economics & Law (honors), JHU SAIS (1997–1999)",
+    "role": "Co-Founder & Senior Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Sibyl Chen",
+    "firm": "Berkeley SkyDeck Fund",
+    "connection": "degree, JHU SAIS",
+    "role": "General Manager",
+    "entityType": "Other"
+  },
+  {
+    "name": "Steven Brooks MD",
+    "firm": "Marizyme",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Chief Medical Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Steven Rosenfeld MD",
+    "firm": "Delray Eye Associates",
+    "connection": "BA (honors), JHU",
+    "role": "Ophthalmology",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Tai-Li Chang MD",
+    "firm": "Kalehua Capital",
+    "connection": "MD, JHU School of Medicine (2008)",
+    "role": "Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Thomas Dretler",
+    "firm": "Shorelight",
+    "connection": "BA, JHU (Phi Beta Kappa); member, National Advisory Board, JHU School of Education",
+    "role": "Co-Founder and Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Timothy Geithner",
+    "firm": "Warburg Pincus",
+    "connection": "MA International Economics & East Asian Studies, JHU SAIS, 1985",
+    "role": "Chairman",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Leela Ramnath",
+    "firm": "Warburg Pincus",
+    "connection": "MA International Relations, JHU SAIS",
+    "role": "Managing Director, Global Head of Sustainability Strategy",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Vincenz Klemm",
+    "firm": "Baobab",
+    "connection": "MA International Relations & International Economics, JHU SAIS",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Yashvier Kosaraju",
+    "firm": "SendBird",
+    "connection": "MS Security Informatics, JHU (2012–2013)",
+    "role": "Chief Information Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Adeel Dagha",
+    "firm": "Dagha Textiles",
+    "connection": "MS Finance, JHU (2017–2018)",
+    "role": "Managing Director",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Albert Friedberg",
+    "firm": "Vaccinex",
+    "connection": "BA Economics, JHU",
+    "role": "Chairman & Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Amanda Austi",
+    "firm": "L Catterton",
+    "connection": "undergraduate alum, JHU",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Andrew Das",
+    "firm": "Reflective Capital",
+    "connection": "degree, JHU",
+    "role": "Co-Founder & Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Anita Samarth",
+    "firm": "Cliovations Group",
+    "connection": "BS Biomedical Engineering & Electrical Engineering, JHU (1995)",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Anthony Jones MD",
+    "firm": "Frontive",
+    "connection": "MD, JHU School of Medicine",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Anthony Russell MD",
+    "firm": "Caliburn Capital",
+    "connection": "MPH, JHU Bloomberg School of Public Health",
+    "role": "Board Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Arjune Shukla",
+    "firm": "Circularity Capital",
+    "connection": "BA Geography + MSc Engineering Management, JHU (2008–2013)",
+    "role": "Investment Manager",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Brian Robbins",
+    "firm": "S2F Capital Management",
+    "connection": "BS Electrical Engineering, JHU",
+    "role": "Managing Partner, COO",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Calvin Lei",
+    "firm": "CF Private Equity",
+    "connection": "BA Cognitive Science, JHU",
+    "role": "Senior Analyst",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Camilo Mendez",
+    "firm": "Geraldine R. Dodge Foundation",
+    "connection": "MA, JHU SAIS",
+    "role": "Chief Financial Officer",
+    "entityType": "Other"
+  },
+  {
+    "name": "Caroline Heller",
+    "firm": "Rumin8",
+    "connection": "MA International Relations, JHU",
+    "role": "Chief Business Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Christopher Bouton, PhD",
+    "firm": "Certara",
+    "connection": "PhD Molecular Neurobiology, JHU",
+    "role": "Chief Technology Officer",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Conor Flemming",
+    "firm": "Genstar Capital",
+    "connection": "BA, JHU",
+    "role": "Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "David Rader",
+    "firm": "Principal Minerva",
+    "connection": "degree, JHU Carey Business School",
+    "role": "Chief Strategy Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Donald Banks",
+    "firm": "Hamburg Commercial Bank",
+    "connection": "MS Applied Economics, JHU",
+    "role": "Head of Treasury & Finance",
+    "entityType": "Other"
+  },
+  {
+    "name": "Doug Akerson",
+    "firm": "Münchener Rückversicherung",
+    "connection": "degree, JHU",
+    "role": "Executive Vice President",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Edward Cho Ph.D",
+    "firm": "SpinBio",
+    "connection": "PhD Biophysics, JHU",
+    "role": "Co-Founder and CSO",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Edwin Addison",
+    "firm": "Cloud Pharmaceuticals",
+    "connection": "MS Electrical Engineering + MS Biomedical Engineering, JHU",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Elizabeth Campbell",
+    "firm": "Rockefeller Brothers Fund",
+    "connection": "MA Social Change & Development, JHU SAIS (1985–1986)",
+    "role": "Executive Vice President",
+    "entityType": "Other"
+  },
+  {
+    "name": "Elliott Mandelbaum",
+    "firm": "Eagle Arc Partners",
+    "connection": "BS, JHU (2004–2007)",
+    "role": "Co-Founder & Managing Partner",
+    "entityType": "Real Estate"
+  },
+  {
+    "name": "Franklin Lavin",
+    "firm": "Ascent Funds",
+    "connection": "MA International Relations & International Economics, JHU SAIS, 1992",
+    "role": "Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Galla Ben-Artzi",
+    "firm": "Bancor",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Co-Founder & Business Development",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "George Skegas",
+    "firm": "Lively Root",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder & Board Member",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Hiroshi Tamada Ph.D",
+    "firm": "IMEL Biotherapeutics",
+    "connection": "MPH, JHU Bloomberg School of Public Health",
+    "role": "Chief Medical Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Hunter Brown",
+    "firm": "BioFlyte",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Jared Cumming Ph.D",
+    "firm": "Marchpoint Therapeutics",
+    "connection": "PhD Synthetic Organic & Medicinal Chemistry, JHU (1992–1997)",
+    "role": "Chief Scientific Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Joseph Attar",
+    "firm": "Ally Corporate Finance",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Senior Managing Director",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Joseph Lawler Ph.D",
+    "firm": "JFL Capital Management",
+    "connection": "MD & PhD, JHU School of Medicine",
+    "role": "Founder & Managing Member",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Josh Gold",
+    "firm": "Hellman & Friedman",
+    "connection": "MA, JHU",
+    "role": "Senior Operating Executive",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Josh Shinoff Ph.D",
+    "firm": "Five Crowns Capital",
+    "connection": "PhD + MS, JHU Carey Business School",
+    "role": "Operating Partner, Portfolio Operations",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Joshua Rowe Ph.D",
+    "firm": "HB Wealth",
+    "connection": "BA, JHU",
+    "role": "Managing Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "Matthew Sanders",
+    "firm": "HB Wealth",
+    "connection": "MS Finance, JHU Carey Business School",
+    "role": "Senior Investment Associate",
+    "entityType": "Other"
+  },
+  {
+    "name": "Julie Liu",
+    "firm": "Serent Capital",
+    "connection": "BS Molecular and Cellular Biology, JHU",
+    "role": "Associate Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Juliet Sampson",
+    "firm": "Anthropocene Fixed Income Partners",
+    "connection": "MA International Economics & European Studies, JHU SAIS",
+    "role": "Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Junaid Ghauri",
+    "firm": "Pareto Technologies",
+    "connection": "MS Computational & Applied Mathematics, JHU",
+    "role": "Founder & Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Junaid Sukhera",
+    "firm": "Al Nahdha Investments",
+    "connection": "MS Finance + Certificate International Relations, JHU SAIS (2007-2009)",
+    "role": "Principal, Private Equity",
+    "entityType": "Other"
+  },
+  {
+    "name": "Justin Conway",
+    "firm": "Calvert Impact",
+    "connection": "MA Applied Economics, JHU",
+    "role": "Executive, Product Development",
+    "entityType": "Other"
+  },
+  {
+    "name": "Justin Kamm",
+    "firm": "Fyncr",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Justin Neuman JD",
+    "firm": "LuminArx Capital",
+    "connection": "BS Business & Management, JHU",
+    "role": "Legal Counsel & Chief Compliance Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Kaitlyn Cacioppo",
+    "firm": "Pamlico Capital",
+    "connection": "BA, JHU",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Katherine Frattarola",
+    "firm": "Pennington Partners",
+    "connection": "BA International Studies (cum laude), JHU",
+    "role": "Board Member",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Kavish Hajarnavis",
+    "firm": "Siguler Guff",
+    "connection": "BA Economics & International Studies, JHU",
+    "role": "Investment Analyst",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Keenan Wyrobek, PhD",
+    "firm": "Zipline",
+    "connection": "BS Engineering Mechanics, JHU (1999–2003)",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Kelvin Baggett MD",
+    "firm": "Patient Square Capital",
+    "connection": "Robert Wood Johnson Clinical Scholar, JHU SOM; MPH, JHU Bloomberg SPH; member, JHU Bloomberg SPH Advisory Board",
+    "role": "Senior Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Keri Gawlik",
+    "firm": "Abbott Capital Management",
+    "connection": "BA International Studies & Spanish, JHU",
+    "role": "Vice President, Investments",
+    "entityType": "Other"
+  },
+  {
+    "name": "Kevin Park",
+    "firm": "LB Private Equity",
+    "connection": "Postdoctoral Researcher, Dept of Pharmacology, JHU",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Kevin Telford",
+    "firm": "Hull Street Energy",
+    "connection": "BA, JHU",
+    "role": "Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Kewei Yang Ph.D",
+    "firm": "Analogix",
+    "connection": "MS + PhD Electrical Engineering, JHU",
+    "role": "Co-Founder",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Kim Leinwand Erle",
+    "firm": "H.I.G. Capital",
+    "connection": "MA International Affairs & Economics, JHU SAIS",
+    "role": "Managing Director and Global Head of ESG",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Kiran Musunuru MD",
+    "firm": "Verve Therapeutics",
+    "connection": "MPH Epidemiology, JHU Bloomberg SPH, 2009; Cardiovascular Medicine Fellowship, JHU Hospital",
+    "role": "Co-Founder & Senior Partner",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Kongming Gao",
+    "firm": "ZT Corporate",
+    "connection": "MS, JHU Carey Business School",
+    "role": "Senior Associate, Investments",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Kyle Doran",
+    "firm": "Egeria",
+    "connection": "BS Mechanical Engineering, JHU",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Lauren Goodwin",
+    "firm": "Kohlberg Kravis Roberts",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Managing Director and Chief Investment Strategist for Global Wealth",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Yasuyuki Goto",
+    "firm": "Kohlberg Kravis Roberts",
+    "connection": "MA International Economics and Finance, JHU-Nanjing Center",
+    "role": "Principal, Client and Strategy",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Lawrence Cinamon",
+    "firm": "Aksia",
+    "connection": "MA Applied Economics, JHU",
+    "role": "Managing Director",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Lionel Foster JD",
+    "firm": "Camber Creek",
+    "connection": "BA, JHU",
+    "role": "Head of Platform",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Lisa Xiao",
+    "firm": "AEA Investors",
+    "connection": "BA International Studies, JHU",
+    "role": "Vice President, Growth",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Luis Medina",
+    "firm": "LMPG Wealth Management",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Principal and Chief Investment Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Mac Broderick",
+    "firm": "Rockefeller Philanthropy Advisors",
+    "connection": "MA Energy Economics and International Relations, JHU SAIS",
+    "role": "Board Member",
+    "entityType": "Other"
+  },
+  {
+    "name": "Madison Aldave Hopsicker",
+    "firm": "Summit Park",
+    "connection": "BA Economics + Master's in Finance, JHU",
+    "role": "Operating Partner, Portfolio Operations",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Marah Formanek",
+    "firm": "Downing Capital",
+    "connection": "BA, JHU",
+    "role": "Ideation Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Maria Fe Paz Ph.D",
+    "firm": "Circular-Lab",
+    "connection": "studies at JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Marion Blakey",
+    "firm": "Eve Holding",
+    "connection": "Graduate studies in Middle East Affairs, JHU SAIS",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Mark Crawford",
+    "firm": "Kennedy Lewis Capital",
+    "connection": "MS Information & Telecommunications Systems, JHU",
+    "role": "Partner and Head of Power & Energy Transition",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Matt Dolente",
+    "firm": "Davidson Kempner Capital Management",
+    "connection": "BA Economics, JHU",
+    "role": "Managing Director, Long/Short Equity",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Matthew Hart JD",
+    "firm": "Simpson Thacher & Bartlett",
+    "connection": "BS Electrical Engineering & MA Applied Economics, JHU (2004, 2006)",
+    "role": "Partner",
+    "entityType": "Other"
+  },
+  {
+    "name": "Matthew Levitties",
+    "firm": "Versa Capital",
+    "connection": "BA Economics + MA, JHU SAIS",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Matthew Park",
+    "firm": "Nonantum Capital Partners",
+    "connection": "BA Economics & Public Health Studies, JHU",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Matthew Ullman",
+    "firm": "Atlas Holdings",
+    "connection": "BA Economics & International Studies, JHU",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Matthew Winiarski",
+    "firm": "Yellow Wood Partners",
+    "connection": "MBA Finance, JHU Carey Business School",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Max Chautin",
+    "firm": "Greater Sum Ventures",
+    "connection": "BA Political Science & Management, JHU",
+    "role": "Managing Director and Head of Business Development",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Mic Nguyen",
+    "firm": "Huuk",
+    "connection": "Master of Technical Management, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Michael Barth",
+    "firm": "Barth Associates",
+    "connection": "MA International Affairs/Economics, JHU SAIS (1971-1974)",
+    "role": "Managing Partner",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Michael Denlinger",
+    "firm": "MacKay Shields",
+    "connection": "BA Economics, JHU",
+    "role": "Managing Director, Portfolio Management",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Steven Friedman",
+    "firm": "MacKay Shields",
+    "connection": "MA, JHU SAIS",
+    "role": "Senior Macroeconomist",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Michael Eberle",
+    "firm": "Brighton Park Capital",
+    "connection": "BS Computer Science (with honors), JHU, 2020; Managing Partner, A-Level Capital (JHU student VC)",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Michael McQuigg",
+    "firm": "SeaView Capital",
+    "connection": "BA Economics, JHU",
+    "role": "Junior Analyst",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Michael Moylan",
+    "firm": "Union Capital",
+    "connection": "BA, JHU",
+    "role": "Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Michael Peyser",
+    "firm": "Post Advisory Group",
+    "connection": "BA Political Science, JHU",
+    "role": "Managing Director, Senior Trader",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Michael Spiciarich",
+    "firm": "WindRose Health Investors",
+    "connection": "BA Political Science, JHU (2005)",
+    "role": "Chief Financial Officer",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Miguel Barron",
+    "firm": "Glenernie Capital",
+    "connection": "degree, JHU SAIS",
+    "role": "Director",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Mohammad Malik",
+    "firm": "Ainsley Advisors",
+    "connection": "degree, JHU Carey Business School",
+    "role": "Chief Business Officer",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Monica Anzaldi",
+    "firm": "The Nature Conservancy",
+    "connection": "MPP, JHU",
+    "role": "Chief of Staff and Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "Monica Berrondo, PhD",
+    "firm": "Macromoltek",
+    "connection": "PhD Chemical Engineering, JHU (NIH Ruth L. Kirschstein Fellow)",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Morgan Duke",
+    "firm": "West Elk Capital",
+    "connection": "BA International Relations & Russian Studies, JHU",
+    "role": "Co-Founder",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Morgan Hendry",
+    "firm": "Palladium Equity Partners",
+    "connection": "BA Economics, JHU",
+    "role": "Associate, Fundraising",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Morrie Ruffin",
+    "firm": "Adjuvant Capital Partners",
+    "connection": "MA International Studies & Economics, JHU SAIS",
+    "role": "Managing Partner",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Nan Lu Ph.D",
+    "firm": "Mount Lucas Management",
+    "connection": "PhD Computational Fluid Dynamics, JHU",
+    "role": "Partner & Portfolio Manager",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Nathan Cole",
+    "firm": "Bow River Capital",
+    "connection": "MS Applied Economics, JHU",
+    "role": "Vice President, Software",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Nicholas Mirisis",
+    "firm": "HomeTown Ticketing",
+    "connection": "MA Government, JHU",
+    "role": "Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Nikhil Ramanathan",
+    "firm": "Blue Wolf Capital",
+    "connection": "BA, JHU",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Nirmal Krishnan",
+    "firm": "Chakra",
+    "connection": "BS + MS Computer Science, JHU (Gerald Masson Fellow)",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Owen Colwell",
+    "firm": "Yorkville Advisors",
+    "connection": "BA Political Science, JHU",
+    "role": "Associate",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Patrick Leahy",
+    "firm": "GE Energy Financial Services",
+    "connection": "MA International Economics, JHU SAIS",
+    "role": "Global Power Leader",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Patrick Marotta",
+    "firm": "Marotta Controls",
+    "connection": "BS Systems Engineering, JHU",
+    "role": "President & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Patrick Wayland",
+    "firm": "Rock Crest Capital",
+    "connection": "BS + MS Electrical Engineering, JHU; former Research Scientist, JHU APL",
+    "role": "Portfolio Manager",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Peg Sullivan",
+    "firm": "GTCR",
+    "connection": "MS Behavioral Science, JHU (1993–1995)",
+    "role": "Chief Human Resources Officer",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Peter Conzola",
+    "firm": "DFW Capital Partners",
+    "connection": "BA Economics, JHU",
+    "role": "Vice President of Business Development",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Peter Jacullo",
+    "firm": "Morningside Private Equity",
+    "connection": "BA, JHU",
+    "role": "Co-Founder",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Peter Manny",
+    "firm": "Peak Rock Capital",
+    "connection": "BA, JHU",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Peter Strome",
+    "firm": "Continuum Equity Partners",
+    "connection": "BA Economics (honors), JHU (Class of 2013)",
+    "role": "Vice President, Investments",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Peter Tropper",
+    "firm": "Peter Tropper",
+    "connection": "alumnus, JHU SAIS",
+    "role": "Managing Member",
+    "entityType": "Other"
+  },
+  {
+    "name": "Phil Rosenberg",
+    "firm": "The Chertoff Group",
+    "connection": "MA International Affairs, JHU SAIS",
+    "role": "Senior Advisor",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Scott Gibson",
+    "firm": "The Chertoff Group",
+    "connection": "MA Global Security Studies, JHU",
+    "role": "Senior Director",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Philip Bianchi",
+    "firm": "nFleXion Capital",
+    "connection": "MA International Economics & Relations, JHU SAIS",
+    "role": "Founder",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Philip Heard Ph.D",
+    "firm": "Cimarron Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Portfolio Manager",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Rache Brand",
+    "firm": "Superstruct Advisors",
+    "connection": "Project Management studies, JHU (1999-2000)",
+    "role": "Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Rahul Malhotra",
+    "firm": "Nicoya Capital",
+    "connection": "BS/BA Computer Science and Economics, JHU",
+    "role": "Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Rajesh Ranganathan",
+    "firm": "Doric Capital",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Director",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Ralph Kaiser JD",
+    "firm": "Uatp",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "President, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Randolph Baron",
+    "firm": "Pinnacle Associates",
+    "connection": "BA International Studies + MA (highest honors), JHU SAIS",
+    "role": "Portfolio Manager",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Ray Gao",
+    "firm": "Altmore Capital",
+    "connection": "MS Applied Economics, JHU (2020-2022)",
+    "role": "Senior Associate",
+    "entityType": "Venture Debt"
+  },
+  {
+    "name": "Reyhan Baylan",
+    "firm": "Applied Value Group",
+    "connection": "BS Mathematical Sciences and Economics, JHU (2003)",
+    "role": "Managing Director",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Ricardo Martinez",
+    "firm": "Accial Capital",
+    "connection": "BA Economics, JHU (2017)",
+    "role": "Investment Associate",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Richard Greco Jr.",
+    "firm": "Filangieri Capital",
+    "connection": "MA American Foreign Policy, JHU SAIS",
+    "role": "Founder, Chief Executive Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Richard Tite",
+    "firm": "TechMet",
+    "connection": "MA International Relations, JHU SAIS (2003-2005)",
+    "role": "Chief Investment Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Robert Mashal MD",
+    "firm": "Nuvation Bio",
+    "connection": "BA & MD, JHU School of Medicine, 1985",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Robert Mittendorf, MD",
+    "firm": "Carismed",
+    "connection": "BS Biomedical Engineering, JHU",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Rohan Gupta",
+    "firm": "Next Legacy Partners",
+    "connection": "BS Chemical & Biomolecular Engineering, JHU",
+    "role": "Senior Investment Associate",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Romain Rigby",
+    "firm": "Seraya Investments",
+    "connection": "MA International Studies, JHU SAIS-Nanjing (2010)",
+    "role": "Partner & Chief Technology Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Ronald Burt Ph.D",
+    "firm": "Civaris",
+    "connection": "BA Social & Behavioral Science, JHU, 1971",
+    "role": "Operating Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Ronald Shelp",
+    "firm": "Glanstone Holdings",
+    "connection": "MA, JHU SAIS (1966)",
+    "role": "Executive Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Rosa Moreno",
+    "firm": "Digital Alpha Advisors",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Senior Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Russell Abrams",
+    "firm": "Camber Credit",
+    "connection": "studies, JHU",
+    "role": "Chief Investment Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Ryan Kearney MD",
+    "firm": "Eagle Marsh Holdings",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Saliq Khan",
+    "firm": "Strenuus Capital",
+    "connection": "MBA + MS Finance, JHU",
+    "role": "Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sam Cauthen",
+    "firm": "East Los Capital",
+    "connection": "degree, JHU SAIS",
+    "role": "Operating Advisor",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Samantha Chabot",
+    "firm": "Vector Capital",
+    "connection": "BS Applied Mathematics & Statistics and Economics, JHU",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sami Alom Ph.D",
+    "firm": "Kasamar Holdings",
+    "connection": "PhD Biomedical Engineering, JHU School of Medicine (2008)",
+    "role": "Chief Executive Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Sarah Adams JD",
+    "firm": "Cresset",
+    "connection": "BA History of Art, JHU",
+    "role": "Managing Director, Deputy General Counsel",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Scott Carcillo",
+    "firm": "TI Partners",
+    "connection": "MS International Business, JHU",
+    "role": "Managing Director",
+    "entityType": "Other"
+  },
+  {
+    "name": "Sean McGrath",
+    "firm": "Access Holdings",
+    "connection": "BA Economics and Financial Economics, JHU",
+    "role": "Principal, Value Creation",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Shane Burn",
+    "firm": "Boothbay Fund Management",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Chief Risk Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Shaun Chambers",
+    "firm": "Treya Partners",
+    "connection": "MBA, JHU Carey Business School",
+    "role": "Managing Director",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Shawn Usman",
+    "firm": "Rhea Space Activity",
+    "connection": "MS Applied Physics, JHU (2010-2011)",
+    "role": "Co-Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Sophie Tulkoff",
+    "firm": "Osso Capital",
+    "connection": "BA International Studies, JHU",
+    "role": "Principal",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Stephen Mitchell",
+    "firm": "Lowell Resource Partners",
+    "connection": "MA International Economics and Politics, JHU",
+    "role": "Chairman & Investment Committee Member",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Stephen Morel",
+    "firm": "CNS Global Advisors",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Senior Advisor",
+    "entityType": "Advisor"
+  },
+  {
+    "name": "Stephen Shwartz",
+    "firm": "Angel Investor Group",
+    "connection": "PhD Cognitive Science, JHU (1979)",
+    "role": "Member of the Board of Directors",
+    "entityType": "Other"
+  },
+  {
+    "name": "Steven Bleier",
+    "firm": "Brigade Capital Management",
+    "connection": "BA Economics, JHU",
+    "role": "Co-Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Steven Tosti",
+    "firm": "The Non Food Company",
+    "connection": "degree, JHU",
+    "role": "Chief Operating Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Suha Kocabal",
+    "firm": "AF Capital",
+    "connection": "MS Business, JHU Carey Business School (2000-2002)",
+    "role": "Vice President, Turnaround",
+    "entityType": "Other"
+  },
+  {
+    "name": "Sumesh Sood",
+    "firm": "Veda Investments",
+    "connection": "MS Molecular Microbiology and Immunology, JHU",
+    "role": "Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Sungjae Lee",
+    "firm": "SJL Partners",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sunny Li",
+    "firm": "American Industrial Partners",
+    "connection": "MA International Relations and International Economics, JHU SAIS",
+    "role": "Partner, Transactions",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Sunny Singh",
+    "firm": "Owlpoint Capital",
+    "connection": "Data Science Specialization, JHU",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Lender"
+  },
+  {
+    "name": "Suy Anne Reboucas",
+    "firm": "JGP (Sao Paulo)",
+    "connection": "postdoctoral fellowship + MSF, JHU School of Medicine and Carey Business School",
+    "role": "Healthcare Equities",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Theodore Schell",
+    "firm": "Siris Capital Group",
+    "connection": "graduate degree, JHU SAIS",
+    "role": "Executive Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Thomas Hill",
+    "firm": "Iron Forge Capital",
+    "connection": "MS International Business and Finance, JHU Carey Business School (1993-1997)",
+    "role": "Managing Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Tiantian Zhu",
+    "firm": "New Frontier Capital",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Vice President",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Timothy Hasara",
+    "firm": "Sinnet Capital",
+    "connection": "MS Management, JHU",
+    "role": "Founder, Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Ting Guo",
+    "firm": "Superstring Capital",
+    "connection": "training, JHU School of Medicine (2005-2011)",
+    "role": "Founder, Chief Investment Officer",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Tom Burke",
+    "firm": "NextGen Growth Partners",
+    "connection": "BS Economics, JHU",
+    "role": "Senior Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Toni Merryweather",
+    "firm": "Berkshire Partners",
+    "connection": "BS, JHU",
+    "role": "Vice President & Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Tracey Yurko",
+    "firm": "Bridgewater Associates",
+    "connection": "BA Psychology (with honors), JHU, 1997; JHU women's lacrosse",
+    "role": "Chief Legal Officer, Partner",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Trevor Lack",
+    "firm": "Vest Group",
+    "connection": "MS Finance, JHU Carey Business School",
+    "role": "Managing Director, Portfolio Management",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Trystan Uphoff",
+    "firm": "Lorient (Miami)",
+    "connection": "BA Economics, JHU",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Tyler Goldstein",
+    "firm": "Maxwell Street Partners",
+    "connection": "BA Economics, JHU (2010-2014)",
+    "role": "Managing Director",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Valerie Gadala-Maria",
+    "firm": "Unimar Financial",
+    "connection": "MA Economics and International Studies, JHU SAIS (2013)",
+    "role": "Advisory Board Member",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Valerio Forte",
+    "firm": "Profondas Capital",
+    "connection": "MA International Relations, JHU SAIS (1986-1988)",
+    "role": "Partner",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Varda Shalev MD",
+    "firm": "Teva Pharmaceuticals",
+    "connection": "Postdoctoral fellowship in Medical Informatics, JHU",
+    "role": "Board Member",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Veronica Boswell",
+    "firm": "Incline Equity Partners",
+    "connection": "BSE Mechanical Engineering, JHU",
+    "role": "Director, Catalyst Group",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Vik Subbu",
+    "firm": "Immunaccel",
+    "connection": "MBA Biotechnology, JHU (2004-2007)",
+    "role": "Co-Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Virginia Alzina Ph.D",
+    "firm": "EmergeVest",
+    "connection": "MSc Environmental Sciences and Policy, JHU",
+    "role": "Managing Director of Sustainability",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Ward Mooney",
+    "firm": "SLR Credit Solutions",
+    "connection": "BA + MAS Political Science/Economics, JHU (1971-1974)",
+    "role": "Co-Founder",
+    "entityType": "Lender"
+  },
+  {
+    "name": "William Blank",
+    "firm": "Squadron Capital",
+    "connection": "MS Biotechnology, JHU",
+    "role": "Co-Founder",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "William Daniel",
+    "firm": "Charlesbank Capital Partners",
+    "connection": "BA Economics, JHU",
+    "role": "Associate, Investor Relations",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "William Messick",
+    "firm": "American Securities",
+    "connection": "BA Economics and International Studies, JHU",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "William Vestbirk",
+    "firm": "McKenna & Associates",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Senior Analyst",
+    "entityType": "Consulting"
+  },
+  {
+    "name": "Winjie Miao",
+    "firm": "Texas Health Resources",
+    "connection": "BS Biomedical Engineering, JHU",
+    "role": "Chief Operating Officer",
+    "entityType": "Investor"
+  },
+  {
+    "name": "Xiongwei Ju Ph.D",
+    "firm": "Parametrica Advisors",
+    "connection": "degree, JHU (1993-1996)",
+    "role": "Founder, Director & CEO",
+    "entityType": "Hedge Fund"
+  },
+  {
+    "name": "Yamilee Bastien",
+    "firm": "Swanhill Capital",
+    "connection": "MA International Affairs and Economics, JHU SAIS",
+    "role": "Investment Team Member",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Yumi Zhao",
+    "firm": "Invictus Growth Partners",
+    "connection": "BA Economics, International Studies and Sociology, JHU",
+    "role": "Associate",
+    "entityType": "Private Equity"
+  },
+  {
+    "name": "Zack Armen",
+    "firm": "Agenus",
+    "connection": "BA Creative Writing, JHU",
+    "role": "Head of Investor Relations",
+    "entityType": "Board/Executive"
+  },
+  {
+    "name": "Zainan Zhou",
+    "firm": "Namefi",
+    "connection": "MS Computer Science, JHU (2010-2012)",
+    "role": "Founder & Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  },
+  {
+    "name": "Zhongsu Chen Ph.D",
+    "firm": "QuanJingSaiSi Investments",
+    "connection": "JHU-affiliated (per PitchBook)",
+    "role": "Founder, Chief Executive Officer",
+    "entityType": "Operator/Founder"
+  }
+]

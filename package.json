@@ -12,5 +12,8 @@
     "@anthropic-ai/sdk": "^0.104.2",
     "express": "^4.19.2",
     "mammoth": "^1.8.0"
+  },
+  "devDependencies": {
+    "xlsx": "^0.18.5"
   }
 }

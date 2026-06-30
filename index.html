@@ -75,14 +75,16 @@
     : 'https://vc-matching-second-brain.onrender.com';
 
   // ── Data ──────────────────────────────────────────────────────────────────
-  let VCS   = [];
-  let TECHS = [];
+  let VCS             = [];
+  let TECHS           = [];
+  let JHU_CONNECTIONS = [];
 
   async function loadData() {
     try {
-      [VCS, TECHS] = await Promise.all([
+      [VCS, TECHS, JHU_CONNECTIONS] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
+        fetch('data/jhu_connections.json').then(r => r.json()),
       ]);
       renderDomainBrowse();
     } catch (e) {
@@ -240,6 +242,16 @@
     `;
   }
 
+  // ── JHU Connections ──────────────────────────────────────────────────────
+  function findJHUConnections(vc) {
+    const norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const queries = [vc.name, ...(vc.aliases || [])].map(norm).filter(Boolean);
+    return JHU_CONNECTIONS.filter(c => {
+      const firm = norm(c.firm);
+      return queries.some(q => firm.includes(q) || q.includes(firm));
+    });
+  }
+
   // ── Search ────────────────────────────────────────────────────────────────
   const input = document.getElementById('vcInput');
   input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
@@ -343,6 +355,17 @@
       ? `<div class="provisional-banner">Provisional profile — generated from public web data only, no Pitchbook. Review before using in outreach.</div>`
       : '';
 
+    const jhuMatches = findJHUConnections(vc);
+    const jhuSection = jhuMatches.length
+      ? `<p class="section-label">${jhuMatches.length} JHU connection${jhuMatches.length === 1 ? '' : 's'} at ${vc.name}</p>
+         <div class="jhu-connections-grid">${jhuMatches.map(c => `
+           <div class="jhu-connection-card">
+             <div class="jhu-connection-name">${c.name}${c.role ? ` <span class="jhu-connection-role">· ${c.role}</span>` : ''}</div>
+             ${c.connection ? `<div class="jhu-connection-detail">${c.connection}</div>` : ''}
+           </div>`).join('')}
+         </div>`
+      : `<p class="jhu-no-connections">No JHU connections found for ${vc.name} in the network database.</p>`;
+
     return `
       ${provisionalBanner}
       <div class="vc-header">
@@ -357,6 +380,7 @@
       </div>
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
       <div class="tech-grid">${techs.map(t => techCardHTML(t)).join('')}</div>
+      ${jhuSection}
     `;
   }
 
