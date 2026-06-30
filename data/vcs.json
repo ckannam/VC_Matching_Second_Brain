@@ -624,5 +624,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "bridgebio-pharma-inc",
+    "name": "BridgeBio Pharma, Inc.",
+    "aliases": [
+      "BridgeBio",
+      "BBIO"
+    ],
+    "focus": "BridgeBio is a commercial-stage biopharmaceutical company that discovers, develops, and delivers transformative medicines for patients with genetic diseases and cancers with clear genetic drivers, using a hub-and-spoke model that takes many 'shots on goal' across an advantaged R&D space. Note: BridgeBio is primarily a drug-development company rather than a traditional venture capital firm.",
+    "sectors": [
+      "Life Sciences",
+      "Genetic Diseases",
+      "Rare Diseases",
+      "Oncology",
+      "Gene Therapy",
+      "Biopharmaceuticals"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "West Coast",
+    "matchedTechs": [
+      "28bio",
+      "astropath",
+      "blocksynop",
+      "brainbox-solutions"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
