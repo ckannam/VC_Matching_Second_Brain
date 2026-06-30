@@ -250,10 +250,11 @@
       'holdings', 'holding', 'advisors', 'advisory', 'advisor',
       'investments', 'investment', 'equity', 'operations', 'solutions',
       'sciences', 'services', 'limited', 'company', 'companies',
-      'associates', 'life', 'health', 'llc', 'lp', 'inc', 'corp', 'ltd', 'co'
+      'associates', 'life', 'health', 'enterprise', 'new', 'the',
+      'llc', 'lp', 'inc', 'corp', 'ltd', 'co'
     ]);
     const tokenize = s => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean);
-    const keyTokens = s => tokenize(s).filter(w => !STOPWORDS.has(w));
+    const keyTokens = s => tokenize(s).filter(w => w.length > 1 && !STOPWORDS.has(w));
 
     const vcTokens = keyTokens(vc.name);
 
