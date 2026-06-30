@@ -244,11 +244,31 @@
 
   // ── JHU Connections ──────────────────────────────────────────────────────
   function findJHUConnections(vc) {
-    const norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    const q = norm(vc.name);
+    const STOPWORDS = new Set([
+      'capital', 'management', 'managers', 'partners', 'partner',
+      'ventures', 'venture', 'fund', 'funds', 'group',
+      'holdings', 'holding', 'advisors', 'advisory', 'advisor',
+      'investments', 'investment', 'equity', 'operations', 'solutions',
+      'sciences', 'services', 'limited', 'company', 'companies',
+      'associates', 'life', 'health', 'llc', 'lp', 'inc', 'corp', 'ltd', 'co'
+    ]);
+    const tokenize = s => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean);
+    const keyTokens = s => tokenize(s).filter(w => !STOPWORDS.has(w));
+
+    const vcTokens = keyTokens(vc.name);
+
     return JHU_CONNECTIONS.filter(c => {
-      const firm = norm(c.firm);
-      return firm === q || firm.includes(q) || q.includes(firm);
+      const firmTokens = keyTokens(c.firm);
+
+      if (vcTokens.length === 0 || firmTokens.length === 0) {
+        return tokenize(vc.name).join('') === tokenize(c.firm).join('');
+      }
+
+      const vcSet = new Set(vcTokens);
+      const firmSet = new Set(firmTokens);
+      const intersection = [...vcSet].filter(w => firmSet.has(w));
+      const union = new Set([...vcSet, ...firmSet]);
+      return intersection.length / union.size >= 0.6;
     });
   }
 
