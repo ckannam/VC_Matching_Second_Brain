@@ -552,5 +552,41 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "questmark-partners-l-p",
+    "name": "QuestMark Partners, L.P.",
+    "aliases": [
+      "QuestMark",
+      "QuestMarkVC"
+    ],
+    "focus": "QuestMark is an expansion-stage growth equity firm that backs exceptional management teams building highly-differentiated, often category-creating companies with strong commercial traction, a preference for recurring revenue models, and the strategic position to support long-term standalone market leadership.",
+    "sectors": [
+      "Enterprise Software (SaaS)",
+      "Tech-Enabled Business Services",
+      "Cybersecurity",
+      "Fintech",
+      "Consumer Internet",
+      "Healthcare IT",
+      "Medical Devices",
+      "Mobile Software"
+    ],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 5,
+      "max": 30
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "brainbox-solutions",
+      "bullfrog-ai",
+      "longeviti-neuro-solutions",
+      "mi-helper"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
