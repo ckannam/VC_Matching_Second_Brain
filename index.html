@@ -245,10 +245,10 @@
   // ── JHU Connections ──────────────────────────────────────────────────────
   function findJHUConnections(vc) {
     const norm = s => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    const queries = [vc.name, ...(vc.aliases || [])].map(norm).filter(Boolean);
+    const q = norm(vc.name);
     return JHU_CONNECTIONS.filter(c => {
       const firm = norm(c.firm);
-      return queries.some(q => firm.includes(q) || q.includes(firm));
+      return firm === q || firm.includes(q) || q.includes(firm);
     });
   }
 
@@ -360,8 +360,12 @@
       ? `<p class="section-label">${jhuMatches.length} JHU connection${jhuMatches.length === 1 ? '' : 's'} at ${vc.name}</p>
          <div class="jhu-connections-grid">${jhuMatches.map(c => `
            <div class="jhu-connection-card">
-             <div class="jhu-connection-name">${c.name}${c.role ? ` <span class="jhu-connection-role">· ${c.role}</span>` : ''}</div>
-             ${c.connection ? `<div class="jhu-connection-detail">${c.connection}</div>` : ''}
+             <div class="jhu-card-top">
+               <div class="jhu-card-name">${c.name}</div>
+               ${c.entityType ? `<span class="jhu-entity-pill">${c.entityType}</span>` : ''}
+             </div>
+             ${c.role ? `<div class="jhu-card-role">${c.role}</div>` : ''}
+             ${c.connection ? `<div class="jhu-card-connection"><span class="jhu-badge">JHU</span><span>${c.connection}</span></div>` : ''}
            </div>`).join('')}
          </div>`
       : `<p class="jhu-no-connections">No JHU connections found for ${vc.name} in the network database.</p>`;
@@ -378,9 +382,9 @@
           ${downloadAllBtn}
         </div>
       </div>
+      ${jhuSection}
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
       <div class="tech-grid">${techs.map(t => techCardHTML(t)).join('')}</div>
-      ${jhuSection}
     `;
   }
 
