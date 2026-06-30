@@ -588,5 +588,41 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "blackbird-laboratories-inc",
+    "name": "Blackbird Laboratories, Inc.",
+    "aliases": [
+      "Blackbird Labs",
+      "Blackbird BioVentures"
+    ],
+    "focus": "A Baltimore-based nonprofit life sciences incubator and its venture arm (Blackbird BioVentures) that de-risks academic research from institutions like Johns Hopkins and University of Maryland with non-dilutive grants, then invests early equity to spin out and scale biotech companies locally. The goal is to translate breakthrough research into venture-ready therapeutics and build Baltimore into a national biotech hub.",
+    "sectors": [
+      "Therapeutics",
+      "Life Sciences",
+      "Drug Discovery",
+      "Biotechnology",
+      "Gene Therapy",
+      "Oncology",
+      "Medical Devices",
+      "Diagnostics"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 5
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "3dnamics",
+      "biolinco",
+      "28bio",
+      "accelevir"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
