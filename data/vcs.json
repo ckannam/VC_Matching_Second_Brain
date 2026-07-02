@@ -693,5 +693,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "accel-formerly-accel-partners",
+    "name": "Accel (formerly Accel Partners)",
+    "aliases": [
+      "Accel",
+      "Accel Partners"
+    ],
+    "focus": "Accel employs a 'prepared mind' philosophy, deeply studying specific themes and markets in advance so partners can move quickly to back exceptional founders building category-defining technology companies. It partners with founders from seed through growth stages, providing hands-on support in strategy, hiring, and scaling.",
+    "sectors": [
+      "Enterprise SaaS",
+      "Cybersecurity",
+      "Fintech",
+      "Consumer Internet",
+      "AI/ML",
+      "Cloud Infrastructure",
+      "Developer Tools",
+      "Gaming"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 0.5,
+      "max": 200
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "avoid",
+      "foragerone",
+      "read-ahead",
+      "28bio"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
