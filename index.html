@@ -875,31 +875,6 @@
     }
   }
 
-  function roadmapHTML(tech, picks) {
-    const d = techToGrantInput(tech);
-    const vcNames = picks.slice(0, 3).map(r => r.vc.name);
-    const vcStr = vcNames.length ? vcNames.join(', ') : 'the investor fits above';
-    const steps = [];
-    if (d.ventureStage === 'forming' || d.ventureStage === 'pre_seed') {
-      steps.push(['Anchor with translational grants', 'Confirm the JHTV case number, then target MII Validation (quarterly deadlines) — the classic first dataset-builder for Hopkins spinouts.']);
-      steps.push(['Form the company & stack non-dilutive', 'TEDCO Pre-Seed Builder and SBIR/STTR Phase I typically follow MII; the grant screen above shows the current openings.']);
-      steps.push(['Open investor conversations early', `Start relationship-building with ${vcStr} now — warm intros via the JHU connections shown above; aim for a round after the first grant-funded milestone.`]);
-    } else if (d.ventureStage === 'seed') {
-      steps.push(['Pair the round with non-dilutive money', 'SBIR/STTR Phase I–II plus TEDCO SBIR Matching extends runway without extra dilution.']);
-      steps.push(['Run a focused seed process', `Prioritize ${vcStr} — ranked by thesis fit, with JHU warm-intro paths flagged above.`]);
-      steps.push(['Line up follow-on signals', 'Foundation and federal Phase II awards de-risk the Series A story.']);
-    } else {
-      steps.push(['Target growth-stage fits', `Lead with ${vcStr}; check-size and stage compatibility are already factored into the ranking.`]);
-      steps.push(['Add late non-dilutive complements', 'ARPA-H, BARDA and disease-foundation programs (see screen above) still apply at this stage for health techs.']);
-      steps.push(['Leverage the network', 'Use the JHU connections at target firms for partner-level introductions rather than cold outreach.']);
-    }
-    return `
-      <div class="profile-section">
-        <p class="section-label">Suggested funding path</p>
-        <ol class="roadmap">${steps.map(([t, b]) => `<li><strong>${t}.</strong> ${b}</li>`).join('')}</ol>
-      </div>`;
-  }
-
   function viewTech(techId) {
     const tech = TECHS.find(t => t.id === techId);
     if (!tech) return;
@@ -960,7 +935,6 @@
 
         <div id="techGrantSection" class="profile-section"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
 
-        ${roadmapHTML(tech, picks)}
       </div>`;
 
     renderTechGrants(tech);
