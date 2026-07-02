@@ -243,33 +243,113 @@
   }
 
   // ── JHU Connections ──────────────────────────────────────────────────────
-  function findJHUConnections(vc) {
-    const STOPWORDS = new Set([
-      'capital', 'management', 'managers', 'partners', 'partner',
-      'ventures', 'venture', 'fund', 'funds', 'group',
-      'holdings', 'holding', 'advisors', 'advisory', 'advisor',
-      'investments', 'investment', 'equity', 'operations', 'solutions',
-      'sciences', 'services', 'limited', 'company', 'companies',
-      'associates', 'life', 'health', 'enterprise', 'new', 'the',
-      'llc', 'lp', 'inc', 'corp', 'ltd', 'co'
-    ]);
-    const tokenize = s => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean);
-    const keyTokens = s => tokenize(s).filter(w => w.length > 1 && !STOPWORDS.has(w));
+  const JHU_STOPWORDS = new Set([
+    'capital', 'management', 'managers', 'partners', 'partner',
+    'ventures', 'venture', 'fund', 'funds', 'group',
+    'holdings', 'holding', 'advisors', 'advisory', 'advisor',
+    'investments', 'investment', 'equity', 'operations', 'solutions',
+    'sciences', 'services', 'limited', 'company', 'companies',
+    'associates', 'life', 'health', 'enterprise', 'new', 'the',
+    'llc', 'lp', 'inc', 'corp', 'ltd', 'co'
+  ]);
 
-    const vcTokens = keyTokens(vc.name);
+  function jhuTokenize(s) {
+    return (s || '')
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip accents
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim().split(/\s+/).filter(Boolean);
+  }
+
+  // Edit distance with transpositions counted as 1 ("kohsla" → "khosla")
+  function jhuEditDistance(a, b) {
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m + 1}, () => Array(n + 1).fill(0));
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    for (let i = 1; i <= m; i++)
+      for (let j = 1; j <= n; j++) {
+        dp[i][j] = a[i-1] === b[j-1]
+          ? dp[i-1][j-1]
+          : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+        if (i > 1 && j > 1 && a[i-1] === b[j-2] && a[i-2] === b[j-1])
+          dp[i][j] = Math.min(dp[i][j], dp[i-2][j-2] + 1);
+      }
+    return dp[m][n];
+  }
+
+  // Typo-tolerant token equality: exact for short tokens, 1 edit for tokens ≥5 chars
+  function jhuTokensEqual(a, b) {
+    if (a === b) return true;
+    if (a.length < 5 || b.length < 5) return false;
+    if (Math.abs(a.length - b.length) > 1) return false;
+    return jhuEditDistance(a, b) <= 1;
+  }
+
+  // "NEA (New Enterprise Associates)" → ["nea new enterprise associates", "nea", "new enterprise associates"]
+  function jhuNameVariants(name) {
+    const variants = [name];
+    const base = name.replace(/\([^)]*\)/g, ' ').trim();
+    if (base && base !== name) variants.push(base);
+    const parens = name.match(/\(([^)]+)\)/g) || [];
+    for (const p of parens) variants.push(p.slice(1, -1));
+    const seen = new Set();
+    return variants
+      .map(v => jhuTokenize(v))
+      .filter(toks => toks.length && !seen.has(toks.join(' ')) && seen.add(toks.join(' ')));
+  }
+
+  // vcIsAlias: short aliases like "Tiger" or "GC" are search shorthand, not
+  // official names — they only match exactly or as full multi-token names,
+  // never as a loose one-word prefix of a longer firm name.
+  function jhuNamesMatch(vcTokens, firmTokens, vcIsAlias) {
+    const fullVC   = ' ' + vcTokens.join(' ') + ' ';
+    const fullFirm = ' ' + firmTokens.join(' ') + ' ';
+    if (fullVC === fullFirm) return true;
+
+    // Whole-name containment, multi-token names only:
+    // "sequoia capital" ⊂ "sequoia capital operations llc"
+    if (vcTokens.length >= 2 && fullFirm.includes(fullVC)) return true;
+    if (firmTokens.length >= 2 && fullVC.includes(fullFirm)) return true;
+
+    // Key-token coverage (typo-tolerant)
+    const keyVC   = vcTokens.filter(w => !JHU_STOPWORDS.has(w));
+    const keyFirm = firmTokens.filter(w => !JHU_STOPWORDS.has(w));
+    if (!keyVC.length || !keyFirm.length) return false;
+
+    // Both names reduce to one distinctive token: "kohsla ventures" ↔ "khosla ventures"
+    if (keyVC.length === 1 && keyFirm.length === 1)
+      return jhuTokensEqual(keyVC[0], keyFirm[0]);
+
+    // Multi-token side fully covers the other: "general catalyst" ⊂ "general catalyst group management"
+    if (keyVC.length >= 2 && keyFirm.length >= 2) {
+      const [small, large] = keyVC.length <= keyFirm.length ? [keyVC, keyFirm] : [keyFirm, keyVC];
+      return small.every(s => large.some(l => jhuTokensEqual(s, l)));
+    }
+
+    // One-word name vs longer name: only match as an anchor on the longer
+    // name's first distinctive token ("flagship" → "flagship pioneering"),
+    // never from a one-word alias, and never on short/generic tokens
+    // ("global" must not pull in "global health investments").
+    const [single, multi, singleIsVC] = keyVC.length === 1
+      ? [keyVC[0], keyFirm, true] : [keyFirm[0], keyVC, false];
+    if (singleIsVC && vcIsAlias) return false;
+    return single.length >= 4 && jhuTokensEqual(single, multi[0]);
+  }
+
+  function findJHUConnections(vc) {
+    const nameVariants  = jhuNameVariants(vc.name);
+    const aliasVariants = (vc.aliases || []).flatMap(jhuNameVariants);
+    const firmCache = {};
 
     return JHU_CONNECTIONS.filter(c => {
-      const firmTokens = keyTokens(c.firm);
-
-      if (vcTokens.length === 0 || firmTokens.length === 0) {
-        return tokenize(vc.name).join('') === tokenize(c.firm).join('');
+      if (!(c.firm in firmCache)) {
+        const firmVariants = jhuNameVariants(c.firm);
+        firmCache[c.firm] = firmVariants.some(f =>
+          nameVariants.some(v => jhuNamesMatch(v, f, false)) ||
+          aliasVariants.some(v => jhuNamesMatch(v, f, true)));
       }
-
-      const vcSet = new Set(vcTokens);
-      const firmSet = new Set(firmTokens);
-      const intersection = [...vcSet].filter(w => firmSet.has(w));
-      const union = new Set([...vcSet, ...firmSet]);
-      return intersection.length / union.size >= 0.6;
+      return firmCache[c.firm];
     });
   }
 
@@ -418,6 +498,7 @@
                ${c.entityType ? `<span class="jhu-entity-pill">${c.entityType}</span>` : ''}
              </div>
              ${c.role ? `<div class="jhu-card-role">${c.role}</div>` : ''}
+             ${jhuTokenize(c.firm).join(' ') !== jhuTokenize(vc.name).join(' ') ? `<div class="jhu-card-firm">Listed as: ${c.firm}</div>` : ''}
              ${c.connection ? `<div class="jhu-card-connection"><span class="jhu-badge">JHU</span><span>${c.connection}</span></div>` : ''}
            </div>`).join('')}
          </div>`

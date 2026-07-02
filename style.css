@@ -408,6 +408,11 @@ body {
   color: var(--blue);
   font-weight: 500;
 }
+.jhu-card-firm {
+  font-size: .75rem;
+  color: var(--muted);
+  font-style: italic;
+}
 .jhu-card-connection {
   display: flex;
   align-items: flex-start;
