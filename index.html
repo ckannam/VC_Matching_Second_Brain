@@ -743,15 +743,38 @@
     };
   }
 
+  function fitTier(score) {
+    if (score >= 0.80) return { label: 'Strong fit',   cls: 'strong' };
+    if (score >= 0.60) return { label: 'Good fit',     cls: 'good' };
+    return { label: 'Possible fit', cls: 'possible' };
+  }
+
+  // One ranked list. "In VC brief" (hand-reviewed PDF match) earns a badge and
+  // a +0.1 sort bonus; provisional firms' matchedTechs came from this same
+  // scoring, so they get neither. Firms without profile data can only surface
+  // via their brief match (fixed 0.75 sort score).
   function findVCsForTech(tech) {
-    const curated = VCS.filter(vc => (vc.matchedTechs || []).includes(tech.id));
-    const scored = VCS
-      .filter(vc => !curated.includes(vc))
-      .map(vc => ({ vc, fit: vcFitScore(vc, tech) }))
-      .filter(x => x.fit && x.fit.score >= 0.45)
-      .sort((a, b) => b.fit.score - a.fit.score)
-      .slice(0, 5);
-    return { curated, scored };
+    const rows = [];
+    for (const vc of VCS) {
+      const briefMatch = (vc.matchedTechs || []).includes(tech.id);
+      const inBrief = !!vc.vcOnePager && briefMatch;
+      const fit = vcFitScore(vc, tech);
+      if (fit) {
+        if (fit.score >= 0.45 || inBrief)
+          rows.push({ vc, fit, inBrief, sortScore: fit.score + (inBrief ? 0.1 : 0) });
+      } else if (briefMatch) {
+        rows.push({ vc, fit: null, inBrief, sortScore: 0.75 });
+      }
+    }
+    return rows.sort((a, b) => b.sortScore - a.sortScore);
+  }
+
+  function toggleMoreFits() {
+    const more = document.getElementById('moreVcFits');
+    const btn  = document.getElementById('moreVcFitsBtn');
+    const hidden = more.style.display === 'none';
+    more.style.display = hidden ? '' : 'none';
+    btn.textContent = hidden ? 'Show fewer matches' : btn.dataset.showLabel;
   }
 
   function vcFitRowHTML(vc, badge, detail) {
@@ -854,7 +877,7 @@
 
   function roadmapHTML(tech, picks) {
     const d = techToGrantInput(tech);
-    const vcNames = [...picks.curated, ...picks.scored.map(x => x.vc)].slice(0, 3).map(v => v.name);
+    const vcNames = picks.slice(0, 3).map(r => r.vc.name);
     const vcStr = vcNames.length ? vcNames.join(', ') : 'the investor fits above';
     const steps = [];
     if (d.ventureStage === 'forming' || d.ventureStage === 'pre_seed') {
@@ -886,15 +909,21 @@
     r.style.display = 'block';
 
     const picks = findVCsForTech(tech);
-    const curatedRows = picks.curated.map(vc =>
-      vcFitRowHTML(vc, '<span class="pill fit-badge-curated">Matched in VC profile</span>', '')).join('');
-    const scoredRows = picks.scored.map(({ vc, fit }) => {
+    const fitRowHTML = ({ vc, fit, inBrief }) => {
+      const badges = [];
+      if (inBrief) badges.push('<span class="pill fit-badge-curated">In VC brief</span>');
+      if (fit) {
+        const t = fitTier(fit.score);
+        badges.push(`<span class="pill fit-tier-${t.cls}">${t.label}</span>`);
+      }
       const parts = [];
-      if (fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
-      if (fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
+      if (fit && fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
+      if (fit && fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
       const detail = parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '';
-      return vcFitRowHTML(vc, `<span class="pill fit-badge-score">${Math.round(fit.score * 100)}% fit</span>`, detail);
-    }).join('');
+      return vcFitRowHTML(vc, badges.join(''), detail);
+    };
+    const firstRows = picks.slice(0, 4).map(fitRowHTML).join('');
+    const moreRows  = picks.slice(4).map(fitRowHTML).join('');
 
     const sectorPills = (tech.sectors || []).map(s => {
       const c = DOMAIN_COLORS[s] || '#64748B';
@@ -922,10 +951,11 @@
         </div>
         ${tech.description ? `<p class="tech-profile-desc">${tech.description}</p>` : ''}
 
-        <p class="section-label">Investor fit — ${picks.curated.length + picks.scored.length} firms</p>
+        <p class="section-label">Investor fit — ${picks.length} firm${picks.length === 1 ? '' : 's'}</p>
         <div class="vc-fit-list">
-          ${curatedRows}${scoredRows}
-          ${!curatedRows && !scoredRows ? '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>' : ''}
+          ${firstRows || '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>'}
+          ${moreRows ? `<div id="moreVcFits" style="display:none">${moreRows}</div>
+            <button class="btn btn-secondary btn-sm" id="moreVcFitsBtn" data-show-label="Show ${picks.length - 4} more match${picks.length - 4 === 1 ? '' : 'es'}" onclick="toggleMoreFits()">Show ${picks.length - 4} more match${picks.length - 4 === 1 ? '' : 'es'}</button>` : ''}
         </div>
 
         <div id="techGrantSection" class="profile-section"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>

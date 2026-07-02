@@ -49,7 +49,7 @@ ANTHROPIC_API_KEY=sk-... GITHUB_TOKEN=ghp-... node server.js
 **JHU connections data:** source of truth is `/Users/colekannam/Documents/JHU VC DATABASE/JHU_VC_Network.xlsx` (sheet "JHU VC Network"; firm-header rows have an empty Firm column and are intentionally skipped). After editing the sheet, run `node scripts/convert_jhu_connections.js` to regenerate `data/jhu_connections.json`, then commit.
 
 **Tech Funding Profile (`viewTech()` in `index.html`):** reverse view — click any tech name (cards, domain lists) to see its funding landscape. Three parts:
-- *Investor fit:* VCs whose `matchedTechs` include the tech ("Matched in VC profile" badge) plus profiled VCs ranked by a client-side port of the `scoreTech()` weights from `scripts/generate_vc.js` (`INDUSTRY_TO_DOMAIN` table is duplicated in `index.html` — keep in sync). The 12 curated VCs have empty `sectors`/`focus` and can only surface via `matchedTechs`. Each row shows a JHU-connection count pill.
+- *Investor fit:* one ranked list of all VCs scored by a client-side port of the `scoreTech()` weights from `scripts/generate_vc.js` (`INDUSTRY_TO_DOMAIN` table is duplicated in `index.html` — keep in sync). Scores display as tiers, not percentages: ≥0.80 Strong fit · ≥0.60 Good fit · ≥0.45 Possible fit · below excluded. A hand-reviewed PDF match (`vc.vcOnePager` set AND tech in `matchedTechs`) gets a gold "In VC brief" badge and +0.1 sort bonus; provisional firms' `matchedTechs` get neither (it came from the same scoring). VCs without profile data surface only via a brief match at fixed sort 0.75. Top 4 rows render; the rest sit behind a "Show N more matches" toggle. Each row shows a JHU-connection count pill.
 - *Preliminary grant screen:* fetches `grant_engine.js` + `grants_live.json` from the **Grant Finder site** (`https://ckannam.github.io/jhtv-grant-finder` — same GitHub Pages origin, defined as `GRANT_FINDER_URL`). `techToGrantInput()` maps tech stage/sector onto the engine's form fields (`jhtv:'yes'`, `jhuSchool:'other_jhu'` are safe constants for portfolio techs; founder-specific fields stay blank). Cards deep-link to the Grant Finder prefilled via URL hash (`#stage=pre_co&ventureStage=…`).
 - *Suggested funding path:* rule-based roadmap keyed off the mapped venture stage.
 
@@ -88,6 +88,7 @@ node scripts/populate_technologies.js   # rebuilds technologies.json from *.docx
 node scripts/populate_vcs.js            # rebuilds vcs.json from VC PDFs (requires pdfminer.six)
 node scripts/generate_vc.js "Firm Name" # CLI: research one VC and append to vcs.json
 node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .docx via Claude Haiku
+node scripts/enrich_curated_vcs.js      # one-time: fill profile data on PDF-curated VCs (preserves matchedTechs)
 ```
 
 `populate_vcs.js` requires Python: `pip3 install pdfminer.six`. It reads "JHTV PORTFOLIO MATCHES" → "WHO WE ARE MEETING WITH" from each PDF and fuzzy-matches company names to tech IDs. VC names come from filenames (PDF text is all-caps and unreliable).

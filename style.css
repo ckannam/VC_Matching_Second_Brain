@@ -499,11 +499,15 @@ body.compact-hero .popular-row { display: none; }
   border-color: var(--gold);
   color: #fff;
 }
-.fit-badge-score {
-  background: #EFF6FF;
-  border-color: #BFDBFE;
-  color: var(--blue);
+.fit-tier-strong   { background: #F0FDF4; border-color: #BBF7D0; color: #15803D; }
+.fit-tier-good     { background: #EFF6FF; border-color: #BFDBFE; color: var(--blue); }
+.fit-tier-possible { background: #F8FAFC; border-color: var(--border); color: var(--muted); }
+#moreVcFits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+#moreVcFitsBtn { align-self: flex-start; }
 .profile-section {
   border-top: 1px solid var(--border);
   padding-top: 22px;
