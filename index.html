@@ -152,7 +152,7 @@
     const color = DOMAIN_COLORS[sector] || '#64748B';
     const count = techs.length;
     const names = techs.slice(0, 4).map(t =>
-      `<span class="domain-tech-link" onclick="event.stopPropagation();previewTech('${t.onePager}')" title="Preview one-pager">${t.name}</span>`
+      `<span class="domain-tech-link" onclick="event.stopPropagation();viewTech('${t.id}')" title="View funding profile">${t.name}</span>`
     ).join('');
     const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
     // Subtle tint: icon bg is 10% opacity of domain color; icon stroke uses domain color
@@ -535,7 +535,7 @@
 
     return `
       <div class="tech-card" style="${topBorder}">
-        <h3>${t.name}</h3>
+        <h3 class="tech-card-title" onclick="viewTech('${t.id}')" title="View funding profile">${t.name}</h3>
         ${t.pi          ? `<p class="pi">${t.pi}</p>` : ''}
         ${reason        ? `<p class="match-reason">${reason}</p>` : ''}
         ${t.description ? `<p class="desc">${t.description}</p>` : ''}
@@ -609,6 +609,322 @@
         <p style="margin-top:16px;font-size:.8rem;color:var(--muted)">Provisional profiles use public web data only (no Pitchbook). Review before using in outreach.</p>
       </div>
     `;
+  }
+
+  // ── Tech Funding Profile ──────────────────────────────────────────────────
+  // Reverse view: for one technology, show best-fit VCs (with JHU warm intros)
+  // and a preliminary grant screen powered by the Grant Finder's shared engine.
+  const GRANT_FINDER_URL = 'https://ckannam.github.io/jhtv-grant-finder';
+
+  // Ported from scripts/generate_vc.js — keep the two tables in sync.
+  const INDUSTRY_TO_DOMAIN = {
+    'life sciences':       ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
+    'life science':        ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
+    'biotech':             ['Therapeutics','Diagnostics','Research Technologies'],
+    'biotechnology':       ['Therapeutics','Diagnostics','Research Technologies'],
+    'biopharma':           ['Therapeutics','Diagnostics'],
+    'pharma':              ['Therapeutics'],
+    'drug discovery':      ['Therapeutics','Research Technologies'],
+    'therapeutics':        ['Therapeutics'],
+    'diagnostics':         ['Diagnostics'],
+    'digital health':      ['Digital Health'],
+    'healthcare it':       ['Digital Health'],
+    'health it':           ['Digital Health'],
+    'healthtech':          ['Digital Health'],
+    'health tech':         ['Digital Health'],
+    'medtech':             ['Medical Devices'],
+    'medical device':      ['Medical Devices'],
+    'medical technology':  ['Medical Devices'],
+    'surgical':            ['Medical Devices'],
+    'oncology':            ['Diagnostics','Therapeutics'],
+    'cancer':              ['Diagnostics','Therapeutics'],
+    'neurology':           ['Medical Devices','Digital Health'],
+    'neurotech':           ['Medical Devices','Digital Health'],
+    'cardiovascular':      ['Medical Devices','Diagnostics'],
+    'cardiology':          ['Medical Devices','Diagnostics'],
+    'cleantech':           ['Clean Tech'],
+    'clean tech':          ['Clean Tech'],
+    'climate':             ['Clean Tech'],
+    'sustainability':      ['Clean Tech'],
+    'energy':              ['Clean Tech'],
+    'agtech':              ['Agricultural Tech'],
+    'agriculture':         ['Agricultural Tech'],
+    'food tech':           ['Agricultural Tech'],
+    'cybersecurity':       ['Cybersecurity'],
+    'security':            ['Cybersecurity'],
+    'infosec':             ['Cybersecurity'],
+    'research tools':      ['Research Technologies','Diagnostics'],
+    'lab tech':            ['Research Technologies'],
+    'ai in healthcare':    ['Digital Health','Medical Devices'],
+    'ai health':           ['Digital Health'],
+    'deep tech':           null,
+    'healthcare':          null,
+    'health care':         null,
+  };
+
+  const DOMAIN_MATURITY = {
+    'Therapeutics': 'early', 'Diagnostics': 'mid', 'Medical Devices': 'mid',
+    'Digital Health': 'mid', 'Research Technologies': 'early', 'Clean Tech': 'early',
+    'Agricultural Tech': 'early', 'Cybersecurity': 'mid',
+  };
+
+  function mapFocusToDomains(focusStrings) {
+    const matched = new Set();
+    let matchesAll = false;
+    for (const f of focusStrings) {
+      const fl = (f || '').toLowerCase();
+      for (const [keyword, domains] of Object.entries(INDUSTRY_TO_DOMAIN)) {
+        if (fl.includes(keyword)) {
+          if (domains === null) matchesAll = true;
+          else domains.forEach(d => matched.add(d));
+        }
+      }
+    }
+    return { matched, matchesAll };
+  }
+
+  function techStageScore(vcStages, techStage) {
+    if (!techStage) return 0.5;
+    const techNorm = techStage.toLowerCase();
+    const stageMap = {
+      'seed':       ['pre-seed','newco','seed','pre-clinical','pre-product','concept','early','ind-enabling'],
+      'series a':   ['seed','series a','pre-clinical','clinical','mvp','pilot','phase i','phase 1','phase ii','phase 2'],
+      'series b':   ['series a','series b','clinical','commercial','revenue','phase ii','phase 2','phase iii','phase 3','fda'],
+      'growth':     ['series b','series c','series d','growth','commercial','revenue','scale','fda-cleared'],
+      'late stage': ['series b','series c','series d','growth','commercial','revenue','scale','public'],
+    };
+    for (const vs of vcStages) {
+      const compatible = stageMap[vs.toLowerCase()] || [];
+      if (compatible.some(s => techNorm.includes(s))) return 1;
+    }
+    return 0.2;
+  }
+
+  function vcFitScore(vc, tech) {
+    const focus = (vc.sectors && vc.sectors.length) ? vc.sectors : (vc.focus ? [vc.focus] : []);
+    if (!focus.length) return null;  // curated entries carry no profile data to score
+
+    const { matched, matchesAll } = mapFocusToDomains(focus);
+    const techDomains = tech.sectors || [];
+
+    let industryScore;
+    if (matchesAll && matched.size === 0) industryScore = 0.3;
+    else {
+      const hits = techDomains.filter(d => matched.has(d)).length;
+      industryScore = techDomains.length ? hits / techDomains.length : 0;
+      if (matchesAll) industryScore = Math.max(industryScore, 0.5);
+    }
+
+    const stageOk = techStageScore(vc.stage || [], tech.stage);
+
+    const g = (vc.geographicFocus || '').toLowerCase();
+    const geo = (!g || g.includes('national')) ? 0.8
+      : (g.includes('mid-atlantic') || g.includes('east coast')) ? 1.0
+      : (g.includes('west coast') || g.includes('international')) ? 0.4 : 0.7;
+
+    const maturity = DOMAIN_MATURITY[techDomains[0]] || 'mid';
+    const min = vc.checkSize ? vc.checkSize.min : undefined;
+    const max = vc.checkSize ? vc.checkSize.max : undefined;
+    let checkSz = 0.4;
+    if (maturity === 'early' && max <= 15) checkSz = 1;
+    else if (maturity === 'mid' && min >= 1 && max <= 50) checkSz = 1;
+
+    return {
+      score: 0.375 * industryScore + 0.30 * stageOk + 0.10 * geo + 0.225 * checkSz,
+      sharedDomains: techDomains.filter(d => matched.has(d)),
+      stageOk: stageOk === 1,
+    };
+  }
+
+  function findVCsForTech(tech) {
+    const curated = VCS.filter(vc => (vc.matchedTechs || []).includes(tech.id));
+    const scored = VCS
+      .filter(vc => !curated.includes(vc))
+      .map(vc => ({ vc, fit: vcFitScore(vc, tech) }))
+      .filter(x => x.fit && x.fit.score >= 0.45)
+      .sort((a, b) => b.fit.score - a.fit.score)
+      .slice(0, 5);
+    return { curated, scored };
+  }
+
+  function vcFitRowHTML(vc, badge, detail) {
+    const jhu = findJHUConnections(vc);
+    const jhuPill = jhu.length
+      ? `<span class="jhu-count-pill">${jhu.length} JHU connection${jhu.length === 1 ? '' : 's'}</span>`
+      : `<span class="jhu-count-pill none">No JHU connections</span>`;
+    return `
+      <div class="vc-fit-row">
+        <div class="vc-fit-main">
+          <a href="#" class="vc-fit-name" onclick="event.preventDefault();searchFor('${vc.name.replace(/'/g, "\\'")}')">${vc.name}</a>
+          ${badge}
+          ${jhuPill}
+        </div>
+        ${detail ? `<div class="vc-fit-detail">${detail}</div>` : ''}
+      </div>`;
+  }
+
+  // ── Grant engine (shared with the Grant Finder site, same GitHub Pages origin)
+  let _grantEngine = null;
+  let _grantsLive  = null;
+
+  async function loadGrantEngine() {
+    if (_grantEngine) return _grantEngine;
+    const [src, live] = await Promise.all([
+      fetch(GRANT_FINDER_URL + '/grant_engine.js').then(r => {
+        if (!r.ok) throw new Error('grant engine HTTP ' + r.status);
+        return r.text();
+      }),
+      fetch(GRANT_FINDER_URL + '/grants_live.json').then(r => r.ok ? r.json() : null).catch(() => null),
+    ]);
+    _grantEngine = new Function(src + '; return getGrants;')();
+    _grantsLive  = (live && live.grants) || {};
+    return _grantEngine;
+  }
+
+  // Map a tech record onto the Grant Finder's form fields. Only fields a tech
+  // record can honestly answer; founder-specific fields stay blank.
+  function techToGrantInput(tech) {
+    const SECTOR_TO_TYPE = {
+      'Therapeutics': 'therapeutic', 'Medical Devices': 'device', 'Diagnostics': 'device',
+      'Digital Health': 'digital_health', 'Research Technologies': 'life_tools',
+      'Agricultural Tech': 'synbio', 'Clean Tech': 'non_medical', 'Cybersecurity': 'non_medical',
+    };
+    const s = (tech.stage || '').toLowerCase();
+    let ventureStage = 'forming';
+    if (s.includes('pre-seed') || s.includes('pre-clinical')) ventureStage = 'pre_seed';
+    else if (s.includes('seed')) ventureStage = 'seed';
+    else if (s.includes('series') || s.includes('growth') || s.includes('commercial')) ventureStage = 'growth';
+    return {
+      ventureStage,
+      technologyType: SECTOR_TO_TYPE[(tech.sectors || [])[0]] || 'non_medical',
+      jhtv: 'yes',              // every catalog tech is a JHTV disclosure
+      jhuSchool: 'other_jhu',   // JHU affiliation is a given for portfolio techs
+    };
+  }
+
+  function grantDeepLink(d) {
+    const params = new URLSearchParams(d);
+    params.set('stage', ['forming', 'pre_seed'].includes(d.ventureStage) ? 'pre_co' : 'co');
+    return `${GRANT_FINDER_URL}/jhtv_grant_eligibility.html#${params.toString()}`;
+  }
+
+  async function renderTechGrants(tech) {
+    const box = document.getElementById('techGrantSection');
+    if (!box) return;
+    try {
+      const getGrants = await loadGrantEngine();
+      const d = techToGrantInput(tech);
+      const results = getGrants(d).map(g => {
+        const live = _grantsLive[g.id];
+        return live && live.deadlineLabel ? { ...g, deadline: live.deadlineLabel } : g;
+      });
+      const eligible    = results.filter(g => g.s === 'eligible');
+      const conditional = results.filter(g => g.s === 'conditional');
+      const ineligible  = results.filter(g => g.s === 'ineligible');
+      const link = grantDeepLink(d);
+
+      const rows = [...eligible, ...conditional].map(g => `
+        <div class="grant-row">
+          <span class="grant-status ${g.s}"></span>
+          <div class="grant-row-main">
+            <a class="grant-row-title" href="${link}" target="_blank" rel="noopener">${g.title}</a>
+            <div class="grant-row-meta">${g.org} · ${g.amount}${g.deadline ? ` · ${g.deadline}` : ''}</div>
+          </div>
+          <span class="pill grant-pill-${g.s}">${g.s === 'eligible' ? 'Likely eligible' : 'Conditional'}</span>
+        </div>`).join('');
+
+      box.innerHTML = `
+        <p class="section-label">Non-dilutive funding — preliminary screen</p>
+        <p class="grant-disclaimer">Based on stage and technology type only; founder-specific factors (Maryland presence, entity, team, SBIR history) are unchecked. ${ineligible.length} programs screened out.</p>
+        <div class="grant-rows">${rows || '<p class="jhu-no-connections">No likely-eligible grants at this stage.</p>'}</div>
+        <a class="btn btn-secondary btn-sm" style="margin-top:10px" href="${link}" target="_blank" rel="noopener">Run the full eligibility check in Grant Finder →</a>`;
+    } catch (err) {
+      box.innerHTML = `
+        <p class="section-label">Non-dilutive funding — preliminary screen</p>
+        <p class="jhu-no-connections">Couldn't reach the Grant Finder (${err.message}). <a href="${GRANT_FINDER_URL}" target="_blank" rel="noopener">Open it directly</a>.</p>`;
+    }
+  }
+
+  function roadmapHTML(tech, picks) {
+    const d = techToGrantInput(tech);
+    const vcNames = [...picks.curated, ...picks.scored.map(x => x.vc)].slice(0, 3).map(v => v.name);
+    const vcStr = vcNames.length ? vcNames.join(', ') : 'the investor fits above';
+    const steps = [];
+    if (d.ventureStage === 'forming' || d.ventureStage === 'pre_seed') {
+      steps.push(['Anchor with translational grants', 'Confirm the JHTV case number, then target MII Validation (quarterly deadlines) — the classic first dataset-builder for Hopkins spinouts.']);
+      steps.push(['Form the company & stack non-dilutive', 'TEDCO Pre-Seed Builder and SBIR/STTR Phase I typically follow MII; the grant screen above shows the current openings.']);
+      steps.push(['Open investor conversations early', `Start relationship-building with ${vcStr} now — warm intros via the JHU connections shown above; aim for a round after the first grant-funded milestone.`]);
+    } else if (d.ventureStage === 'seed') {
+      steps.push(['Pair the round with non-dilutive money', 'SBIR/STTR Phase I–II plus TEDCO SBIR Matching extends runway without extra dilution.']);
+      steps.push(['Run a focused seed process', `Prioritize ${vcStr} — ranked by thesis fit, with JHU warm-intro paths flagged above.`]);
+      steps.push(['Line up follow-on signals', 'Foundation and federal Phase II awards de-risk the Series A story.']);
+    } else {
+      steps.push(['Target growth-stage fits', `Lead with ${vcStr}; check-size and stage compatibility are already factored into the ranking.`]);
+      steps.push(['Add late non-dilutive complements', 'ARPA-H, BARDA and disease-foundation programs (see screen above) still apply at this stage for health techs.']);
+      steps.push(['Leverage the network', 'Use the JHU connections at target firms for partner-level introductions rather than cold outreach.']);
+    }
+    return `
+      <p class="section-label">Suggested funding path</p>
+      <ol class="roadmap">${steps.map(([t, b]) => `<li><strong>${t}.</strong> ${b}</li>`).join('')}</ol>`;
+  }
+
+  function viewTech(techId) {
+    const tech = TECHS.find(t => t.id === techId);
+    if (!tech) return;
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    r.style.display = 'block';
+
+    const picks = findVCsForTech(tech);
+    const curatedRows = picks.curated.map(vc =>
+      vcFitRowHTML(vc, '<span class="pill fit-badge-curated">Matched in VC profile</span>', '')).join('');
+    const scoredRows = picks.scored.map(({ vc, fit }) => {
+      const parts = [];
+      if (fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
+      if (fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
+      const detail = parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '';
+      return vcFitRowHTML(vc, `<span class="pill fit-badge-score">${Math.round(fit.score * 100)}% fit</span>`, detail);
+    }).join('');
+
+    const sectorPills = (tech.sectors || []).map(s => {
+      const c = DOMAIN_COLORS[s] || '#64748B';
+      return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
+    }).join('');
+
+    const fileBtns = tech.onePager
+      ? `<button class="btn btn-secondary" onclick="previewTech('${tech.onePager}')">Preview One-Pager</button>
+         <button class="btn btn-primary" onclick="downloadTech('${tech.onePager}')">Download</button>`
+      : '';
+
+    r.innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>Funding profile</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button>
+        </div>
+        <div class="vc-header">
+          <div>
+            <h2>${tech.name}</h2>
+            ${tech.pi ? `<p class="pi" style="margin:4px 0 8px">${tech.pi}</p>` : ''}
+            <div class="vc-meta">${sectorPills}${tech.stage ? `<span class="pill">${tech.stage}</span>` : ''}</div>
+          </div>
+          <div class="vc-actions">${fileBtns}</div>
+        </div>
+        ${tech.description ? `<p class="tech-profile-desc">${tech.description}</p>` : ''}
+
+        <p class="section-label">Investor fit — ${picks.curated.length + picks.scored.length} firms</p>
+        <div class="vc-fit-list">
+          ${curatedRows}${scoredRows}
+          ${!curatedRows && !scoredRows ? '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>' : ''}
+        </div>
+
+        <div id="techGrantSection"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
+
+        ${roadmapHTML(tech, picks)}
+      </div>`;
+
+    renderTechGrants(tech);
+    window.scrollTo({ top: 0 });
   }
 
   // ── Preview ───────────────────────────────────────────────────────────────

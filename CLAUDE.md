@@ -48,6 +48,13 @@ ANTHROPIC_API_KEY=sk-... GITHUB_TOKEN=ghp-... node server.js
 
 **JHU connections data:** source of truth is `/Users/colekannam/Documents/JHU VC DATABASE/JHU_VC_Network.xlsx` (sheet "JHU VC Network"; firm-header rows have an empty Firm column and are intentionally skipped). After editing the sheet, run `node scripts/convert_jhu_connections.js` to regenerate `data/jhu_connections.json`, then commit.
 
+**Tech Funding Profile (`viewTech()` in `index.html`):** reverse view — click any tech name (cards, domain lists) to see its funding landscape. Three parts:
+- *Investor fit:* VCs whose `matchedTechs` include the tech ("Matched in VC profile" badge) plus profiled VCs ranked by a client-side port of the `scoreTech()` weights from `scripts/generate_vc.js` (`INDUSTRY_TO_DOMAIN` table is duplicated in `index.html` — keep in sync). The 12 curated VCs have empty `sectors`/`focus` and can only surface via `matchedTechs`. Each row shows a JHU-connection count pill.
+- *Preliminary grant screen:* fetches `grant_engine.js` + `grants_live.json` from the **Grant Finder site** (`https://ckannam.github.io/jhtv-grant-finder` — same GitHub Pages origin, defined as `GRANT_FINDER_URL`). `techToGrantInput()` maps tech stage/sector onto the engine's form fields (`jhtv:'yes'`, `jhuSchool:'other_jhu'` are safe constants for portfolio techs; founder-specific fields stay blank). Cards deep-link to the Grant Finder prefilled via URL hash (`#stage=pre_co&ventureStage=…`).
+- *Suggested funding path:* rule-based roadmap keyed off the mapped venture stage.
+
+Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants()`'s signature in the Grant Finder repo breaks this section (it fails soft with a link to the Grant Finder).
+
 **Backend (`server.js`):** Express with in-memory job store (lost on restart). Two endpoints:
 - `POST /api/research-vc` — fire-and-forget, returns `{ jobId }`
 - `GET /api/job/:jobId` — returns `{ status: 'running'|'done'|'error', result?, error? }`

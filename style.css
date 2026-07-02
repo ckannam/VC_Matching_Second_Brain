@@ -442,6 +442,132 @@ body {
   margin-bottom: 24px;
 }
 
+/* ── Tech Funding Profile ── */
+.tech-card-title {
+  cursor: pointer;
+}
+.tech-card-title:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.tech-profile-desc {
+  font-size: .92rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+.vc-fit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.vc-fit-row {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+.vc-fit-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.vc-fit-name {
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  font-size: .95rem;
+}
+.vc-fit-name:hover { text-decoration: underline; color: var(--blue); }
+.vc-fit-detail {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.fit-badge-curated {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.fit-badge-score {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+  color: var(--blue);
+}
+.jhu-count-pill {
+  font-size: .72rem;
+  font-weight: 600;
+  background: #FEF6E7;
+  border: 1px solid #F0DCB8;
+  color: #8A6519;
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+.jhu-count-pill.none {
+  background: #F8FAFC;
+  border-color: var(--border);
+  color: var(--muted);
+  font-weight: 500;
+}
+.grant-disclaimer {
+  font-size: .8rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.grant-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.grant-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.grant-status {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.grant-status.eligible    { background: #16A34A; }
+.grant-status.conditional { background: #D97706; }
+.grant-row-main { flex: 1; min-width: 0; }
+.grant-row-title {
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+.grant-row-title:hover { text-decoration: underline; color: var(--blue); }
+.grant-row-meta {
+  font-size: .76rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.grant-pill-eligible    { background: #F0FDF4; border-color: #BBF7D0; color: #15803D; }
+.grant-pill-conditional { background: #FFFBEB; border-color: #FDE68A; color: #B45309; }
+.roadmap {
+  margin: 0 0 28px 20px;
+  padding: 0;
+  max-width: 760px;
+}
+.roadmap li {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.roadmap li strong { color: var(--navy); }
+
 /* ── States ───────────────────────────────────────────────────────────────── */
 .not-found {
   background: #fff;
