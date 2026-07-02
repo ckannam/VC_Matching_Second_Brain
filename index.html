@@ -177,6 +177,7 @@
     const icon     = DOMAIN_ICONS[sector]  || DOMAIN_ICONS['Research Technologies'];
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
     r.style.display = 'block';
     r.innerHTML = `
       <div class="catalog-section">
@@ -196,6 +197,7 @@
   function showDomainBrowse() {
     document.getElementById('results').style.display = 'none';
     document.getElementById('domainBrowse').style.display = 'block';
+    document.body.classList.remove('compact-hero');
     document.getElementById('vcInput').value = '';
   }
 
@@ -203,6 +205,7 @@
     const withBriefs = VCS.filter(vc => vc.vcOnePager);
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
     r.style.display = 'block';
     r.innerHTML = `
       <div class="catalog-section">
@@ -230,6 +233,7 @@
   function viewAllTechs() {
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
     r.style.display = 'block';
     r.innerHTML = `
       <div class="catalog-section">
@@ -417,6 +421,7 @@
     );
 
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
     r.style.display = 'block';
 
     if (match) {
@@ -528,9 +533,10 @@
       return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
     }).join('');
     const downloadBtn = t.onePager
-      ? `<button class="btn btn-secondary btn-sm" onclick="previewTech('${t.onePager}')">Preview</button>
+      ? `<button class="btn btn-secondary btn-sm" onclick="viewTech('${t.id}')">Funding Profile</button>
+         <button class="btn btn-secondary btn-sm" onclick="previewTech('${t.onePager}')">Preview</button>
          <button class="btn btn-primary btn-sm" onclick="downloadTech('${t.onePager}')">Download</button>`
-      : `<button class="btn btn-primary btn-sm" disabled>No file</button>`;
+      : `<button class="btn btn-secondary btn-sm" onclick="viewTech('${t.id}')">Funding Profile</button>`;
     const topBorder = accentColor ? `border-top:3px solid ${accentColor}` : '';
 
     return `
@@ -554,6 +560,7 @@
     const r = document.getElementById('results');
     r.style.display = 'block';
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
 
     r.innerHTML = `<div class="catalog-section"><div class="not-found">
       <h2>Researching ${vcName}…</h2>
@@ -864,8 +871,10 @@
       steps.push(['Leverage the network', 'Use the JHU connections at target firms for partner-level introductions rather than cold outreach.']);
     }
     return `
-      <p class="section-label">Suggested funding path</p>
-      <ol class="roadmap">${steps.map(([t, b]) => `<li><strong>${t}.</strong> ${b}</li>`).join('')}</ol>`;
+      <div class="profile-section">
+        <p class="section-label">Suggested funding path</p>
+        <ol class="roadmap">${steps.map(([t, b]) => `<li><strong>${t}.</strong> ${b}</li>`).join('')}</ol>
+      </div>`;
   }
 
   function viewTech(techId) {
@@ -873,6 +882,7 @@
     if (!tech) return;
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
     r.style.display = 'block';
 
     const picks = findVCsForTech(tech);
@@ -918,7 +928,7 @@
           ${!curatedRows && !scoredRows ? '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>' : ''}
         </div>
 
-        <div id="techGrantSection"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
+        <div id="techGrantSection" class="profile-section"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
 
         ${roadmapHTML(tech, picks)}
       </div>`;

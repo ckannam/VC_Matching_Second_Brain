@@ -83,7 +83,14 @@ body {
   color: #fff;
   padding: 64px 24px 72px;
   text-align: center;
+  transition: padding .25s ease;
 }
+/* Compact hero once results are on screen — keep the search bar, drop the pitch */
+body.compact-hero .hero { padding: 20px 24px 24px; }
+body.compact-hero .hero-label,
+body.compact-hero .hero-title,
+body.compact-hero .hero-sub,
+body.compact-hero .popular-row { display: none; }
 .hero-inner { max-width: 680px; margin: 0 auto; }
 .hero-label {
   font-size: .72rem;
@@ -497,6 +504,12 @@ body {
   border-color: #BFDBFE;
   color: var(--blue);
 }
+.profile-section {
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+  margin-top: 26px;
+}
+.vc-fit-row .jhu-count-pill { margin-left: auto; }
 .jhu-count-pill {
   font-size: .72rem;
   font-weight: 600;
