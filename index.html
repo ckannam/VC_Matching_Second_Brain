@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JHTV Second Brain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,600;0,700;1,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,8 +26,8 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-label">INVESTOR MATCHING</p>
-    <h1 class="hero-title">Which Hopkins technologies fit<br>your investor?</h1>
+    <p class="hero-label">JOHNS HOPKINS TECHNOLOGY VENTURES</p>
+    <h1 class="hero-title">Which Hopkins technologies fit your investor?</h1>
     <p class="hero-sub">Search a VC firm to surface matched technologies and export a tailored brief.</p>
     <div class="hero-search">
       <div class="search-row">
@@ -41,6 +44,7 @@
         <button class="chip" onclick="searchFor('Felicis')">Felicis</button>
       </div>
     </div>
+    <p class="statline" id="statLine"></p>
   </div>
 </section>
 
@@ -87,6 +91,9 @@
         fetch('data/jhu_connections.json').then(r => r.json()),
       ]);
       renderDomainBrowse();
+      const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
+      document.getElementById('statLine').textContent =
+        `${TECHS.length} technologies · ${VCS.length} firms profiled · ${JHU_CONNECTIONS.length} JHU contacts across ${uniqueFirms} firms`;
     } catch (e) {
       document.getElementById('domainBrowse').textContent =
         'Failed to load data. Run via a local server or GitHub Pages.';
@@ -155,14 +162,12 @@
       `<span class="domain-tech-link" onclick="event.stopPropagation();viewTech('${t.id}')" title="View funding profile">${t.name}</span>`
     ).join('');
     const more = count > 4 ? `<span class="domain-tech-more">+${count - 4} more</span>` : '';
-    // Subtle tint: icon bg is 10% opacity of domain color; icon stroke uses domain color
-    const iconStyle = `background:${color}18; color:${color}`;
     return `
       <div class="domain-card" onclick="viewDomain('${sector.replace(/'/g,"\\'")}')">
         <div class="domain-card-top">
-          <div class="domain-icon" style="${iconStyle}">${icon}</div>
+          <div class="domain-icon" style="color:${color}">${icon}</div>
           <div>
-            <div class="domain-name">${sector}</div>
+            <div class="domain-name"><span class="domain-dot" style="background:${color}"></span>${sector}</div>
             <div class="domain-count">${count} technolog${count === 1 ? 'y' : 'ies'}</div>
           </div>
         </div>
@@ -181,10 +186,10 @@
     r.style.display = 'block';
     r.innerHTML = `
       <div class="catalog-section">
-        <div class="domain-catalog-header" style="border-left:4px solid ${color}">
-          <div class="domain-catalog-icon" style="background:${color}20;color:${color}">${icon}</div>
+        <div class="domain-catalog-header" style="border-left:3px solid ${color}">
+          <div class="domain-catalog-icon" style="background:var(--paper);border:1px solid var(--border);color:${color}">${icon}</div>
           <div>
-            <div class="domain-catalog-name" style="color:${color}">${sector}</div>
+            <div class="domain-catalog-name">${sector}</div>
             <div class="domain-catalog-count">${filtered.length} technolog${filtered.length === 1 ? 'y' : 'ies'}</div>
           </div>
           <button class="view-all-link" onclick="showDomainBrowse()">← Back to domains</button>
@@ -530,7 +535,7 @@
   function techCardHTML(t, accentColor, reason) {
     const tags        = (t.sectors || []).map(s => {
       const c = accentColor || DOMAIN_COLORS[s] || '#64748B';
-      return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
+      return `<span class="pill"><span class="pill-dot" style="background:${c}"></span>${s}</span>`;
     }).join('');
     const downloadBtn = t.onePager
       ? `<button class="btn btn-secondary btn-sm" onclick="viewTech('${t.id}')">Funding Profile</button>
@@ -902,7 +907,7 @@
 
     const sectorPills = (tech.sectors || []).map(s => {
       const c = DOMAIN_COLORS[s] || '#64748B';
-      return `<span class="pill" style="background:${c}15;border-color:${c}40;color:${c}">${s}</span>`;
+      return `<span class="pill"><span class="pill-dot" style="background:${c}"></span>${s}</span>`;
     }).join('');
 
     const fileBtns = tech.onePager
