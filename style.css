@@ -632,6 +632,42 @@ body.compact-hero .popular-row { display: none; }
   border-color: var(--gold-bd);
   color: var(--gold-tx);
 }
+.rel-badge {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.rel-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.rel-note {
+  font-size: .78rem;
+  color: var(--muted);
+}
+.rel-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: .8rem;
+  color: var(--muted);
+  padding: 2px 2px 4px;
+}
+.rel-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px 10px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--blue);
+  cursor: pointer;
+  transition: border-color .15s;
+}
+.rel-chip:hover { border-color: var(--blue); }
 .fit-tier-strong   { background: #EBF3EC; border-color: #BFD8C4; color: #1E5B31; }
 .fit-tier-good     { background: #EBF1F7; border-color: #BFD2E2; color: var(--blue); }
 .fit-tier-possible { background: var(--paper); border-color: var(--border); color: var(--muted); }

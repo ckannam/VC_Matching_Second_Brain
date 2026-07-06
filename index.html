@@ -86,15 +86,17 @@
 
   async function loadData() {
     try {
-      [VCS, TECHS, JHU_CONNECTIONS] = await Promise.all([
+      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
         fetch('data/jhu_connections.json').then(r => r.json()),
+        fetch('data/jhtv_relationships.json').then(r => r.ok ? r.json() : []).catch(() => []),
       ]);
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
         `${TECHS.length} technologies · ${VCS.length} firms profiled · ${JHU_CONNECTIONS.length} JHU contacts across ${uniqueFirms} firms`;
+      resolveRelationships();
       buildSearchIndex();
       dispatchRoute();
     } catch (e) {
@@ -376,6 +378,37 @@
       }
       return firmCache[c.firm];
     });
+  }
+
+  // ── JHTV Relationships ───────────────────────────────────────────────────
+  // data/jhtv_relationships.json: [{ firm, tier?, note? }] — firms JHTV works
+  // with, written by the team. Joined to vcs.json entries by name variants.
+  let JHTV_RELATIONSHIPS = [];
+  let REL_BY_VC      = new Map();  // vc.id → relationship entry
+  let UNMATCHED_RELS = [];         // relationship firms not yet in vcs.json
+
+  // Find the VC entry whose name or aliases match an externally-written firm name.
+  function vcMatchingName(firmName) {
+    const fv = jhuNameVariants(firmName);
+    return VCS.find(v => {
+      const nv = jhuNameVariants(v.name);
+      const av = (v.aliases || []).flatMap(jhuNameVariants);
+      return fv.some(f => nv.some(x => jhuNamesMatch(x, f, false)) || av.some(x => jhuNamesMatch(x, f, true)));
+    });
+  }
+
+  function resolveRelationships() {
+    REL_BY_VC = new Map();
+    UNMATCHED_RELS = [];
+    for (const rel of JHTV_RELATIONSHIPS) {
+      const vc = vcMatchingName(rel.firm);
+      if (vc) { if (!REL_BY_VC.has(vc.id)) REL_BY_VC.set(vc.id, rel); }
+      else UNMATCHED_RELS.push(rel);
+    }
+  }
+
+  function relBadgeHTML(rel) {
+    return `<span class="pill rel-badge">${rel.tier || 'JHTV relationship'}</span>`;
   }
 
   // ── Search ────────────────────────────────────────────────────────────────
@@ -671,6 +704,7 @@
         <div>
           <h2>${vc.name}</h2>
           <div class="vc-meta">${sectorPills}${stagePills}</div>
+          ${REL_BY_VC.has(vc.id) ? `<div class="rel-line">${relBadgeHTML(REL_BY_VC.get(vc.id))}${REL_BY_VC.get(vc.id).note ? `<span class="rel-note">${REL_BY_VC.get(vc.id).note}</span>` : ''}</div>` : ''}
         </div>
         <div class="vc-actions">
           ${vcBriefBtn}
@@ -1034,7 +1068,9 @@
 
     const picks = findVCsForTech(tech);
     const fitRowHTML = ({ vc, fit, inBrief }) => {
+      const rel = REL_BY_VC.get(vc.id);
       const badges = [];
+      if (rel) badges.push(relBadgeHTML(rel));
       if (inBrief) badges.push('<span class="pill fit-badge-curated">In VC brief</span>');
       if (fit) {
         const t = fitTier(fit.score);
@@ -1043,11 +1079,26 @@
       const parts = [];
       if (fit && fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
       if (fit && fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
-      const detail = parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '';
+      const detail = [parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '', rel && rel.note ? rel.note : '']
+        .filter(Boolean).join(' · ');
       return vcFitRowHTML(vc, badges.join(''), detail);
     };
-    const firstRows = picks.slice(0, 4).map(fitRowHTML).join('');
-    const moreRows  = picks.slice(4).map(fitRowHTML).join('');
+
+    const rels      = picks.filter(p => REL_BY_VC.has(p.vc.id));
+    const prospects = picks.filter(p => !REL_BY_VC.has(p.vc.id));
+
+    const relChips = UNMATCHED_RELS.map(rl =>
+      `<button class="rel-chip" onclick="triggerResearch('${rl.firm.replace(/'/g, "\\'")}')" title="Not yet profiled — research this firm">${rl.firm}</button>`).join('');
+    const relSection = (rels.length || relChips) ? `
+        <p class="section-label">JHTV relationships — ${rels.length} profiled firm${rels.length === 1 ? '' : 's'}</p>
+        <div class="vc-fit-list">
+          ${rels.map(fitRowHTML).join('')}
+          ${relChips ? `<div class="rel-strip"><span>In the relationship network, not yet profiled:</span>${relChips}</div>` : ''}
+        </div>` : '';
+
+    const prospectLabel = relSection ? 'New prospects' : 'Investor fit';
+    const firstRows = prospects.slice(0, 4).map(fitRowHTML).join('');
+    const moreRows  = prospects.slice(4).map(fitRowHTML).join('');
 
     const sectorPills = (tech.sectors || []).map(s => {
       const c = DOMAIN_COLORS[s] || '#64748B';
@@ -1075,11 +1126,12 @@
         </div>
         ${tech.description ? `<p class="tech-profile-desc">${tech.description}</p>` : ''}
 
-        <p class="section-label">Investor fit — ${picks.length} firm${picks.length === 1 ? '' : 's'}</p>
+        ${relSection}
+        <p class="section-label">${prospectLabel} — ${prospects.length} firm${prospects.length === 1 ? '' : 's'}</p>
         <div class="vc-fit-list">
           ${firstRows || '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>'}
           ${moreRows ? `<div id="moreVcFits" style="display:none">${moreRows}</div>
-            <button class="btn btn-secondary btn-sm" id="moreVcFitsBtn" data-show-label="Show ${picks.length - 4} more match${picks.length - 4 === 1 ? '' : 'es'}" onclick="toggleMoreFits()">Show ${picks.length - 4} more match${picks.length - 4 === 1 ? '' : 'es'}</button>` : ''}
+            <button class="btn btn-secondary btn-sm" id="moreVcFitsBtn" data-show-label="Show ${prospects.length - 4} more match${prospects.length - 4 === 1 ? '' : 'es'}" onclick="toggleMoreFits()">Show ${prospects.length - 4} more match${prospects.length - 4 === 1 ? '' : 'es'}</button>` : ''}
         </div>
 
         <div id="techGrantSection" class="profile-section"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
