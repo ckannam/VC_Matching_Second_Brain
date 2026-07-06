@@ -33,10 +33,15 @@ ANTHROPIC_API_KEY=sk-... GITHUB_TOKEN=ghp-... node server.js
 
 **Frontend (`index.html` + `style.css`):** All search, matching, and rendering happen client-side. On load, `loadData()` fetches `data/vcs.json` and `data/technologies.json` into `VCS` and `TECHS` arrays.
 
-**Search flow:**
-1. Exact substring match on `vc.name` and `vc.aliases`
-2. Levenshtein fuzzy match (threshold: `max(2, floor(query.length × 0.4))`) → "Did you mean X?" banner with escape-hatch link to research the original query
-3. No match → `notFoundHTML()` → "Research this VC" button → `triggerResearch(vcName)`
+**Routing (hash-based):** `#/` home · `#/domain/<sector>` · `#/all` · `#/briefs` · `#/vc/<id>` · `#/tech/<id>`. Convention: public functions referenced from inline `onclick`s (`viewTech`, `viewDomain`, `viewAllTechs`, `showSavedBriefs`, `showDomainBrowse`) only set `location.hash`; the `hashchange` listener dispatches to `render*` counterparts (`renderTech`, `renderVc`, `renderDomain`, `renderAllTechs`, `renderSavedBriefs`, `renderHome`). `loadData()` calls `dispatchRoute()` so deep links and refresh work. The fuzzy "did you mean" view renders directly and syncs the hash with `history.replaceState` (fires no hashchange).
+
+**Search flow (`search()`):**
+1. Exact substring match on `vc.name`/`vc.aliases` → route to `#/vc/<id>`
+2. Tech name substring match → route to `#/tech/<id>`
+3. Levenshtein fuzzy match on VC names (threshold: `max(2, floor(query.length × 0.4))`) → "Did you mean X?" banner with escape-hatch link to research the original query
+4. No match → `notFoundHTML()` → "Research "X" as a new VC firm" button → `triggerResearch(vcName)`
+
+**Typeahead:** `buildSearchIndex()` (after data load) indexes firms (name+aliases), technologies, unique people from `jhu_connections.json`, and the 8 domains. `querySuggestions()` ranks prefix > word-prefix > substring, ties by type (firm > technology > domain > person), max 8. Selecting a person resolves their sheet firm to a VC entry via the JHU name matcher (`goToFirm`); unresolved firms go straight to the research offer (deliberately skipping the whole-string fuzzy, which produces false "did you mean" hits on generic suffixes like "Capital Management"). Keyboard: ↓/↑/Enter/Esc.
 
 **Auto-research flow (Phase 2B — live):**
 - `triggerResearch()` POSTs to `/api/research-vc` → server returns `jobId` immediately

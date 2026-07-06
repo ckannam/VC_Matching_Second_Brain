@@ -34,9 +34,10 @@
         <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
           <circle cx="8.5" cy="8.5" r="5.5"/><path d="M15 15l-3-3"/>
         </svg>
-        <input type="text" id="vcInput" placeholder="Search a VC firm — e.g. Lux Capital" autocomplete="off">
+        <input type="text" id="vcInput" placeholder="Search firms, technologies, or people" autocomplete="off" aria-autocomplete="list">
         <button class="btn btn-dark" onclick="search()">Search</button>
       </div>
+      <div class="search-suggest" id="searchSuggest" role="listbox" style="display:none"></div>
       <div class="popular-row">
         <span class="popular-label">Popular:</span>
         <button class="chip" onclick="searchFor('Lux Capital')">Lux Capital</button>
@@ -94,6 +95,8 @@
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
         `${TECHS.length} technologies · ${VCS.length} firms profiled · ${JHU_CONNECTIONS.length} JHU contacts across ${uniqueFirms} firms`;
+      buildSearchIndex();
+      dispatchRoute();
     } catch (e) {
       document.getElementById('domainBrowse').textContent =
         'Failed to load data. Run via a local server or GitHub Pages.';
@@ -176,8 +179,11 @@
     `;
   }
 
-  function viewDomain(sector) {
+  function viewDomain(sector) { location.hash = '#/domain/' + encodeURIComponent(sector); }
+
+  function renderDomain(sector) {
     const filtered = TECHS.filter(t => (t.sectors || []).includes(sector));
+    if (!filtered.length) { renderHome(); return; }
     const color    = DOMAIN_COLORS[sector] || '#64748B';
     const icon     = DOMAIN_ICONS[sector]  || DOMAIN_ICONS['Research Technologies'];
     const r = document.getElementById('results');
@@ -200,13 +206,20 @@
   }
 
   function showDomainBrowse() {
+    if (location.hash && location.hash !== '#/' && location.hash !== '#') location.hash = '#/';
+    else renderHome();
+  }
+
+  function renderHome() {
     document.getElementById('results').style.display = 'none';
     document.getElementById('domainBrowse').style.display = 'block';
     document.body.classList.remove('compact-hero');
     document.getElementById('vcInput').value = '';
   }
 
-  function showSavedBriefs() {
+  function showSavedBriefs() { location.hash = '#/briefs'; }
+
+  function renderSavedBriefs() {
     const withBriefs = VCS.filter(vc => vc.vcOnePager);
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
@@ -235,7 +248,9 @@
     `;
   }
 
-  function viewAllTechs() {
+  function viewAllTechs() { location.hash = '#/all'; }
+
+  function renderAllTechs() {
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     document.body.classList.add('compact-hero');
@@ -364,7 +379,12 @@
 
   // ── Search ────────────────────────────────────────────────────────────────
   const input = document.getElementById('vcInput');
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' && _sugItems.length) { e.preventDefault(); highlightSuggest(Math.min(_sugSel + 1, _sugItems.length - 1)); }
+    else if (e.key === 'ArrowUp' && _sugItems.length) { e.preventDefault(); highlightSuggest(Math.max(_sugSel - 1, 0)); }
+    else if (e.key === 'Escape') closeSuggest();
+    else if (e.key === 'Enter') { if (_sugSel >= 0) pickSuggest(_sugSel); else search(); }
+  });
 
   function searchFor(name) {
     input.value = name;
@@ -409,40 +429,189 @@
     return bestScore <= threshold ? best : null;
   }
 
+  function renderVc(vcId) {
+    const vc = VCS.find(v => v.id === vcId);
+    if (!vc) { renderHome(); return; }
+    const techMap = Object.fromEntries(TECHS.map(t => [t.id, t]));
+    const technologies = (vc.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
+    r.style.display = 'block';
+    r.innerHTML = `<div class="catalog-section">${foundHTML(vc, technologies)}</div>`;
+  }
+
   function search() {
-    const q = input.value.trim().toLowerCase();
+    closeSuggest();
+    const raw = input.value.trim();
+    const q = raw.toLowerCase();
 
     if (!q) {
       showDomainBrowse();
       return;
     }
 
-    const techMap = Object.fromEntries(TECHS.map(t => [t.id, t]));
-    const r = document.getElementById('results');
-
     const match = VCS.find(vc =>
       vc.name.toLowerCase().includes(q) ||
       (vc.aliases || []).some(a => a.toLowerCase().includes(q))
     );
+    if (match) {
+      if (location.hash === '#/vc/' + match.id) renderVc(match.id);
+      else location.hash = '#/vc/' + match.id;
+      return;
+    }
 
+    const tech = TECHS.find(t => t.name.toLowerCase().includes(q));
+    if (tech) {
+      if (location.hash === '#/tech/' + tech.id) renderTech(tech.id);
+      else location.hash = '#/tech/' + tech.id;
+      return;
+    }
+
+    const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     document.body.classList.add('compact-hero');
     r.style.display = 'block';
 
-    if (match) {
-      const technologies = (match.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-      r.innerHTML = `<div class="catalog-section">${foundHTML(match, technologies)}</div>`;
-      return;
-    }
-
-    const fuzzy = bestFuzzyMatch(input.value.trim());
+    const fuzzy = bestFuzzyMatch(raw);
     if (fuzzy) {
+      const techMap = Object.fromEntries(TECHS.map(t => [t.id, t]));
       const technologies = (fuzzy.matchedTechs || []).map(id => techMap[id]).filter(Boolean);
-      r.innerHTML = `<div class="catalog-section">${didYouMeanHTML(fuzzy.name, input.value.trim())}${foundHTML(fuzzy, technologies)}</div>`;
+      r.innerHTML = `<div class="catalog-section">${didYouMeanHTML(fuzzy.name, raw)}${foundHTML(fuzzy, technologies)}</div>`;
+      history.replaceState(null, '', '#/vc/' + fuzzy.id);  // shareable; replaceState fires no hashchange
     } else {
-      r.innerHTML = `<div class="catalog-section">${notFoundHTML(input.value.trim())}</div>`;
+      r.innerHTML = `<div class="catalog-section">${notFoundHTML(raw)}</div>`;
     }
   }
+
+  // ── Router ────────────────────────────────────────────────────────────────
+  function dispatchRoute() {
+    const h = decodeURIComponent(location.hash || '');
+    const m = h.match(/^#\/(vc|tech|domain)\/(.+)$/);
+    if (m && m[1] === 'vc')     return renderVc(m[2]);
+    if (m && m[1] === 'tech')   return renderTech(m[2]);
+    if (m && m[1] === 'domain') return renderDomain(m[2]);
+    if (h === '#/briefs')       return renderSavedBriefs();
+    if (h === '#/all')          return renderAllTechs();
+    renderHome();
+  }
+  window.addEventListener('hashchange', dispatchRoute);
+
+  // ── Typeahead ─────────────────────────────────────────────────────────────
+  let SEARCH_INDEX = [];
+  let _sugItems = [];
+  let _sugSel   = -1;
+
+  function buildSearchIndex() {
+    SEARCH_INDEX = [];
+    for (const vc of VCS) SEARCH_INDEX.push({
+      type: 'firm', label: vc.name, sub: (vc.stage || []).join(' / '),
+      keys: [vc.name, ...(vc.aliases || [])].map(s => s.toLowerCase()),
+      go: () => { location.hash = '#/vc/' + vc.id; },
+    });
+    for (const t of TECHS) SEARCH_INDEX.push({
+      type: 'technology', label: t.name, sub: [t.pi, t.stage].filter(Boolean).join(' · '),
+      keys: [t.name.toLowerCase()],
+      go: () => { location.hash = '#/tech/' + t.id; },
+    });
+    const seen = new Set();
+    for (const c of JHU_CONNECTIONS) {
+      const k = c.name + '|' + c.firm;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      SEARCH_INDEX.push({
+        type: 'person', label: c.name, sub: c.firm,
+        keys: [c.name.toLowerCase()],
+        go: () => { goToFirm(c.firm); },
+      });
+    }
+    for (const d of Object.keys(DOMAIN_COLORS)) SEARCH_INDEX.push({
+      type: 'domain', label: d, sub: '',
+      keys: [d.toLowerCase()],
+      go: () => { viewDomain(d); },
+    });
+  }
+
+  // Resolve a sheet firm name to a VC entry via the JHU name matcher; if the
+  // firm isn't in the database, fall through to the research offer.
+  function goToFirm(firmName) {
+    const fv = jhuNameVariants(firmName);
+    const vc = VCS.find(v => {
+      const nv = jhuNameVariants(v.name);
+      const av = (v.aliases || []).flatMap(jhuNameVariants);
+      return fv.some(f => nv.some(x => jhuNamesMatch(x, f, false)) || av.some(x => jhuNamesMatch(x, f, true)));
+    });
+    if (vc) { location.hash = '#/vc/' + vc.id; return; }
+    // Firm not in the database — the JHU matcher above is stricter than the
+    // whole-string fuzzy in search(), so skip straight to the research offer
+    // rather than surfacing a misleading "did you mean" for a known firm name.
+    input.value = firmName;
+    closeSuggest();
+    const r = document.getElementById('results');
+    document.getElementById('domainBrowse').style.display = 'none';
+    document.body.classList.add('compact-hero');
+    r.style.display = 'block';
+    r.innerHTML = `<div class="catalog-section">${notFoundHTML(firmName)}</div>`;
+  }
+
+  function querySuggestions(q) {
+    q = q.trim().toLowerCase();
+    if (q.length < 2) return [];
+    const scored = [];
+    for (const e of SEARCH_INDEX) {
+      let best = 0;
+      for (const k of e.keys) {
+        if (k.startsWith(q)) best = Math.max(best, 3);
+        else if (k.split(/[^a-z0-9]+/).some(w => w.startsWith(q))) best = Math.max(best, 2);
+        else if (k.includes(q)) best = Math.max(best, 1);
+      }
+      if (best > 0) scored.push({ e, s: best });
+    }
+    const typeRank = { firm: 0, technology: 1, domain: 2, person: 3 };
+    scored.sort((a, b) => b.s - a.s || typeRank[a.e.type] - typeRank[b.e.type] || a.e.label.localeCompare(b.e.label));
+    return scored.slice(0, 8).map(x => x.e);
+  }
+
+  function renderSuggest(items) {
+    _sugItems = items;
+    _sugSel = -1;
+    const box = document.getElementById('searchSuggest');
+    if (!items.length) { box.style.display = 'none'; box.innerHTML = ''; return; }
+    box.innerHTML = items.map((e, i) => `
+      <div class="suggest-row" role="option" aria-selected="false" data-i="${i}"
+           onmousedown="event.preventDefault();pickSuggest(${i})">
+        <span class="suggest-type suggest-type-${e.type}">${e.type}</span>
+        <span class="suggest-label">${e.label}</span>
+        ${e.sub ? `<span class="suggest-sub">${e.sub}</span>` : ''}
+      </div>`).join('');
+    box.style.display = 'block';
+  }
+
+  function highlightSuggest(i) {
+    _sugSel = i;
+    document.querySelectorAll('.suggest-row').forEach((el, j) => {
+      el.classList.toggle('sel', j === i);
+      el.setAttribute('aria-selected', j === i);
+    });
+  }
+
+  function pickSuggest(i) {
+    const item = _sugItems[i];
+    if (!item) return;
+    input.value = item.label;
+    closeSuggest();
+    item.go();
+  }
+
+  function closeSuggest() {
+    const box = document.getElementById('searchSuggest');
+    if (box) { box.style.display = 'none'; box.innerHTML = ''; }
+    _sugItems = [];
+    _sugSel = -1;
+  }
+
+  input.addEventListener('input', () => renderSuggest(querySuggestions(input.value)));
+  input.addEventListener('blur', () => setTimeout(closeSuggest, 150));
 
   // ── Render helpers ────────────────────────────────────────────────────────
   function matchReason(vc, tech) {
@@ -613,10 +782,10 @@
     const safe = q.replace(/"/g, '&quot;');
     return `
       <div class="not-found">
-        <h2>No results for &ldquo;${q}&rdquo;</h2>
-        <p>${q} hasn&rsquo;t been researched yet. Want to generate a provisional profile and matched technology one-pagers?</p>
+        <h2>No match for &ldquo;${q}&rdquo;</h2>
+        <p>No firm, technology, or JHU contact by that name is in the database. If ${q} is a VC firm, you can generate a provisional profile and matched technology one-pagers.</p>
         <div id="research-cmd-anchor">
-          <button class="btn btn-primary" onclick="triggerResearch('${safe}')">Research this VC &rarr;</button>
+          <button class="btn btn-primary" onclick="triggerResearch('${safe}')">Research &ldquo;${safe}&rdquo; as a new VC firm &rarr;</button>
         </div>
         <p style="margin-top:16px;font-size:.8rem;color:var(--muted)">Provisional profiles use public web data only (no Pitchbook). Review before using in outreach.</p>
       </div>
@@ -880,9 +1049,11 @@
     }
   }
 
-  function viewTech(techId) {
+  function viewTech(techId) { location.hash = '#/tech/' + techId; }
+
+  function renderTech(techId) {
     const tech = TECHS.find(t => t.id === techId);
-    if (!tech) return;
+    if (!tech) { renderHome(); return; }
     const r = document.getElementById('results');
     document.getElementById('domainBrowse').style.display = 'none';
     document.body.classList.add('compact-hero');
