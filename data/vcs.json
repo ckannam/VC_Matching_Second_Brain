@@ -731,5 +731,28 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "netelastic-systems-inc",
+    "name": "netElastic Systems, Inc.",
+    "aliases": [
+      "netElastic"
+    ],
+    "focus": "NOT A VENTURE CAPITAL FIRM. netElastic Systems is a Santa Clara, California-based software company that provides virtual routing solutions (virtual Broadband Network Gateway/vBNG, Carrier-Grade NAT/CGNAT, and vRouter) for broadband service providers. It does not make venture investments.",
+    "sectors": [],
+    "stage": [],
+    "checkSize": {
+      "min": 0,
+      "max": 0
+    },
+    "geographicFocus": "West Coast",
+    "matchedTechs": [
+      "3dnamics",
+      "3helix",
+      "accelevir",
+      "adventris-pharmaceuticals"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
