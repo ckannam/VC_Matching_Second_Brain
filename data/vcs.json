@@ -754,5 +754,38 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "1891-angels",
+    "name": "1891 Angels",
+    "aliases": [
+      "1891 Angels"
+    ],
+    "focus": "1891 Angels connects accredited investors from the Johns Hopkins community to early-stage startups led by Hopkins-connected founders, backing category-defining companies emerging from the Johns Hopkins ecosystem with capital, mentorship, and network access.",
+    "sectors": [
+      "Digital Health",
+      "Medical Devices",
+      "Life Sciences",
+      "Health IT",
+      "Healthcare Technology",
+      "Biotech"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "28bio",
+      "astropath",
+      "blocksynop",
+      "cardiowise"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
