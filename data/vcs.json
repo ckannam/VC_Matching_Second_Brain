@@ -822,5 +822,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "ptx-capital",
+    "name": "PTX Capital",
+    "aliases": [
+      "PTX",
+      "PTX Capital"
+    ],
+    "focus": "PTX Capital is a Baltimore-based private investment firm that partners with exceptional businesses shaping the future of healthcare, deploying capital and guidance to help life sciences and biotechnology companies scale and advance medicine.",
+    "sectors": [
+      "Healthcare",
+      "Life Sciences",
+      "Biotechnology",
+      "Digital Health",
+      "Diagnostics",
+      "Oncology"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "infinity-bio",
+      "28bio",
+      "astropath",
+      "blocksynop"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
