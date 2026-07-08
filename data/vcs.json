@@ -787,5 +787,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "grotech-ventures",
+    "name": "Grotech Ventures",
+    "aliases": [
+      "Grotech"
+    ],
+    "focus": "Grotech partners with high-potential technology companies outside of Silicon Valley that are positioned to transform markets, create jobs, and produce extraordinary, sustainable growth, acting as a collaborative, long-term, hands-on partner beyond just providing capital.",
+    "sectors": [
+      "Enterprise SaaS",
+      "Cybersecurity",
+      "FinTech",
+      "Digital Health",
+      "Supply Chain & Logistics",
+      "AI/ML",
+      "Vertical Software"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "checkSize": {
+      "min": 0.5,
+      "max": 5
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
