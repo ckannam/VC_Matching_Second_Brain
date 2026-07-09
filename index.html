@@ -261,6 +261,7 @@
   function showGrantChecker() { location.hash = '#/grants'; }
 
   function renderGrantChecker(prefill) {
+    _grantPrefill = null; // consume once; don't leak into a later manual open
     showResults().innerHTML = `
       <div class="catalog-section">
         <div class="catalog-header">
@@ -271,6 +272,12 @@
         <div id="grantCheckerMount"></div>
       </div>`;
     renderGrantCheckerForm(document.getElementById('grantCheckerMount'), prefill || null);
+  }
+
+  function refineGrantsForTech(techId) {
+    const tech = TECHS.find(t => t.id === techId);
+    _grantPrefill = tech ? techToGrantPrefill(tech) : null;
+    location.hash = '#/grants';
   }
 
   function viewAllTechs() { location.hash = '#/all'; }
@@ -1070,7 +1077,8 @@
         <p class="section-label">Non-dilutive funding — preliminary screen</p>
         <p class="grant-disclaimer">Based on stage and technology type only; founder-specific factors (Maryland presence, entity, team, SBIR history) are unchecked. ${ineligible.length} programs screened out.</p>
         <div class="grant-rows">${rows || '<p class="jhu-no-connections">No likely-eligible grants at this stage.</p>'}</div>
-        <a class="btn btn-secondary btn-sm" style="margin-top:10px" href="${link}" target="_blank" rel="noopener">Run the full eligibility check in Grant Finder →</a>`;
+        <button class="btn btn-secondary btn-sm" style="margin-top:10px" onclick="refineGrantsForTech('${tech.id}')">Refine eligibility →</button>
+      <a class="grant-external-link" href="${link}" target="_blank" rel="noopener">Open in Grant Finder ↗</a>`;
     } catch (err) {
       box.innerHTML = `
         <p class="section-label">Non-dilutive funding — preliminary screen</p>
