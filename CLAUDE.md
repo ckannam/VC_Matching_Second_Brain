@@ -33,7 +33,7 @@ ANTHROPIC_API_KEY=sk-... GITHUB_TOKEN=ghp-... node server.js
 
 **Frontend (`index.html` + `style.css`):** All search, matching, and rendering happen client-side. On load, `loadData()` fetches `data/vcs.json` and `data/technologies.json` into `VCS` and `TECHS` arrays.
 
-**Routing (hash-based):** `#/` home · `#/domain/<sector>` · `#/all` · `#/briefs` · `#/vc/<id>` · `#/tech/<id>`. Convention: public functions referenced from inline `onclick`s (`viewTech`, `viewDomain`, `viewAllTechs`, `showSavedBriefs`, `showDomainBrowse`) only set `location.hash`; the `hashchange` listener dispatches to `render*` counterparts (`renderTech`, `renderVc`, `renderDomain`, `renderAllTechs`, `renderSavedBriefs`, `renderHome`). `loadData()` calls `dispatchRoute()` so deep links and refresh work. The fuzzy "did you mean" view renders directly and syncs the hash with `history.replaceState` (fires no hashchange).
+**Routing (hash-based):** `#/` home · `#/domain/<sector>` · `#/all` · `#/briefs` · `#/grants` · `#/vc/<id>` · `#/tech/<id>`. Convention: public functions referenced from inline `onclick`s (`viewTech`, `viewDomain`, `viewAllTechs`, `showSavedBriefs`, `showDomainBrowse`, `showGrantChecker`) only set `location.hash`; the `hashchange` listener dispatches to `render*` counterparts (`renderTech`, `renderVc`, `renderDomain`, `renderAllTechs`, `renderSavedBriefs`, `renderGrantChecker`, `renderHome`). `loadData()` calls `dispatchRoute()` so deep links and refresh work. The fuzzy "did you mean" view renders directly and syncs the hash with `history.replaceState` (fires no hashchange).
 
 **Search flow (`search()`):**
 1. Exact substring match on `vc.name`/`vc.aliases` → route to `#/vc/<id>`
@@ -57,9 +57,15 @@ ANTHROPIC_API_KEY=sk-... GITHUB_TOKEN=ghp-... node server.js
 
 **Tech Funding Profile (`viewTech()` in `index.html`):** reverse view — click any tech name (cards, domain lists) to see its funding landscape. Two parts:
 - *Investor fit:* one ranked list of all VCs scored by a client-side port of the `scoreTech()` weights from `scripts/generate_vc.js` (`INDUSTRY_TO_DOMAIN` table is duplicated in `index.html` — keep in sync). Scores display as tiers, not percentages: ≥0.80 Strong fit · ≥0.60 Good fit · ≥0.45 Possible fit · below excluded. A hand-reviewed PDF match (`vc.vcOnePager` set AND tech in `matchedTechs`) gets a gold "In VC brief" badge and +0.1 sort bonus; provisional firms' `matchedTechs` get neither (it came from the same scoring). VCs without profile data surface only via a brief match at fixed sort 0.75. Top 4 rows render; the rest sit behind a "Show N more matches" toggle. Each row shows a JHU-connection count pill.
-- *Preliminary grant screen:* fetches `grant_engine.js` + `grants_live.json` from the **Grant Finder site** (`https://ckannam.github.io/jhtv-grant-finder` — same GitHub Pages origin, defined as `GRANT_FINDER_URL`). `techToGrantInput()` maps tech stage/sector onto the engine's form fields (`jhtv:'yes'`, `jhuSchool:'other_jhu'` are safe constants for portfolio techs; founder-specific fields stay blank). Cards deep-link to the Grant Finder prefilled via URL hash (`#stage=pre_co&ventureStage=…`).
+- *Preliminary grant screen:* `renderTechGrants()` runs the shared engine (`loadGrantEngine()`) with a `techToGrantInput()`-built input (`jhtv:'yes'`, `jhuSchool:'other_jhu'` are safe constants for portfolio techs; founder-specific fields stay blank), and lists likely-eligible grants. A **"Refine eligibility →"** button opens the embedded Grant Checker prefilled for that tech (`refineGrantsForTech()`); a secondary "Open in Grant Finder ↗" link still deep-links out.
 
-Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants()`'s signature in the Grant Finder repo breaks this section (it fails soft with a link to the Grant Finder).
+**Grant integration — Second Brain side (`grant_checker.js` + `index.html`):** the eligibility *logic* is single-sourced in Grant Finder's `grant_engine.js`; Second Brain only holds the form UI and consumes the engine.
+- `loadGrantEngine()` (in `index.html`) fetches `grant_engine.js` + `grants_live.json` from `GRANT_FINDER_URL` (`https://ckannam.github.io/jhtv-grant-finder` — same Pages origin) and `new Function`-evals it, returning `{ getGrants, applyLiveData }`.
+- **CRITICAL GOTCHA:** the *deployed* `grant_engine.js` exports **only `getGrants`** — `applyLiveData` exists only in Grant Finder's *uncommitted* local working tree, never deployed. So `loadGrantEngine` guards it (`applyLiveData: null` when absent) and callers use `const apply = applyLiveData || overlayLive` — `overlayLive(grant, liveMap)` in `grant_checker.js` is the local deadline-overlay fallback. **Do not assume the engine exports anything beyond `getGrants`; do not couple to `applyLiveData`.**
+- `grant_checker.js`: `GRANT_FIELDS` (declarative 17-field schema; ids must match `grant_engine.js` `collectData()` keys), `renderGrantCheckerForm()`, `collectGrantData()`, `runGrantCheck()` (browser); `emptyGrantData()`, `techToGrantPrefill()`, `overlayLive()` (pure, `module.exports`-guarded for Node tests). It's a classic (non-module) script loaded with `defer`, so its `function` decls are globally visible to `index.html`'s inline `onclick`s.
+- The standalone **Grant checker** (`#/grants`, nav button) and the per-tech **Refine eligibility** both render the same questionnaire; `_grantPrefill` carries the per-tech prefill and is consumed once.
+
+Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants()`'s signature/`d`-input keys in the Grant Finder repo breaks this (it fails soft with a link to the Grant Finder). `test/grant_checker.test.js` guards the schema↔engine contract by requiring the sibling `../Grant Finder/grant_engine.js`.
 
 **Backend (`server.js`):** Express with in-memory job store (lost on restart). Two endpoints:
 - `POST /api/research-vc` — fire-and-forget, returns `{ jobId }`
@@ -95,7 +101,11 @@ node scripts/populate_vcs.js            # rebuilds vcs.json from VC PDFs (requir
 node scripts/generate_vc.js "Firm Name" # CLI: research one VC and append to vcs.json
 node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .docx via Claude Haiku
 node scripts/enrich_curated_vcs.js      # one-time: fill profile data on PDF-curated VCs (preserves matchedTechs)
+
+node test/grant_checker.test.js         # grant schema ↔ engine contract test (requires sibling ../Grant Finder checkout)
 ```
+
+No test runner is configured — tests are plain Node scripts that assert and `exit(1)` on failure (mirrors Grant Finder's `stress_test.js`). The JHU name-matcher is tested via the eval-marker pattern: extract the code between the `// ── JHU Connections ──` and `// ── Search ──` markers in `index.html` and `eval` it in Node.
 
 `populate_vcs.js` requires Python: `pip3 install pdfminer.six`. It reads "JHTV PORTFOLIO MATCHES" → "WHO WE ARE MEETING WITH" from each PDF and fuzzy-matches company names to tech IDs. VC names come from filenames (PDF text is all-caps and unreliable).
 
@@ -188,12 +198,10 @@ eligibility" action that opens the questionnaire **embedded here in Second Brain
 that tech, driven by the **shared `grant_engine.js`** (only the form UI lives here; scoring stays in
 the shared engine).
 
-**Phase 1 — Integrate (keep both sites; NO fold, NO retire).** `jhtv-grant-finder` stays live and
-canonical — its `grant_engine.js` + `grants_live.json` + CI (`refresh_grants.yml`, `fetch_grants.js`)
-+ `stress_test.js` are unchanged. Second Brain *consumes* the shared engine/data (existing cross-repo
-link kept, but **hardened** from the current fetch-text + `new Function` eval) and embeds the grant
-experience: the per-tech auto-screen (already present) plus the deep-check questionnaire UI. No CI
-migration, no data move, no repo retirement. Keep the Render backend and `.nojekyll`.
+**Phase 1 — Integrate — ✅ SHIPPED (July 9, 2026).** Second Brain now embeds the grant experience
+(standalone Grant checker at `#/grants` + per-tech Refine eligibility) via the shared engine; see the
+"Grant integration — Second Brain side" subsection above for the implementation and the deployed-engine
+gotcha. `jhtv-grant-finder` stays live and canonical (unchanged). The remaining phases are NOT built.
 
 **Phase 2 — Rubric refactor (prereq for data work).** Extract the rubric (weights + component fns +
 `INDUSTRY_TO_DOMAIN` + `DOMAIN_MATURITY`) into **one shared module** used by both the browser and
