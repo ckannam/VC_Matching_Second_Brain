@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,600;0,700;1,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="grant_checker.js" defer></script>
 </head>
 <body>
 
@@ -20,6 +21,7 @@
     <div class="nav-links">
       <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
       <button class="nav-link" onclick="showSavedBriefs()">Saved briefs</button>
+      <button class="nav-link" onclick="showGrantChecker()">Grant checker</button>
     </div>
   </div>
 </nav>
@@ -83,6 +85,7 @@
   let VCS             = [];
   let TECHS           = [];
   let JHU_CONNECTIONS = [];
+  let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
   async function loadData() {
     try {
@@ -253,6 +256,28 @@
         </div>
       </div>
     `;
+  }
+
+  function showGrantChecker() { location.hash = '#/grants'; }
+
+  function renderGrantChecker(prefill) {
+    _grantPrefill = null; // consume once; don't leak into a later manual open
+    showResults().innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>Grant Checker</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button>
+        </div>
+        <p class="grant-disclaimer">Screens all 28 Maryland, federal, and foundation programs against your answers. Shared engine with the founder-facing Grant Finder.</p>
+        <div id="grantCheckerMount"></div>
+      </div>`;
+    renderGrantCheckerForm(document.getElementById('grantCheckerMount'), prefill || null);
+  }
+
+  function refineGrantsForTech(techId) {
+    const tech = TECHS.find(t => t.id === techId);
+    _grantPrefill = tech ? techToGrantPrefill(tech) : null;
+    location.hash = '#/grants';
   }
 
   function viewAllTechs() { location.hash = '#/all'; }
@@ -515,6 +540,7 @@
     if (m && m[1] === 'domain') return renderDomain(m[2]);
     if (h === '#/briefs')       return renderSavedBriefs();
     if (h === '#/all')          return renderAllTechs();
+    if (h === '#/grants')       return renderGrantChecker(_grantPrefill);
     renderHome();
   }
   window.addEventListener('hashchange', dispatchRoute);
@@ -991,7 +1017,10 @@
       }),
       fetch(GRANT_FINDER_URL + '/grants_live.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ]);
-    _grantEngine = new Function(src + '; return getGrants;')();
+    // The deployed engine reliably exports getGrants; applyLiveData exists only
+    // in newer (not-yet-deployed) engine builds, so guard it — callers fall back
+    // to the local overlayLive when it's null.
+    _grantEngine = new Function(src + '; return { getGrants, applyLiveData: (typeof applyLiveData !== "undefined" ? applyLiveData : null) };')();
     _grantsLive  = (live && live.grants) || {};
     return _grantEngine;
   }
@@ -1027,12 +1056,10 @@
     const box = document.getElementById('techGrantSection');
     if (!box) return;
     try {
-      const getGrants = await loadGrantEngine();
+      const { getGrants, applyLiveData } = await loadGrantEngine();
+      const apply = applyLiveData || overlayLive;
       const d = techToGrantInput(tech);
-      const results = getGrants(d).map(g => {
-        const live = _grantsLive[g.id];
-        return live && live.deadlineLabel ? { ...g, deadline: live.deadlineLabel } : g;
-      });
+      const results = getGrants(d).map(g => apply(g, _grantsLive));
       const eligible    = results.filter(g => g.s === 'eligible');
       const conditional = results.filter(g => g.s === 'conditional');
       const ineligible  = results.filter(g => g.s === 'ineligible');
@@ -1052,7 +1079,8 @@
         <p class="section-label">Non-dilutive funding — preliminary screen</p>
         <p class="grant-disclaimer">Based on stage and technology type only; founder-specific factors (Maryland presence, entity, team, SBIR history) are unchecked. ${ineligible.length} programs screened out.</p>
         <div class="grant-rows">${rows || '<p class="jhu-no-connections">No likely-eligible grants at this stage.</p>'}</div>
-        <a class="btn btn-secondary btn-sm" style="margin-top:10px" href="${link}" target="_blank" rel="noopener">Run the full eligibility check in Grant Finder →</a>`;
+        <button class="btn btn-secondary btn-sm" style="margin-top:10px" onclick="refineGrantsForTech('${tech.id}')">Refine eligibility →</button>
+      <a class="grant-external-link" href="${link}" target="_blank" rel="noopener">Open in Grant Finder ↗</a>`;
     } catch (err) {
       box.innerHTML = `
         <p class="section-label">Non-dilutive funding — preliminary screen</p>
