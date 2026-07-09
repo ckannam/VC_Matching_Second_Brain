@@ -121,6 +121,49 @@ node scripts/enrich_curated_vcs.js      # one-time: fill profile data on PDF-cur
 - **Frontend:** push to `main` = live in ~1 min. No build step. `.nojekyll` prevents Jekyll processing.
 - **Backend:** Render auto-deploys from `main` via `render.yaml`. Env vars required: `ANTHROPIC_API_KEY`, `GITHUB_TOKEN` (fine-grained PAT, Contents: read+write, scoped to this repo).
 
+## Deferred: live-sync JHU network from Excel (NOT YET IMPLEMENTED)
+
+The JHU connections data (`data/jhu_connections.json`, 827 people / 736 firms) is refreshed
+**manually** and should eventually self-update. **None of the automation below exists yet** — this
+is a spec for later. Do not assume any sync is running; the manual flow is the only live path.
+
+**Today (manual, working — leave intact):** edit the local Excel file
+`/Users/colekannam/Documents/JHU VC DATABASE/JHU_VC_Network.xlsx` → run
+`node scripts/convert_jhu_connections.js` → commit. The source lives on Cole's Mac, outside the repo.
+
+**Future (automated — to build):** keep editing in **Excel** (boss preference — no Google Sheets).
+The file is now hosted in Cole's JH SharePoint (OneDrive), share link:
+`https://livejohnshopkins-my.sharepoint.com/:x:/r/personal/ckannam3_jh_edu/_layouts/15/Doc.aspx?sourcedoc=%7BAAAF3985-B231-4588-BB5E-CD06D99C6D8E%7D&file=JHU_VC_Network.xlsx`
+(drive-item GUID `AAAF3985-B231-4588-BB5E-CD06D99C6D8E`).
+
+**IMPORTANT — a plain anonymous `fetch()` of that link does NOT work.** Tested 2026-07-09: the
+"anyone with the link" share on the managed `livejohnshopkins` tenant redirects to
+`login.microsoftonline.com` ("Sign in to your account") and returns an HTML login page, not the
+xlsx. So CI needs **authentication**. Two realistic paths (pick when building):
+
+- **Graph API + Azure AD app registration (proper CI path):** register an app, grant it read on
+  that SharePoint drive, store client ID/secret as GitHub repo secrets. The Action gets a token,
+  downloads the drive item by GUID via Microsoft Graph, then runs the converter. Robust but needs
+  JH IT to permit the app registration.
+- **Local watcher (no cloud auth):** point the converter at the OneDrive-**synced** copy on Cole's
+  Mac and run it from a `launchd`/cron job (or file-watcher) that regenerates + commits + pushes on
+  change. Simple, but only runs while his machine is on. (Power Automate could also drive this, but
+  committing to GitHub from it is fiddly.)
+
+Converter change is the same either way: add a source mode to
+`scripts/convert_jhu_connections.js` — when the file arrives as a downloaded buffer,
+`XLSX.read(buffer, { type: 'buffer' })` reading the **"JHU VC Network"** sheet by name; otherwise
+fall back to the existing local `XLSX.readFile(...)`. Downstream is unchanged — the
+`r['Firm'] && r['Name']` filter (drops empty-Firm header rows), the 5-field mapping, and the JSON
+output all stay as-is. Then add npm script `"convert-jhu"` and, for the Graph path, a
+`.github/workflows/sync-jhu.yml` (hourly `schedule` + `workflow_dispatch`, commit only if changed —
+schedule/dispatch-triggered so its own commit won't loop).
+
+**Prereqs when built:** the `.xlsx` keeps the 5 headers unchanged (`Name`, `Firm`,
+`Connection to Johns Hopkins`, `Role at Firm`, `Entity Type`); auth creds in repo secrets (Graph
+path); and the live site's hosting restored (currently 404 after the repo went private — a separate
+deferred decision: make public, GitHub Pro, or move to Netlify/Vercel).
+
 ## One-pager generator (built, button hidden)
 
 `generateOnePager(vc, techs)` lives at the bottom of `index.html` (above `// ── Init ──`). It opens a new tab with a print-ready HTML one-pager that mirrors the PDF layout: navy header, auto-generated gold banner, 3-box stats row, Hopkins connection box, two-column body (FIRM OVERVIEW + LAST 10 INVESTMENTS left; SECTOR FOCUS + JHTV PORTFOLIO MATCHES right), partner placeholder, footer.
@@ -138,5 +181,6 @@ window[`_vcTechs_${vc.id}`] = techs; // at top of foundHTML
 
 | Feature | Notes |
 |---|---|
+| Live-sync JHU network from Excel | Excel in OneDrive/SharePoint → GitHub Action regenerates `jhu_connections.json`. Spec above; not yet built |
 | Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
 | Redis job store for backend | In-memory jobs lost on Render restart; low priority on free plan |
