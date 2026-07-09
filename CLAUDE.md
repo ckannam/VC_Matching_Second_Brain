@@ -71,11 +71,11 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
 - `POST /api/research-vc` — fire-and-forget, returns `{ jobId }`
 - `GET /api/job/:jobId` — returns `{ status: 'running'|'done'|'error', result?, error? }`
 
-**Scoring (`scripts/generate_vc.js`):** Weights: 37.5% industry match, 30% stage compatibility, 22.5% check size, 10% geography.
-- `mapFocusTodomains()` — maps VC `investmentFocus` strings → JHTV's 8 domains via `INDUSTRY_TO_DOMAIN` keyword table
-- `stageScore()` — maps VC investment rounds to compatible tech financing stages (e.g. Seed VC → NewCo/Pre-Seed/Seed techs score 1.0; mismatches score 0.2)
-- `geographyScore()` — Mid-Atlantic/East Coast = 1.0; National = 0.8; West Coast = 0.4 (uniform across all techs)
-- `checkSizeScore()` — uses hardcoded domain maturity tier (Therapeutics/CleanTech = "early", others = "mid")
+**Scoring (`scoring.js` — SINGLE source of truth, Phase 2):** the VC↔tech rubric lives in ONE module at repo root, consumed by BOTH the browser (`index.html` loads it via `<script defer>`) and the backend (`scripts/generate_vc.js` `require`s it). Classic-script + `module.exports` guard (same dual pattern as `grant_checker.js`). **Do not re-duplicate scoring logic in either consumer** — this refactor removed a two-copy drift.
+- Weights live in the `WEIGHTS` config object: 37.5% industry, 30% stage, 22.5% check size, 10% geography. Tune scoring there. Do NOT reorder the terms in the `score:` expression (float-identity invariant — noted in a comment there).
+- `vcFitScore(vc, tech)` — the scorer. Takes the **stored VC shape** `{sectors[], stage[], checkSize:{min,max}, geographicFocus, focus}`; returns `{score, sharedDomains, stageOk}` or `null` (no profile data). The backend adapts its `vcProfile` (`investmentFocus/stages/checkSizeMin/Max`) to this shape before calling.
+- `mapFocusToDomains()` (note capital D — old backend used `mapFocusTodomains`), `techStageScore()`, `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible), `INDUSTRY_TO_DOMAIN`, `DOMAIN_MATURITY` all live here. Tests: `test/scoring.test.js`, `test/generate_vc.buildentry.test.js`.
+- Reconciled behavior: catch-all keyword (`healthcare`/`deep tech`) + specific match uses `Math.max(fraction, 0.5)`.
 
 **Branding colors** (from `style.css`): navy `#003B6F`, light blue `#005A9C`, gold `#C8973A`. Domain colors live in `DOMAIN_COLORS` in `index.html`.
 
@@ -203,11 +203,9 @@ the shared engine).
 "Grant integration — Second Brain side" subsection above for the implementation and the deployed-engine
 gotcha. `jhtv-grant-finder` stays live and canonical (unchanged). The remaining phases are NOT built.
 
-**Phase 2 — Rubric refactor (prereq for data work).** Extract the rubric (weights + component fns +
-`INDUSTRY_TO_DOMAIN` + `DOMAIN_MATURITY`) into **one shared module** used by both the browser and
-`generate_vc.js`, ending the two-copy drift (catch-all industry case: flat `0.5` in `generate_vc.js`
-vs `max(fraction, 0.5)` in `index.html`). **Weights become a visible config block.** Principle:
-**graceful degradation** — richer logic only when enriched data is present, else today's logic.
+**Phase 2 — Rubric refactor — ✅ SHIPPED (July 9, 2026).** Rubric extracted into `scoring.js` (see the
+"Scoring" section above); two-copy drift fixed; weights are a `WEIGHTS` config block. The
+graceful-degradation hook for Phase 3 is the existing `vcFitScore(...) || {score:0}` / `null` handling.
 
 **Phase 3 — PitchBook/Bloomberg data upgrades (conditional on getting data).** Ingest via the
 existing JHU `xlsx → conversion script → JSON` pattern (PitchBook MCP is auth-blocked, so manual
