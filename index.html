@@ -991,7 +991,9 @@
       }),
       fetch(GRANT_FINDER_URL + '/grants_live.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ]);
-    _grantEngine = new Function(src + '; return getGrants;')();
+    // Shared engine exports getGrants + applyLiveData; return both so the
+    // live-data overlay logic is never re-implemented here.
+    _grantEngine = new Function(src + '; return { getGrants, applyLiveData };')();
     _grantsLive  = (live && live.grants) || {};
     return _grantEngine;
   }
@@ -1027,12 +1029,9 @@
     const box = document.getElementById('techGrantSection');
     if (!box) return;
     try {
-      const getGrants = await loadGrantEngine();
+      const { getGrants, applyLiveData } = await loadGrantEngine();
       const d = techToGrantInput(tech);
-      const results = getGrants(d).map(g => {
-        const live = _grantsLive[g.id];
-        return live && live.deadlineLabel ? { ...g, deadline: live.deadlineLabel } : g;
-      });
+      const results = getGrants(d).map(g => applyLiveData(g, _grantsLive));
       const eligible    = results.filter(g => g.s === 'eligible');
       const conditional = results.filter(g => g.s === 'conditional');
       const ineligible  = results.filter(g => g.s === 'ineligible');
