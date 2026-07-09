@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,600;0,700;1,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="grant_checker.js" defer></script>
 </head>
 <body>
 
@@ -20,6 +21,7 @@
     <div class="nav-links">
       <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
       <button class="nav-link" onclick="showSavedBriefs()">Saved briefs</button>
+      <button class="nav-link" onclick="showGrantChecker()">Grant checker</button>
     </div>
   </div>
 </nav>
@@ -83,6 +85,7 @@
   let VCS             = [];
   let TECHS           = [];
   let JHU_CONNECTIONS = [];
+  let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
   async function loadData() {
     try {
@@ -253,6 +256,21 @@
         </div>
       </div>
     `;
+  }
+
+  function showGrantChecker() { location.hash = '#/grants'; }
+
+  function renderGrantChecker(prefill) {
+    showResults().innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>Grant Checker</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button>
+        </div>
+        <p class="grant-disclaimer">Screens all 28 Maryland, federal, and foundation programs against your answers. Shared engine with the founder-facing Grant Finder.</p>
+        <div id="grantCheckerMount"></div>
+      </div>`;
+    renderGrantCheckerForm(document.getElementById('grantCheckerMount'), prefill || null);
   }
 
   function viewAllTechs() { location.hash = '#/all'; }
@@ -515,6 +533,7 @@
     if (m && m[1] === 'domain') return renderDomain(m[2]);
     if (h === '#/briefs')       return renderSavedBriefs();
     if (h === '#/all')          return renderAllTechs();
+    if (h === '#/grants')       return renderGrantChecker(_grantPrefill);
     renderHome();
   }
   window.addEventListener('hashchange', dispatchRoute);

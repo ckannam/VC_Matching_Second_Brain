@@ -95,3 +95,88 @@ function techToGrantPrefill(tech) {
 
 if (typeof module !== 'undefined' && module.exports)
   module.exports = { GRANT_FIELDS, emptyGrantData, techToGrantPrefill, SECTOR_TO_TYPE };
+
+// ── Browser-only rendering (ignored by Node) ─────────────────────────
+function grantFieldHTML(f) {
+  const hint = f.hint ? ` <span class="gf-hint">${f.hint}</span>` : '';
+  const wrapAttrs = f.dependsOn ? ` data-depends="${f.dependsOn.field}" data-depends-val="${f.dependsOn.value}" style="display:none"` : '';
+  let control;
+  if (f.type === 'select') {
+    control = `<select id="${f.id}" onchange="runGrantCheck()">
+      <option value="">—</option>
+      ${f.options.map(o => `<option value="${o.value}">${o.label}</option>`).join('')}
+    </select>`;
+  } else if (f.type === 'number') {
+    control = `<input type="number" id="${f.id}" min="0" placeholder="e.g. 30" oninput="runGrantCheck()">`;
+  } else { // radio
+    control = `<div class="gf-radios">${f.options.map(o =>
+      `<label class="gf-radio"><input type="radio" name="${f.id}" value="${o.value}" onchange="runGrantCheck()"> ${o.label}</label>`
+    ).join('')}</div>`;
+  }
+  return `<div class="gf-field"${wrapAttrs}><label>${f.label}${hint}</label>${control}</div>`;
+}
+
+function collectGrantData() {
+  const d = emptyGrantData();
+  for (const f of GRANT_FIELDS) {
+    if (f.type === 'radio') {
+      const el = document.querySelector(`input[name="${f.id}"]:checked`);
+      d[f.id] = el ? el.value : '';
+    } else {
+      const el = document.getElementById(f.id);
+      d[f.id] = el ? el.value : '';
+    }
+  }
+  return d;
+}
+
+function updateGrantDependents() {
+  document.querySelectorAll('.gf-field[data-depends]').forEach(w => {
+    const dep = w.getAttribute('data-depends');
+    const want = w.getAttribute('data-depends-val');
+    const cur = (document.querySelector(`input[name="${dep}"]:checked`) || document.getElementById(dep) || {}).value;
+    w.style.display = cur === want ? '' : 'none';
+  });
+}
+
+function renderGrantCheckerForm(container, prefill) {
+  container.innerHTML = `<div class="grant-form">${GRANT_FIELDS.map(grantFieldHTML).join('')}</div>
+    <div id="grantCheckResults" class="grant-rows"></div>`;
+  if (prefill) {
+    for (const [k, v] of Object.entries(prefill)) {
+      const sel = document.getElementById(k);
+      if (sel && sel.tagName === 'SELECT') { sel.value = v; continue; }
+      const radio = document.querySelector(`input[name="${k}"][value="${v}"]`);
+      if (radio) radio.checked = true;
+    }
+  }
+  updateGrantDependents();
+  runGrantCheck();
+}
+
+async function runGrantCheck() {
+  updateGrantDependents();
+  const box = document.getElementById('grantCheckResults');
+  if (!box) return;
+  const d = collectGrantData();
+  const answered = Object.values(d).some(v => v && v !== '');
+  if (!answered) { box.innerHTML = `<p class="gf-empty">Answer the questions above to screen all 28 programs.</p>`; return; }
+  try {
+    const { getGrants, applyLiveData } = await loadGrantEngine();
+    const results = getGrants(d).map(g => applyLiveData(g, _grantsLive));
+    const order = { eligible:0, conditional:1, ineligible:2 };
+    const shown = results.filter(g => g.s !== 'ineligible').sort((a,b)=>order[a.s]-order[b.s]);
+    const ineligible = results.length - shown.length;
+    box.innerHTML = shown.map(g => `
+      <div class="grant-row">
+        <span class="grant-status ${g.s}"></span>
+        <div class="grant-row-main">
+          <a class="grant-row-title" href="${g.applyUrl}" target="_blank" rel="noopener">${g.title}</a>
+          <div class="grant-row-meta">${g.org} · ${g.amount}${g.deadline ? ` · ${g.deadline}` : ''}</div>
+        </div>
+        <span class="pill grant-pill-${g.s}">${g.s === 'eligible' ? 'Eligible' : 'Conditional'}</span>
+      </div>`).join('') + `<p class="gf-empty">${ineligible} programs screened out.</p>`;
+  } catch (err) {
+    box.innerHTML = `<p class="gf-empty">Couldn't reach the grant engine (${err.message}). <a href="${typeof GRANT_FINDER_URL!=='undefined'?GRANT_FINDER_URL:'#'}" target="_blank" rel="noopener">Open Grant Finder directly</a>.</p>`;
+  }
+}
