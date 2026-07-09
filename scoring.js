@@ -123,6 +123,9 @@ function vcFitScore(vc, tech) {
   else if (maturity === 'mid' && min >= 1 && max <= 50) checkSz = 1;
 
   return {
+    // Term order (industry, stage, geography, checkSize) and left-to-right addition
+    // are float-identical to the pre-refactor literal 0.375i+0.30s+0.10g+0.225c.
+    // Do NOT reorder — a "tidy-up" that sorts these could shift scores across a tier boundary.
     score: WEIGHTS.industry * industryScore + WEIGHTS.stage * stageOk + WEIGHTS.geography * geo + WEIGHTS.checkSize * checkSz,
     sharedDomains: techDomains.filter(d => matched.has(d)),
     stageOk: stageOk === 1,
