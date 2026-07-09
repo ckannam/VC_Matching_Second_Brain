@@ -1017,9 +1017,10 @@
       }),
       fetch(GRANT_FINDER_URL + '/grants_live.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ]);
-    // Shared engine exports getGrants + applyLiveData; return both so the
-    // live-data overlay logic is never re-implemented here.
-    _grantEngine = new Function(src + '; return { getGrants, applyLiveData };')();
+    // The deployed engine reliably exports getGrants; applyLiveData exists only
+    // in newer (not-yet-deployed) engine builds, so guard it — callers fall back
+    // to the local overlayLive when it's null.
+    _grantEngine = new Function(src + '; return { getGrants, applyLiveData: (typeof applyLiveData !== "undefined" ? applyLiveData : null) };')();
     _grantsLive  = (live && live.grants) || {};
     return _grantEngine;
   }
@@ -1056,8 +1057,9 @@
     if (!box) return;
     try {
       const { getGrants, applyLiveData } = await loadGrantEngine();
+      const apply = applyLiveData || overlayLive;
       const d = techToGrantInput(tech);
-      const results = getGrants(d).map(g => applyLiveData(g, _grantsLive));
+      const results = getGrants(d).map(g => apply(g, _grantsLive));
       const eligible    = results.filter(g => g.s === 'eligible');
       const conditional = results.filter(g => g.s === 'conditional');
       const ineligible  = results.filter(g => g.s === 'ineligible');

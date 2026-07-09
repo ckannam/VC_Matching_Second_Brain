@@ -93,8 +93,17 @@ function techToGrantPrefill(tech) {
   };
 }
 
+// Local live-data overlay. The DEPLOYED grant_engine.js exports only getGrants
+// (its applyLiveData lives in Grant Finder's uncommitted tree, not on the live
+// site), so we overlay the deadline label ourselves. Used as the fallback
+// whenever the loaded engine does not provide applyLiveData.
+function overlayLive(grant, liveMap) {
+  const live = liveMap && liveMap[grant.id];
+  return live && live.deadlineLabel ? { ...grant, deadline: live.deadlineLabel } : grant;
+}
+
 if (typeof module !== 'undefined' && module.exports)
-  module.exports = { GRANT_FIELDS, emptyGrantData, techToGrantPrefill, SECTOR_TO_TYPE };
+  module.exports = { GRANT_FIELDS, emptyGrantData, techToGrantPrefill, SECTOR_TO_TYPE, overlayLive };
 
 // ── Browser-only rendering (ignored by Node) ─────────────────────────
 function grantFieldHTML(f) {
@@ -163,7 +172,8 @@ async function runGrantCheck() {
   if (!answered) { box.innerHTML = `<p class="gf-empty">Answer the questions above to screen all 28 programs.</p>`; return; }
   try {
     const { getGrants, applyLiveData } = await loadGrantEngine();
-    const results = getGrants(d).map(g => applyLiveData(g, _grantsLive));
+    const apply = applyLiveData || overlayLive;
+    const results = getGrants(d).map(g => apply(g, _grantsLive));
     const order = { eligible:0, conditional:1, ineligible:2 };
     const shown = results.filter(g => g.s !== 'ineligible').sort((a,b)=>order[a.s]-order[b.s]);
     const ineligible = results.length - shown.length;

@@ -1,7 +1,7 @@
 'use strict';
 const assert = require('assert');
 const path = require('path');
-const { GRANT_FIELDS, techToGrantPrefill, emptyGrantData } = require('../grant_checker.js');
+const { GRANT_FIELDS, techToGrantPrefill, emptyGrantData, overlayLive } = require('../grant_checker.js');
 // The shared engine, loaded from the sibling Grant Finder checkout (local dev only).
 const { getGrants } = require(path.resolve(__dirname, '../../Grant Finder/grant_engine.js'));
 
@@ -43,6 +43,15 @@ check('techToGrantPrefill maps stage + sector', () => {
   assert.strictEqual(d.technologyType, 'therapeutic');
   assert.strictEqual(d.jhtv, 'yes');
   assert.strictEqual(d.jhuSchool, 'other_jhu');
+});
+
+// 5. overlayLive replaces the deadline from a live entry, and is a safe no-op otherwise.
+check('overlayLive overlays deadlineLabel and passes through when absent', () => {
+  const g = { id: 'mii', deadline: 'static' };
+  const overlaid = overlayLive(g, { mii: { deadlineLabel: 'Oct 15, 2026' } });
+  assert.strictEqual(overlaid.deadline, 'Oct 15, 2026');
+  assert.strictEqual(overlayLive(g, {}).deadline, 'static', 'no live entry → unchanged');
+  assert.strictEqual(overlayLive(g, null).deadline, 'static', 'null map → unchanged');
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);
