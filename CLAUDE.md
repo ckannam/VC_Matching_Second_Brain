@@ -166,25 +166,34 @@ deferred decision: make public, GitHub Pro, or move to Netlify/Vercel).
 
 ## Planned: unified tool + data roadmap (DESIGN ONLY — NOT BUILT)
 
-Approved design (via brainstorm) to merge the **Grant Finder** tool into this repo and to plug in
+Approved design (via brainstorm) to **unify** with the **Grant Finder** tool and to plug in
 **PitchBook/Bloomberg** data later. **No code exists yet** — implement phase by phase in future
 sessions. Decisions: primary user = **JHTV staff** (internal, no access control); organizing model
-= **tech-centric hub**; **no reliable fundraising-outcome data** (so rubric weights become tunable
-config, not validated).
+= **tech-centric hub**; **keep TWO separate live sites** — internal **Second Brain** (staff) AND
+external **Grant Finder** (professors self-serve), with **Grant Finder canonical** for the grant
+engine/data (NOT folded in, NOT retired); **no reliable fundraising-outcome data** (so rubric
+weights become tunable config, not validated).
 
-**The merged product.** The **technology** is the hub: a tech profile shows **VC matches**
+**Two front doors, one grant brain.** JHTV staff → Second Brain; professors/founders → Grant Finder
+standalone. The eligibility *logic* has a single source of truth (`grant_engine.js` in the
+`jhtv-grant-finder` repo) so the two sites can never drift.
+
+**The product.** The **technology** is the hub of Second Brain: a tech profile shows **VC matches**
 (dilutive) + **grants** (non-dilutive) + **JHU warm intros** + **one-pager**. The **landing page
 stays as it is today** (`renderDomainBrowse` catalog) — the **grant checker** is added as a *peer
 top-level entry point* alongside the catalog and saved briefs, so grants are reachable standalone
 *and* auto-screened inside each tech profile. VC search is retained. Grant flow = auto-screen from
 the tech's attributes (`techToGrantInput()` already maps stage/sector → engine inputs) + a "Refine
-eligibility" action that opens the ported Grant Finder questionnaire **prefilled** for that tech.
+eligibility" action that opens the questionnaire **embedded here in Second Brain**, prefilled for
+that tech, driven by the **shared `grant_engine.js`** (only the form UI lives here; scoring stays in
+the shared engine).
 
-**Phase 1 — Merge (fold Grant Finder into this repo).** Vendor `grant_engine.js` locally (replaces
-the current cross-repo fetch+`new Function` eval); move `grants_live.json` → `data/`; port the
-`jhtv_grant_eligibility.html` questionnaire in as the "deep check" view; migrate Grant Finder CI
-(`refresh_grants.yml` + `fetch_grants.js`) and `stress_test.js`; archive + redirect the
-`jhtv-grant-finder` Pages URL. Keep the Render backend and `.nojekyll`. Behavior-preserving.
+**Phase 1 — Integrate (keep both sites; NO fold, NO retire).** `jhtv-grant-finder` stays live and
+canonical — its `grant_engine.js` + `grants_live.json` + CI (`refresh_grants.yml`, `fetch_grants.js`)
++ `stress_test.js` are unchanged. Second Brain *consumes* the shared engine/data (existing cross-repo
+link kept, but **hardened** from the current fetch-text + `new Function` eval) and embeds the grant
+experience: the per-tech auto-screen (already present) plus the deep-check questionnaire UI. No CI
+migration, no data move, no repo retirement. Keep the Render backend and `.nojekyll`.
 
 **Phase 2 — Rubric refactor (prereq for data work).** Extract the rubric (weights + component fns +
 `INDUSTRY_TO_DOMAIN` + `DOMAIN_MATURITY`) into **one shared module** used by both the browser and
@@ -206,8 +215,9 @@ unchanged.
 **Phase 4 — Taxonomy revamp (optional, last).** Map techs + VCs onto PitchBook verticals as a shared
 tag layer under the 8 display buckets, removing the lossy `INDUSTRY_TO_DOMAIN` translation.
 
-**Open/deferred:** merged-tool naming; full-retire vs. permanent-redirect of the founder URL; exact
-PitchBook export schema (finalize conversion scripts once a sample export exists). Full design spec:
+**Open/deferred:** naming/branding of the two tools; how far to harden the cross-repo engine
+consumption (keep fetch+eval vs. a cleaner include); exact PitchBook export schema (finalize
+conversion scripts once a sample export exists). Full design spec:
 `~/.claude/plans/nice-jsut-out-of-floofy-stream.md`.
 
 ## One-pager generator (built, button hidden)
