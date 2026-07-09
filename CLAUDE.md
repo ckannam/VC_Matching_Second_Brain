@@ -164,6 +164,52 @@ schedule/dispatch-triggered so its own commit won't loop).
 path); and the live site's hosting restored (currently 404 after the repo went private — a separate
 deferred decision: make public, GitHub Pro, or move to Netlify/Vercel).
 
+## Planned: unified tool + data roadmap (DESIGN ONLY — NOT BUILT)
+
+Approved design (via brainstorm) to merge the **Grant Finder** tool into this repo and to plug in
+**PitchBook/Bloomberg** data later. **No code exists yet** — implement phase by phase in future
+sessions. Decisions: primary user = **JHTV staff** (internal, no access control); organizing model
+= **tech-centric hub**; **no reliable fundraising-outcome data** (so rubric weights become tunable
+config, not validated).
+
+**The merged product.** The **technology** is the hub: a tech profile shows **VC matches**
+(dilutive) + **grants** (non-dilutive) + **JHU warm intros** + **one-pager**. The **landing page
+stays as it is today** (`renderDomainBrowse` catalog) — the **grant checker** is added as a *peer
+top-level entry point* alongside the catalog and saved briefs, so grants are reachable standalone
+*and* auto-screened inside each tech profile. VC search is retained. Grant flow = auto-screen from
+the tech's attributes (`techToGrantInput()` already maps stage/sector → engine inputs) + a "Refine
+eligibility" action that opens the ported Grant Finder questionnaire **prefilled** for that tech.
+
+**Phase 1 — Merge (fold Grant Finder into this repo).** Vendor `grant_engine.js` locally (replaces
+the current cross-repo fetch+`new Function` eval); move `grants_live.json` → `data/`; port the
+`jhtv_grant_eligibility.html` questionnaire in as the "deep check" view; migrate Grant Finder CI
+(`refresh_grants.yml` + `fetch_grants.js`) and `stress_test.js`; archive + redirect the
+`jhtv-grant-finder` Pages URL. Keep the Render backend and `.nojekyll`. Behavior-preserving.
+
+**Phase 2 — Rubric refactor (prereq for data work).** Extract the rubric (weights + component fns +
+`INDUSTRY_TO_DOMAIN` + `DOMAIN_MATURITY`) into **one shared module** used by both the browser and
+`generate_vc.js`, ending the two-copy drift (catch-all industry case: flat `0.5` in `generate_vc.js`
+vs `max(fraction, 0.5)` in `index.html`). **Weights become a visible config block.** Principle:
+**graceful degradation** — richer logic only when enriched data is present, else today's logic.
+
+**Phase 3 — PitchBook/Bloomberg data upgrades (conditional on getting data).** Ingest via the
+existing JHU `xlsx → conversion script → JSON` pattern (PitchBook MCP is auth-blocked, so manual
+export → script). New files: `data/round_benchmarks.json` (median/IQR round size by domain × stage);
+`data/vc_pitchbook.json` (enrichment keyed by VC id: `stageDistribution, recentDeals, fundVintage?,
+sectorAllocation?` — kept separate from curated `vcs.json`, merged at load); Bloomberg export →
+fills `data/jhtv_relationships.json`. Each rubric component upgrades behind an "if data present"
+guard: **industry** → any/primary-domain match (multi-domain never penalized) + optional
+`sectorAllocation` weighting; **stage** → smooth score from real stage-distribution %,
+recency-weighted; **check size** → interval overlap of VC check vs expected round size; **geography**
+unchanged.
+
+**Phase 4 — Taxonomy revamp (optional, last).** Map techs + VCs onto PitchBook verticals as a shared
+tag layer under the 8 display buckets, removing the lossy `INDUSTRY_TO_DOMAIN` translation.
+
+**Open/deferred:** merged-tool naming; full-retire vs. permanent-redirect of the founder URL; exact
+PitchBook export schema (finalize conversion scripts once a sample export exists). Full design spec:
+`~/.claude/plans/nice-jsut-out-of-floofy-stream.md`.
+
 ## One-pager generator (built, button hidden)
 
 `generateOnePager(vc, techs)` lives at the bottom of `index.html` (above `// ── Init ──`). It opens a new tab with a print-ready HTML one-pager that mirrors the PDF layout: navy header, auto-generated gold banner, 3-box stats row, Hopkins connection box, two-column body (FIRM OVERVIEW + LAST 10 INVESTMENTS left; SECTOR FOCUS + JHTV PORTFOLIO MATCHES right), partner placeholder, footer.
