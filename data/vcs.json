@@ -857,5 +857,41 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "forerunner-ventures",
+    "name": "Forerunner Ventures",
+    "aliases": [
+      "Forerunner"
+    ],
+    "focus": "Forerunner invests at the intersection of technological innovation and cultural shifts, backing founders building category-defining consumer technology companies by identifying inflection points in consumer behavior before they become market consensus.",
+    "sectors": [
+      "Consumer Technology",
+      "Digital Health & Wellness",
+      "Retail & E-commerce",
+      "Consumer Finance / Fintech",
+      "Marketplaces",
+      "Consumer AI",
+      "Education",
+      "Social & Consumer Internet"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 20
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "astropath",
+      "bullfrog-ai",
+      "circlage",
+      "corrie-health"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
