@@ -893,5 +893,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "bessemer-venture-partners",
+    "name": "Bessemer Venture Partners",
+    "aliases": [
+      "Bessemer",
+      "BVP"
+    ],
+    "focus": "Bessemer employs a thesis-driven, sector-focused 'roadmap' strategy in which partners develop deep expertise to identify major technology waves early and back visionary founders. They partner with entrepreneurs from concept and seed stage through IPO and every stage of growth.",
+    "sectors": [
+      "Enterprise Software / SaaS",
+      "Cloud Computing & Developer Infrastructure",
+      "Fintech",
+      "Healthcare & Digital Health",
+      "Artificial Intelligence & ML",
+      "Cybersecurity",
+      "Consumer Internet & Marketplaces",
+      "Deep Tech"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 200
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
