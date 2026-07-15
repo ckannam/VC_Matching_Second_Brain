@@ -974,19 +974,20 @@
       "Hatteras",
       "HVP"
     ],
-    "focus": "Hatteras invests in the highest-quality science and teams with the biggest potential impact for patients, building transformational seed- and early-stage biotech, medtech, and healthtech companies—often based on cutting-edge science from leading academic institutions—that advance human medicine.",
+    "focus": "Hatteras invests in the highest-quality science and teams built on cutting-edge research from leading academic institutions, aiming to build transformational healthcare companies that create the biggest potential impact for patients while driving to value inflection with speed and efficiency.",
     "sectors": [
       "Biopharmaceuticals",
       "Medical Devices",
       "Diagnostics",
-      "Healthcare IT / Health Technology",
+      "Healthcare IT",
       "Life Sciences",
       "Oncology",
       "Gene Therapy"
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
     "checkSize": {
       "min": 0.5,
