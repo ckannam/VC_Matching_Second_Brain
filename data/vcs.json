@@ -966,5 +966,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "hatteras-venture-partners",
+    "name": "Hatteras Venture Partners",
+    "aliases": [
+      "Hatteras",
+      "HVP"
+    ],
+    "focus": "Hatteras invests in the highest-quality science and teams with the biggest potential impact for patients, building transformational seed- and early-stage biotech, medtech, and healthtech companies—often based on cutting-edge science from leading academic institutions—that advance human medicine.",
+    "sectors": [
+      "Biopharmaceuticals",
+      "Medical Devices",
+      "Diagnostics",
+      "Healthcare IT / Health Technology",
+      "Life Sciences",
+      "Oncology",
+      "Gene Therapy"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 0.5,
+      "max": 5
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "accelevir",
+      "adventris-pharmaceuticals",
+      "agenebio",
+      "agnos-therapeutics"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
