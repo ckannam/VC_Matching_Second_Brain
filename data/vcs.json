@@ -931,5 +931,40 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "first-round-capital",
+    "name": "First Round Capital",
+    "aliases": [
+      "First Round",
+      "FRC"
+    ],
+    "focus": "First Round backs founders at the very first stages of company creation, looking for compelling and contrarian insight into how the world works, and provides operating-first, hands-on support to accelerate startups from idea to product-market fit.",
+    "sectors": [
+      "Enterprise Software",
+      "Artificial Intelligence / AI",
+      "Fintech",
+      "Healthcare & Digital Health",
+      "Consumer Internet",
+      "Hardware",
+      "Developer Tools & Infrastructure"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 10
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "astropath",
+      "circlage",
+      "corrie-health",
+      "curiedx"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
