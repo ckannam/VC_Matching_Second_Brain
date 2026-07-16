@@ -15,8 +15,15 @@ const WEIGHTS = { portfolio: 0.55, stageCheck: 0.30, sector: 0.15 };
 
 // "About this many genuinely similar portfolio companies = full marks."
 // Saturating count, NOT a fraction (a fraction would punish large diversified
-// firms) and NOT a max (one lucky hit shouldn't score full).
-const PORTFOLIO_K = 3;
+// firms) and NOT a max (one lucky hit shouldn't score full). Tuned to 6 so a
+// deep/pure-play portfolio earns Strong while a generalist with a small
+// relevant arm lands Good/Possible (K=3 flattened the top firms into a tie).
+const PORTFOLIO_K = 6;
+
+// Firms scored on self-described sectors alone (no scraped portfolio) cannot
+// earn "Strong fit" — revealed behavior beats stated preference. Caps the
+// 'stated' basis at the top of the "Good" band (Strong is >= 0.80).
+const STATED_MAX = 0.75;
 
 const INDUSTRY_TO_DOMAIN = {
   'life sciences':       ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
@@ -211,7 +218,8 @@ function vcFitScore(vc, tech, portfolioCompanies) {
     score = pf.score;
     basis = 'portfolio';
   } else {
-    score = (WEIGHTS.stageCheck * stageCheck + WEIGHTS.sector * sectorScore) / (WEIGHTS.stageCheck + WEIGHTS.sector);
+    const rescaled = (WEIGHTS.stageCheck * stageCheck + WEIGHTS.sector * sectorScore) / (WEIGHTS.stageCheck + WEIGHTS.sector);
+    score = Math.min(STATED_MAX, rescaled);  // no portfolio evidence → capped below Strong
     basis = 'stated';
   }
 
@@ -226,7 +234,7 @@ function fitTier(score) {
 
 if (typeof module !== 'undefined' && module.exports)
   module.exports = {
-    WEIGHTS, PORTFOLIO_K, INDUSTRY_TO_DOMAIN, DOMAIN_MATURITY,
+    WEIGHTS, PORTFOLIO_K, STATED_MAX, INDUSTRY_TO_DOMAIN, DOMAIN_MATURITY,
     mapFocusToDomains, techStageScore, techStageToRung, portfolioFit,
     checkSizeScore, vcFitScore, fitTier,
   };
