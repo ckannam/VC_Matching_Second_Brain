@@ -71,7 +71,7 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
 - `POST /api/research-vc` — fire-and-forget, returns `{ jobId }`
 - `GET /api/job/:jobId` — returns `{ status: 'running'|'done'|'error', result?, error? }`
 
-**Scoring (`scoring.js` — SINGLE source of truth, Phase 2):** the VC↔tech rubric lives in ONE module at repo root, consumed by BOTH the browser (`index.html` loads it via `<script defer>`) and the backend (`scripts/generate_vc.js` `require`s it). Classic-script + `module.exports` guard (same dual pattern as `grant_checker.js`). **Do not re-duplicate scoring logic in either consumer** — this refactor removed a two-copy drift.
+**Scoring (`scoring.js` — SINGLE source of truth, Phase 2):** the VC↔tech rubric lives in ONE module at repo root, consumed by BOTH the browser (`index.html` loads it via `<script defer>`) and the backend (`scripts/generate_vc.js` `require`s it). Classic-script + `module.exports` guard (same dual pattern as `grant_checker.js`). **Do not re-duplicate scoring logic in either consumer** — this refactor removed a two-copy drift. ⚠ **A boss-approved Rubric v2 (portfolio-led) is specced but NOT built** — see "Planned: Rubric v2" below; the weights described here are the live v1.
 - Weights live in the `WEIGHTS` config object: 37.5% industry, 30% stage, 22.5% check size, 10% geography. Tune scoring there. Do NOT reorder the terms in the `score:` expression (float-identity invariant — noted in a comment there).
 - `vcFitScore(vc, tech)` — the scorer. Takes the **stored VC shape** `{sectors[], stage[], checkSize:{min,max}, geographicFocus, focus}`; returns `{score, sharedDomains, stageOk}` or `null` (no profile data). The backend adapts its `vcProfile` (`investmentFocus/stages/checkSizeMin/Max`) to this shape before calling.
 - `mapFocusToDomains()` (note capital D — old backend used `mapFocusTodomains`), `techStageScore()`, `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible), `INDUSTRY_TO_DOMAIN`, `DOMAIN_MATURITY` all live here. Tests: `test/scoring.test.js`, `test/generate_vc.buildentry.test.js`.
@@ -216,7 +216,11 @@ fills `data/jhtv_relationships.json`. Each rubric component upgrades behind an "
 guard: **industry** → any/primary-domain match (multi-domain never penalized) + optional
 `sectorAllocation` weighting; **stage** → smooth score from real stage-distribution %,
 recency-weighted; **check size** → interval overlap of VC check vs expected round size; **geography**
-unchanged.
+unchanged. *Update July 2026:* `data/vc_pitchbook.json` now exists (391 investors, different shape —
+see `scripts/ingest_pitchbook.js`; standalone catalog, NOT merged at load yet). ⚠ Phase 3's
+per-component upgrade list is **superseded by "Planned: Rubric v2" below** where they conflict
+(geography is now removed, weights restructured); the PitchBook benchmark upgrades survive but slot
+inside v2's merged StageCheck component.
 
 **Phase 4 — Taxonomy revamp (optional, last).** Map techs + VCs onto PitchBook verticals as a shared
 tag layer under the 8 display buckets, removing the lossy `INDUSTRY_TO_DOMAIN` translation.
@@ -225,6 +229,51 @@ tag layer under the 8 display buckets, removing the lossy `INDUSTRY_TO_DOMAIN` t
 consumption (keep fetch+eval vs. a cleaner include); exact PitchBook export schema (finalize
 conversion scripts once a sample export exists). Full design spec:
 `~/.claude/plans/nice-jsut-out-of-floofy-stream.md`.
+
+## Planned: Rubric v2 — portfolio-led matching (SPEC APPROVED, NOT BUILT)
+
+Boss-approved reframe of the matching rubric (July 16, 2026). **No code exists yet** — the live
+`scoring.js` still runs v1 (`0.375·industry + 0.30·stage + 0.225·checkSize + 0.10·geo`). Supersedes
+the Phase 3 per-component upgrade list above where they conflict. Full spec:
+`~/.claude/plans/also-no-codde-just-hashed-dawn.md`.
+
+**New formula:** `Fit = 0.55·Portfolio + 0.30·StageCheck + 0.15·Sector` — geography **removed**
+entirely. Tiers unchanged (Strong ≥0.80 · Good ≥0.60 · display floor 0.45 in `findVCsForTech`).
+Philosophy: revealed behavior (what the firm actually funded) dominates stated preference.
+Rankings will change wholesale vs v1 — that is intended; NO golden-parity requirement (the
+float-order invariant comment in `scoring.js` becomes obsolete).
+
+- **Portfolio (0.55, NEW):** each VC gets a scraped portfolio-company list (from the firm's own
+  website) in a new `data/vc_portfolios.json`:
+  `[{ vcId, sourceUrl, scrapedAt, companies: [{ name, domains[], stage }] }]` (`domains` = the 8
+  JHTV domain names; `stage` = round ladder `[Pre-Seed, Seed, Series A, Series B, Series C,
+  Growth/Late]`). Per-company credit vs a tech: shared domain + same ladder rung → 1.0; adjacent
+  rung → 0.75; shared domain only / stage unknown → 0.5; no shared domain → 0. Aggregate =
+  saturating count `min(1, totalCredit / 3)` (K=3 named constant) — NOT a fraction (would punish
+  large diversified firms) and NOT a max (one lucky hit ≠ full marks). Tech milestone strings
+  ("pre-clinical", "NewCo", "commercial") map onto the ladder reusing `techStageScore`'s stageMap
+  correspondences. Missing portfolio → rescale: `(0.30·stageCheck + 0.15·sector) / 0.45`, result
+  carries `basis: 'stated'` (vs `'portfolio'`).
+- **StageCheck (0.30, merged):** `0.5·techStageScore + 0.5·checkScore` (both existing heuristics
+  unchanged initially; PitchBook benchmark upgrades slot in here later behind data-present guards).
+- **Sector (0.15, demoted + fixed):** keep `mapFocusToDomains`; any shared domain → 1.0,
+  catch-all-only → 0.5, none → 0. Kills the multi-domain fraction penalty.
+- **API change:** `vcFitScore(vc, tech, portfolio?)` — optional third arg; returns adds `basis`.
+  VC with neither stated profile nor portfolio still returns `null` (contract unchanged).
+
+**Pilot data scope:** the 12 curated PDF firms only (2048 Ventures, 8VC, Amplify, Dimension,
+Felicis, Frazier Life Sciences, Fusion Fund, Hanabi, Lux, Mayfield, NEA, Emergence) — researched
+in-session (no API key needed), ~40 companies/firm cap, out-of-scope companies get `domains: []`.
+Fusion Fund's `matchedTechs` stays `[]` per the existing rule; portfolio scoring is separate and
+fine. Side benefit: these 12 currently have empty profile fields so `vcFitScore` returns `null` —
+v2 gives them real scores for the first time (partially supersedes the "enrich the 12" task).
+Follow-up (not in the pilot): fold portfolio collection into `generate_vc.js` auto-research.
+
+**Build order when green-lit** (branch `rubric-v2-portfolio`): 1) `scoring.js` v2 + rewritten
+tests (TDD); 2) `data/vc_portfolios.json` for the 12; 3) `index.html` wiring (fail-soft fetch,
+`PORTFOLIO_BY_VC` map, pass into `findVCsForTech`) + `generate_vc.js` adaptation; 4) browser
+verification (Frazier should top a pre-clinical therapeutic; no-portfolio firms score via rescale;
+null contract intact), docs pass on `docs/HOW-IT-WORKS.md` + `WORKFLOW.md`, merge, push, verify live.
 
 ## One-pager generator (built, button hidden)
 
