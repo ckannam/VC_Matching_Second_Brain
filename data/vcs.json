@@ -1039,5 +1039,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "catalio-capital-management-lp",
+    "name": "Catalio Capital Management, LP",
+    "aliases": [
+      "Catalio",
+      "Catalio Capital"
+    ],
+    "focus": "Catalio backs breakthrough biomedical technology companies developing next-generation drugs, devices, diagnostics, data, and tools, partnering with serial scientist-entrepreneurs and university spin-outs to build category-defining life sciences businesses from inception through IPO. It invests across the full capital structure and company lifecycle, spanning private equity, structured credit, and public equities.",
+    "sectors": [
+      "Biotech",
+      "Life Sciences",
+      "Drug Discovery",
+      "Diagnostics",
+      "Medical Devices",
+      "Oncology",
+      "Digital Health",
+      "AI-Enabled Healthcare"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "infinity-bio",
+      "28bio",
+      "astropath",
+      "blocksynop"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
