@@ -1002,5 +1002,42 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "lightspeed-venture-partners",
+    "name": "Lightspeed Venture Partners",
+    "aliases": [
+      "Lightspeed",
+      "LSVP"
+    ],
+    "focus": "Lightspeed is a multi-stage venture capital firm focused on accelerating disruptive innovations across the enterprise, consumer, health, and fintech sectors, backing category-defining founders from Seed to Series F with a philosophy of depth over breadth and high-conviction, concentrated ownership.",
+    "sectors": [
+      "Enterprise Software",
+      "Artificial Intelligence",
+      "Fintech",
+      "Cybersecurity",
+      "Consumer Technology",
+      "Digital Health",
+      "Developer Tools & Infrastructure"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
