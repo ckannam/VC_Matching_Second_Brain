@@ -1,12 +1,22 @@
 'use strict';
 /* Shared VC↔tech scoring rubric — the SINGLE source of truth used by BOTH the
- * browser (index.html) and the backend (scripts/generate_vc.js). Previously the
- * logic was duplicated and had drifted (catch-all industry case: flat 0.5 in the
- * backend vs max(fraction,0.5) in the browser). The browser behavior is canonical.
- * Classic script for the browser + module.exports for Node. */
+ * browser (index.html) and the backend (scripts/generate_vc.js).
+ * Classic script for the browser + module.exports for Node.
+ *
+ * RUBRIC v2 (portfolio-led, July 2026 — boss-approved reframe):
+ *   Fit = 0.55·Portfolio + 0.30·StageCheck + 0.15·Sector      (geography removed)
+ * Portfolio = the VC's actual portfolio companies (data/vc_portfolios.json,
+ * scraped from firm websites) scored against the tech by shared domain + stage
+ * proximity — revealed behavior dominates stated preference.
+ * Scores renormalize over available evidence; see vcFitScore's basis table. */
 
 // Tunable weights (must sum to 1.0). Change scoring emphasis HERE — one place.
-const WEIGHTS = { industry: 0.375, stage: 0.30, checkSize: 0.225, geography: 0.10 };
+const WEIGHTS = { portfolio: 0.55, stageCheck: 0.30, sector: 0.15 };
+
+// "About this many genuinely similar portfolio companies = full marks."
+// Saturating count, NOT a fraction (a fraction would punish large diversified
+// firms) and NOT a max (one lucky hit shouldn't score full).
+const PORTFOLIO_K = 3;
 
 const INDUSTRY_TO_DOMAIN = {
   'life sciences':       ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
@@ -91,45 +101,121 @@ function techStageScore(vcStages, techStage) {
   return 0.2;
 }
 
-// vc: { sectors[], stage[], checkSize:{min,max}, geographicFocus, focus }
-// tech: { sectors[], stage }
-function vcFitScore(vc, tech) {
-  const focus = (vc.sectors && vc.sectors.length) ? vc.sectors : (vc.focus ? [vc.focus] : []);
-  if (!focus.length) return null;  // curated entries carry no profile data to score
+// ── Round ladder (portfolio stage proximity) ─────────────────────────
+// 0 Pre-Seed · 1 Seed · 2 Series A · 3 Series B · 4 Series C · 5 Growth/Late
 
-  const { matched, matchesAll } = mapFocusToDomains(focus);
+// Tech milestone string → ladder rung. Ordered rules: longer/more specific
+// tokens first ("pre-clinical" before "clinical", "phase iii" before "phase i",
+// "pre-seed" before "seed"). Unknown milestone → null (domain-only credit).
+const TECH_STAGE_RUNGS = [
+  ['pre-seed', 0],
+  ['pre-clinical', 1], ['newco', 1], ['concept', 1], ['ind-enabling', 1],
+  ['pre-product', 1], ['seed', 1],
+  ['phase iii', 3], ['phase 3', 3], ['fda', 3],
+  ['phase ii', 2], ['phase 2', 2], ['phase i', 2], ['phase 1', 2],
+  ['clinical', 2], ['mvp', 2], ['pilot', 2],
+  ['series a', 2], ['series b', 3], ['series c', 4], ['series d', 4],
+  ['commercial', 5], ['revenue', 5], ['scale', 5], ['growth', 5], ['public', 5],
+];
+function techStageToRung(techStage) {
+  if (!techStage) return null;
+  const s = techStage.toLowerCase();
+  for (const [token, rung] of TECH_STAGE_RUNGS) if (s.includes(token)) return rung;
+  return null;
+}
+
+// Portfolio-company round string → ladder rung.
+const COMPANY_STAGE_RUNGS = [
+  ['pre-seed', 0], ['seed', 1],
+  ['series a', 2], ['series b', 3], ['series c', 4],
+  ['series d', 5], ['series e', 5], ['series f', 5],
+  ['growth', 5], ['late', 5], ['ipo', 5], ['public', 5],
+];
+function companyStageToRung(stage) {
+  if (!stage) return null;
+  const s = String(stage).toLowerCase();
+  for (const [token, rung] of COMPANY_STAGE_RUNGS) if (s.includes(token)) return rung;
+  return null;
+}
+
+// The v2 core: score a VC's actual portfolio against a tech.
+// companies: [{ name, domains: [], stage? }] from data/vc_portfolios.json.
+// Per-company credit — shared domain + same rung 1.0 · adjacent rung 0.75 ·
+// shared domain w/ unknown or distant stage 0.5 · no shared domain 0.
+// Returns { score, hits } or null when there is no portfolio to judge.
+function portfolioFit(companies, tech) {
+  if (!companies || !companies.length) return null;
   const techDomains = tech.sectors || [];
-
-  let industryScore;
-  if (matchesAll && matched.size === 0) industryScore = 0.3;
-  else {
-    const hits = techDomains.filter(d => matched.has(d)).length;
-    industryScore = techDomains.length ? hits / techDomains.length : 0;
-    if (matchesAll) industryScore = Math.max(industryScore, 0.5);
+  const techRung = techStageToRung(tech.stage);
+  let credit = 0, hits = 0;
+  for (const c of companies) {
+    if (!(c.domains || []).some(d => techDomains.includes(d))) continue;
+    let w = 0.5;
+    const rung = companyStageToRung(c.stage);
+    if (techRung !== null && rung !== null) {
+      const dist = Math.abs(rung - techRung);
+      if (dist === 0) w = 1.0;
+      else if (dist === 1) w = 0.75;
+    }
+    credit += w;
+    hits++;
   }
+  return { score: Math.min(1, credit / PORTFOLIO_K), hits };
+}
 
-  const stageOk = techStageScore(vc.stage || [], tech.stage);
-
-  const g = (vc.geographicFocus || '').toLowerCase();
-  const geo = (!g || g.includes('national')) ? 0.8
-    : (g.includes('mid-atlantic') || g.includes('east coast')) ? 1.0
-    : (g.includes('west coast') || g.includes('international')) ? 0.4 : 0.7;
-
+// Existing check-size heuristic, extracted (upgrade path: PitchBook round
+// benchmarks slot in here behind an if-data-present guard).
+function checkSizeScore(vc, techDomains) {
   const maturity = DOMAIN_MATURITY[techDomains[0]] || 'mid';
   const min = vc.checkSize ? vc.checkSize.min : undefined;
   const max = vc.checkSize ? vc.checkSize.max : undefined;
-  let checkSz = 0.4;
-  if (maturity === 'early' && max <= 15) checkSz = 1;
-  else if (maturity === 'mid' && min >= 1 && max <= 50) checkSz = 1;
+  if (maturity === 'early' && max <= 15) return 1;
+  if (maturity === 'mid' && min >= 1 && max <= 50) return 1;
+  return 0.4;
+}
 
-  return {
-    // Term order (industry, stage, geography, checkSize) and left-to-right addition
-    // are float-identical to the pre-refactor literal 0.375i+0.30s+0.10g+0.225c.
-    // Do NOT reorder — a "tidy-up" that sorts these could shift scores across a tier boundary.
-    score: WEIGHTS.industry * industryScore + WEIGHTS.stage * stageOk + WEIGHTS.geography * geo + WEIGHTS.checkSize * checkSz,
-    sharedDomains: techDomains.filter(d => matched.has(d)),
-    stageOk: stageOk === 1,
-  };
+// vc:   { sectors[], stage[], checkSize:{min,max}, focus }   (stated profile)
+// tech: { sectors[], stage }
+// portfolioCompanies: optional [{ name, domains[], stage? }] for this VC.
+//
+// Evidence renormalization — scores whatever evidence exists:
+//   stated + portfolio → 0.55·P + 0.30·SC + 0.15·Sec   (basis 'full')
+//   portfolio only     → P                              (basis 'portfolio')
+//   stated only        → (0.30·SC + 0.15·Sec) / 0.45    (basis 'stated')
+//   neither            → null                           (contract unchanged)
+function vcFitScore(vc, tech, portfolioCompanies) {
+  const focus = (vc.sectors && vc.sectors.length) ? vc.sectors : (vc.focus ? [vc.focus] : []);
+  const hasStated = focus.length > 0;
+  const pf = portfolioFit(portfolioCompanies, tech);
+  if (!hasStated && !pf) return null;
+
+  const techDomains = tech.sectors || [];
+  let sectorScore = 0, sharedDomains = [], stageCheck = 0, stageOk = false;
+  if (hasStated) {
+    const { matched, matchesAll } = mapFocusToDomains(focus);
+    sharedDomains = techDomains.filter(d => matched.has(d));
+    // Any shared domain = full sector credit — multi-domain techs are never
+    // penalized (v1's hits/length fraction is gone). Catch-all-only = 0.5.
+    sectorScore = sharedDomains.length ? 1.0 : (matchesAll ? 0.5 : 0);
+
+    const stage = techStageScore(vc.stage || [], tech.stage);
+    stageOk = stage === 1;
+    stageCheck = 0.5 * stage + 0.5 * checkSizeScore(vc, techDomains);
+  }
+
+  let score, basis;
+  if (hasStated && pf) {
+    score = WEIGHTS.portfolio * pf.score + WEIGHTS.stageCheck * stageCheck + WEIGHTS.sector * sectorScore;
+    basis = 'full';
+  } else if (pf) {
+    score = pf.score;
+    basis = 'portfolio';
+  } else {
+    score = (WEIGHTS.stageCheck * stageCheck + WEIGHTS.sector * sectorScore) / (WEIGHTS.stageCheck + WEIGHTS.sector);
+    basis = 'stated';
+  }
+
+  return { score, sharedDomains, stageOk, basis, portfolioHits: pf ? pf.hits : 0 };
 }
 
 function fitTier(score) {
@@ -139,4 +225,8 @@ function fitTier(score) {
 }
 
 if (typeof module !== 'undefined' && module.exports)
-  module.exports = { WEIGHTS, INDUSTRY_TO_DOMAIN, DOMAIN_MATURITY, mapFocusToDomains, techStageScore, vcFitScore, fitTier };
+  module.exports = {
+    WEIGHTS, PORTFOLIO_K, INDUSTRY_TO_DOMAIN, DOMAIN_MATURITY,
+    mapFocusToDomains, techStageScore, techStageToRung, portfolioFit,
+    checkSizeScore, vcFitScore, fitTier,
+  };
