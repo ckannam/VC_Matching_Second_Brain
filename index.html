@@ -86,16 +86,20 @@
   let VCS             = [];
   let TECHS           = [];
   let JHU_CONNECTIONS = [];
+  let PORTFOLIO_BY_VC = new Map();  // vc.id → [{ name, domains[], stage? }] (rubric v2)
   let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
   async function loadData() {
     try {
-      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS] = await Promise.all([
+      let portfolios;
+      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
         fetch('data/jhu_connections.json').then(r => r.json()),
         fetch('data/jhtv_relationships.json').then(r => r.ok ? r.json() : []).catch(() => []),
+        fetch('data/vc_portfolios.json').then(r => r.ok ? r.json() : []).catch(() => []),
       ]);
+      PORTFOLIO_BY_VC = new Map(portfolios.map(e => [e.vcId, e.companies]));
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
@@ -844,7 +848,7 @@
     for (const vc of VCS) {
       const briefMatch = (vc.matchedTechs || []).includes(tech.id);
       const inBrief = !!vc.vcOnePager && briefMatch;
-      const fit = vcFitScore(vc, tech);
+      const fit = vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id));
       if (fit) {
         if (fit.score >= 0.45 || inBrief)
           rows.push({ vc, fit, inBrief, sortScore: fit.score + (inBrief ? 0.1 : 0) });
@@ -980,6 +984,7 @@
         badges.push(`<span class="pill fit-tier-${t.cls}">${t.label}</span>`);
       }
       const parts = [];
+      if (fit && fit.portfolioHits) parts.push(`has ${fit.portfolioHits} portfolio compan${fit.portfolioHits === 1 ? 'y' : 'ies'} like this`);
       if (fit && fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
       if (fit && fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
       const detail = [parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '', rel && rel.note ? rel.note : '']
