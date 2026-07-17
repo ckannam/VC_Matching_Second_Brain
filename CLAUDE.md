@@ -83,6 +83,7 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
 - **sector**: `mapFocusToDomains` + **any shared domain → 1.0** (catch-all-only → 0.5). Multi-domain techs are no longer penalized (v1's `hits/length` fraction is gone).
 - `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible), `INDUSTRY_TO_DOMAIN`, `DOMAIN_MATURITY` also live here. Tests: `test/scoring.test.js` (18), `test/generate_vc.buildentry.test.js`.
 - The backend `generate_vc.js` calls `vcFitScore(vc, tech)` without a portfolio (new firms have none) → the capped `'stated'` path; buildEntry still picks top-4 `matchedTechs`.
+- **VC→techs direction (`topTechsForVC(vc, n=4)` in `index.html`):** the VC page's "matched technologies" is now **rubric-driven** — it ranks ALL techs by `vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id))` and takes the top n with **no floor cutoff**, so it always returns 4 (never zero). Pure data: the static `vc.matchedTechs` no longer drives this list (it still powers the tech-side "In VC brief" badge). The 8 JHTV **domain names round-trip** through `mapFocusToDomains` (guarded by a test) since enriched `sectors` are written as those names.
 
 **Branding colors** (from `style.css`): navy `#003B6F`, light blue `#005A9C`, gold `#C8973A`. Domain colors live in `DOMAIN_COLORS` in `index.html`.
 
@@ -255,6 +256,8 @@ Philosophy: revealed behavior (actual portfolio) beats stated preference; stated
 real rankings with Cole: `PORTFOLIO_K = 6` (saturation) and `STATED_MAX = 0.75` (stated cap).
 Rankings changed wholesale vs v1 by design (no golden parity). Spec/plan:
 `~/.claude/plans/also-no-codde-just-hashed-dawn.md`.
+
+**VC→techs + enrich-the-12 (SHIPPED July 17, 2026).** The VC page now shows rubric-ranked top-4 techs (`topTechsForVC`, no floor → always 4) instead of the static PDF list. To give stage×check + sector something to score when portfolio overlap is thin, the **12 curated firms' stated profiles were populated** in `vcs.json` (`sectors`/`stage` derived from their `vc_portfolios.json` companies, `checkSize`/`focus` web-augmented; `matchedTechs`/`vcOnePager` preserved, not provisional). Effect: they score via `basis:'full'`, so no-overlap firms (e.g. Mayfield) get sensible stated-driven matches instead of an arbitrary zero. `INDUSTRY_TO_DOMAIN` gained `research technologies` + `agricultural tech` keys so all 8 domain names round-trip. Test: `test/vc_matched_techs.test.js` (never-zero guarantee). **Recency rule** (last-3yr / else last-10 portfolio companies) is **designed but deferred** — firm websites lack per-company dates; it activates when PitchBook deal data lands, scoring the full portfolio until then.
 
 **Deferred follow-ups:** portfolios for the ~20 non-curated (provisional) firms; folding portfolio
 collection into `generate_vc.js` auto-research so new firms arrive with portfolio data; `docs/HOW-IT-WORKS.md`

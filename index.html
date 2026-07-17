@@ -497,11 +497,27 @@
     return (vc.matchedTechs || []).map(id => TECHS.find(t => t.id === id)).filter(Boolean);
   }
 
+  // Rubric v2 (VC→techs, portfolio-led): the firm's best-fit technologies,
+  // ranked by vcFitScore over ALL techs — no floor cutoff, so it always returns
+  // the top n (never zero) for any VC that carries a stated profile or portfolio.
+  // Pure data: the static PDF `matchedTechs` no longer drives this list (it still
+  // powers the "In VC brief" badge on the tech→VC side). Deterministic ties:
+  // score → shared-domain count → name.
+  function topTechsForVC(vc, n = 4) {
+    const portfolio = PORTFOLIO_BY_VC.get(vc.id);
+    return TECHS
+      .map(t => { const fit = vcFitScore(vc, t, portfolio); return fit ? { t, s: fit.score, d: fit.sharedDomains.length } : null; })
+      .filter(Boolean)
+      .sort((a, b) => b.s - a.s || b.d - a.d || a.t.name.localeCompare(b.t.name))
+      .slice(0, n)
+      .map(x => x.t);
+  }
+
   function renderVc(vcId, bannerHTML = '') {
     const vc = VCS.find(v => v.id === vcId);
     if (!vc) { renderHome(); return; }
     showResults().innerHTML =
-      `<div class="catalog-section">${bannerHTML}${foundHTML(vc, matchedTechsOf(vc))}</div>`;
+      `<div class="catalog-section">${bannerHTML}${foundHTML(vc, topTechsForVC(vc))}</div>`;
   }
 
   function renderNotFound(q) {

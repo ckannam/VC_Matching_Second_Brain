@@ -142,5 +142,17 @@ check('mapFocusToDomains still flags catch-all and maps specifics', () => {
   assert(matched.has('Therapeutics') && matched.has('Diagnostics'));
 });
 
+// The enriched-firm sectors are written as the 8 domain NAMES, so each must
+// round-trip through the keyword table (guards the research-technologies /
+// agricultural-tech additions).
+check('all 8 JHTV domain names round-trip through mapFocusToDomains', () => {
+  const DOMAINS = ['Therapeutics', 'Diagnostics', 'Medical Devices', 'Digital Health',
+    'Research Technologies', 'Clean Tech', 'Agricultural Tech', 'Cybersecurity'];
+  DOMAINS.forEach(d => {
+    const { matched } = mapFocusToDomains([d]);
+    assert(matched.has(d), `${d} did not map to itself`);
+  });
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
