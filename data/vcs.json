@@ -5,31 +5,64 @@
     "aliases": [
       "2048"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Pre-seed and seed investing in vertical AI, deep tech, bio, and health founders.",
+    "sectors": [
+      "Therapeutics",
+      "Research Technologies",
+      "Diagnostics",
+      "Digital Health",
+      "Medical Devices",
+      "Clean Tech"
+    ],
+    "stage": [
+      "Pre-Seed",
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [
       "circlage",
       "safetower",
       "curveassure",
       "curiedx"
     ],
-    "vcOnePager": "2048_Ventures_One_Pager.pdf"
+    "vcOnePager": "2048_Ventures_One_Pager.pdf",
+    "checkSize": {
+      "min": 0.5,
+      "max": 3
+    }
   },
   {
     "id": "8vc",
     "name": "8VC",
     "aliases": [],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Multistage investing across healthcare/life sciences, AI, logistics, defense, and fintech.",
+    "sectors": [
+      "Research Technologies",
+      "Therapeutics",
+      "Diagnostics",
+      "Medical Devices",
+      "Digital Health",
+      "Cybersecurity"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "curveassure",
       "epiwatch",
       "scene-health",
       "avoid"
     ],
-    "vcOnePager": "8_VC_One_Pager.pdf"
+    "vcOnePager": "8_VC_One_Pager.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 50
+    }
   },
   {
     "id": "amplify-partners",
@@ -37,46 +70,86 @@
     "aliases": [
       "Amplify"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Technical deep-tech investing in developer tools, data, AI infrastructure, security, and bio.",
+    "sectors": [
+      "Research Technologies",
+      "Digital Health",
+      "Cybersecurity"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series C"
+    ],
     "matchedTechs": [
       "curveassure",
       "brainbox-solutions",
       "semaphor",
       "oncospace"
     ],
-    "vcOnePager": "Amplify_Partners_One_Pager.pdf"
+    "vcOnePager": "Amplify_Partners_One_Pager.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 15
+    }
   },
   {
     "id": "dimension",
     "name": "Dimension",
     "aliases": [],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Investing at the intersection of life sciences and computation (therapeutics and bio tools).",
+    "sectors": [
+      "Therapeutics",
+      "Research Technologies"
+    ],
+    "stage": [
+      "Seed",
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "astropath",
       "infinity-bio",
       "28bio",
       "biolinco"
     ],
-    "vcOnePager": "Dimension.pdf"
+    "vcOnePager": "Dimension.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 30
+    }
   },
   {
     "id": "felicis",
     "name": "Felicis",
     "aliases": [],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Multistage venture investing across health & bio, AI, infrastructure, cybersecurity, and fintech.",
+    "sectors": [
+      "Therapeutics",
+      "Research Technologies",
+      "Diagnostics",
+      "Digital Health",
+      "Cybersecurity"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "curveassure",
       "epiwatch",
       "curiedx",
       "safetower"
     ],
-    "vcOnePager": "Felicis.pdf"
+    "vcOnePager": "Felicis.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 30
+    }
   },
   {
     "id": "frazier-life-sciences",
@@ -84,16 +157,28 @@
     "aliases": [
       "Frazier"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Life sciences venture and public investing in biopharmaceutical company creation and development.",
+    "sectors": [
+      "Therapeutics"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "adventris-pharmaceuticals",
       "egret-therapeutics",
       "ashvattha-therapeutics",
       "agnos-therapeutics"
     ],
-    "vcOnePager": "Frazier Life Sciences.pdf"
+    "vcOnePager": "Frazier Life Sciences.pdf",
+    "checkSize": {
+      "min": 5,
+      "max": 40
+    }
   },
   {
     "id": "fusion-fund",
@@ -101,11 +186,24 @@
     "aliases": [
       "Fusion"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Early-stage deep-tech and healthcare investing (life sciences tools, medical devices, AI).",
+    "sectors": [
+      "Research Technologies",
+      "Therapeutics",
+      "Medical Devices",
+      "Diagnostics",
+      "Cybersecurity"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
     "matchedTechs": [],
-    "vcOnePager": "Fusion_Fund_OnePager.pdf"
+    "vcOnePager": "Fusion_Fund_OnePager.pdf",
+    "checkSize": {
+      "min": 0.5,
+      "max": 10
+    }
   },
   {
     "id": "hanabi-capital",
@@ -113,16 +211,22 @@
     "aliases": [
       "Hanabi"
     ],
-    "focus": "",
+    "focus": "Early-stage investing in artificial intelligence and software infrastructure.",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A"
+    ],
     "matchedTechs": [
       "safetower",
       "oncospace",
       "curiedx",
       "circlage"
     ],
-    "vcOnePager": "Hanabi Capital.pdf"
+    "vcOnePager": "Hanabi Capital.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 15
+    }
   },
   {
     "id": "lux-capital",
@@ -130,46 +234,86 @@
     "aliases": [
       "Lux"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Deep-tech venture investing at the frontiers of science and engineering, including bio and health.",
+    "sectors": [
+      "Therapeutics",
+      "Research Technologies",
+      "Medical Devices"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "semaphor",
       "curveassure",
       "brainbox-solutions",
       "oncospace"
     ],
-    "vcOnePager": "Lux Capital.pdf"
+    "vcOnePager": "Lux Capital.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 50
+    }
   },
   {
     "id": "mayfield",
     "name": "Mayfield",
     "aliases": [],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "AI-first venture investing across enterprise, human health, and semiconductors.",
+    "sectors": [
+      "Research Technologies",
+      "Therapeutics",
+      "Diagnostics",
+      "Digital Health",
+      "Cybersecurity"
+    ],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Series C",
+      "Growth"
+    ],
     "matchedTechs": [
       "delfi-diagnostics",
       "egret-therapeutics",
       "adventris-pharmaceuticals",
       "ashvattha-therapeutics"
     ],
-    "vcOnePager": "Mayfield.pdf"
+    "vcOnePager": "Mayfield.pdf",
+    "checkSize": {
+      "min": 1,
+      "max": 30
+    }
   },
   {
     "id": "nea",
     "name": "NEA",
     "aliases": [],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Global multistage venture investing across healthcare (therapeutics, devices, digital health) and technology.",
+    "sectors": [
+      "Therapeutics",
+      "Medical Devices",
+      "Diagnostics",
+      "Digital Health"
+    ],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [
       "curiedx",
       "curveassure",
       "semaphor",
       "safetower"
     ],
-    "vcOnePager": "NEA.pdf"
+    "vcOnePager": "NEA.pdf",
+    "checkSize": {
+      "min": 5,
+      "max": 100
+    }
   },
   {
     "id": "emergence-capital",
@@ -177,16 +321,26 @@
     "aliases": [
       "Emergence"
     ],
-    "focus": "",
-    "sectors": [],
-    "stage": [],
+    "focus": "Enterprise SaaS investing with select health IT (Doximity, Veeva).",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [
       "oncospace",
       "curveassure",
       "foragerone",
       "semaphor"
     ],
-    "vcOnePager": "emergence_capital.pdf"
+    "vcOnePager": "emergence_capital.pdf",
+    "checkSize": {
+      "min": 5,
+      "max": 30
+    }
   },
   {
     "id": "deerfield-management-company-l-p",
