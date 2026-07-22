@@ -91,7 +91,8 @@ function buildEntry(vcProfile, techs) {
     checkSize:       { min: vcProfile.checkSizeMin, max: vcProfile.checkSizeMax },
     geographicFocus: vcProfile.geographicFocus,
   };
-  const { matched } = mapFocusToDomains(vcProfile.investmentFocus);
+  const { primary, secondary } = mapFocusToDomains(vcProfile.investmentFocus);
+  const matched = new Set([...primary, ...secondary]);
   const scored = techs
     .map(t => ({ tech: t, score: (vcFitScore(vc, t) || { score: 0 }).score }))
     .sort((a, b) => {

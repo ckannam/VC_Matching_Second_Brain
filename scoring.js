@@ -25,54 +25,18 @@ const PORTFOLIO_K = 6;
 // 'stated' basis at the top of the "Good" band (Strong is >= 0.80).
 const STATED_MAX = 0.75;
 
-const INDUSTRY_TO_DOMAIN = {
-  'life sciences':       ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
-  'life science':        ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
-  'biotech':             ['Therapeutics','Diagnostics','Research Technologies'],
-  'biotechnology':       ['Therapeutics','Diagnostics','Research Technologies'],
-  'biopharma':           ['Therapeutics','Diagnostics'],
-  'pharma':              ['Therapeutics'],
-  'drug discovery':      ['Therapeutics','Research Technologies'],
-  'therapeutics':        ['Therapeutics'],
-  'diagnostics':         ['Diagnostics'],
-  'digital health':      ['Digital Health'],
-  'healthcare it':       ['Digital Health'],
-  'health it':           ['Digital Health'],
-  'healthtech':          ['Digital Health'],
-  'health tech':         ['Digital Health'],
-  'medtech':             ['Medical Devices'],
-  'medical device':      ['Medical Devices'],
-  'medical technology':  ['Medical Devices'],
-  'surgical':            ['Medical Devices'],
-  'oncology':            ['Diagnostics','Therapeutics'],
-  'cancer':              ['Diagnostics','Therapeutics'],
-  'neurology':           ['Medical Devices','Digital Health'],
-  'neurotech':           ['Medical Devices','Digital Health'],
-  'cardiovascular':      ['Medical Devices','Diagnostics'],
-  'cardiology':          ['Medical Devices','Diagnostics'],
-  'cleantech':           ['Clean Tech'],
-  'clean tech':          ['Clean Tech'],
-  'climate':             ['Clean Tech'],
-  'sustainability':      ['Clean Tech'],
-  'energy':              ['Clean Tech'],
-  'agtech':              ['Agricultural Tech'],
-  'agriculture':         ['Agricultural Tech'],
-  'food tech':           ['Agricultural Tech'],
-  'cybersecurity':       ['Cybersecurity'],
-  'security':            ['Cybersecurity'],
-  'infosec':             ['Cybersecurity'],
-  'research tools':      ['Research Technologies','Diagnostics'],
-  'research technologies':['Research Technologies'],
-  'research technology': ['Research Technologies'],
-  'lab tech':            ['Research Technologies'],
-  'agricultural tech':   ['Agricultural Tech'],
-  'agricultural technology':['Agricultural Tech'],
-  'ai in healthcare':    ['Digital Health','Medical Devices'],
-  'ai health':           ['Digital Health'],
-  'deep tech':           null,
-  'healthcare':          null,
-  'health care':         null,
-};
+// Sector step's keyword dictionary now comes from the 324-keyword venture taxonomy
+// (taxonomy.js). Dual-mode load, mirroring this module's own export guard: Node
+// requires the sibling module; the browser reads the globals taxonomy.js declared
+// first via <script defer>. A distinct local name (TAX) avoids re-declaring those
+// top-level consts in the shared classic-script global scope.
+const TAX = (typeof module !== 'undefined' && module.exports)
+  ? require('./taxonomy.js')
+  : { VC_KEYWORD_TAXONOMY, BUCKET_TO_DOMAIN, CYBER_KEYWORDS, DOMAIN_SELF_MAP, CATCH_ALL };
+
+// Taxonomy keys longest-first — lets phrase-priority drop broad component words
+// ("ai" when "ai in healthcare" also matched) before scoring.
+const TAX_KEYS_BY_LEN = Object.keys(TAX.VC_KEYWORD_TAXONOMY).sort((a, b) => b.length - a.length);
 
 const DOMAIN_MATURITY = {
   'Therapeutics': 'early', 'Diagnostics': 'mid', 'Medical Devices': 'mid',
@@ -80,19 +44,67 @@ const DOMAIN_MATURITY = {
   'Agricultural Tech': 'early', 'Cybersecurity': 'mid',
 };
 
+// Normalize a focus string for keyword matching (taxonomy rule 7: lowercase, split
+// separators, strip punctuation, collapse whitespace). Hyphens/digits/& kept —
+// taxonomy keys include "car-t", "3d printing", "b2b software".
+function normalizeFocus(s) {
+  return (s || '')
+    .toLowerCase()
+    .replace(/[\/,|]/g, ' ')
+    .replace(/[^a-z0-9&\- ]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Whole-phrase membership: a keyword matches only on token boundaries, so short
+// keys like "ai" don't hit inside "supply chain". Space-padding both sides makes
+// the check exact for multi-word phrases too ("ai in healthcare").
+function hasPhrase(fl, keyword) {
+  return (' ' + fl + ' ').includes(' ' + keyword + ' ');
+}
+
+// VC focus strings → JHTV display domains, split into primary vs. secondary evidence.
+// Returns { primary:Set, secondary:Set, matchesAll:bool }. Buckets that crosswalk to
+// null (Robotics/AI/Software, Industrial, Aerospace) contribute nothing here.
 function mapFocusToDomains(focusStrings) {
-  const matched = new Set();
+  const primary = new Set();
+  const secondary = new Set();
   let matchesAll = false;
-  for (const f of focusStrings) {
-    const fl = (f || '').toLowerCase();
-    for (const [keyword, domains] of Object.entries(INDUSTRY_TO_DOMAIN)) {
-      if (fl.includes(keyword)) {
-        if (domains === null) matchesAll = true;
-        else domains.forEach(d => matched.add(d));
-      }
+
+  const addBucket = (bucket, set) => {
+    const d = TAX.BUCKET_TO_DOMAIN[bucket];
+    if (d) set.add(d);
+  };
+
+  for (const raw of focusStrings) {
+    const fl = normalizeFocus(raw);
+    if (!fl) continue;
+
+    // 1. Exact JHTV domain names round-trip to themselves (primary evidence).
+    for (const [name, domain] of Object.entries(TAX.DOMAIN_SELF_MAP))
+      if (hasPhrase(fl, name)) primary.add(domain);
+
+    // 2. Cyber overlay — the taxonomy folded Cybersecurity into Robotics/AI/Software,
+    //    but JHTV keeps it as a real domain with tagged techs.
+    if (TAX.CYBER_KEYWORDS.some(k => hasPhrase(fl, k))) primary.add('Cybersecurity');
+
+    // 3. Taxonomy keywords, phrase-priority: keep the most specific matches only
+    //    (drop a keyword that is a substring of another matched keyword).
+    const hits = TAX_KEYS_BY_LEN.filter(k => hasPhrase(fl, k));
+    const specific = hits.filter(k => !hits.some(o => o !== k && o.includes(k)));
+    for (const k of specific) {
+      const entry = TAX.VC_KEYWORD_TAXONOMY[k];
+      addBucket(entry.primary, primary);
+      for (const sb of entry.secondary) addBucket(sb, secondary);
     }
+
+    // 4. Broad catch-alls — eligible but unspecific.
+    if (TAX.CATCH_ALL.some(k => hasPhrase(fl, k))) matchesAll = true;
   }
-  return { matched, matchesAll };
+
+  // A domain proven primary shouldn't also count as weaker secondary evidence.
+  for (const d of primary) secondary.delete(d);
+  return { primary, secondary, matchesAll };
 }
 
 function techStageScore(vcStages, techStage) {
@@ -203,11 +215,15 @@ function vcFitScore(vc, tech, portfolioCompanies) {
   const techDomains = tech.sectors || [];
   let sectorScore = 0, sharedDomains = [], stageCheck = 0, stageOk = false;
   if (hasStated) {
-    const { matched, matchesAll } = mapFocusToDomains(focus);
-    sharedDomains = techDomains.filter(d => matched.has(d));
-    // Any shared domain = full sector credit — multi-domain techs are never
-    // penalized (v1's hits/length fraction is gone). Catch-all-only = 0.5.
-    sectorScore = sharedDomains.length ? 1.0 : (matchesAll ? 0.5 : 0);
+    const { primary, secondary, matchesAll } = mapFocusToDomains(focus);
+    const sharedPrimary   = techDomains.filter(d => primary.has(d));
+    const sharedSecondary = techDomains.filter(d => secondary.has(d));
+    sharedDomains = [...new Set([...sharedPrimary, ...sharedSecondary])];
+    // Primary-bucket overlap = full sector credit; secondary-only = half; catch-all
+    // only = 0.5. Multi-domain techs are never penalized (v1's hits/length is gone).
+    sectorScore = sharedPrimary.length ? 1.0
+                : sharedSecondary.length ? 0.5
+                : (matchesAll ? 0.5 : 0);
 
     const stage = techStageScore(vc.stage || [], tech.stage);
     stageOk = stage === 1;
@@ -238,7 +254,7 @@ function fitTier(score) {
 
 if (typeof module !== 'undefined' && module.exports)
   module.exports = {
-    WEIGHTS, PORTFOLIO_K, STATED_MAX, INDUSTRY_TO_DOMAIN, DOMAIN_MATURITY,
-    mapFocusToDomains, techStageScore, techStageToRung, portfolioFit,
+    WEIGHTS, PORTFOLIO_K, STATED_MAX, DOMAIN_MATURITY,
+    mapFocusToDomains, normalizeFocus, techStageScore, techStageToRung, portfolioFit,
     checkSizeScore, vcFitScore, fitTier,
   };

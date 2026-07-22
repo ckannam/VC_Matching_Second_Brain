@@ -80,8 +80,8 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
   - neither → `null`
 - `portfolioFit(companies, tech)` — per company: shared domain + same stage-ladder rung → 1.0 · adjacent rung → 0.75 · shared domain w/ unknown/distant stage → 0.5 · no shared domain → 0. Aggregate = `min(1, credit / PORTFOLIO_K)`, **`PORTFOLIO_K = 6`** (saturating count — a fraction would punish diversified firms; K tuned so deep/pure-play = Strong, small relevant arm = Good). `techStageToRung()` maps tech milestone strings onto the round ladder.
 - `stageCheck = 0.5·techStageScore + 0.5·checkSizeScore` (both prior heuristics, extracted; PitchBook round benchmarks slot into `checkSizeScore` later behind a data-present guard).
-- **sector**: `mapFocusToDomains` + **any shared domain → 1.0** (catch-all-only → 0.5). Multi-domain techs are no longer penalized (v1's `hits/length` fraction is gone).
-- `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible), `INDUSTRY_TO_DOMAIN`, `DOMAIN_MATURITY` also live here. Tests: `test/scoring.test.js` (18), `test/generate_vc.buildentry.test.js`.
+- **sector**: `mapFocusToDomains` returns `{ primary, secondary, matchesAll }`; **primary-bucket overlap → 1.0, secondary-only overlap → 0.5**, catch-all-only → 0.5, none → 0. Multi-domain techs are not penalized (v1's `hits/length` fraction is gone). The keyword dictionary is now the **324-keyword venture taxonomy** (`taxonomy.js`, see "Sector taxonomy" below), NOT the old inline `INDUSTRY_TO_DOMAIN` table.
+- `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible) and `DOMAIN_MATURITY` live in `scoring.js`; the sector keyword map + crosswalk live in `taxonomy.js`. Tests: `test/scoring.test.js`, `test/taxonomy.test.js`, `test/generate_vc.buildentry.test.js`.
 - The backend `generate_vc.js` calls `vcFitScore(vc, tech)` without a portfolio (new firms have none) → the capped `'stated'` path; buildEntry still picks top-4 `matchedTechs`.
 - **VC→techs direction (`topTechsForVC(vc, n=4)` in `index.html`):** the VC page's "matched technologies" is now **rubric-driven** — it ranks ALL techs by `vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id))` and takes the top n with **no floor cutoff**, so it always returns 4 (never zero). Pure data: the static `vc.matchedTechs` no longer drives this list (it still powers the tech-side "In VC brief" badge). The 8 JHTV **domain names round-trip** through `mapFocusToDomains` (guarded by a test) since enriched `sectors` are written as those names.
 
@@ -238,8 +238,11 @@ per-component upgrade list is **superseded by "Rubric v2 — portfolio-led match
 (geography is now removed, weights restructured); the PitchBook benchmark upgrades survive but slot
 inside v2's merged StageCheck component.
 
-**Phase 4 — Taxonomy revamp (optional, last).** Map techs + VCs onto PitchBook verticals as a shared
-tag layer under the 8 display buckets, removing the lossy `INDUSTRY_TO_DOMAIN` translation.
+**Phase 4 — Taxonomy revamp (VC-side SHIPPED — see "Sector taxonomy" below).** The lossy inline
+`INDUSTRY_TO_DOMAIN` table is gone; VC self-descriptions now map through the 324-keyword venture
+taxonomy (`taxonomy.js`). Techs + portfolios still use JHTV's 8 display buckets (the taxonomy's 10
+buckets crosswalk back to them), so this was done VC-mapping-only. Fully mapping techs onto PitchBook
+verticals remains optional/future.
 
 **Open/deferred:** naming/branding of the two tools; how far to harden the cross-repo engine
 consumption (keep fetch+eval vs. a cleaner include); exact PitchBook export schema (finalize
@@ -263,6 +266,38 @@ Rankings changed wholesale vs v1 by design (no golden parity). Spec/plan:
 collection into `generate_vc.js` auto-research so new firms arrive with portfolio data; `docs/HOW-IT-WORKS.md`
 + `docs/WORKFLOW.md` still describe v1 weights (update on next docs pass). Dimension's portfolio list
 is partial (site didn't render server-side); Fusion Fund companies lack stage labels (domain-only credit).
+
+## Sector taxonomy (SHIPPED — replaces INDUSTRY_TO_DOMAIN)
+
+The 15% Sector sub-component of rubric v2 no longer uses the old ~46-key inline `INDUSTRY_TO_DOMAIN`
+table. It now maps VC self-descriptions through the **324-keyword venture taxonomy** in **`taxonomy.js`**
+(generated). **v2 weights and all portfolio logic are unchanged** — only the sector dictionary + its
+scoring changed.
+
+- **`taxonomy.js`** (dual classic-script + `module.exports`, loaded by `index.html` via `<script defer>`
+  BEFORE `scoring.js`; `require`d by `scoring.js`/scripts in Node). Exports: `VC_KEYWORD_TAXONOMY`
+  (`{ keyword: { primary, secondary[] } }`, 324 keys), `BUCKET_TO_DOMAIN` (crosswalk from the taxonomy's
+  10 venture buckets → JHTV's 8 display domains; the 3 non-JHTV buckets — Robotics/AI/Software,
+  Industrial & Manufacturing, Aerospace/Defense/Quantum — map to `null`), `CYBER_KEYWORDS` (overlay:
+  the taxonomy folded Cybersecurity into Robotics/AI/Software, so cyber terms are re-mapped to the JHTV
+  Cybersecurity domain), `DOMAIN_SELF_MAP` (8 domain names → themselves, guarantees enriched-sector
+  round-trip), `CATCH_ALL` (`deep tech`/`healthcare`/`health care`).
+- **Regenerate:** edit `data/source/VC_Keyword_Taxonomy_Venture_Grade.xlsx` (sheet "Keyword Summary")
+  → `npm run convert-taxonomy` (`scripts/convert_keyword_taxonomy.js`, uses the `xlsx` dev dep). Do NOT
+  hand-edit `taxonomy.js`; edit the crosswalk/overlay block inside the converter.
+- **Scoring:** `mapFocusToDomains` returns `{ primary, secondary, matchesAll }` using whole-phrase
+  (token-boundary) matching + phrase-priority (specific keyword beats component word). `vcFitScore`
+  sector = primary overlap → 1.0 · secondary-only → 0.5 · catch-all-only → 0.5 · none → 0. Tests:
+  `test/taxonomy.test.js` + sector cases in `test/scoring.test.js`.
+
+## v1 baseline snapshot (offline comparison artifact)
+
+`scripts/generate_v1_baseline.js` (`npm run baseline-v1`) reconstructs the original **v1 four-dimension
+rubric** (industry 37.5% + stage 30% + check 22.5% + geography 10%, per `JHTV_Second_Brain_Matching.docx`)
+with a **frozen** copy of the old `INDUSTRY_TO_DOMAIN` table, and writes **`data/baseline_v1_matches.json`**
+— the top-4 techs each of the **12 curated saved-brief VCs** *would* have matched under v1 (NOT the PDF
+one-pager picks, which were separate human research). Purpose: a fixed "old rubric" reference to diff
+against the new-rubric + PitchBook output later. Not loaded by the live UI; does not touch live scoring.
 
 ## One-pager generator (built, button hidden)
 
