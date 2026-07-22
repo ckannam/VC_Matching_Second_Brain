@@ -136,22 +136,55 @@ check('fitTier thresholds unchanged', () => {
   assert.strictEqual(fitTier(0.50).cls, 'possible');
 });
 
-check('mapFocusToDomains still flags catch-all and maps specifics', () => {
-  const { matched, matchesAll } = mapFocusToDomains(['healthcare', 'oncology']);
+check('mapFocusToDomains flags catch-all and splits primary vs secondary', () => {
+  // 'healthcare' → catch-all; 'oncology' → primary Therapeutics, secondary Diagnostics.
+  const { primary, secondary, matchesAll } = mapFocusToDomains(['healthcare', 'oncology']);
   assert.strictEqual(matchesAll, true);
-  assert(matched.has('Therapeutics') && matched.has('Diagnostics'));
+  assert(primary.has('Therapeutics'), 'oncology primary → Therapeutics');
+  assert(secondary.has('Diagnostics'), 'oncology secondary → Diagnostics');
+  assert(!primary.has('Diagnostics'), 'a secondary domain must not also be primary');
 });
 
 // The enriched-firm sectors are written as the 8 domain NAMES, so each must
-// round-trip through the keyword table (guards the research-technologies /
-// agricultural-tech additions).
-check('all 8 JHTV domain names round-trip through mapFocusToDomains', () => {
+// round-trip to itself as PRIMARY (guards the DOMAIN_SELF_MAP overlay).
+check('all 8 JHTV domain names round-trip as primary through mapFocusToDomains', () => {
   const DOMAINS = ['Therapeutics', 'Diagnostics', 'Medical Devices', 'Digital Health',
     'Research Technologies', 'Clean Tech', 'Agricultural Tech', 'Cybersecurity'];
   DOMAINS.forEach(d => {
-    const { matched } = mapFocusToDomains([d]);
-    assert(matched.has(d), `${d} did not map to itself`);
+    const { primary } = mapFocusToDomains([d]);
+    assert(primary.has(d), `${d} did not map to itself as primary`);
   });
+});
+
+// ── taxonomy upgrade: primary-weighted sector, crosswalk, cyber overlay ───
+check('primary-bucket overlap scores strictly higher than secondary-only overlap', () => {
+  const tech = { sectors: ['Therapeutics'], stage: 'Seed' };
+  const stageMiss = ['Growth'];  // keeps stated score under the cap so sector shows
+  const vcPrimary   = { sectors: ['pharma'],        stage: stageMiss, checkSize: { min: 1, max: 10 } };
+  const vcSecondary = { sectors: ['animal health'], stage: stageMiss, checkSize: { min: 1, max: 10 } };
+  const rP = vcFitScore(vcPrimary, tech);   // pharma → Therapeutics primary
+  const rS = vcFitScore(vcSecondary, tech); // animal health → Therapeutics secondary
+  assert(rP.score > rS.score, `primary ${rP.score} should beat secondary ${rS.score}`);
+});
+
+check('cyber overlay: cybersecurity/security/infosec map to the JHTV Cybersecurity domain', () => {
+  for (const term of ['cybersecurity', 'security', 'infosec']) {
+    const { primary } = mapFocusToDomains([term]);
+    assert(primary.has('Cybersecurity'), `${term} did not map to Cybersecurity`);
+  }
+});
+
+check('non-JHTV buckets crosswalk to nothing (no false matches for a biotech catalog)', () => {
+  for (const term of ['quantum', 'saas', 'fintech', 'gaming']) {
+    const { primary, secondary } = mapFocusToDomains([term]);
+    assert.strictEqual(primary.size, 0, `${term} produced a primary domain`);
+    assert.strictEqual(secondary.size, 0, `${term} produced a secondary domain`);
+  }
+});
+
+check('whole-phrase matching: "supply chain" does not spuriously match "ai"', () => {
+  const { primary } = mapFocusToDomains(['supply chain']);
+  assert(!primary.has('Digital Health'), 'ai leaked in via substring of "chain"');
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

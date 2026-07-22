@@ -1,0 +1,537 @@
+[
+  {
+    "vcId": "2048-ventures",
+    "name": "2048 Ventures",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3dnamics",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "biolinco",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "accelevir",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "adventris-pharmaceuticals",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "circlage",
+      "safetower",
+      "curveassure",
+      "curiedx"
+    ]
+  },
+  {
+    "vcId": "8vc",
+    "name": "8VC",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "infinity-bio",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "28bio",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "astropath",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "avoid",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "curveassure",
+      "epiwatch",
+      "scene-health",
+      "avoid"
+    ]
+  },
+  {
+    "vcId": "amplify-partners",
+    "name": "Amplify Partners",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "astropath",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "avoid",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "circlage",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "corrie-health",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "curveassure",
+      "brainbox-solutions",
+      "semaphor",
+      "oncospace"
+    ]
+  },
+  {
+    "vcId": "dimension",
+    "name": "Dimension",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3dnamics",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "biolinco",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "3helix",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "accelevir",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "astropath",
+      "infinity-bio",
+      "28bio",
+      "biolinco"
+    ]
+  },
+  {
+    "vcId": "felicis",
+    "name": "Felicis",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "infinity-bio",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "28bio",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "astropath",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "avoid",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "curveassure",
+      "epiwatch",
+      "curiedx",
+      "safetower"
+    ]
+  },
+  {
+    "vcId": "frazier-life-sciences",
+    "name": "Frazier Life Sciences",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3helix",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "accelevir",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "adventris-pharmaceuticals",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "agenebio",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "adventris-pharmaceuticals",
+      "egret-therapeutics",
+      "ashvattha-therapeutics",
+      "agnos-therapeutics"
+    ]
+  },
+  {
+    "vcId": "fusion-fund",
+    "name": "Fusion Fund",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3dnamics",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "biolinco",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "accelevir",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "adventris-pharmaceuticals",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": []
+  },
+  {
+    "vcId": "hanabi-capital",
+    "name": "Hanabi Capital",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3dnamics",
+        "score": 0.595,
+        "industry": 0,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "accelevir",
+        "score": 0.595,
+        "industry": 0,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "adventris-pharmaceuticals",
+        "score": 0.595,
+        "industry": 0,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "agenebio",
+        "score": 0.595,
+        "industry": 0,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "safetower",
+      "oncospace",
+      "curiedx",
+      "circlage"
+    ]
+  },
+  {
+    "vcId": "lux-capital",
+    "name": "Lux Capital",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "blocksynop",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "brainbox-solutions",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "longeviti-neuro-solutions",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "mi-helper",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "semaphor",
+      "curveassure",
+      "brainbox-solutions",
+      "oncospace"
+    ]
+  },
+  {
+    "vcId": "mayfield",
+    "name": "Mayfield",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "infinity-bio",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "bullfrog-ai",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "cardiowise",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "corrie-health",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "delfi-diagnostics",
+      "egret-therapeutics",
+      "adventris-pharmaceuticals",
+      "ashvattha-therapeutics"
+    ]
+  },
+  {
+    "vcId": "nea",
+    "name": "NEA",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "3helix",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "agenebio",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "ashvattha-therapeutics",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      },
+      {
+        "id": "brahm-astra",
+        "score": 0.835,
+        "industry": 1,
+        "stage": 1,
+        "check": 0.4,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "curiedx",
+      "curveassure",
+      "semaphor",
+      "safetower"
+    ]
+  },
+  {
+    "vcId": "emergence-capital",
+    "name": "Emergence Capital",
+    "provisional": false,
+    "v1TopTechs": [
+      {
+        "id": "bullfrog-ai",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "corrie-health",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "curiedx",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      },
+      {
+        "id": "curveassure",
+        "score": 0.97,
+        "industry": 1,
+        "stage": 1,
+        "check": 1,
+        "geo": 0.7
+      }
+    ],
+    "currentMatchedTechs": [
+      "oncospace",
+      "curveassure",
+      "foragerone",
+      "semaphor"
+    ]
+  }
+]
