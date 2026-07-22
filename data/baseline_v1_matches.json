@@ -42,13 +42,14 @@
       }
     ],
     "newRubricMatches": {
-      "source": "2048 Ventures last-3yr deals (12 JHTV-relevant of 31) + stage focus Seed/Early 95% · Series A 5% (one-pager)",
+      "source": "2048 Ventures recent deals (12 JHTV-relevant of 31) + stage focus Seed/Early 95% · Series A 5% (one-pager)",
       "stageFocus": [
         "Pre-Seed",
         "Seed",
         "Series A"
       ],
       "portfolioCompanies": 12,
+      "topScoreTies": 2,
       "techs": [
         {
           "id": "3dnamics",
@@ -141,7 +142,63 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "8VC recent deals (37 JHTV-relevant of 163) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 37,
+      "topScoreTies": 17,
+      "techs": [
+        {
+          "id": "astropath",
+          "name": "Astropath",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 18,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "bullfrog-ai",
+          "name": "BullFrog AI",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 18,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "circlage",
+          "name": "CIRCLAGE",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 18,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "corrie-health",
+          "name": "Corrie Health",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 18,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "amplify-partners",
@@ -185,7 +242,61 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Amplify Partners recent deals (10 JHTV-relevant of 49) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 10,
+      "topScoreTies": 2,
+      "techs": [
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 9,
+          "sharedDomains": [
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 9,
+          "sharedDomains": [
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "infinity-bio",
+          "name": "Infinity Bio",
+          "score": 0.8396,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 8,
+          "sharedDomains": [
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "agenebio",
+          "name": "AgeneBio",
+          "score": 0.8042,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 6,
+          "sharedDomains": []
+        }
+      ]
+    }
   },
   {
     "vcId": "dimension",
@@ -229,7 +340,65 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Dimension recent deals (16 JHTV-relevant of 21) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 16,
+      "topScoreTies": 1,
+      "techs": [
+        {
+          "id": "infinity-bio",
+          "name": "Infinity Bio",
+          "score": 0.9771,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 10,
+          "sharedDomains": [
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 16,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 16,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "3helix",
+          "name": "3Helix",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 10,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "felicis",
@@ -273,7 +442,63 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Felicis recent deals (17 JHTV-relevant of 116) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 17,
+      "topScoreTies": 17,
+      "techs": [
+        {
+          "id": "astropath",
+          "name": "Astropath",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 12,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "bullfrog-ai",
+          "name": "BullFrog AI",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 12,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "circlage",
+          "name": "CIRCLAGE",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 12,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "corrie-health",
+          "name": "Corrie Health",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 12,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "frazier-life-sciences",
@@ -317,7 +542,61 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Frazier Life Sciences recent deals (51 JHTV-relevant of 56) + stage focus derived from deal history",
+      "stageFocus": [
+        "Series A",
+        "Growth"
+      ],
+      "portfolioCompanies": 51,
+      "topScoreTies": 19,
+      "techs": [
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 39,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "3helix",
+          "name": "3Helix",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 38,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "accelevir",
+          "name": "Accelevir",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 38,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "adventris-pharmaceuticals",
+          "name": "Adventris Pharmaceuticals",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 38,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "fusion-fund",
@@ -361,7 +640,63 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Fusion Fund recent deals (7 JHTV-relevant of 34) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A"
+      ],
+      "portfolioCompanies": 7,
+      "topScoreTies": 2,
+      "techs": [
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.6104,
+          "tier": "Good fit",
+          "basis": "full",
+          "portfolioHits": 2,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 0.6104,
+          "tier": "Good fit",
+          "basis": "full",
+          "portfolioHits": 2,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "accelevir",
+          "name": "Accelevir",
+          "score": 0.5417,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 1,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "adventris-pharmaceuticals",
+          "name": "Adventris Pharmaceuticals",
+          "score": 0.5417,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 1,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "hanabi-capital",
@@ -405,7 +740,63 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Hanabi Capital Management recent deals (0 JHTV-relevant of 24) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 0,
+      "topScoreTies": 17,
+      "techs": [
+        {
+          "id": "astropath",
+          "name": "Astropath",
+          "score": 0.375,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "bullfrog-ai",
+          "name": "BullFrog AI",
+          "score": 0.375,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "circlage",
+          "name": "CIRCLAGE",
+          "score": 0.375,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "corrie-health",
+          "name": "Corrie Health",
+          "score": 0.375,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "lux-capital",
@@ -449,7 +840,65 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Lux Capital recent deals (26 JHTV-relevant of 129) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 26,
+      "topScoreTies": 1,
+      "techs": [
+        {
+          "id": "infinity-bio",
+          "name": "Infinity Bio",
+          "score": 1,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 9,
+          "sharedDomains": [
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 13,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 13,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "3helix",
+          "name": "3Helix",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 12,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "mayfield",

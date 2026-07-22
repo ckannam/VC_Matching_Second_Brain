@@ -301,16 +301,22 @@ object. Not loaded by the live UI; does not touch live scoring.
   **frozen** copy of the pre-taxonomy `INDUSTRY_TO_DOMAIN` table so it stays fixed. This is the "what v1
   *would* have picked" reference (the firms' `vcs.json.matchedTechs` came from PDF research, not a rubric).
 - **`newRubricMatches`** — top-4 under the **live v2 rubric** (`vcFitScore` from `scoring.js`), scored
-  against a **recent-deals portfolio** built from a PitchBook deals export. `null` for firms without deals
-  data configured. Wired via `V2_FIRM_CONFIG` in the script: each configured firm names its `dealsFirm`
-  (row filter in the deals JSON) and a `stageFocus` read off its one-pager (e.g. 2048 = Seed/Early 95% ·
-  Series A 5%). Deals become portfolio companies via `PB_INDUSTRY_TO_DOMAIN` (PitchBook industry label →
-  JHTV domains; non-JHTV labels → `[]`, ignored by the saturating count) + `dealTypeToStage`. Currently
-  **2048 Ventures** is configured (deals export at `~/Downloads/deals.json`, which also contains 8 other
-  curated firms not yet wired). Because these firms have both a stated profile and a portfolio, v2 scores
-  via `basis:'full'` and can exceed the 0.75 stated-only cap (2048's top picks land at Strong fit).
-- **Purpose:** diff v1 vs v2 to show how the rubric evolved; extend by adding firms to `V2_FIRM_CONFIG`
-  (+ their one-pager stage focus) as more deals data arrives.
+  against a **recent-deals portfolio** built from the PitchBook deals export at
+  **`data/source/vc_deals.json`** (623 deals; source folder `vc json deal histories/`). `null` for firms
+  the export doesn't cover. Deals → portfolio companies via `PB_INDUSTRY_TO_DOMAIN` (PitchBook industry
+  label → JHTV domains; non-JHTV labels → `[]`, ignored by the saturating count) + `dealTypeToStage`
+  (Series letter is the true round). Each firm's `stageFocus` (vc.stage[]) is **derived from its own deals**
+  (`deriveStageFocus`, stages ≥10% of rounds), except a `STAGE_FOCUS_OVERRIDE` for **2048 Ventures**
+  (Seed/Early 95% · Series A 5%, read off its one-pager). Firms are mapped by `DEALS_FIRM_TO_VCID`.
+  Currently **9 of 12** curated firms have deals (all but Mayfield, NEA, Emergence).
+- Because these firms have both a stated profile and a portfolio, v2 scores via `basis:'full'` and can
+  exceed the 0.75 stated-only cap. **Saturation caveat:** broad multi-domain funds (8VC, Felicis, Frazier)
+  hit the score ceiling on many techs at once — `topScoreTies` (recorded per firm) shows how many tied at
+  the top; for those the surfaced top-4 is decided by tie-break (portfolio overlap, then domains, then
+  name), so it's less discriminating than for focused funds (Lux, Dimension, 2048). Firms with no
+  JHTV-relevant deals (Hanabi) fall back to weak stated-only matches.
+- **Purpose:** diff v1 vs v2 to show how the rubric evolved. Extend by adding the 3 missing firms to the
+  deals export (+ `DEALS_FIRM_TO_VCID`); their `stageFocus` then auto-derives.
 
 ## One-pager generator (built, button hidden)
 

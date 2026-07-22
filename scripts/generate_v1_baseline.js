@@ -23,9 +23,9 @@ const { vcFitScore, fitTier } = require('../scoring.js');   // live v2 rubric (u
 const VCS   = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/vcs.json'), 'utf8'));
 const TECHS = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/technologies.json'), 'utf8'));
 
-// Optional PitchBook deals export (last ~3 yr). When present for a configured firm,
-// we build a recent-deals portfolio and compute NEW-rubric (v2) matches from it.
-const DEALS_PATH = '/Users/colekannam/Downloads/deals.json';
+// PitchBook deals export (recent slice, ~mid-2024 on). When present for a configured
+// firm, we build a recent-deals portfolio and compute NEW-rubric (v2) matches from it.
+const DEALS_PATH = path.join(__dirname, '../data/source/vc_deals.json');
 const DEALS = fs.existsSync(DEALS_PATH) ? JSON.parse(fs.readFileSync(DEALS_PATH, 'utf8')) : [];
 
 const V1_WEIGHTS = { industry: 0.375, stage: 0.30, check: 0.225, geo: 0.10 };
@@ -174,38 +174,95 @@ function v1Fit(vc, tech) {
 
 // PitchBook industry label → JHTV display domains (label-based, reproducible — not
 // second-guessed from company descriptions). Only JHTV-relevant labels are listed;
-// everything else is treated as out-of-scope ([]).
+// every other label is out-of-scope ([]) and, thanks to the saturating portfolio
+// count, has no effect (so a firm's many software/fintech/aerospace deals are ignored).
 const PB_INDUSTRY_TO_DOMAIN = {
-  'Biotechnology':                        ['Therapeutics'],
+  // Therapeutics
+  'Biotechnology':                           ['Therapeutics'],
+  'Pharmaceuticals':                         ['Therapeutics'],
   'Other Pharmaceuticals and Biotechnology': ['Therapeutics'],
-  'Drug Delivery':                        ['Medical Devices', 'Therapeutics'],
-  'Drug Discovery':                       ['Research Technologies', 'Therapeutics'],
-  'Diagnostic Equipment':                 ['Diagnostics', 'Medical Devices'],
-  'Discovery Tools (Healthcare)':         ['Research Technologies'],
-  'Enterprise Systems (Healthcare)':      ['Digital Health'],
-  'Other Healthcare Technology Systems':  ['Digital Health'],
-  'Clinics/Outpatient Services':          ['Digital Health'],
-  'Other Healthcare Services':            ['Digital Health'],
+  'Drug Delivery':                           ['Medical Devices', 'Therapeutics'],
+  'Drug Discovery':                          ['Therapeutics', 'Research Technologies'],
+  // Diagnostics
+  'Diagnostic Equipment':                    ['Diagnostics', 'Medical Devices'],
+  'Laboratory Services (Healthcare)':        ['Research Technologies', 'Diagnostics'],
+  // Medical Devices
+  'Therapeutic Devices':                     ['Medical Devices'],
+  'Surgical Devices':                        ['Medical Devices'],
+  'Other Devices and Supplies':              ['Medical Devices'],
+  'Monitoring Equipment':                    ['Medical Devices', 'Digital Health'],
+  // Research Technologies
+  'Discovery Tools (Healthcare)':            ['Research Technologies'],
+  // Digital Health
+  'Clinics/Outpatient Services':             ['Digital Health'],
+  'Enterprise Systems (Healthcare)':         ['Digital Health'],
+  'Other Healthcare Technology Systems':     ['Digital Health'],
+  'Other Healthcare Services':               ['Digital Health'],
+  'Medical Records Systems':                 ['Digital Health'],
+  'Elder and Disabled Care':                 ['Digital Health'],
+  // Clean Tech
+  'Alternative Energy Equipment':            ['Clean Tech'],
 };
 
-// PitchBook deal_type → round-ladder stage string (companyStageToRung reads the token).
+// PitchBook deal_type → round-ladder stage string for a PORTFOLIO company
+// (companyStageToRung reads the token). The Series letter is the true round, whether
+// PitchBook tagged it "Early Stage" or "Later Stage"; C+ collapses to the top rung.
 function dealTypeToStage(dt) {
   const s = (dt || '').toLowerCase();
-  if (s.includes('series a') || s.includes('early stage') || s.includes('later stage')) return 'Series A';
-  if (s.includes('series b')) return 'Series B';
+  const m = s.match(/series ([a-h])/);
+  if (m) return 'Series ' + m[1].toUpperCase();
   if (s.includes('seed')) return 'Seed';
-  if (s.includes('pre-seed')) return 'Pre-Seed';
-  return undefined;
+  if (s.includes('pe growth') || s.includes('buyout') || s.includes('lbo') || s.includes('pipe')) return 'Growth';
+  if (s.includes('early stage')) return 'Series A';
+  if (s.includes('later stage')) return 'Series C';
+  return undefined; // secondary / joint venture / unknown → domain-only credit
 }
 
-// Firms we have deals + a stage-% focus for. stageFocus is read off the one-pager.
-const V2_FIRM_CONFIG = {
-  '2048-ventures': {
-    dealsFirm: '2048 Ventures',
-    stageFocus: ['Pre-Seed', 'Seed', 'Series A'], // one-pager: Seed/Early 95% · Series A 5%
-    stageNote: 'Seed/Early 95% · Series A 5% (one-pager)',
-  },
+// deal_type → a VC stage LABEL for techStageScore's vc.stage[] (keys: seed, series a,
+// series b, growth, late stage). Series C+ and buyout/PIPE collapse to Growth.
+function dealTypeToVcStage(dt) {
+  const s = (dt || '').toLowerCase();
+  if (s.includes('seed')) return 'Seed';
+  const m = s.match(/series ([a-h])/);
+  if (m) return m[1] === 'a' ? 'Series A' : m[1] === 'b' ? 'Series B' : 'Growth';
+  if (s.includes('early stage')) return 'Series A';
+  return 'Growth'; // later stage / pe / buyout / pipe
+}
+
+// A firm's stage FOCUS from its deals: VC stages that are ≥10% of its rounds (always at
+// least the modal stage), in ladder order. Reflects where the firm actually writes checks.
+function deriveStageFocus(rows) {
+  const counts = {};
+  for (const r of rows) { const st = dealTypeToVcStage(r.deal_type); if (st) counts[st] = (counts[st] || 0) + 1; }
+  const total = Object.values(counts).reduce((a, b) => a + b, 0) || 1;
+  let focus = Object.keys(counts).filter(k => counts[k] / total >= 0.10);
+  if (!focus.length) { const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]; if (top) focus = [top[0]]; }
+  return ['Seed', 'Series A', 'Series B', 'Growth', 'Late Stage'].filter(s => focus.includes(s));
+}
+
+// Map each deals-firm string to a curated vcId. Firms in the deals export but with a
+// stage-% read off the one-pager get an explicit stageFocus override (2048).
+const DEALS_FIRM_TO_VCID = {
+  '2048 Ventures': '2048-ventures', '8VC': '8vc', 'Amplify Partners': 'amplify-partners',
+  'Dimension': 'dimension', 'Felicis': 'felicis', 'Frazier Life Sciences': 'frazier-life-sciences',
+  'Fusion Fund': 'fusion-fund', 'Hanabi Capital Management': 'hanabi-capital', 'Lux Capital': 'lux-capital',
 };
+const STAGE_FOCUS_OVERRIDE = {
+  '2048-ventures': { stageFocus: ['Pre-Seed', 'Seed', 'Series A'], note: 'Seed/Early 95% · Series A 5% (one-pager)' },
+};
+
+// vcId → { dealsFirm, stageFocus, stageNote }, built from whatever firms the export has.
+const V2_FIRM_CONFIG = {};
+for (const [dealsFirm, vcId] of Object.entries(DEALS_FIRM_TO_VCID)) {
+  const rows = DEALS.filter(r => r.firm === dealsFirm);
+  if (!rows.length) continue;
+  const ov = STAGE_FOCUS_OVERRIDE[vcId];
+  V2_FIRM_CONFIG[vcId] = {
+    dealsFirm,
+    stageFocus: ov ? ov.stageFocus : deriveStageFocus(rows),
+    stageNote: ov ? ov.note : 'derived from deal history',
+  };
+}
 
 function buildDealsPortfolio(dealsFirm) {
   const rows = DEALS.filter(r => r.firm === dealsFirm);
@@ -227,12 +284,20 @@ function computeV2(vc, cfg) {
       return f ? { t, f } : null;
     })
     .filter(Boolean)
-    .sort((a, b) => b.f.score - a.f.score || b.f.sharedDomains.length - a.f.sharedDomains.length
+    // Tie-break by actual portfolio overlap (portfolioHits) before domain count and
+    // name, so the surfaced picks are the most deal-supported among equal scores.
+    .sort((a, b) => b.f.score - a.f.score || b.f.portfolioHits - a.f.portfolioHits
+                 || b.f.sharedDomains.length - a.f.sharedDomains.length
                  || a.t.name.localeCompare(b.t.name));
+  // Broad multi-domain funds saturate the score ceiling — many techs tie at the top and
+  // the top-4 is then decided by tie-break. Record the tie count so that's transparent.
+  const topScore = ranked.length ? ranked[0].f.score : 0;
+  const topScoreTies = ranked.filter(x => Math.abs(x.f.score - topScore) < 1e-9).length;
   return {
-    source: `${cfg.dealsFirm} last-3yr deals (${inScope} JHTV-relevant of ${total}) + stage focus ${cfg.stageNote}`,
+    source: `${cfg.dealsFirm} recent deals (${inScope} JHTV-relevant of ${total}) + stage focus ${cfg.stageNote}`,
     stageFocus: cfg.stageFocus,
     portfolioCompanies: inScope,
+    topScoreTies,
     techs: ranked.slice(0, 4).map(({ t, f }) => ({
       id: t.id,
       name: t.name,
@@ -277,9 +342,10 @@ console.log(`\nold-rubric (v1) vs new-rubric (v2) for ${out.length} curated firm
 const nm = s => (s || '').slice(0, 26).padEnd(26);
 const names = ids => ids.map(id => (techById[id] ? techById[id].name : id)).join(', ');
 for (const r of out) {
-  console.log(nm(r.name), r.newRubricMatches ? `[v2: ${r.newRubricMatches.portfolioCompanies} deals]` : '[v2: no deals data]');
+  const v2 = r.newRubricMatches;
+  console.log(nm(r.name), v2 ? `[v2: ${v2.portfolioCompanies} JHTV deals, ${v2.topScoreTies} tied at top]` : '[v2: no deals data]');
   console.log('   old v1:', names(r.oldRubricMatches.map(x => x.id)));
-  if (r.newRubricMatches)
-    console.log('   new v2:', r.newRubricMatches.techs.map(x => `${x.name} (${x.score}, ${x.tier})`).join(', '));
+  if (v2)
+    console.log('   new v2:', v2.techs.map(x => `${x.name} (${x.score}, ${x.tier})`).join(', '));
 }
 console.log('');
