@@ -942,7 +942,64 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Mayfield recent deals (0 JHTV-relevant of 63) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 0,
+      "topScoreTies": 32,
+      "techs": [
+        {
+          "id": "infinity-bio",
+          "name": "Infinity Bio",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Diagnostics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "28bio",
+          "name": "28bio",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Diagnostics"
+          ]
+        },
+        {
+          "id": "astropath",
+          "name": "Astropath",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "avoid",
+          "name": "Avoid",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Cybersecurity"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "nea",
@@ -986,7 +1043,63 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "NEA recent deals (22 JHTV-relevant of 69) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 22,
+      "topScoreTies": 24,
+      "techs": [
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 14,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 14,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "3helix",
+          "name": "3Helix",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 13,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "accelevir",
+          "name": "Accelevir",
+          "score": 0.91,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 13,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "emergence-capital",
@@ -1030,6 +1143,62 @@
         "geo": 0.7
       }
     ],
-    "newRubricMatches": null
+    "newRubricMatches": {
+      "source": "Emergence Capital recent deals (0 JHTV-relevant of 44) + stage focus derived from deal history",
+      "stageFocus": [
+        "Seed",
+        "Series A",
+        "Series B",
+        "Growth"
+      ],
+      "portfolioCompanies": 0,
+      "topScoreTies": 17,
+      "techs": [
+        {
+          "id": "astropath",
+          "name": "Astropath",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "bullfrog-ai",
+          "name": "BullFrog AI",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "circlage",
+          "name": "CIRCLAGE",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        },
+        {
+          "id": "corrie-health",
+          "name": "Corrie Health",
+          "score": 0.45,
+          "tier": "Possible fit",
+          "basis": "full",
+          "portfolioHits": 0,
+          "sharedDomains": [
+            "Digital Health"
+          ]
+        }
+      ]
+    }
   }
 ]

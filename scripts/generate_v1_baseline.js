@@ -246,6 +246,7 @@ const DEALS_FIRM_TO_VCID = {
   '2048 Ventures': '2048-ventures', '8VC': '8vc', 'Amplify Partners': 'amplify-partners',
   'Dimension': 'dimension', 'Felicis': 'felicis', 'Frazier Life Sciences': 'frazier-life-sciences',
   'Fusion Fund': 'fusion-fund', 'Hanabi Capital Management': 'hanabi-capital', 'Lux Capital': 'lux-capital',
+  'Mayfield': 'mayfield', 'NEA': 'nea', 'Emergence Capital': 'emergence-capital',
 };
 const STAGE_FOCUS_OVERRIDE = {
   '2048-ventures': { stageFocus: ['Pre-Seed', 'Seed', 'Series A'], note: 'Seed/Early 95% · Series A 5% (one-pager)' },

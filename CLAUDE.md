@@ -308,15 +308,17 @@ object. Not loaded by the live UI; does not touch live scoring.
   (Series letter is the true round). Each firm's `stageFocus` (vc.stage[]) is **derived from its own deals**
   (`deriveStageFocus`, stages ≥10% of rounds), except a `STAGE_FOCUS_OVERRIDE` for **2048 Ventures**
   (Seed/Early 95% · Series A 5%, read off its one-pager). Firms are mapped by `DEALS_FIRM_TO_VCID`.
-  Currently **9 of 12** curated firms have deals (all but Mayfield, NEA, Emergence).
+  **All 12** curated firms now have deals (`data/source/vc_deals.json`, 799 deals).
 - Because these firms have both a stated profile and a portfolio, v2 scores via `basis:'full'` and can
-  exceed the 0.75 stated-only cap. **Saturation caveat:** broad multi-domain funds (8VC, Felicis, Frazier)
-  hit the score ceiling on many techs at once — `topScoreTies` (recorded per firm) shows how many tied at
-  the top; for those the surfaced top-4 is decided by tie-break (portfolio overlap, then domains, then
-  name), so it's less discriminating than for focused funds (Lux, Dimension, 2048). Firms with no
-  JHTV-relevant deals (Hanabi) fall back to weak stated-only matches.
-- **Purpose:** diff v1 vs v2 to show how the rubric evolved. Extend by adding the 3 missing firms to the
-  deals export (+ `DEALS_FIRM_TO_VCID`); their `stageFocus` then auto-derives.
+  exceed the 0.75 stated-only cap. **Saturation caveat:** broad multi-domain funds (8VC, Felicis, Frazier,
+  NEA) hit the score ceiling on many techs at once — `topScoreTies` (recorded per firm) shows how many
+  tied at the top; for those the surfaced top-4 is decided by tie-break (portfolio overlap, then domains,
+  then name), so it's less discriminating than for focused funds (Lux, Dimension, 2048). Firms whose recent
+  deals show **no** JHTV-relevant investing (Hanabi, Mayfield, Emergence) have an all-out-of-scope
+  portfolio, so the 55% portfolio term is 0 and they cap at 0.45 (Possible) — revealed behavior beats a
+  stated health thesis.
+- **Purpose:** diff v1 vs v2 to show how the rubric evolved. Refresh by re-exporting deals into
+  `data/source/vc_deals.json` and rerunning `npm run baseline-v1`.
 
 ## One-pager generator (built, button hidden)
 
