@@ -290,14 +290,27 @@ scoring changed.
   sector = primary overlap → 1.0 · secondary-only → 0.5 · catch-all-only → 0.5 · none → 0. Tests:
   `test/taxonomy.test.js` + sector cases in `test/scoring.test.js`.
 
-## v1 baseline snapshot (offline comparison artifact)
+## Baseline: old rubric (v1) vs new rubric (v2) — offline comparison artifact
 
-`scripts/generate_v1_baseline.js` (`npm run baseline-v1`) reconstructs the original **v1 four-dimension
-rubric** (industry 37.5% + stage 30% + check 22.5% + geography 10%, per `JHTV_Second_Brain_Matching.docx`)
-with a **frozen** copy of the old `INDUSTRY_TO_DOMAIN` table, and writes **`data/baseline_v1_matches.json`**
-— the top-4 techs each of the **12 curated saved-brief VCs** *would* have matched under v1 (NOT the PDF
-one-pager picks, which were separate human research). Purpose: a fixed "old rubric" reference to diff
-against the new-rubric + PitchBook output later. Not loaded by the live UI; does not touch live scoring.
+`scripts/generate_v1_baseline.js` (`npm run baseline-v1`) writes **`data/baseline_v1_matches.json`** —
+for each of the **12 curated saved-brief VCs**, an `oldRubricMatches` list and a `newRubricMatches`
+object. Not loaded by the live UI; does not touch live scoring.
+
+- **`oldRubricMatches`** — top-4 under the original **v1 four-dimension rubric** (industry 37.5% +
+  stage 30% + check 22.5% + geography 10%, per `JHTV_Second_Brain_Matching.docx`), reconstructed with a
+  **frozen** copy of the pre-taxonomy `INDUSTRY_TO_DOMAIN` table so it stays fixed. This is the "what v1
+  *would* have picked" reference (the firms' `vcs.json.matchedTechs` came from PDF research, not a rubric).
+- **`newRubricMatches`** — top-4 under the **live v2 rubric** (`vcFitScore` from `scoring.js`), scored
+  against a **recent-deals portfolio** built from a PitchBook deals export. `null` for firms without deals
+  data configured. Wired via `V2_FIRM_CONFIG` in the script: each configured firm names its `dealsFirm`
+  (row filter in the deals JSON) and a `stageFocus` read off its one-pager (e.g. 2048 = Seed/Early 95% ·
+  Series A 5%). Deals become portfolio companies via `PB_INDUSTRY_TO_DOMAIN` (PitchBook industry label →
+  JHTV domains; non-JHTV labels → `[]`, ignored by the saturating count) + `dealTypeToStage`. Currently
+  **2048 Ventures** is configured (deals export at `~/Downloads/deals.json`, which also contains 8 other
+  curated firms not yet wired). Because these firms have both a stated profile and a portfolio, v2 scores
+  via `basis:'full'` and can exceed the 0.75 stated-only cap (2048's top picks land at Strong fit).
+- **Purpose:** diff v1 vs v2 to show how the rubric evolved; extend by adding firms to `V2_FIRM_CONFIG`
+  (+ their one-pager stage focus) as more deals data arrives.
 
 ## One-pager generator (built, button hidden)
 

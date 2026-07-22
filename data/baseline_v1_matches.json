@@ -3,9 +3,10 @@
     "vcId": "2048-ventures",
     "name": "2048 Ventures",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3dnamics",
+        "name": "3Dnamics",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -14,6 +15,7 @@
       },
       {
         "id": "biolinco",
+        "name": "Biolinco",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -22,6 +24,7 @@
       },
       {
         "id": "accelevir",
+        "name": "Accelevir",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -30,6 +33,7 @@
       },
       {
         "id": "adventris-pharmaceuticals",
+        "name": "Adventris Pharmaceuticals",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -37,20 +41,72 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "circlage",
-      "safetower",
-      "curveassure",
-      "curiedx"
-    ]
+    "newRubricMatches": {
+      "source": "2048 Ventures last-3yr deals (12 JHTV-relevant of 31) + stage focus Seed/Early 95% · Series A 5% (one-pager)",
+      "stageFocus": [
+        "Pre-Seed",
+        "Seed",
+        "Series A"
+      ],
+      "portfolioCompanies": 12,
+      "techs": [
+        {
+          "id": "3dnamics",
+          "name": "3Dnamics",
+          "score": 0.9313,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 6,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "biolinco",
+          "name": "Biolinco",
+          "score": 0.9313,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 6,
+          "sharedDomains": [
+            "Therapeutics",
+            "Research Technologies"
+          ]
+        },
+        {
+          "id": "agenebio",
+          "name": "AgeneBio",
+          "score": 0.8625,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 5,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        },
+        {
+          "id": "glyscend-therapeutics",
+          "name": "Glyscend Therapeutics",
+          "score": 0.8625,
+          "tier": "Strong fit",
+          "basis": "full",
+          "portfolioHits": 5,
+          "sharedDomains": [
+            "Therapeutics"
+          ]
+        }
+      ]
+    }
   },
   {
     "vcId": "8vc",
     "name": "8VC",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "infinity-bio",
+        "name": "Infinity Bio",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -59,6 +115,7 @@
       },
       {
         "id": "28bio",
+        "name": "28bio",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -67,6 +124,7 @@
       },
       {
         "id": "astropath",
+        "name": "Astropath",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -75,6 +133,7 @@
       },
       {
         "id": "avoid",
+        "name": "Avoid",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -82,20 +141,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "curveassure",
-      "epiwatch",
-      "scene-health",
-      "avoid"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "amplify-partners",
     "name": "Amplify Partners",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "astropath",
+        "name": "Astropath",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -104,6 +159,7 @@
       },
       {
         "id": "avoid",
+        "name": "Avoid",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -112,6 +168,7 @@
       },
       {
         "id": "circlage",
+        "name": "CIRCLAGE",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -120,6 +177,7 @@
       },
       {
         "id": "corrie-health",
+        "name": "Corrie Health",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -127,20 +185,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "curveassure",
-      "brainbox-solutions",
-      "semaphor",
-      "oncospace"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "dimension",
     "name": "Dimension",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3dnamics",
+        "name": "3Dnamics",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -149,6 +203,7 @@
       },
       {
         "id": "biolinco",
+        "name": "Biolinco",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -157,6 +212,7 @@
       },
       {
         "id": "3helix",
+        "name": "3Helix",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -165,6 +221,7 @@
       },
       {
         "id": "accelevir",
+        "name": "Accelevir",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -172,20 +229,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "astropath",
-      "infinity-bio",
-      "28bio",
-      "biolinco"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "felicis",
     "name": "Felicis",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "infinity-bio",
+        "name": "Infinity Bio",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -194,6 +247,7 @@
       },
       {
         "id": "28bio",
+        "name": "28bio",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -202,6 +256,7 @@
       },
       {
         "id": "astropath",
+        "name": "Astropath",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -210,6 +265,7 @@
       },
       {
         "id": "avoid",
+        "name": "Avoid",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -217,20 +273,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "curveassure",
-      "epiwatch",
-      "curiedx",
-      "safetower"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "frazier-life-sciences",
     "name": "Frazier Life Sciences",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3helix",
+        "name": "3Helix",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -239,6 +291,7 @@
       },
       {
         "id": "accelevir",
+        "name": "Accelevir",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -247,6 +300,7 @@
       },
       {
         "id": "adventris-pharmaceuticals",
+        "name": "Adventris Pharmaceuticals",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -255,6 +309,7 @@
       },
       {
         "id": "agenebio",
+        "name": "AgeneBio",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -262,20 +317,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "adventris-pharmaceuticals",
-      "egret-therapeutics",
-      "ashvattha-therapeutics",
-      "agnos-therapeutics"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "fusion-fund",
     "name": "Fusion Fund",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3dnamics",
+        "name": "3Dnamics",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -284,6 +335,7 @@
       },
       {
         "id": "biolinco",
+        "name": "Biolinco",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -292,6 +344,7 @@
       },
       {
         "id": "accelevir",
+        "name": "Accelevir",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -300,6 +353,7 @@
       },
       {
         "id": "adventris-pharmaceuticals",
+        "name": "Adventris Pharmaceuticals",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -307,15 +361,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": []
+    "newRubricMatches": null
   },
   {
     "vcId": "hanabi-capital",
     "name": "Hanabi Capital",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3dnamics",
+        "name": "3Dnamics",
         "score": 0.595,
         "industry": 0,
         "stage": 1,
@@ -324,6 +379,7 @@
       },
       {
         "id": "accelevir",
+        "name": "Accelevir",
         "score": 0.595,
         "industry": 0,
         "stage": 1,
@@ -332,6 +388,7 @@
       },
       {
         "id": "adventris-pharmaceuticals",
+        "name": "Adventris Pharmaceuticals",
         "score": 0.595,
         "industry": 0,
         "stage": 1,
@@ -340,6 +397,7 @@
       },
       {
         "id": "agenebio",
+        "name": "AgeneBio",
         "score": 0.595,
         "industry": 0,
         "stage": 1,
@@ -347,20 +405,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "safetower",
-      "oncospace",
-      "curiedx",
-      "circlage"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "lux-capital",
     "name": "Lux Capital",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "blocksynop",
+        "name": "BLOCKsynop",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -369,6 +423,7 @@
       },
       {
         "id": "brainbox-solutions",
+        "name": "BRAINBox Solutions",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -377,6 +432,7 @@
       },
       {
         "id": "longeviti-neuro-solutions",
+        "name": "Longeviti Neuro Solutions",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -385,6 +441,7 @@
       },
       {
         "id": "mi-helper",
+        "name": "Mi-Helper",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -392,20 +449,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "semaphor",
-      "curveassure",
-      "brainbox-solutions",
-      "oncospace"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "mayfield",
     "name": "Mayfield",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "infinity-bio",
+        "name": "Infinity Bio",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -414,6 +467,7 @@
       },
       {
         "id": "bullfrog-ai",
+        "name": "BullFrog AI",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -422,6 +476,7 @@
       },
       {
         "id": "cardiowise",
+        "name": "CardioWise",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -430,6 +485,7 @@
       },
       {
         "id": "corrie-health",
+        "name": "Corrie Health",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -437,20 +493,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "delfi-diagnostics",
-      "egret-therapeutics",
-      "adventris-pharmaceuticals",
-      "ashvattha-therapeutics"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "nea",
     "name": "NEA",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "3helix",
+        "name": "3Helix",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -459,6 +511,7 @@
       },
       {
         "id": "agenebio",
+        "name": "AgeneBio",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -467,6 +520,7 @@
       },
       {
         "id": "ashvattha-therapeutics",
+        "name": "Ashvattha Therapeutics",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -475,6 +529,7 @@
       },
       {
         "id": "brahm-astra",
+        "name": "Brahm Astra",
         "score": 0.835,
         "industry": 1,
         "stage": 1,
@@ -482,20 +537,16 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "curiedx",
-      "curveassure",
-      "semaphor",
-      "safetower"
-    ]
+    "newRubricMatches": null
   },
   {
     "vcId": "emergence-capital",
     "name": "Emergence Capital",
     "provisional": false,
-    "v1TopTechs": [
+    "oldRubricMatches": [
       {
         "id": "bullfrog-ai",
+        "name": "BullFrog AI",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -504,6 +555,7 @@
       },
       {
         "id": "corrie-health",
+        "name": "Corrie Health",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -512,6 +564,7 @@
       },
       {
         "id": "curiedx",
+        "name": "CurieDx",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -520,6 +573,7 @@
       },
       {
         "id": "curveassure",
+        "name": "CurveAssure",
         "score": 0.97,
         "industry": 1,
         "stage": 1,
@@ -527,11 +581,6 @@
         "geo": 0.7
       }
     ],
-    "currentMatchedTechs": [
-      "oncospace",
-      "curveassure",
-      "foragerone",
-      "semaphor"
-    ]
+    "newRubricMatches": null
   }
 ]

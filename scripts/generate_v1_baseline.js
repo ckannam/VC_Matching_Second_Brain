@@ -18,9 +18,15 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { vcFitScore, fitTier } = require('../scoring.js');   // live v2 rubric (unchanged)
 
 const VCS   = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/vcs.json'), 'utf8'));
 const TECHS = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/technologies.json'), 'utf8'));
+
+// Optional PitchBook deals export (last ~3 yr). When present for a configured firm,
+// we build a recent-deals portfolio and compute NEW-rubric (v2) matches from it.
+const DEALS_PATH = '/Users/colekannam/Downloads/deals.json';
+const DEALS = fs.existsSync(DEALS_PATH) ? JSON.parse(fs.readFileSync(DEALS_PATH, 'utf8')) : [];
 
 const V1_WEIGHTS = { industry: 0.375, stage: 0.30, check: 0.225, geo: 0.10 };
 
@@ -157,8 +163,89 @@ function v1Fit(vc, tech) {
   return { score, industry: ind.score, overlaps: ind.overlaps, stage, check, geo };
 }
 
-// Curated saved-brief VCs only: PDF one-pager firms whose matchedTechs came from
-// research rather than a rubric.
+// ── NEW rubric (v2) from PitchBook recent-deals portfolios ────────────────────
+//
+// The v2 portfolio component wants companies as { name, domains[], stage }. We build
+// that from the deals export by classifying each deal's PitchBook `industry` label to
+// JHTV domains and its `deal_type` to a round-ladder stage. Non-JHTV industries map to
+// [] (out of scope — the saturating count ignores them, so 2048's many software deals
+// have no effect, correctly). The VC's stated stage[] is overridden with the stage-%
+// focus read off its one-pager; sectors/checkSize come from vcs.json.
+
+// PitchBook industry label → JHTV display domains (label-based, reproducible — not
+// second-guessed from company descriptions). Only JHTV-relevant labels are listed;
+// everything else is treated as out-of-scope ([]).
+const PB_INDUSTRY_TO_DOMAIN = {
+  'Biotechnology':                        ['Therapeutics'],
+  'Other Pharmaceuticals and Biotechnology': ['Therapeutics'],
+  'Drug Delivery':                        ['Medical Devices', 'Therapeutics'],
+  'Drug Discovery':                       ['Research Technologies', 'Therapeutics'],
+  'Diagnostic Equipment':                 ['Diagnostics', 'Medical Devices'],
+  'Discovery Tools (Healthcare)':         ['Research Technologies'],
+  'Enterprise Systems (Healthcare)':      ['Digital Health'],
+  'Other Healthcare Technology Systems':  ['Digital Health'],
+  'Clinics/Outpatient Services':          ['Digital Health'],
+  'Other Healthcare Services':            ['Digital Health'],
+};
+
+// PitchBook deal_type → round-ladder stage string (companyStageToRung reads the token).
+function dealTypeToStage(dt) {
+  const s = (dt || '').toLowerCase();
+  if (s.includes('series a') || s.includes('early stage') || s.includes('later stage')) return 'Series A';
+  if (s.includes('series b')) return 'Series B';
+  if (s.includes('seed')) return 'Seed';
+  if (s.includes('pre-seed')) return 'Pre-Seed';
+  return undefined;
+}
+
+// Firms we have deals + a stage-% focus for. stageFocus is read off the one-pager.
+const V2_FIRM_CONFIG = {
+  '2048-ventures': {
+    dealsFirm: '2048 Ventures',
+    stageFocus: ['Pre-Seed', 'Seed', 'Series A'], // one-pager: Seed/Early 95% · Series A 5%
+    stageNote: 'Seed/Early 95% · Series A 5% (one-pager)',
+  },
+};
+
+function buildDealsPortfolio(dealsFirm) {
+  const rows = DEALS.filter(r => r.firm === dealsFirm);
+  const companies = rows.map(r => ({
+    name: r.company,
+    domains: PB_INDUSTRY_TO_DOMAIN[r.industry] || [],
+    stage: dealTypeToStage(r.deal_type),
+  }));
+  const inScope = companies.filter(c => c.domains.length);
+  return { companies, total: rows.length, inScope: inScope.length };
+}
+
+function computeV2(vc, cfg) {
+  const { companies, total, inScope } = buildDealsPortfolio(cfg.dealsFirm);
+  const scoreVc = { sectors: vc.sectors, stage: cfg.stageFocus, checkSize: vc.checkSize, focus: vc.focus };
+  const ranked = TECHS
+    .map(t => {
+      const f = vcFitScore(scoreVc, t, companies);
+      return f ? { t, f } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.f.score - a.f.score || b.f.sharedDomains.length - a.f.sharedDomains.length
+                 || a.t.name.localeCompare(b.t.name));
+  return {
+    source: `${cfg.dealsFirm} last-3yr deals (${inScope} JHTV-relevant of ${total}) + stage focus ${cfg.stageNote}`,
+    stageFocus: cfg.stageFocus,
+    portfolioCompanies: inScope,
+    techs: ranked.slice(0, 4).map(({ t, f }) => ({
+      id: t.id,
+      name: t.name,
+      score: +f.score.toFixed(4),
+      tier: fitTier(f.score).label,
+      basis: f.basis,
+      portfolioHits: f.portfolioHits,
+      sharedDomains: f.sharedDomains,
+    })),
+  };
+}
+
+// ── Build the doc: old rubric (v1) vs new rubric (v2) per curated saved-brief firm ──
 const curated = VCS.filter(v => v.vcOnePager && v.provisional !== true);
 const techById = Object.fromEntries(TECHS.map(t => [t.id, t]));
 
@@ -166,35 +253,33 @@ const out = curated.map(vc => {
   const ranked = TECHS
     .map(t => ({ t, f: v1Fit(vc, t) }))
     .sort((a, b) => b.f.score - a.f.score || b.f.overlaps - a.f.overlaps || a.t.name.localeCompare(b.t.name));
-  const top4 = ranked.slice(0, 4);
-  return {
-    vcId: vc.id,
-    name: vc.name,
-    provisional: !!vc.provisional,
-    v1TopTechs: top4.map(({ t, f }) => ({
-      id: t.id,
-      score: +f.score.toFixed(4),
-      industry: +f.industry.toFixed(3),
-      stage: +f.stage.toFixed(3),
-      check: +f.check.toFixed(3),
-      geo: +f.geo.toFixed(3),
-    })),
-    currentMatchedTechs: vc.matchedTechs || [],
-  };
+  const oldRubricMatches = ranked.slice(0, 4).map(({ t, f }) => ({
+    id: t.id,
+    name: t.name,
+    score: +f.score.toFixed(4),
+    industry: +f.industry.toFixed(3),
+    stage: +f.stage.toFixed(3),
+    check: +f.check.toFixed(3),
+    geo: +f.geo.toFixed(3),
+  }));
+
+  const cfg = V2_FIRM_CONFIG[vc.id];
+  const newRubricMatches = cfg ? computeV2(vc, cfg) : null;
+
+  return { vcId: vc.id, name: vc.name, provisional: !!vc.provisional, oldRubricMatches, newRubricMatches };
 });
 
 const outPath = path.join(__dirname, '../data/baseline_v1_matches.json');
 fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
 
-// Console table: v1 picks vs. the current PDF picks, with overlap count.
-console.log(`\nv1 baseline for ${out.length} curated firms  (data/baseline_v1_matches.json)\n`);
-const name = s => (s || '').slice(0, 26).padEnd(26);
+// Console: old (v1) vs new (v2) picks per firm; v2 only where deals+stage data exists.
+console.log(`\nold-rubric (v1) vs new-rubric (v2) for ${out.length} curated firms  (data/baseline_v1_matches.json)\n`);
+const nm = s => (s || '').slice(0, 26).padEnd(26);
+const names = ids => ids.map(id => (techById[id] ? techById[id].name : id)).join(', ');
 for (const r of out) {
-  const v1ids = r.v1TopTechs.map(x => x.id);
-  const pdf = r.currentMatchedTechs;
-  const shared = v1ids.filter(id => pdf.includes(id)).length;
-  console.log(name(r.name), `overlap ${shared}/4`);
-  console.log('   v1 :', v1ids.map(id => (techById[id] ? techById[id].name : id)).join(', '));
-  console.log('   pdf:', pdf.map(id => (techById[id] ? techById[id].name : id)).join(', ') || '(none)');
+  console.log(nm(r.name), r.newRubricMatches ? `[v2: ${r.newRubricMatches.portfolioCompanies} deals]` : '[v2: no deals data]');
+  console.log('   old v1:', names(r.oldRubricMatches.map(x => x.id)));
+  if (r.newRubricMatches)
+    console.log('   new v2:', r.newRubricMatches.techs.map(x => `${x.name} (${x.score}, ${x.tier})`).join(', '));
 }
 console.log('');
