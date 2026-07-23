@@ -92,20 +92,24 @@
 
   async function loadData() {
     try {
-      let portfolios;
-      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios] = await Promise.all([
+      let portfolios, investorsRaw;
+      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios, investorsRaw] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
         fetch('data/jhu_connections.json').then(r => r.json()),
         fetch('data/jhtv_relationships.json').then(r => r.ok ? r.json() : []).catch(() => []),
         fetch('data/vc_portfolios.json').then(r => r.ok ? r.json() : []).catch(() => []),
+        fetch('data/jhtv_investors.json').then(r => r.ok ? r.json() : { investors: [] }).catch(() => ({ investors: [] })),
       ]);
       PORTFOLIO_BY_VC = new Map(portfolios.map(e => [e.vcId, e.companies]));
+      // Only venture/angel enter the UI; foundation/public are a deferred pass.
+      JHTV_INVESTORS = (investorsRaw.investors || []).filter(i => i.type === 'venture' || i.type === 'angel');
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
         `${TECHS.length} technologies · ${VCS.length} firms profiled · ${JHU_CONNECTIONS.length} JHU contacts across ${uniqueFirms} firms`;
       resolveRelationships();
+      resolveInvestors();
       buildSearchIndex();
       dispatchRoute();
     } catch (e) {
@@ -441,6 +445,59 @@
   function relBadgeHTML(rel) {
     return `<span class="pill rel-badge">${rel.tier || 'JHTV relationship'}</span>`;
   }
+
+  // ── JHTV Investors (revealed co-investment) ──────────────────────────────
+  // data/jhtv_investors.json filtered to type ∈ {venture, angel}. INVESTORS_BY_VC
+  // joins them to vcs.json via the same vcMatchingName() matcher; BACKERS_BY_COMPANY
+  // powers the tech→firm "already invested in this tech" pin.
+  let JHTV_INVESTORS      = [];
+  let INVESTORS_BY_VC     = new Map();  // vc.id → investor record
+  let UNMATCHED_INVESTORS = [];         // backers with no vcs.json entry
+  let BACKERS_BY_COMPANY  = new Map();  // normalized company → investor record[]
+
+  function normalizeCompanyKey(name) {
+    return (name || '')
+      .toLowerCase()
+      .replace(/[.,]/g, ' ')
+      .replace(/\b(inc|llc|lp|ltd|corp|co|therapeutics|technologies|health|bio|labs)\b/g, ' ')
+      .replace(/[^a-z0-9 ]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function resolveInvestors() {
+    INVESTORS_BY_VC = new Map();
+    UNMATCHED_INVESTORS = [];
+    BACKERS_BY_COMPANY = new Map();
+    for (const inv of JHTV_INVESTORS) {
+      const vc = vcMatchingName(inv.investor);
+      if (vc) { if (!INVESTORS_BY_VC.has(vc.id)) INVESTORS_BY_VC.set(vc.id, inv); }
+      else UNMATCHED_INVESTORS.push(inv);
+      for (const company of inv.companiesBacked || []) {
+        const key = normalizeCompanyKey(company);
+        if (!key) continue;
+        if (!BACKERS_BY_COMPANY.has(key)) BACKERS_BY_COMPANY.set(key, []);
+        BACKERS_BY_COMPANY.get(key).push(inv);
+      }
+    }
+  }
+
+  // Backers whose companiesBacked includes this tech (exact-tech "already invested").
+  function backersForTech(tech) {
+    const keys = new Set([normalizeCompanyKey(tech.name), ...((tech.aliases || []).map(normalizeCompanyKey))]);
+    const seen = new Set(), out = [];
+    for (const key of keys) {
+      if (!key) continue;
+      for (const inv of BACKERS_BY_COMPANY.get(key) || []) {
+        if (!seen.has(inv.investor)) { seen.add(inv.investor); out.push(inv); }
+      }
+    }
+    return out.sort((a, b) => b.companyCount - a.companyCount);
+  }
+
+  // Relationship sort bonus is CAPPED, not stacked: a firm that is both an in-brief
+  // pick and a JHTV backer still gets +0.1 total (not +0.2).
+  function relationshipBonus(inBrief, isBacker) { return (inBrief || isBacker) ? 0.1 : 0; }
 
   // ── Search ────────────────────────────────────────────────────────────────
   const input = document.getElementById('vcInput');
