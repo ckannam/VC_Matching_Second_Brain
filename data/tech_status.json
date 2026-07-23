@@ -1,4 +1,6 @@
 {
-  "pausedTechIds": [],
-  "updatedAt": null
+  "pausedTechIds": [
+    "3dnamics"
+  ],
+  "updatedAt": "2026-07-23T15:43:50.173Z"
 }
