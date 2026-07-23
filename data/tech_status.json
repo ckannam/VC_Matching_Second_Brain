@@ -1,20 +1,4 @@
 {
-  "pausedTechIds": [
-    "blocksynop",
-    "brainbox-solutions",
-    "longeviti-neuro-solutions",
-    "mi-helper",
-    "myocardial-solutions",
-    "neuropass-by-cranius",
-    "phantom-neuro",
-    "relavo",
-    "shuriken-medical",
-    "somnair",
-    "sotelix-endoscopy",
-    "tanzen-medical",
-    "virtuoso-surgical",
-    "vixiar-medical",
-    "x-cor"
-  ],
-  "updatedAt": "2026-07-23T15:55:47.158Z"
+  "pausedTechIds": [],
+  "updatedAt": "2026-07-23T15:57:23.473Z"
 }
