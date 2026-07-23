@@ -154,136 +154,105 @@ certain than a curated one.
 
 ## Stage 4 — SCORE (the rubric) ⭐
 
-This is the heart of the tool, and the part most worth improving. The scorer lives in
-`vcFitScore()` (`index.html:895`) and is **mirrored** in `scoreTech()`
-(`scripts/generate_vc.js:124`) — the backend uses it to pick a new VC's top-4 techs, the browser
-uses it to rank all VCs on a tech's page. **These two copies must stay in sync** (they have
-already drifted slightly — see the audit below).
+This is the heart of the tool. The scorer is a **single source of truth** in `scoring.js`
+(`vcFitScore()`), loaded as a classic script by the browser (`index.html`) and `require`d by the
+backend (`scripts/generate_vc.js`) — the backend uses it to pick a new VC's matched techs, the
+browser uses it to rank all VCs on a tech's page. There is no longer a second, drifting copy.
 
-Every VC↔tech pair gets a **0–1 score** from a weighted sum of four parts:
+**Rubric v2 (portfolio-led, boss-approved July 2026).** Every VC↔tech pair gets a **0–1 score**
+from a weighted sum of three parts:
 
 ```
-score = 0.375·industry  +  0.30·stage  +  0.225·checkSize  +  0.10·geography
+Fit = 0.55·Portfolio  +  0.30·StageCheck  +  0.15·Sector
 ```
 
-### The four components, as they work today
+The insight behind v2: **revealed behavior beats stated preference.** What a firm has actually
+funded (its portfolio) matters far more than the sectors it lists on its website, so Portfolio
+carries the majority weight. The exact blend depends on what data exists for the firm (`vcFitScore`
+in `scoring.js`):
 
-**1. Industry match — 37.5% (heaviest).** A lookup table `INDUSTRY_TO_DOMAIN` translates the VC's
-focus words into JHTV's 8 domains (e.g. `"oncology"` → Diagnostics + Therapeutics). The score is
-the **fraction of the tech's domains** that fall in the VC's set: `hits / techDomains.length`
-(`index.html:906`). *Rationale: sector fit is the most fundamental gate — a climate fund is simply
-wrong for a cancer drug.*
+- **`full`** (stated profile + scraped portfolio) → `0.55·P + 0.30·SC + 0.15·Sec`.
+- **`portfolio`** (portfolio, no usable stated profile) → `P` alone.
+- **`stated`** (profile only, no scraped portfolio) → `(0.30·SC + 0.15·Sec) / 0.45`, **capped at
+  `STATED_MAX = 0.75`** — a firm with no revealed portfolio evidence can never reach "Strong" (≥ 0.80).
 
-**2. Stage compatibility — 30%.** `techStageScore()` (`index.html:878`) checks whether any of the
-VC's rounds (Seed/A/B/Growth) is compatible with the tech's maturity via a keyword map. Match =
-**1.0**, no match = **0.2**. *Rationale: a growth fund won't touch a pre-clinical NewCo.*
+### The three components
 
-**3. Check size — 22.5%.** Each domain is tagged "early" or "mid" maturity; the VC's check range
-must fit a hardcoded band (early → max ≤ $15M; mid → $1–50M), else **0.4** (`index.html:917`).
+**1. Portfolio — 55% (heaviest).** `portfolioFit()` scores the VC's *actual* portfolio companies
+(`data/vc_portfolios.json`) against the tech: each company earns credit for a **shared JHTV domain**
+scaled by **stage-ladder proximity** (same rung 1.0 · adjacent 0.75 · shared domain but unknown/distant
+stage 0.5 · no shared domain 0). The per-company credits sum, then pass through a **smooth
+de-saturating curve `1 − exp(−credit / 3)`** (`PORTFOLIO_K = 3`). This replaced the old hard
+`min(1, credit/K)` clamp that pinned deep portfolios to a flat 1.0 (e.g. 2048 had 21 techs tied at
+1.0). The curve is monotonic in depth with an asymptote below 1, so a deeper/closer portfolio always
+outscores a shallower one; it also returns the uncapped **`depth`** used for tie-breaking.
 
-**4. Geography — 10% (lightest).** Mid-Atlantic/East Coast = 1.0 (Hopkins region), National/blank
-= 0.8, West Coast/International = 0.4 (`index.html:912`). *Rationale: nice-to-have for warm intros,
-not a dealbreaker.*
+**2. Stage-check — 30%.** `stageCheck = 0.5·stage + 0.5·checkSize`. The stage half checks whether the
+firm's rounds line up with the tech's maturity on the round ladder; the check-size half tests whether
+the firm's typical check fits the expected round size for the tech's domain+stage.
 
-### 🔧 Where help plugs in at SCORE — concrete redesign specs
+**3. Sector — 15% (lightest).** The tech's domains are matched against the firm's sectors through the
+**324-keyword venture taxonomy** (`taxonomy.js`), which crosswalks both sides to JHTV's 8 domains via
+primary/secondary buckets. **Primary-bucket overlap = full credit (1.0), secondary-only = half (0.5)**,
+no overlap = 0. This replaced the old hand-maintained `INDUSTRY_TO_DOMAIN` keyword table.
 
-> Format: **NOW** (today's logic) → **NEW** (proposed) → **DATA NEEDED** → **CODE**.
+### Shipped since v1
 
-#### 4.1 Industry — stop punishing multi-domain techs
-- **NOW:** `industryScore = hits / techDomains.length`. A tech tagged in **2** domains where the
-  VC matches only **1** scores **0.5** — even though it's a genuine fit on that axis. Being
-  classified in more domains *lowers* the score. That's backwards.
-- **NEW:** score on the tech's **primary domain / best match**, not the average. If the VC covers
-  *any* of the tech's domains, that's a strong match; additional domains can only *add* signal,
-  never subtract. Concretely: `industryScore = techDomains.some(d => matched.has(d)) ? 1.0 : 0`,
-  optionally graded by how central the domain is. Later, weight by the VC's **actual sector
-  allocation %** (what share of its deals are in that domain).
-- **DATA NEEDED:** PitchBook per-firm sector breakdown (for the weighted version).
-- **CODE:** `index.html:902–908` **and** the twin in `generate_vc.js:128–137`.
+The redesign specs the earlier draft proposed have largely landed:
 
-#### 4.2 Stage — weight by what the firm actually does
-- **NOW:** binary 1.0 / 0.2.
-- **NEW:** use the VC's **real stage distribution** — e.g. a firm that does 60% Seed, 30% A, 10% B
-  scores a Seed-stage tech high and a Growth-stage tech low, on a smooth scale instead of a cliff.
-  **Recency-weight** it so the firm's *current* focus dominates over historical deals.
-- **DATA NEEDED:** PitchBook "% of deals by stage" + recent deal list per firm.
-- **CODE:** replace the return in `techStageScore()` (`index.html:878–893`) + twin
-  `generate_vc.js:90–106`.
+- **Portfolio-led rubric** — real scraped portfolios (`data/vc_portfolios.json`) now drive the
+  majority of the score for the 12 curated firms, replacing the old sector-guess-heavy blend.
+- **Multi-domain techs no longer punished** — the old `hits / techDomains.length` fraction is gone;
+  sector credit is now primary/secondary bucket overlap (1.0 / 0.5) via the venture taxonomy.
+- **De-saturation** — the `1 − exp(−credit/3)` curve fixed the saturated ceiling where deep
+  portfolios tied at a flat 1.0.
+- **Recency tiebreak** — same-score matches are ordered by `tieKey = depth × domain recency`
+  (`data/vc_recency.json`, derived from real deal dates); ordering-only, never changes the score.
+- **Shared standard taxonomy** — the 324-keyword venture taxonomy (`taxonomy.js`) replaced the
+  hand-maintained `INDUSTRY_TO_DOMAIN` table, so both techs and VCs map through one crosswalk.
+- **Single source of truth** — the two drifting scorer copies were consolidated into `scoring.js`.
 
-#### 4.3 Check size — benchmark against real round sizes *(worst logic today)*
-- **NOW:** crude hardcoded cutoffs ($15M / $1–50M) with a blunt 0.4 fallback that ignores the
-  tech's stage entirely.
-- **NEW:** build a **benchmark table of typical round size by (domain × stage)** from PitchBook
-  (median + inter-quartile range). Then score by **interval overlap** between the VC's check range
-  and the expected round size for *this* tech's domain+stage. A fund that writes $200M checks
-  scores low for a $2M seed round, high for a $150M growth round — automatically and defensibly.
-- **DATA NEEDED:** PitchBook deal-size percentiles segmented by sector and stage.
-- **CODE:** replace the `checkSz` block (`index.html:917–922`) + twin `generate_vc.js:116–122`.
+### Still open (worth raising with your boss)
 
-#### 4.4 Geography — fine for now
-- Keep as-is. A future PitchBook signal (does the firm actually invest in this region / has it done
-  deals near Baltimore) could refine it, but it's the lowest-weight factor and works.
-
-### What the rubric is missing (independent audit)
-
-These are gaps *beyond* the four components — worth raising with your boss:
-
-1. **The weights have never been validated.** 37.5 / 30 / 22.5 / 10 are reasonable guesses, not
-   derived from outcomes. **The single highest-value fix:** back-test against JHTV techs that
-   *actually raised* from known VCs, and calibrate the weights to reproduce those real matches.
-   That turns "these numbers feel right" into "these numbers are tuned to reality."
-2. **No negative / disqualifying signals.** Wrong geography only softens to 0.4; nothing ever
-   disqualifies a firm. All-positive scoring inflates weak matches.
-3. **No dry-powder / fund-cycle signal.** A firm that just closed a fund is actively deploying; one
-   at the end of its fund won't write new checks. PitchBook fund-vintage data would capture this.
-4. **No "does this VC do university spin-outs" factor** — probably the *strongest real predictor*
-   for JHTV specifically, and currently absent.
-5. **No lead-vs-participant distinction**, and **no portfolio-conflict check** (already backed a
-   direct competitor).
-6. **No penalty for over-generic VCs** that match nearly everything (a firm matching all 74 techs
-   is not really a signal).
-7. **Provisional VCs are scored on shaky web data but ranked beside curated ones** — no confidence
-   weighting.
-8. **The two scoring copies have already drifted** — the catch-all case returns a flat `0.5` in
-   `generate_vc.js` but `max(fraction, 0.5)` in `index.html`. This should become a **single source
-   of truth** to prevent silent divergence.
-
-### The 8-bucket question
-
-The 8 domains (Therapeutics, Diagnostics, Medical Devices, Digital Health, Research Technologies,
-Clean Tech, Agricultural Tech, Cybersecurity) came from a single JHTV document. Two real problems:
-- **Uneven granularity** — "Therapeutics" is enormous; "Cybersecurity" is narrow.
-- **They're used as a *lossy translation layer*.** VC language is hand-mapped into them through the
-  `INDUSTRY_TO_DOMAIN` keyword table, and techs are squeezed into 1–2 buckets. Nuance is lost on
-  both sides, and the table is maintained by hand.
-
-**Options:**
-- **(Recommended)** Adopt a **shared standard taxonomy** (e.g. PitchBook verticals/keywords) for
-  *both* techs and VCs. Matching then happens apples-to-apples and the entire hand-built
-  translation table disappears.
-- A **two-level system**: keep the 8 broad domains for display, add a richer tag layer underneath
-  for matching.
-- **Empirically derive** buckets from the actual tech corpus rather than one document.
+1. **The weights have never been validated against outcomes.** 0.55 / 0.30 / 0.15 is a reasoned,
+   boss-approved blend, not one back-tested against JHTV techs that *actually raised* from known VCs.
+   Calibrating the weights to reproduce real matches remains the single highest-value fix.
+2. **No dry-powder / fund-cycle, university-spin-out, lead-vs-participant, or portfolio-conflict
+   signals** — all still absent.
+3. **No penalty for over-generic VCs** that match nearly everything.
+4. **Provisional (auto-researched) VCs lack scraped portfolios**, so they score on the `stated`
+   basis (capped at 0.75) and are ranked beside portfolio-backed curated firms.
 
 ---
 
 ## Stage 5 — RETURN (how results reach the user)
 
-`findVCsForTech()` (`index.html:941`) ranks the VCs and the UI presents them:
+`findVCsForTech()` (`index.html`) ranks the VCs and the UI presents them:
 
-- **Tiers** (`fitTier`, `index.html:931`): **Strong ≥ 0.80**, **Good ≥ 0.60**, **Possible**
-  otherwise. Anything below **0.45** is dropped — *unless* it's a curated brief match.
+- **Tiers** (`fitTier`, `scoring.js`): **Strong ≥ 0.80**, **Good ≥ 0.60**, **Possible** otherwise.
+  Anything below **0.45** is dropped — *unless* it's a curated brief match. The raw score renders as
+  a **decimal beside the tier** (e.g. `Strong fit · 0.86`), so staff see the actual number.
+- **Equally-strong ties** — `selectWithTies({ base: 4, max: 6 })` normally surfaces the top 4, but
+  extends to as many as 6 when the trailing matches are genuinely indistinguishable (|Δscore| and
+  |ΔtieKey| < 0.005). That cluster is labeled "equally strong — not rank-ordered" rather than
+  implying a false ranking.
 - **Human override:** a VC with a real PDF one-pager whose `matchedTechs` include this tech gets a
   gold **"In VC brief"** badge and a **+0.1 sort bonus**, so human-vetted picks float to the top.
-  Where a person made a real judgment, that judgment wins over the algorithm.
+- **JHTV backer badge** — a firm that has *actually funded* a JHTV/Hopkins company (from
+  `data/jhtv_investors.json`) is flagged as a "JHTV backer"; on a tech it has already funded, it
+  **pins to the top** with an "Already invested in {tech}" badge. See `#/backers` for the full list.
 - **JHU connection pills** — warm intros surfaced by fuzzy-matching the firm name against the 827
   alumni.
 - **Preliminary grant screen** — pulls the Grant Finder engine and deep-links prefilled.
 - **One-pager download** — the source PDF/docx.
 
-### 🔧 Where help plugs in at RETURN
-- **"Why matched" explanations** — show *which* factor drove the score, so staff trust it.
-- **Confidence badges** — visually separate curated from provisional matches.
+### Boss-facing curation — `#/curate`
+
+A separate page (nav "Curate") lets a JHTV lead **pause/resume which technologies are eligible to
+match** — a tech, a whole bucket, or a cohort at once. Paused techs drop out of every VC's matches
+(`topTechsForVC` ranks over `activeTechs`) but still appear in the catalog with a muted "Paused"
+badge. State is saved to `localStorage` immediately and best-effort committed to
+`data/tech_status.json` via the backend, so choices persist across sessions and devices.
 
 ---
 

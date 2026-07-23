@@ -18,3 +18,13 @@ one-pagers/Tech One Pagers/JHTV_Master_Checklist.xlsx
 
 # Word temp lock files
 ~$*
+
+# Local working artifacts / source exports not served by the app
+.superpowers/
+design/
+files.zip
+JHTV_Second_Brain_Matching.docx
+Second Brain Workflows.pdf
+*claudeusercontent.com*.pdf
+vc json deal histories/
+one-pagers/VC One Pagers/javascript for bookmark.docx

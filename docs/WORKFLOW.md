@@ -81,19 +81,24 @@ one-pager**.
 The firm's **investment thesis, stage focus, and fit** are laid out, including a **preliminary
 screen of non-dilutive (grant) matches**.
 
-- **Today.** Fit is scored on four factors — **sector (37.5%), stage (30%), check size (22.5%),
-  geography (10%)**. The scoring rubric now lives in **one shared place** (recently consolidated,
-  so the ranking staff see and the matches the tool auto-generates can never disagree).
-- **Future.** The fit score is powered by **real investor behavior** instead of estimates — a
-  firm's actual stage mix, typical round sizes per sector, whether it's actively deploying a fresh
-  fund, and whether it backs university spin-outs (probably our single strongest signal).
+- **Today (rubric v2, portfolio-led).** Fit is scored on three factors — **Portfolio (55%),
+  Stage-check (30%), Sector (15%)**. The heaviest factor is the firm's *actual* portfolio: what it
+  has really funded outweighs the sectors it lists on its website. Portfolio depth passes through a
+  **de-saturating curve** so a deeper, closer portfolio always outscores a shallower one, and
+  same-score matches break ties by **how recently** the firm invested in the tech's domain. The
+  rubric lives in **one shared place** (`scoring.js`), so the ranking staff see and the matches the
+  tool auto-generates can never disagree.
+- **Future.** Extend the real-behavior signals further — a firm's stage mix and typical round sizes
+  per sector, whether it's actively deploying a fresh fund, and whether it backs university spin-outs
+  (probably our single strongest signal).
 - **To improve — and the ask.**
-  - The four weights are sensible but **haven't been validated against real outcomes.** With a
-    record of which JHTV companies actually raised from whom, we could tune them to reality.
-    → *Needs outcome data* (which is limited today — so near-term we treat the weights as a clearly
+  - The three weights are a reasoned, boss-approved blend but **haven't been validated against real
+    outcomes.** With a record of which JHTV companies actually raised from whom, we could tune them
+    to reality. → *Needs outcome data* (limited today — so near-term we treat the weights as a clearly
     labeled, easily-adjustable setting).
-  - Stage and check-size scoring are currently rules of thumb; **real deal-size and stage-mix data**
-    would replace the guesswork. → *Needs PitchBook data.*
+  - Portfolios are scraped for the 12 curated firms; **auto-researched firms still lack them** and
+    score on stated profile alone (capped below "Strong"). Broader portfolio + deal-size data would
+    close the gap. → *Needs PitchBook data.*
 
 ---
 
