@@ -78,7 +78,8 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
   - portfolio only (the 12 curated firms' shape) → `P`, `basis:'portfolio'`
   - stated only → `(0.30·SC + 0.15·Sec)/0.45` **capped at `STATED_MAX` = 0.75**, `basis:'stated'` (no portfolio evidence can't earn Strong — revealed > stated)
   - neither → `null`
-- `portfolioFit(companies, tech)` — per company: shared domain + same stage-ladder rung → 1.0 · adjacent rung → 0.75 · shared domain w/ unknown/distant stage → 0.5 · no shared domain → 0. Aggregate = `min(1, credit / PORTFOLIO_K)`, **`PORTFOLIO_K = 6`** (saturating count — a fraction would punish diversified firms; K tuned so deep/pure-play = Strong, small relevant arm = Good). `techStageToRung()` maps tech milestone strings onto the round ladder.
+- `portfolioFit(companies, tech)` — per company: shared domain + same stage-ladder rung → 1.0 · adjacent rung → 0.75 · shared domain w/ unknown/distant stage → 0.5 · no shared domain → 0. Aggregate via a **smooth de-saturating curve `1 − exp(−credit / PORTFOLIO_K)`, `PORTFOLIO_K = 3`** (replaces the old hard `min(1, credit/K)` clamp that pinned deep portfolios to a flat 1.0 — e.g. 2048 had 21 techs tied at 1.0). Monotonic in depth, asymptote < 1, so deeper/closer portfolios always score higher; returns the **uncapped `depth`** for the tiebreak. `techStageToRung()` maps tech milestone strings onto the round ladder.
+- **Ranking + ties (SHIPPED July 23, 2026):** both directions rank by `score` then `tieKey = depth × domain recency` (`RECENCY_BY_VC`, from `data/vc_recency.json`), then name. `selectWithTies(ranked, {base:4, max:6})` extends past 4 **only** when the trailing items are genuinely indistinguishable (|Δscore| and |ΔtieKey| < 0.005), flagging that cluster so the UI labels it "equally strong — not rank-ordered". Scores render as **decimals beside the tier** (`Strong fit · 0.86`) in the tech→VC list and on the VC page's matched-tech cards. Recency is ordering-only — it never changes `score`/tier.
 - `stageCheck = 0.5·techStageScore + 0.5·checkSizeScore` (both prior heuristics, extracted; PitchBook round benchmarks slot into `checkSizeScore` later behind a data-present guard).
 - **sector**: `mapFocusToDomains` returns `{ primary, secondary, matchesAll }`; **primary-bucket overlap → 1.0, secondary-only overlap → 0.5**, catch-all-only → 0.5, none → 0. Multi-domain techs are not penalized (v1's `hits/length` fraction is gone). The keyword dictionary is now the **324-keyword venture taxonomy** (`taxonomy.js`, see "Sector taxonomy" below), NOT the old inline `INDUSTRY_TO_DOMAIN` table.
 - `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible) and `DOMAIN_MATURITY` live in `scoring.js`; the sector keyword map + crosswalk live in `taxonomy.js`. Tests: `test/scoring.test.js`, `test/taxonomy.test.js`, `test/generate_vc.buildentry.test.js`.
@@ -105,7 +106,9 @@ Provisional entries have `provisional: true`, `vcOnePager: null`, and trigger a 
 ```json
 { "vcId", "sourceUrl", "scrapedAt", "note", "companies": [{ "name", "domains": [], "stage"? }] }
 ```
-`domains[]` uses JHTV's 8 domain names (empty = out-of-scope, scores 0); `stage` is a round-ladder string (`Seed`/`Series A`/…, omit if unknown → domain-only credit). Currently the **12 curated PDF firms** (160 companies, scraped from firm websites, hand-classified). Not consumed by the backend. Since scoring uses a saturating count, out-of-scope companies have no effect and are omitted. Cole can hand-edit this file.
+`domains[]` uses JHTV's 8 domain names (empty = out-of-scope, scores 0); `stage` is a round-ladder string (`Seed`/`Series A`/…, omit if unknown → domain-only credit). Currently the **12 curated PDF firms** (160 companies, scraped from firm websites, hand-classified). Not consumed by the backend. Out-of-scope companies add 0 credit and are omitted. Cole can hand-edit this file.
+
+**`data/vc_recency.json`** — per-VC, per-JHTV-domain recency weight (`{ byVc: { vcId: { domain: 0.5..1.0 } } }`) derived from `data/source/vc_deals.json` deal dates by `scripts/build_vc_recency.js` (`npm run build-vc-recency`). Fail-soft-loaded in `index.html` → `RECENCY_BY_VC`; missing file ⇒ neutral (1.0). **Tiebreak-only** — orders same-score matches by how recently the firm invested in the tech's domain (9 firms with health/bio deals; the other 3 curated firms have none → neutral). Regenerate after refreshing the deals export.
 
 **`data/vc_pitchbook.json`** — standalone catalog of 391 PitchBook investors (from `scripts/ingest_pitchbook.js`); NOT loaded by the live UI. Future rubric-benchmark source. See memory + `scripts/ingest_pitchbook.js`.
 
@@ -269,11 +272,19 @@ removed. Mechanics are documented in the **Scoring** section above and the data 
 files** (`vc_portfolios.json`). Pilot = the 12 curated PDF firms (160 classified companies).
 Philosophy: revealed behavior (actual portfolio) beats stated preference; stated-only firms cap at
 `STATED_MAX` (0.75) so only real portfolio evidence earns Strong. Two tunables were set by eyeballing
-real rankings with Cole: `PORTFOLIO_K = 6` (saturation) and `STATED_MAX = 0.75` (stated cap).
+real rankings with Cole: `STATED_MAX = 0.75` (stated cap) and `PORTFOLIO_K` (portfolio curve —
+**now 3** after the de-saturation change below; was 6 as a hard-cap count).
 Rankings changed wholesale vs v1 by design (no golden parity). Spec/plan:
 `~/.claude/plans/also-no-codde-just-hashed-dawn.md`.
 
-**VC→techs + enrich-the-12 (SHIPPED July 17, 2026).** The VC page now shows rubric-ranked top-4 techs (`topTechsForVC`, no floor → always 4) instead of the static PDF list. To give stage×check + sector something to score when portfolio overlap is thin, the **12 curated firms' stated profiles were populated** in `vcs.json` (`sectors`/`stage` derived from their `vc_portfolios.json` companies, `checkSize`/`focus` web-augmented; `matchedTechs`/`vcOnePager` preserved, not provisional). Effect: they score via `basis:'full'`, so no-overlap firms (e.g. Mayfield) get sensible stated-driven matches instead of an arbitrary zero. `INDUSTRY_TO_DOMAIN` gained `research technologies` + `agricultural tech` keys so all 8 domain names round-trip. Test: `test/vc_matched_techs.test.js` (never-zero guarantee). **Recency rule** (last-3yr / else last-10 portfolio companies) is **designed but deferred** — firm websites lack per-company dates; it activates when PitchBook deal data lands, scoring the full portfolio until then.
+**De-saturation + recency tiebreak + decimal scores (SHIPPED July 23, 2026).** `portfolioFit`'s hard
+`min(1, credit/6)` clamp is replaced by the smooth `1 − exp(−credit/3)` curve (see the Scoring
+section) so ceiling clusters (2048: 21 techs at 1.0 → top 0.99 with the rest spread) separate by
+depth; `selectWithTies` shows up to 6 "equally strong" techs for genuine ties; `data/vc_recency.json`
+supplies the ordering-only recency tiebreak; scores display as decimals beside tiers. Spec/plan:
+`docs/superpowers/specs/2026-07-22-scores-desaturation-design.md` + `docs/superpowers/plans/2026-07-23-scores-desaturation.md`.
+
+**VC→techs + enrich-the-12 (SHIPPED July 17, 2026).** The VC page now shows rubric-ranked top-4 techs (`topTechsForVC`, no floor → always 4) instead of the static PDF list. To give stage×check + sector something to score when portfolio overlap is thin, the **12 curated firms' stated profiles were populated** in `vcs.json` (`sectors`/`stage` derived from their `vc_portfolios.json` companies, `checkSize`/`focus` web-augmented; `matchedTechs`/`vcOnePager` preserved, not provisional). Effect: they score via `basis:'full'`, so no-overlap firms (e.g. Mayfield) get sensible stated-driven matches instead of an arbitrary zero. `INDUSTRY_TO_DOMAIN` gained `research technologies` + `agricultural tech` keys so all 8 domain names round-trip. Test: `test/vc_matched_techs.test.js` (never-zero guarantee). (`topTechsForVC` now returns 4–6 scored objects via `selectWithTies`, not a bare top-4 — see the July 23 de-saturation change.) **Recency** now lands as a domain-level tiebreak (`data/vc_recency.json`, ordering-only) rather than the originally-designed per-company recency weighting.
 
 **Deferred follow-ups:** portfolios for the ~20 non-curated (provisional) firms; folding portfolio
 collection into `generate_vc.js` auto-research so new firms arrive with portfolio data; `docs/HOW-IT-WORKS.md`
