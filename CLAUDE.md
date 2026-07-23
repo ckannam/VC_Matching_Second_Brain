@@ -137,9 +137,12 @@ node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .
 node scripts/enrich_curated_vcs.js      # one-time: fill profile data on PDF-curated VCs (preserves matchedTechs)
 
 node test/grant_checker.test.js         # grant schema ↔ engine contract test (requires sibling ../Grant Finder checkout)
+
+# Run the whole suite (grant_checker needs the sibling Grant Finder repo, so exclude it if absent):
+for f in test/*.test.js; do node "$f" || break; done
 ```
 
-No test runner is configured — tests are plain Node scripts that assert and `exit(1)` on failure (mirrors Grant Finder's `stress_test.js`). The JHU name-matcher is tested via the eval-marker pattern: extract the code between the `// ── JHU Connections ──` and `// ── Search ──` markers in `index.html` and `eval` it in Node.
+No test runner is configured — tests are plain Node scripts that assert and `exit(1)` on failure (mirrors Grant Finder's `stress_test.js`). Current suite (`test/`): `scoring`, `taxonomy`, `curation`, `tech_status_endpoint`, `convert_jhtv_investors`, `jhtv_investors_resolve`, `build_vc_recency`, `vc_matched_techs`, `generate_vc.buildentry`, and `grant_checker`. The JHU name-matcher is tested via the eval-marker pattern: extract the code between the `// ── JHU Connections ──` and `// ── Search ──` markers in `index.html` and `eval` it in Node.
 
 `populate_vcs.js` requires Python: `pip3 install pdfminer.six`. It reads "JHTV PORTFOLIO MATCHES" → "WHO WE ARE MEETING WITH" from each PDF and fuzzy-matches company names to tech IDs. VC names come from filenames (PDF text is all-caps and unreliable).
 
@@ -363,6 +366,7 @@ window[`_vcTechs_${vc.id}`] = techs; // at top of foundHTML
 
 | Feature | Notes |
 |---|---|
+| **Onboard a new wave of techs** | Add the next cohort of JHTV technologies to the database when it's ready. Existing 74 are `cohort: "Cohort 1"`. Flow (see `data/tech_status.json` note above): drop the new `.docx`s → `node scripts/populate_technologies.js` (merges by id, preserves enriched fields) → set the new techs' `cohort` to the new label → enrich `sectors`/`stage`/`pi` → commit. The `#/curate` page groups by cohort automatically. Not scheduled yet |
 | Live-sync JHU network from Excel | Excel in OneDrive/SharePoint → GitHub Action regenerates `jhu_connections.json`. Spec above; not yet built |
 | Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
 | Redis job store for backend | In-memory jobs lost on Render restart; low priority on free plan |
