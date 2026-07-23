@@ -1,4 +1,8 @@
 {
-  "pausedTechIds": [],
-  "updatedAt": "2026-07-23T16:11:26.001Z"
+  "pausedTechIds": [
+    "edac-labs",
+    "etch",
+    "geothermal-technologies"
+  ],
+  "updatedAt": "2026-07-23T16:19:54.188Z"
 }
