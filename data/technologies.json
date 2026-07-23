@@ -8,6 +8,7 @@
     "stage": "NewCo",
     "pi": "Thomas Hartung, M.D., Ph.D",
     "description": "The Nexon platform integrates a proprietary neural interface with lab-grown human brain organoids, stimulating and recording from tissue at scale to evaluate drug candidates at high throughput, with a",
+    "cohort": "Cohort 1",
     "onePager": "28bio_One_Pager.docx"
   },
   {
@@ -20,6 +21,7 @@
     "stage": "Seed",
     "pi": "Ha Nam Nguyen, Ph.D",
     "description": "A customizable, 3D-printed perfusion bioreactor system engineered to support stem cell microenvironments, including protocols for generating brain-region-specific organoids (midbrain, hypothalamus, co",
+    "cohort": "Cohort 1",
     "onePager": "3Dnamics_One_Pager.docx"
   },
   {
@@ -31,6 +33,7 @@
     "stage": "Growth",
     "pi": "Mike Kirkness, Ph.D",
     "description": "Collagen Hybridizing Peptides (CHP) are short, single-stranded synthetic peptides that selectively bind to damaged and denatured collagen, enabling in situ imaging and quantification of tissue remodel",
+    "cohort": "Cohort 1",
     "onePager": "3Helix_One_Pager.docx"
   },
   {
@@ -42,6 +45,7 @@
     "stage": "Seed",
     "pi": "Gregory Laird, Ph.D",
     "description": "Small-molecule latency-reversing agents designed to force HIV out of its dormant state inside infected cells, enabling a \"shock and kill\" strategy that exposes the latent reservoir to immune clearance",
+    "cohort": "Cohort 1",
     "onePager": "Accelevir_One_Pager.docx"
   },
   {
@@ -53,6 +57,7 @@
     "stage": "Seed",
     "pi": "Mark Yarchoan, M.D",
     "description": "An engineered cancer vaccine platform that re-designs mutant KRAS antigens (such as G12D) to be significantly more immunogenic than the native mutant sequence, aiming to drive a much stronger T-cell r",
+    "cohort": "Cohort 1",
     "onePager": "Adventris_Pharmaceuticals_One_Pager.docx"
   },
   {
@@ -64,6 +69,7 @@
     "stage": "Series A",
     "pi": "Michela Gallagher, Ph.D",
     "description": "AGB101 is a proprietary extended-release formulation of levetiracetam, an FDA-approved anti-epileptic, dosed once daily at roughly 1/12th the level prescribed for epilepsy to attenuate hippocampal ove",
+    "cohort": "Cohort 1",
     "onePager": "AgeneBio_One_Pager.docx"
   },
   {
@@ -75,6 +81,7 @@
     "stage": "Pre-Seed",
     "pi": "Mandeep Singh, M.D., Ph.D",
     "description": "Cellular Component Transfer (CCT) delivers healthy proteins, RNA, and mitochondria from donor photoreceptors to damaged host photoreceptor cells through intercellular connections, rescuing retinal cel",
+    "cohort": "Cohort 1",
     "onePager": "Agnos_Therapeutics_One_Pager.docx"
   },
   {
@@ -86,6 +93,7 @@
     "stage": "Seed",
     "pi": "David Sullivan, M.D",
     "description": "Repurposes cethromycin, a ketolide antibiotic with in vitro activity against select Gram-positive, Gram-negative, atypical bacteria, and protozoa, as a curative oral single-dose treatment for liver-st",
+    "cohort": "Cohort 1",
     "onePager": "AliquantumRx_One_Pager.docx"
   },
   {
@@ -97,6 +105,7 @@
     "stage": "Series B",
     "pi": "Kannan Rangaramanujam, Ph.D",
     "description": "Hydroxyl dendrimer (HD) nanomedicines are selectively taken up by diseased cells with a local, sustained effect, tunable for each indication and target, with intracellular effects lasting weeks to mon",
+    "cohort": "Cohort 1",
     "onePager": "Ashvattha_Therapeutics_One_Pager.docx"
   },
   {
@@ -108,6 +117,7 @@
     "stage": "NewCo",
     "pi": "Alex Szalay, Ph.D",
     "description": "A platform for multispectral imaging and mapping of multiple parameters in human tissue at single-cell resolution, built on standard IHC/IF protocols.",
+    "cohort": "Cohort 1",
     "onePager": "Astropath_One_Pager.docx"
   },
   {
@@ -119,6 +129,7 @@
     "stage": "NewCo",
     "pi": "Alex Marder, Ph.D",
     "description": "AVOID (Malicious Tower Avoidance) is a classifier that identifies malicious or suspicious cellular base stations directly from signal characteristics, tested against real-world base stations worldwide",
+    "cohort": "Cohort 1",
     "onePager": "Avoid_One_Pager.docx"
   },
   {
@@ -131,6 +142,7 @@
     "stage": "NewCo",
     "pi": "Kent Rapp",
     "description": "A high-throughput screening platform using DNA-barcode technology to screen thousands of CHO cell lines simultaneously under real manufacturing conditions, generating more productive cell lines for bi",
+    "cohort": "Cohort 1",
     "onePager": "Biolinco_One_Pager.docx"
   },
   {
@@ -142,6 +154,7 @@
     "stage": "NewCo",
     "pi": "Wayne Sternberger, Ph.D",
     "description": "The Neural Blockade Monitor (NBM) is the first clinical monitoring device that provides an objective, quantitative measurement of neural-block delivery and effectiveness.",
+    "cohort": "Cohort 1",
     "onePager": "BLOCKsynop_One_Pager.docx"
   },
   {
@@ -153,6 +166,7 @@
     "stage": "Pre-clinical",
     "pi": "William G. Nelson, M.D., Ph.D., D.Sc",
     "description": "Small-molecule inhibitors of methyl-CpG-binding domain protein 2 (MBD2), an epigenetic reader that drives myeloid cells toward an immunosuppressive phenotype within the tumor microenvironment.",
+    "cohort": "Cohort 1",
     "onePager": "Brahm_Astra_One_Pager.docx"
   },
   {
@@ -164,6 +178,7 @@
     "stage": "Series B",
     "pi": "Donna Edmonds",
     "description": "A multi-modal diagnostic and prognostic platform combining injury-related blood-based biomarkers, a digital neurocognitive test, and an AI-powered algorithm into a single severity score.",
+    "cohort": "Cohort 1",
     "onePager": "BRAINBox_Solutions_One_Pager.docx"
   },
   {
@@ -175,6 +190,7 @@
     "stage": "Commercial",
     "pi": "Vin Singh",
     "description": "The bfLEAP® platform applies causal AI and supervised/unsupervised machine learning to large, disparate biomedical datasets to surface new therapeutic targets and repurposing opportunities.",
+    "cohort": "Cohort 1",
     "onePager": "BullFrog_AI_One_Pager.docx"
   },
   {
@@ -186,6 +202,7 @@
     "stage": "Series A",
     "pi": "Elliot R. McVeigh, Ph.D",
     "description": "SQuEEZ (Stretch Quantifier for Endocardial Engraved Zones) is the first non-invasive diagnostic CT cardiac analysis software FDA-cleared to quantify and visualize left ventricular contractile dysfunct",
+    "cohort": "Cohort 1",
     "onePager": "CardioWise_One_Pager.docx"
   },
   {
@@ -197,6 +214,7 @@
     "stage": "NewCo",
     "pi": "Shameema Sikder, M.D",
     "description": "A cloud-based AI training platform that segments surgical videos into procedural steps using neural networks, then scores newly uploaded videos against expert-annotated benchmarks for position and tim",
+    "cohort": "Cohort 1",
     "onePager": "CIRCLAGE_One_Pager.docx"
   },
   {
@@ -208,6 +226,7 @@
     "stage": "Seed",
     "pi": "Francoise Marvel, M.D",
     "description": "A natively coded iOS/Android app integrated with Apple Watch and Fitbit, plus a Bluetooth blood pressure monitor and clinician dashboard, paired with proprietary education and coaching content.",
+    "cohort": "Cohort 1",
     "onePager": "Corrie_Health_One_Pager.docx"
   },
   {
@@ -219,6 +238,7 @@
     "stage": "Seed > Series A",
     "pi": "Niren Shah",
     "description": "INPUT, a non-viral, polymeric nanoparticle delivery platform, achieves pan-retinal gene expression — reaching the equator, anterior, and posterior retina — after a single suprachoroidal injection, in ",
+    "cohort": "Cohort 1",
     "onePager": "Cove_Therapeutics_One_Pager.docx"
   },
   {
@@ -230,6 +250,7 @@
     "stage": "Seed",
     "pi": "",
     "description": "A B2B SaaS platform that predicts disease from a smartphone photo — \"Labcorp for your phone\" — using AI and computer vision on patient-submitted images.",
+    "cohort": "Cohort 1",
     "onePager": "CurieDx_One_Pager.docx"
   },
   {
@@ -241,6 +262,7 @@
     "stage": "Seed",
     "pi": "Nicholas Theodore, M.D",
     "description": "CurveAssure is an AI-driven musculoskeletal assessment platform that delivers clinical insight into patient function — no hardware or downloads required.",
+    "cohort": "Cohort 1",
     "onePager": "CurveAssure_One_Pager.docx"
   },
   {
@@ -252,6 +274,7 @@
     "stage": "Pre-Seed",
     "pi": "John Sittmann, Ph.D",
     "description": "A biotechnology platform uses engineered endophytes — microbes that live within plant roots — to deliver targeted biomolecules into plants, enabling rapid, precise modification within weeks across vir",
+    "cohort": "Cohort 1",
     "onePager": "Deep_Root_Biolabs_One_Pager.docx"
   },
   {
@@ -263,6 +286,7 @@
     "stage": "Series B",
     "pi": "Victor E. Velculescu, M.D., Ph.D",
     "description": "The FirstLook lung cancer detection kit applies machine learning to genome-wide fragmentation patterns of cell-free DNA, extracting orders of magnitude more signal than conventional sequencing-based l",
+    "cohort": "Cohort 1",
     "onePager": "Delfi_Diagnostics_One_Pager.docx"
   },
   {
@@ -274,6 +298,7 @@
     "stage": "Seed",
     "pi": "Brent Ifemembi",
     "description": "An automated, point-of-care device analyzes a saliva sample to generate an oral health risk score within 30 minutes, combining proprietary biomarker quantification and custom machine-learning algorith",
+    "cohort": "Cohort 1",
     "onePager": "Drul_One_Pager.docx"
   },
   {
@@ -285,6 +310,7 @@
     "stage": "Seed",
     "pi": "Chao Wang, Ph.D",
     "description": "An electrosynthesizer that removes carbon by enabling low-energy splitting of brine into acids and bases — a process the company describes as simple, safe, and effective.",
+    "cohort": "Cohort 1",
     "onePager": "EDAC_Labs_One_Pager.docx"
   },
   {
@@ -296,6 +322,7 @@
     "stage": "Seed",
     "pi": "Daniel Chai, M.D",
     "description": "A targeted therapeutic platform developed from Johns Hopkins research, advancing a development-stage candidate toward IND-enabling studies.",
+    "cohort": "Cohort 1",
     "onePager": "Egret_Therapeutics_One_Pager.docx"
   },
   {
@@ -307,6 +334,7 @@
     "stage": "Seed",
     "pi": "Scott Carmer",
     "description": "An engineered microenvironment (EMC2) platform that recreates key biophysical and biochemical cues during cell culture to improve the yield, consistency, and potency of manufactured cell therapy produ",
+    "cohort": "Cohort 1",
     "onePager": "EMC2_Bio_One_Pager.docx"
   },
   {
@@ -318,6 +346,7 @@
     "stage": "Seed",
     "pi": "Gregory L. Krauss, M.D",
     "description": "A consumer Apple Watch + iPhone app, built on Apple's ResearchKit, that uses a proprietary algorithm over heart-rate and accelerometry data for real-time detection of tonic-clonic seizures.",
+    "cohort": "Cohort 1",
     "onePager": "EpiWatch_One_Pager.docx"
   },
   {
@@ -329,6 +358,7 @@
     "stage": "Seed",
     "pi": "",
     "description": "SMAART (Saliva-based Malaria Asymptomatic & Asexual Rapid Test) is a highly sensitive, non-invasive, low-cost rapid diagnostic that detects malaria precursors — gametocyte and sub-microscopic asexual-",
+    "cohort": "Cohort 1",
     "onePager": "Erada_Technology_Alliance_One_Pager.docx"
   },
   {
@@ -340,6 +370,7 @@
     "stage": "Seed",
     "pi": "Jonah Erlebacher, Ph.D",
     "description": "The patented ETCH Process converts methane into clean hydrogen and pure solid carbon with no carbon dioxide created, using a recyclable catalyst and proprietary thermochemistry built on earth-abundant",
+    "cohort": "Cohort 1",
     "onePager": "ETCH_One_Pager.docx"
   },
   {
@@ -351,6 +382,7 @@
     "stage": "NewCo",
     "pi": "Yash Jain",
     "description": "The ForagerOne platform centralizes research and mentorship opportunities for an institution, helping students discover programs and helping administrators manage and report on engagement.",
+    "cohort": "Cohort 1",
     "onePager": "ForagerOne_One_Pager.docx"
   },
   {
@@ -362,6 +394,7 @@
     "stage": "Series A",
     "pi": "Eddy Agbo, Ph.D., D.V.M",
     "description": "The Urine Malaria Test (UMT) is a dipstick-based, no-blood, no-reagent, no-equipment test that detects malaria infection directly from urine in 25 minutes or less — as simple as an at-home pregnancy t",
+    "cohort": "Cohort 1",
     "onePager": "Fyodor_Biotechnologies_One_Pager.docx"
   },
   {
@@ -373,6 +406,7 @@
     "stage": "Seed",
     "pi": "Aaron Tabor, M.D",
     "description": "A small-molecule drug candidate, internally referenced as GNE-142, developed from Johns Hopkins research and covered by two licensed case families.",
+    "cohort": "Cohort 1",
     "onePager": "Genie_Therapeutics_One_Pager.docx"
   },
   {
@@ -384,6 +418,7 @@
     "stage": "Series A",
     "pi": "Bruce Marsh, Ph.D",
     "description": "The GenaSys system is a closed-loop geothermal energy generator designed to deliver distributed baseload power from a much broader range of subsurface resources than conventional geothermal.",
+    "cohort": "Cohort 1",
     "onePager": "Geothermal_Technologies_One_Pager.docx"
   },
   {
@@ -395,6 +430,7 @@
     "stage": "Series A",
     "pi": "Ashish Nimgaonkar, M.D",
     "description": "GLY-200 is a gut-restricted, non-absorbed polymer that coats the proximal small intestine to blunt glucose absorption and reduce post-meal glucose excursions, mimicking aspects of bariatric surgery's ",
+    "cohort": "Cohort 1",
     "onePager": "Glyscend_Therapeutics_One_Pager.docx"
   },
   {
@@ -406,6 +442,7 @@
     "stage": "Seed",
     "pi": "Luigi Adamo, M.D., Ph.D",
     "description": "Pegydone, a pirfenidone derivative engineered for improved pharmacokinetics, targets cardiac fibrosis to address the structural driver of HFpEF rather than only managing downstream symptoms.",
+    "cohort": "Cohort 1",
     "onePager": "I-Cordis_One_Pager.docx"
   },
   {
@@ -417,6 +454,7 @@
     "stage": "Pre-clinical",
     "pi": "Brock Lindsey, M.D",
     "description": "A patented diagnostic platform (U.S. Patent No. 12,214,046) developed from Johns Hopkins research, now advancing through CDMO-audited manufacturing as it prepares for broader clinical use.",
+    "cohort": "Cohort 1",
     "onePager": "ICaPath_One_Pager.docx"
   },
   {
@@ -429,6 +467,7 @@
     "stage": "Commercial",
     "pi": "H. Benjamin Larman, Ph.D",
     "description": "MIPSA (Molecular Indexing of Proteins by Self-Assembly) uses in-solution, DNA-barcoded antigen libraries to enable unbiased reactome analysis across the human virome, known protein allergens, and the ",
+    "cohort": "Cohort 1",
     "onePager": "Infinity_Bio_One_Pager.docx"
   },
   {
@@ -440,6 +479,7 @@
     "stage": "Seed",
     "pi": "",
     "description": "A proprietary, wearable eye-scanning device that mimics clinical OCT but is automated enough for a patient to use at home or at a pharmacy via telehealth.",
+    "cohort": "Cohort 1",
     "onePager": "JuneBrain_One_Pager.docx"
   },
   {
@@ -451,6 +491,7 @@
     "stage": "NewCo",
     "pi": "",
     "description": "Kreftect's platform detects cancer-caused changes in isotope concentrations in hair using geochemical methods combined with machine learning — an affordable, easily collected sample type with potentia",
+    "cohort": "Cohort 1",
     "onePager": "Kreftect_One_Pager.docx"
   },
   {
@@ -462,6 +503,7 @@
     "stage": "Seed",
     "pi": "Bailey Surtees",
     "description": "A low-cost, portable cryoablation device designed to deliver effective tumor ablation without the capital equipment and gas-supply infrastructure that limit conventional cryotherapy systems in resourc",
+    "cohort": "Cohort 1",
     "onePager": "Kubanda_Cryotherapy_One_Pager.docx"
   },
   {
@@ -473,6 +515,7 @@
     "stage": "Growth",
     "pi": "Chad R. Gordon, DO",
     "description": "A platform of neuro-implants that address both the functional and reconstructive needs of neurosurgical patients, adding post-surgical diagnostic and therapeutic function directly to reconstructive im",
+    "cohort": "Cohort 1",
     "onePager": "Longeviti_Neuro_Solutions_One_Pager.docx"
   },
   {
@@ -484,6 +527,7 @@
     "stage": "NewCo",
     "pi": "",
     "description": "Uses a smartphone camera to capture a multispectral image of stool, then applies AI and spectral signal-processing algorithms to detect blood — no kit, no lab, no vet trip unless something is found.",
+    "cohort": "Cohort 1",
     "onePager": "Lumiinus_One_Pager.docx"
   },
   {
@@ -495,6 +539,7 @@
     "stage": "Series A",
     "pi": "Steve Schaefer",
     "description": "A thermodynamic neuromodulation device, built by CoolTech, that uses dry-air circulation to cool and inhibit structures of the pterygopalatine fossa — including the sphenopalatine ganglion and the max",
+    "cohort": "Cohort 1",
     "onePager": "Mi-Helper_One_Pager.docx"
   },
   {
@@ -506,6 +551,7 @@
     "stage": "Series D / Growth",
     "pi": "Nael Osman, Ph.D",
     "description": "MyoStrain is a first-of-its-kind, 10-minute quantitative heart-health MRI assessment using the proprietary Fast Strain-Encoded (Fast-SENC) sequence to measure intramyocardial deformation across 48 seg",
+    "cohort": "Cohort 1",
     "onePager": "Myocardial_Solutions_One_Pager.docx"
   },
   {
@@ -517,6 +563,7 @@
     "stage": "Seed",
     "pi": "Sami Tuffaha, M.D",
     "description": "A long-acting injectable delivers sustained, local release of Insulin-like Growth Factor-1 (IGF-1) over a six-week period, promoting peripheral nerve regeneration and preventing the muscle wasting tha",
+    "cohort": "Cohort 1",
     "onePager": "NervMyo_Therapeutics_One_Pager.docx"
   },
   {
@@ -528,6 +575,7 @@
     "stage": "NewCo",
     "pi": "Sridevi Sarma, Ph.D",
     "description": "EpiScalp builds patient-specific dynamical network models from just 20 minutes of scalp EEG data, removing common artifacts to detect pathologic patterns invisible to standard visual review.",
+    "cohort": "Cohort 1",
     "onePager": "Neurologic_Solutions_One_Pager.docx"
   },
   {
@@ -539,6 +587,7 @@
     "stage": "Series B",
     "pi": "Chad R. Gordon, DO",
     "description": "NeuroPASS is the world's first fully implantable, refillable therapeutic drug-delivery system, bypassing the BBB for on-target, chronic delivery directly to the brain.",
+    "cohort": "Cohort 1",
     "onePager": "NeuroPass_by_CraniUS_One_Pager.docx"
   },
   {
@@ -550,6 +599,7 @@
     "stage": "Series A",
     "pi": "Todd McNutt, Ph.D",
     "description": "A cloud-native, AI-powered analytics platform that draws on anatomy, dose distribution, toxicity, and outcome data from thousands of prior treatments to predict an optimal, personalized radiation plan",
+    "cohort": "Cohort 1",
     "onePager": "Oncospace_One_Pager.docx"
   },
   {
@@ -561,6 +611,7 @@
     "stage": "Seed",
     "pi": "Tod Wallach",
     "description": "BCG-disA-OE, a genetically engineered strain of BCG overexpressing the disA gene, increases cyclic-di-AMP production to more potently activate the STING innate-immune pathway, aiming to improve on sta",
+    "cohort": "Cohort 1",
     "onePager": "OncoSTING_One_Pager.docx"
   },
   {
@@ -572,6 +623,7 @@
     "stage": "NewCo",
     "pi": "Jordan Green, Ph.D",
     "description": "A synthetic biology gene-switch platform that allows engineered immune cells to be turned on, off, or tuned in response to an external small-molecule trigger, enabling more precise control over CAR-T ",
+    "cohort": "Cohort 1",
     "onePager": "OncoSwitch_Therapeutics_One_Pager.docx"
   },
   {
@@ -583,6 +635,7 @@
     "stage": "Seed",
     "pi": "Kieren A. Marr, M.D",
     "description": "The MycoMEIA Aspergillus Assay is a high-throughput, 96-well microplate ELISA that detects fungal infection from a urine sample using ready-to-use reagents, reporting in about 3 hours versus the multi",
+    "cohort": "Cohort 1",
     "onePager": "Pearl_Diagnostics_One_Pager.docx"
   },
   {
@@ -594,6 +647,7 @@
     "stage": "Series A",
     "pi": "Connor Glass, Ph.D",
     "description": "A minimally invasive neural interface, originally developed at Johns Hopkins University School of Medicine, that decodes signals from residual nerve and muscle tissue to control prosthetic limbs and r",
+    "cohort": "Cohort 1",
     "onePager": "Phantom_Neuro_One_Pager.docx"
   },
   {
@@ -605,6 +659,7 @@
     "stage": "Seed",
     "pi": "Stephen Meltzer, M.D",
     "description": "Esopredict is a DNA methylation-based prognostic test that analyzes four gene biomarkers from a patient's standard-of-care biopsy sample to risk-stratify Barrett's esophagus patients for progression l",
+    "cohort": "Cohort 1",
     "onePager": "Previse_One_Pager.docx"
   },
   {
@@ -616,6 +671,7 @@
     "stage": "NewCo",
     "pi": "Tza-Huei Wang, Ph.D",
     "description": "The Prompt PCR Platform automates sample-to-answer testing with magnetic bead transfer in a single, battery-powered, cartridge-based device, delivering lab-quality quantitative PCR results across 18+ ",
+    "cohort": "Cohort 1",
     "onePager": "Prompt_Diagnostics_One_Pager.docx"
   },
   {
@@ -627,6 +683,7 @@
     "stage": "Seed",
     "pi": "Travis Hardaway, D.M.A",
     "description": "Read Ahead is an app that progressively erases the musical score as the student plays, forcing the eyes to stay ahead of the hands and training rapid, fluent sight-reading.",
+    "cohort": "Cohort 1",
     "onePager": "Read_Ahead_One_Pager.docx"
   },
   {
@@ -638,6 +695,7 @@
     "stage": "Seed",
     "pi": "Sarah Lee",
     "description": "PeritoneX is a self-disinfecting connector that disinfects both sides of dialysis tubing at the point of connection, removing the disinfection burden from the patient.",
+    "cohort": "Cohort 1",
     "onePager": "Relavo_One_Pager.docx"
   },
   {
@@ -649,6 +707,7 @@
     "stage": "Seed",
     "pi": "Kumar Subramaniam",
     "description": "AI-driven auto-categorization and routing of safety events frees up staff capacity, while unique patent-pending algorithms surface hidden signals in safety and grievance data.",
+    "cohort": "Cohort 1",
     "onePager": "SafeTower_One_Pager.docx"
   },
   {
@@ -660,6 +719,7 @@
     "stage": "Series B",
     "pi": "Sebastian Seiguer",
     "description": "A Directly Observed Therapy (DOT) platform combining a mobile app, an engagement engine, and a dedicated nurse and health coach to confirm medication-taking and respond to issues as they happen.",
+    "cohort": "Cohort 1",
     "onePager": "Scene_Health_One_Pager.docx"
   },
   {
@@ -671,6 +731,7 @@
     "stage": "Seed",
     "pi": "Tito Porras, M.D., MBA",
     "description": "An intelligence framework featuring an autonomy runtime and SDK backbone, designed to power advanced autonomy in robotics, imaging, and other surgical applications.",
+    "cohort": "Cohort 1",
     "onePager": "Semaphor_One_Pager.docx"
   },
   {
@@ -682,6 +743,7 @@
     "stage": "NewCo",
     "pi": "Dan Saragnese",
     "description": "SN101 is a first-in-class therapy using mature induced pluripotent stem cell (iPSC)-derived peripheral pain-sensing neurons (nociceptors) that act as a biological \"sponge,\" absorbing pain-signaling fa",
+    "cohort": "Cohort 1",
     "onePager": "SereNeuro_One_Pager.docx"
   },
   {
@@ -693,6 +755,7 @@
     "stage": "NewCo",
     "pi": "",
     "description": "A novel two-part gastrojejunostomy feeding tube system enabling rapid bedside exchanges without hospitalization, designed to minimize clogging and dislodgement.",
+    "cohort": "Cohort 1",
     "onePager": "Shuriken_Medical_One_Pager.docx"
   },
   {
@@ -704,6 +767,7 @@
     "stage": "NewCo",
     "pi": "Jeremy Starkweather",
     "description": "A hypochlorite-based foam delivered endoscopically to the affected tissue, designed to be applied during routine endotherapy procedures for pancreatic and other gastrointestinal disease.",
+    "cohort": "Cohort 1",
     "onePager": "Solv_Endotherapy_One_Pager.docx"
   },
   {
@@ -715,6 +779,7 @@
     "stage": "Seed",
     "pi": "Anders Sideris, M.D",
     "description": "A non-invasive, cost-effective neurostimulation device worn like a retainer, custom-fitted, manufactured, and delivered to patients in under 10 days.",
+    "cohort": "Cohort 1",
     "onePager": "Somnair_One_Pager.docx"
   },
   {
@@ -726,6 +791,7 @@
     "stage": "Series A",
     "pi": "Jerry Prince, Ph.D",
     "description": "",
+    "cohort": "Cohort 1",
     "onePager": "Sonavex_One_Pager.docx"
   },
   {
@@ -737,6 +803,7 @@
     "stage": "Seed",
     "pi": "James West, Ph.D",
     "description": "Sonavi Labs' Feelix platform pairs a noise-cancelling digital stethoscope with an AI dashboard app that detects and tracks respiratory abnormalities in real time.",
+    "cohort": "Cohort 1",
     "onePager": "Sonavi_Labs_One_Pager.docx"
   },
   {
@@ -748,6 +815,7 @@
     "stage": "Seed",
     "pi": "Mouen Khashab, M.D",
     "description": "EnduraStaple is a sterile, single-use, disposable endoluminal stapling device for tissue plication and bariatric endoscopy procedures.",
+    "cohort": "Cohort 1",
     "onePager": "Sotelix_Endoscopy_One_Pager.docx"
   },
   {
@@ -759,6 +827,7 @@
     "stage": "Seed",
     "pi": "Nilanjan Banerjee",
     "description": "RestEaze is an ankle-worn sleep band combining capacitive textile sensors, a 9-axis inertial measurement unit, photoplethysmography, and temperature sensing to characterize leg movements during sleep.",
+    "cohort": "Cohort 1",
     "onePager": "Tanzen_Medical_One_Pager.docx"
   },
   {
@@ -770,6 +839,7 @@
     "stage": "NewCo",
     "pi": "Robert J. Webster III, Ph.D",
     "description": "A robotic endoscopic surgical system delivering two robotically controlled, needle-sized manipulators from the tip of a rigid endoscope less than half the diameter of a U.S. dime — instrument arms jus",
+    "cohort": "Cohort 1",
     "onePager": "Virtuoso_Surgical_One_Pager.docx"
   },
   {
@@ -781,6 +851,7 @@
     "stage": "NewCo",
     "pi": "Jordan Shuff",
     "description": "An intelligent, end-to-end eye screening, telemedicine, and patient-management system pairing a low-bandwidth telemedicine app with a proprietary anterior-segment imaging device.",
+    "cohort": "Cohort 1",
     "onePager": "VISILANT_One_Pager.docx"
   },
   {
@@ -792,6 +863,7 @@
     "stage": "Seed",
     "pi": "Harry Silber, M.D",
     "description": "Vixiar Indicor is a hand-held device and app-based platform that assesses cardiac filling pressure at the point of care — in the home, physician's office, nursing home, or hospital.",
+    "cohort": "Cohort 1",
     "onePager": "Vixiar_Medical_One_Pager.docx"
   },
   {
@@ -803,6 +875,7 @@
     "stage": "NewCo",
     "pi": "Bill King",
     "description": "An all-in-one software platform to manage and integrate wearables in clinical research trials at scale, built in collaboration with Johns Hopkins University, Johns Hopkins Medicine, JHTV, and the Tech",
+    "cohort": "Cohort 1",
     "onePager": "Wearable_Labs_One_Pager.docx"
   },
   {
@@ -814,6 +887,7 @@
     "stage": "Series A",
     "pi": "Steven Keller, M.D",
     "description": "A respiratory dialysis device delivering high CO2 capture at ultra-low blood flows, designed to be safe, effective, and economically favorable versus existing extracorporeal CO2-removal systems.",
+    "cohort": "Cohort 1",
     "onePager": "X-COR_One_Pager.docx"
   }
 ]

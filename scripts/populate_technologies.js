@@ -22,19 +22,28 @@ function humanize(str) {
 const files = fs.readdirSync(TECH_DIR)
   .filter(f => f.endsWith('.docx') && !f.startsWith('~$'));
 
+// Merge by id: preserve enriched fields (sectors/stage/pi/description/cohort) for
+// techs already in the catalog; only add stubs for new .docx files. A rebuild is
+// therefore non-destructive. New techs default to Cohort 1 — set a new cohort label
+// on them afterward for a fresh intake batch.
+const existing = fs.existsSync(OUT_PATH) ? JSON.parse(fs.readFileSync(OUT_PATH, 'utf8')) : [];
+const byId = new Map(existing.map(t => [t.id, t]));
+
 const techs = files.map(filename => {
   // Strip _One_Pager.docx suffix
   const base = filename.replace(/_One_Pager\.docx$/i, '').replace(/\.docx$/i, '');
   const id   = slugify(base);
   const name = humanize(base);
+  const prev = byId.get(id) || {};
 
   return {
     id,
     name,
-    sectors:     [],
-    stage:       '',
-    pi:          '',
-    description: '',
+    sectors:     prev.sectors     || [],
+    stage:       prev.stage       || '',
+    pi:          prev.pi          || '',
+    description: prev.description || '',
+    cohort:      prev.cohort      || 'Cohort 1',
     onePager:    filename,
   };
 });
