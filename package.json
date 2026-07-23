@@ -8,6 +8,7 @@
     "generate-vc": "node scripts/generate_vc.js",
     "enrich-tech-data": "node scripts/enrich_tech_data.js",
     "convert-taxonomy": "node scripts/convert_keyword_taxonomy.js",
+    "convert-jhtv-investors": "node scripts/convert_jhtv_investors.js",
     "baseline-v1": "node scripts/generate_v1_baseline.js"
   },
   "dependencies": {
