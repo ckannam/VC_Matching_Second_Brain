@@ -291,7 +291,9 @@
   {
     "id": "nea",
     "name": "NEA",
-    "aliases": ["New Enterprise Associates"],
+    "aliases": [
+      "New Enterprise Associates"
+    ],
     "focus": "Global multistage venture investing across healthcare (therapeutics, devices, digital health) and technology.",
     "sectors": [
       "Therapeutics",
@@ -1228,6 +1230,41 @@
       "28bio",
       "astropath",
       "blocksynop"
+    ],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "ecphora-capital-management-company",
+    "name": "Ecphora Capital Management Company",
+    "aliases": [
+      "Ecphora Capital",
+      "Ecphora"
+    ],
+    "focus": "Ecphora Capital backs early-stage medtech founders spinning out of Maryland's top-tier medical and research institutions, aiming to establish the state as a global epicenter for medical commercialization. The firm leverages first-look access and a data-driven program to de-risk and accelerate biomedical startups in the BioHealth Capital Region.",
+    "sectors": [
+      "Medical Devices",
+      "Biotechnology",
+      "Digital Health",
+      "Life Sciences",
+      "Diagnostics",
+      "Precision Medicine",
+      "Gene Editing"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 15
+    },
+    "geographicFocus": "Mid-Atlantic",
+    "matchedTechs": [
+      "3dnamics",
+      "biolinco",
+      "28bio",
+      "accelevir"
     ],
     "vcOnePager": null,
     "provisional": true
