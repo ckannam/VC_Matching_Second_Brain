@@ -658,6 +658,10 @@ body.compact-hero .popular-row { display: none; }
   padding: 10px 0;
   border-bottom: 1px solid var(--line, #E2E8F0);
 }
+.tech-score { font-size: .8rem; color: var(--muted); font-weight: 600; }
+.tech-score.tied { color: #0E9F6E; }
+.tied-group { font-size: .8rem; color: var(--muted); font-style: italic; margin: 4px 0 8px; }
+.score-note { font-size: .72rem; color: var(--muted); font-weight: 400; font-style: italic; }
 .rel-line {
   display: flex;
   align-items: center;

@@ -89,22 +89,25 @@
   let TECHS           = [];
   let JHU_CONNECTIONS = [];
   let PORTFOLIO_BY_VC = new Map();  // vc.id → [{ name, domains[], stage? }] (rubric v2)
+  let RECENCY_BY_VC   = {};         // vc.id → { domain: 0.5..1.0 } (matching tiebreak)
   let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
   async function loadData() {
     try {
-      let portfolios, investorsRaw;
-      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios, investorsRaw] = await Promise.all([
+      let portfolios, investorsRaw, recencyRaw;
+      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios, investorsRaw, recencyRaw] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
         fetch('data/jhu_connections.json').then(r => r.json()),
         fetch('data/jhtv_relationships.json').then(r => r.ok ? r.json() : []).catch(() => []),
         fetch('data/vc_portfolios.json').then(r => r.ok ? r.json() : []).catch(() => []),
         fetch('data/jhtv_investors.json').then(r => r.ok ? r.json() : { investors: [] }).catch(() => ({ investors: [] })),
+        fetch('data/vc_recency.json').then(r => r.ok ? r.json() : { byVc: {} }).catch(() => ({ byVc: {} })),
       ]);
       PORTFOLIO_BY_VC = new Map(portfolios.map(e => [e.vcId, e.companies]));
       // Only venture/angel enter the UI; foundation/public are a deferred pass.
       JHTV_INVESTORS = (investorsRaw.investors || []).filter(i => i.type === 'venture' || i.type === 'angel');
+      RECENCY_BY_VC = recencyRaw.byVc || {};
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
@@ -612,17 +615,26 @@
   // Rubric v2 (VC→techs, portfolio-led): the firm's best-fit technologies,
   // ranked by vcFitScore over ALL techs — no floor cutoff, so it always returns
   // the top n (never zero) for any VC that carries a stated profile or portfolio.
-  // Pure data: the static PDF `matchedTechs` no longer drives this list (it still
-  // powers the "In VC brief" badge on the tech→VC side). Deterministic ties:
-  // score → shared-domain count → name.
-  function topTechsForVC(vc, n = 4) {
+  // Recency weight for a tech: the firm's most-recent activity across the tech's
+  // domains (1.0 when there's no deal data for this VC). Ordering-only.
+  function techDomainRecency(rec, tech) {
+    if (!rec) return 1;
+    const ws = (tech.sectors || []).map(d => rec[d]).filter(x => x != null);
+    return ws.length ? Math.max(...ws) : 1;
+  }
+
+  // Ranks all techs by v2 score, breaks score ties by depth × domain recency, and
+  // returns 4–6 items ({ t, score, fit, tieKey, tied }) via selectWithTies — the
+  // trailing run is flagged `tied` when >4 are genuinely indistinguishable. The
+  // static PDF `matchedTechs` no longer drives this list.
+  function topTechsForVC(vc) {
     const portfolio = PORTFOLIO_BY_VC.get(vc.id);
-    return TECHS
-      .map(t => { const fit = vcFitScore(vc, t, portfolio); return fit ? { t, s: fit.score, d: fit.sharedDomains.length } : null; })
+    const rec = RECENCY_BY_VC[vc.id] || null;
+    const ranked = TECHS
+      .map(t => { const fit = vcFitScore(vc, t, portfolio); return fit ? { t, score: fit.score, fit, tieKey: fit.depth * techDomainRecency(rec, t) } : null; })
       .filter(Boolean)
-      .sort((a, b) => b.s - a.s || b.d - a.d || a.t.name.localeCompare(b.t.name))
-      .slice(0, n)
-      .map(x => x.t);
+      .sort((a, b) => b.score - a.score || b.tieKey - a.tieKey || a.t.name.localeCompare(b.t.name));
+    return selectWithTies(ranked, { base: 4, max: 6 });
   }
 
   function renderVc(vcId, bannerHTML = '') {
@@ -821,8 +833,9 @@
     return `${sentence1} ${sentence2}`;
   }
 
+  // `techs` is the array from topTechsForVC(vc): [{ t, score, fit, tieKey, tied }].
   function foundHTML(vc, techs) {
-    window[`_vcTechs_${vc.id}`] = techs;
+    window[`_vcTechs_${vc.id}`] = techs.map(x => x.t);
 
     const stagePills  = (vc.stage   || []).map(s => `<span class="pill">${s}</span>`).join('');
     const sectorPills = (vc.sectors || []).map(s => `<span class="pill">${s}</span>`).join('');
@@ -833,7 +846,7 @@
       : '';
 
     const downloadAllBtn = techs.length > 1
-      ? `<button class="btn btn-secondary" onclick="downloadAllTech(${JSON.stringify(techs.map(t => t.onePager)).replace(/"/g, '&quot;')})">
+      ? `<button class="btn btn-secondary" onclick="downloadAllTech(${JSON.stringify(techs.map(x => x.t.onePager)).replace(/"/g, '&quot;')})">
            Download All Tech One-Pagers (${techs.length})
          </button>`
       : '';
@@ -873,12 +886,14 @@
         </div>
       </div>
       ${jhuSection}
-      <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}</p>
-      <div class="tech-grid">${techs.map(t => techCardHTML(t, null, matchReason(vc, t))).join('')}</div>
+      <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}
+        <span class="score-note">— fit scores are model outputs (0–1), not probabilities</span></p>
+      ${techs.some(x => x.tied) ? `<p class="tied-group">Top ${techs.filter(x => !x.tied).length} are clearly strongest; the rest are equally strong — not rank-ordered.</p>` : ''}
+      <div class="tech-grid">${techs.map(x => techCardHTML(x.t, null, matchReason(vc, x.t), x.score, x.tied)).join('')}</div>
     `;
   }
 
-  function techCardHTML(t, accentColor, reason) {
+  function techCardHTML(t, accentColor, reason, score, tied) {
     const tags        = (t.sectors || []).map(s => {
       const c = accentColor || DOMAIN_COLORS[s] || '#64748B';
       return `<span class="pill"><span class="pill-dot" style="background:${c}"></span>${s}</span>`;
@@ -892,7 +907,7 @@
 
     return `
       <div class="tech-card" style="${topBorder}">
-        <h3 class="tech-card-title" onclick="viewTech('${t.id}')" title="View funding profile">${t.name}</h3>
+        <h3 class="tech-card-title" onclick="viewTech('${t.id}')" title="View funding profile">${t.name}${typeof score === 'number' ? ` <span class="tech-score${tied ? ' tied' : ''}">${score.toFixed(2)}</span>` : ''}</h3>
         ${t.pi          ? `<p class="pi">${t.pi}</p>` : ''}
         ${reason        ? `<p class="match-reason">${reason}</p>` : ''}
         ${t.description ? `<p class="desc">${t.description}</p>` : ''}
