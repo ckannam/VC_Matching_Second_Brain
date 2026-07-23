@@ -697,8 +697,8 @@ body.compact-hero .popular-row { display: none; }
   padding: 5px 12px; cursor: pointer; white-space: nowrap; }
 .curate-paused-count:hover { border-color: var(--blue-lt); color: var(--blue-lt); }
 .curate-paused-count.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-/* Compact tech tiles — more fit per row than the catalog grid. */
-.curate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+/* Compact tech tiles — fixed thin width, left-packed (don't stretch to fill the row). */
+.curate-grid { display: grid; grid-template-columns: repeat(auto-fill, 188px); gap: 12px; justify-content: start; }
 .curate-card { padding: 12px 13px; }
 .curate-card-head { display: flex; align-items: center; gap: 8px; cursor: pointer; }
 .curate-check { accent-color: var(--blue); width: 16px; height: 16px; flex-shrink: 0; margin: 0; }
