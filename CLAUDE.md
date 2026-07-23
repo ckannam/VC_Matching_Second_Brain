@@ -109,6 +109,19 @@ Provisional entries have `provisional: true`, `vcOnePager: null`, and trigger a 
 
 **`data/vc_pitchbook.json`** — standalone catalog of 391 PitchBook investors (from `scripts/ingest_pitchbook.js`); NOT loaded by the live UI. Future rubric-benchmark source. See memory + `scripts/ingest_pitchbook.js`.
 
+**`data/jhtv_investors.json`** — **JHTV backers (revealed co-investment).** Firms that have actually written checks into JHTV/Hopkins companies (626 deals, 312 investors, 99 companies, 2006–2026), aggregated per investor:
+```json
+{ "meta": { "counts": { "venture", "angel", "foundation", "public" } },
+  "investors": [{ "investor", "type", "companiesBacked":[], "companyCount", "dealCount",
+                  "totalInvested", "firstDate", "lastDate", "deals":[{company,amount,date,series,roundBucket}] }] }
+```
+Sorted by `companyCount` desc then `dealCount`. **Only `type ∈ {venture, angel}` (299 firms) enter the UI**; `foundation` (5) + `public` (8) stay in the JSON but are filtered out at load (deferred). This is the strongest relationship signal (revealed > stated) and is the **primary** relationships layer now that `jhtv_relationships.json` is empty (that file stays as an optional manual supplement — both can render).
+- **Regenerate:** edit `data/source/Venture_Funding_-_Grouped_By_Investor.xlsx` → `npm run convert-jhtv-investors` (`scripts/convert_jhtv_investors.js`, uses the `xlsx` dev dep). Counts must stay 299 live / 13 deferred (guarded by `test/convert_jhtv_investors.test.js`).
+- **Load + resolve (`index.html`, mirrors `resolveRelationships`):** `loadData()` fail-soft-fetches it → `JHTV_INVESTORS` (filtered to venture/angel). `resolveInvestors()` joins each to `vcs.json` via `vcMatchingName()` → `INVESTORS_BY_VC` (Map vcId→record, **12 of 299** resolve today) + `UNMATCHED_INVESTORS` (the rest, browse-only) + `BACKERS_BY_COMPANY` (normalized company → backers, powers the exact-tech pin). All live inside the `// ── JHU Connections`↔`// ── Search` eval-marker region, tested by `test/jhtv_investors_resolve.test.js`.
+- **VC page:** emerald `.backer-badge` "JHTV backer · N companies" + detail line (companies, `$XM` total via `fmtMoney`, "last check {year}"). Distinct from gold "In VC brief" and navy relationship badges.
+- **`#/backers` page** (`showBackers`/`renderBackers`, nav button): all 299 firms ranked by `companyCount`; resolved link to `#/vc/<id>`, unresolved get a "research" chip.
+- **Tech→firm (`findVCsForTech`, scoring.js weights unchanged):** exact-tech investors (`backersForTech`) **pin to the top** with an "Already invested in {tech}" badge — profiled firms as scored rows, unprofiled as non-scored research rows (22 of 74 techs have such a match; Delfi Diagnostics has 25 backers). Resolved backers that did NOT fund this exact tech get a `.backer-pill` "has funded N JHTV companies" + a **capped +0.1 sort bonus** (`relationshipBonus`, does NOT stack with the in-brief +0.1). NEA got a `"New Enterprise Associates"` alias in `vcs.json` so the marquee backer resolves.
+
 ## Scripts
 
 ```bash
@@ -340,3 +353,7 @@ window[`_vcTechs_${vc.id}`] = techs; // at top of foundHTML
 | Live-sync JHU network from Excel | Excel in OneDrive/SharePoint → GitHub Action regenerates `jhu_connections.json`. Spec above; not yet built |
 | Tech one-pagers shift from `.docx` to `.pdf` | When files are ready; update `downloadTech()` path |
 | Redis job store for backend | In-memory jobs lost on Render restart; low priority on free plan |
+| Public + foundation funding sources | Surface `jhtv_investors.json` `type: public\|foundation` (TEDCO, Maryland Venture Fund, Abell, NIH, Wellcome…) as a separate non-dilutive/public category. Already tagged; a UI/categorization pass, not a re-parse |
+| Domain-tag the 99 backed companies | Classify historical backed companies into the 8 JHTV domains → co-investment domain-overlap signal in tech→firm (beyond the exact-tech pin) |
+| Add marquee unmatched backers to `vcs.json` | OrbiMed, Third Rock, Osage, Camden… resolve to VC pages instead of only the `#/backers` list |
+| Design spec + plan | `docs/superpowers/specs/2026-07-22-jhtv-backers-design.md` + `docs/superpowers/plans/2026-07-22-jhtv-backers.md` |
