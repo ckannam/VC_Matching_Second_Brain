@@ -88,6 +88,37 @@ async function commitVcEntry(newEntry) {
   if (!putRes.ok) throw new Error(`GitHub PUT vcs.json failed: ${putRes.status}`);
 }
 
+// ── Tech pause-status commit ──────────────────────────────────────────────────
+
+const STATUS_API = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/data/tech_status.json`;
+
+function validatePausedIds(body) {
+  const ids = body && body.pausedTechIds;
+  if (!Array.isArray(ids) || !ids.every(x => typeof x === 'string'))
+    return { ok: false, error: 'pausedTechIds must be an array of strings' };
+  return { ok: true, pausedTechIds: ids };
+}
+
+async function commitTechStatus(pausedTechIds) {
+  const doc = JSON.stringify({ pausedTechIds, updatedAt: new Date().toISOString() }, null, 2);
+  const put = (sha) => fetch(STATUS_API, {
+    method: 'PUT', headers: ghHeaders(),
+    body: JSON.stringify({
+      message: `chore: update tech pause status (${pausedTechIds.length} paused)`,
+      content: Buffer.from(doc).toString('base64'), sha, branch: 'main',
+    }),
+  });
+  const getRes = await fetch(STATUS_API, { headers: ghHeaders() });
+  let sha; if (getRes.ok) sha = (await getRes.json()).sha; // undefined if the file doesn't exist yet
+  let res = await put(sha);
+  if (res.status === 409) { // stale SHA — refetch + retry once
+    const fresh = await fetch(STATUS_API, { headers: ghHeaders() });
+    res = await put((await fresh.json()).sha);
+  }
+  if (!res.ok) throw new Error(`GitHub PUT tech_status.json failed: ${res.status}`);
+  return JSON.parse(doc).updatedAt;
+}
+
 // ── Background research runner ────────────────────────────────────────────────
 
 async function runResearch(vcName, jobId) {
@@ -132,7 +163,21 @@ app.get('/api/job/:jobId', (req, res) => {
   res.json(job);
 });
 
+// POST /api/tech-status  Body: { pausedTechIds: string[] }  → commits data/tech_status.json
+app.post('/api/tech-status', async (req, res) => {
+  const v = validatePausedIds(req.body || {});
+  if (!v.ok) return res.status(400).json({ error: v.error });
+  try {
+    const updatedAt = await commitTechStatus(v.pausedTechIds);
+    res.json({ ok: true, updatedAt });
+  } catch (e) {
+    res.status(500).json({ error: e.message || 'commit failed' });
+  }
+});
+
 // ── Start ─────────────────────────────────────────────────────────────────────
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`JHTV research server on port ${PORT}`));
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { validatePausedIds };
