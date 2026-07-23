@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('assert');
-const { WEIGHTS, PORTFOLIO_K, STATED_MAX, vcFitScore, fitTier, mapFocusToDomains, portfolioFit, techStageToRung } = require('../scoring.js');
+const { WEIGHTS, PORTFOLIO_K, STATED_MAX, vcFitScore, fitTier, mapFocusToDomains, portfolioFit, techStageToRung, selectWithTies } = require('../scoring.js');
 
 let pass = 0, fail = 0;
 const check = (n, fn) => { try { fn(); pass++; console.log('✓', n); } catch (e) { fail++; console.log('✗', n, '—', e.message); } };
@@ -29,41 +29,37 @@ check('techStageToRung maps milestone strings onto the round ladder', () => {
 const THER = t => ({ name: 'x', domains: ['Therapeutics'], stage: t });
 const preClinTech = { sectors: ['Therapeutics'], stage: 'Pre-Clinical' }; // rung 1
 
-check('same-rung portfolio company earns 1.0 credit', () => {
-  const r = portfolioFit([THER('Seed')], preClinTech);      // rung 1 vs 1
-  assert(near(r.score, 1 / PORTFOLIO_K), `got ${r.score}`);
+const cs = (credit) => 1 - Math.exp(-credit / PORTFOLIO_K);
+check('portfolio score follows the smooth curve, uncapped depth returned', () => {
+  const r = portfolioFit([THER('Seed')], preClinTech);      // one same-rung company → credit 1.0
+  assert(near(r.score, cs(1.0)), `got ${r.score}`);
+  assert(near(r.depth, 1.0), `depth ${r.depth}`);
   assert.strictEqual(r.hits, 1);
 });
 
-check('adjacent-rung company earns 0.75 credit', () => {
-  const r = portfolioFit([THER('Series A')], preClinTech);  // rung 2 vs 1
-  assert(near(r.score, 0.75 / PORTFOLIO_K), `got ${r.score}`);
+check('adjacent-rung company adds 0.75 credit', () => {
+  const r = portfolioFit([THER('Series A')], preClinTech);  // rung 2 vs 1 → 0.75
+  assert(near(r.depth, 0.75), `depth ${r.depth}`);
+  assert(near(r.score, cs(0.75)));
 });
 
-check('domain-only (unknown/far stage) earns 0.5 credit', () => {
-  const rNoStage = portfolioFit([THER(undefined)], preClinTech);
-  const rFar     = portfolioFit([THER('Growth')], preClinTech); // rung 5 vs 1
-  assert(near(rNoStage.score, 0.5 / PORTFOLIO_K), `got ${rNoStage.score}`);
-  assert(near(rFar.score, 0.5 / PORTFOLIO_K), `got ${rFar.score}`);
+check('domain-only (unknown/far stage) adds 0.5 credit', () => {
+  assert(near(portfolioFit([THER(undefined)], preClinTech).depth, 0.5));
+  assert(near(portfolioFit([THER('Growth')], preClinTech).depth, 0.5)); // rung 5 vs 1
 });
 
-check('no shared domain earns 0 and does not count as a hit', () => {
+check('deeper portfolio scores strictly higher (no ceiling clamp)', () => {
+  const six    = portfolioFit(Array.from({ length: 6 },  () => THER('Seed')), preClinTech);
+  const thirty = portfolioFit(Array.from({ length: 30 }, () => THER('Seed')), preClinTech);
+  assert(thirty.score > six.score, `30-deep ${thirty.score} should beat 6-deep ${six.score}`);
+  assert(thirty.score < 1 && six.score < 1, 'never clamps to exactly 1.0');
+  assert(near(thirty.depth, 30));
+});
+
+check('no shared domain earns 0 depth and does not count as a hit', () => {
   const r = portfolioFit([{ name: 'x', domains: ['Cybersecurity'], stage: 'Seed' }], preClinTech);
-  assert(near(r.score, 0));
+  assert(near(r.depth, 0));
   assert.strictEqual(r.hits, 0);
-});
-
-check('saturating count: K strong matches in a 40-company portfolio = full 1.0 (not a fraction)', () => {
-  const strong = Array.from({ length: PORTFOLIO_K }, () => THER('Seed'));
-  const noise = Array.from({ length: 40 - PORTFOLIO_K }, (_, i) => ({ name: 'n' + i, domains: [] }));
-  const r = portfolioFit([...strong, ...noise], preClinTech);
-  assert(near(r.score, 1.0), `got ${r.score}`);
-  assert.strictEqual(r.hits, PORTFOLIO_K);
-});
-
-check('below saturation scales linearly: half of K strong matches = 0.5', () => {
-  const r = portfolioFit(Array.from({ length: PORTFOLIO_K / 2 }, () => THER('Seed')), preClinTech);
-  assert(near(r.score, 0.5), `got ${r.score}`);
 });
 
 // ── evidence renormalization (the four basis rows) ────────────────────
@@ -72,16 +68,16 @@ const emptyProfile  = { sectors: [], focus: '' };
 
 check("stated + portfolio → basis 'full', 0.55·P + 0.30·SC + 0.15·Sec (uncapped)", () => {
   const r = vcFitScore(statedPerfect, preClinTech, [THER('Seed')]);
-  // P = 1/K, SC = 0.5·1 + 0.5·1 = 1, Sec = 1
+  // P = cs(1.0), SC = 0.5·1 + 0.5·1 = 1, Sec = 1
   assert.strictEqual(r.basis, 'full');
-  assert(near(r.score, 0.55 * (1 / PORTFOLIO_K) + 0.30 * 1 + 0.15 * 1), `got ${r.score}`);
+  assert(near(r.score, 0.55 * cs(1.0) + 0.30 * 1 + 0.15 * 1), `got ${r.score}`);
   assert.strictEqual(r.portfolioHits, 1);
 });
 
 check("portfolio only (the 12 curated firms' shape) → basis 'portfolio', score = portfolioFit", () => {
   const r = vcFitScore(emptyProfile, preClinTech, [THER('Seed'), THER('Seed')]);
   assert.strictEqual(r.basis, 'portfolio');
-  assert(near(r.score, 2 / PORTFOLIO_K), `got ${r.score}`);
+  assert(near(r.score, cs(2.0)), `got ${r.score}`);
   assert.strictEqual(r.portfolioHits, 2);
 });
 
@@ -94,7 +90,7 @@ check("stated only → basis 'stated', capped at STATED_MAX (perfect fit → 0.7
 });
 
 check('portfolio evidence CAN reach Strong where stated-only cannot', () => {
-  const strongPortfolio = Array.from({ length: PORTFOLIO_K }, () => THER('Seed'));
+  const strongPortfolio = Array.from({ length: 6 }, () => THER('Seed')); // credit 6 → cs(6)≈0.86
   const r = vcFitScore(emptyProfile, preClinTech, strongPortfolio);
   assert(r.score >= 0.80 && fitTier(r.score).cls === 'strong', `got ${r.score}`);
 });
@@ -185,6 +181,26 @@ check('non-JHTV buckets crosswalk to nothing (no false matches for a biotech cat
 check('whole-phrase matching: "supply chain" does not spuriously match "ai"', () => {
   const { primary } = mapFocusToDomains(['supply chain']);
   assert(!primary.has('Digital Health'), 'ai leaked in via substring of "chain"');
+});
+
+// ── selectWithTies (up-to-6 equally-strong groups) ────────────────────
+check('selectWithTies keeps 4 when the 5th is distinguishable', () => {
+  const ranked = [1.0, 0.9, 0.8, 0.7, 0.6].map((s, i) => ({ id: i, score: s, tieKey: 5 - i }));
+  const out = selectWithTies(ranked);
+  assert.strictEqual(out.length, 4);
+  assert(out.every(x => x.tied === false));
+});
+check('selectWithTies extends to <=6 and flags the tied cluster', () => {
+  const ranked = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5].map((s, i) => ({ id: i, score: s, tieKey: 2 }));
+  const out = selectWithTies(ranked);
+  assert.strictEqual(out.length, 6);
+  assert(out.every(x => x.tied === true));
+});
+check('selectWithTies uses tieKey to break a score tie (no extension)', () => {
+  const ranked = [0.9, 0.9, 0.9, 0.9, 0.9].map((s, i) => ({ id: i, score: s, tieKey: 10 - i }));
+  const out = selectWithTies(ranked);
+  assert.strictEqual(out.length, 4);
+  assert(out.every(x => x.tied === false));
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);

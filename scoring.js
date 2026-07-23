@@ -13,12 +13,12 @@
 // Tunable weights (must sum to 1.0). Change scoring emphasis HERE — one place.
 const WEIGHTS = { portfolio: 0.55, stageCheck: 0.30, sector: 0.15 };
 
-// "About this many genuinely similar portfolio companies = full marks."
-// Saturating count, NOT a fraction (a fraction would punish large diversified
-// firms) and NOT a max (one lucky hit shouldn't score full). Tuned to 6 so a
-// deep/pure-play portfolio earns Strong while a generalist with a small
-// relevant arm lands Good/Possible (K=3 flattened the top firms into a tie).
-const PORTFOLIO_K = 6;
+// Saturation constant for the smooth portfolio curve `1 - exp(-credit/K)`, which
+// replaces the old hard `min(1, credit/K)` clamp that pinned deep portfolios to a
+// flat 1.0 (e.g. 2048 had 21 techs tied at 1.0). Lower K = "Strong" reached with
+// less depth and more spread at the top. Tuned to 3 so 2048's mid-depth cluster
+// (credit ~8.5) lands ~0.94 while its deepest (credit ~14) reaches ~0.99.
+const PORTFOLIO_K = 3;
 
 // Firms scored on self-described sectors alone (no scraped portfolio) cannot
 // earn "Strong fit" — revealed behavior beats stated preference. Caps the
@@ -183,7 +183,10 @@ function portfolioFit(companies, tech) {
     credit += w;
     hits++;
   }
-  return { score: Math.min(1, credit / PORTFOLIO_K), hits };
+  // Smooth, monotonic-in-depth saturation: more/closer matching portfolio companies
+  // always yield a higher score, asymptotically approaching (never clamping at) 1.0.
+  // `depth` (uncapped credit) drives the tiebreak in the ranking layer.
+  return { score: 1 - Math.exp(-credit / PORTFOLIO_K), depth: credit, hits };
 }
 
 // Existing check-size heuristic, extracted (upgrade path: PitchBook round
@@ -243,7 +246,23 @@ function vcFitScore(vc, tech, portfolioCompanies) {
     basis = 'stated';
   }
 
-  return { score, sharedDomains, stageOk, basis, portfolioHits: pf ? pf.hits : 0 };
+  return { score, sharedDomains, stageOk, basis, portfolioHits: pf ? pf.hits : 0, depth: pf ? pf.depth : 0 };
+}
+
+// Given items ranked best-first (each { score, tieKey }), return up to `max`, extending
+// past `base` only while consecutive items are indistinguishable (|Δscore|<eps AND
+// |ΔtieKey|<eps). When extended, the trailing mutually-indistinguishable cluster is
+// flagged `tied:true` so the UI can label it "equally strong"; otherwise all `tied:false`.
+function selectWithTies(ranked, { base = 4, max = 6, eps = 0.005 } = {}) {
+  const n = ranked.length;
+  const close = (a, b) => Math.abs(a.score - b.score) < eps && Math.abs((a.tieKey || 0) - (b.tieKey || 0)) < eps;
+  if (n <= base) return ranked.map(x => ({ ...x, tied: false }));
+  if (!close(ranked[base - 1], ranked[base])) return ranked.slice(0, base).map(x => ({ ...x, tied: false }));
+  let end = base;
+  while (end < Math.min(max, n) && close(ranked[end - 1], ranked[end])) end++;
+  let clusterStart = base - 1;
+  while (clusterStart > 0 && close(ranked[clusterStart - 1], ranked[base - 1])) clusterStart--;
+  return ranked.slice(0, end).map((x, i) => ({ ...x, tied: i >= clusterStart }));
 }
 
 function fitTier(score) {
@@ -256,5 +275,5 @@ if (typeof module !== 'undefined' && module.exports)
   module.exports = {
     WEIGHTS, PORTFOLIO_K, STATED_MAX, DOMAIN_MATURITY,
     mapFocusToDomains, normalizeFocus, techStageScore, techStageToRung, portfolioFit,
-    checkSizeScore, vcFitScore, fitTier,
+    checkSizeScore, vcFitScore, fitTier, selectWithTies,
   };
