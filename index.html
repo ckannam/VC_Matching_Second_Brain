@@ -293,6 +293,9 @@
   let _curationSaving  = false;
   let _curationNote    = '';   // status line after a save
   let _curationQuery   = '';   // live search filter on the curate page
+  let _curationPausedOnly = false; // when true, show only currently-paused techs
+
+  function curationTogglePausedView() { _curationPausedOnly = !_curationPausedOnly; renderCurate(); }
 
   // Tech-name match, scoped to a single tech — mirrors the general search bar's
   // querySuggestions() scoring (prefix > word-prefix > substring).
@@ -365,10 +368,13 @@
       return `<span class="pill"><span class="pill-dot" style="background:${c}"></span>${s}</span>`;
     }).join('');
     return `<div class="tech-card curate-card${active ? '' : ' paused'}">
-        <h3 class="tech-card-title">${t.name}</h3>
+        <label class="curate-card-head">
+          <input type="checkbox" class="curate-check" ${active ? 'checked' : ''} onchange="curationToggleTech('${t.id}')">
+          <span class="tech-card-title">${t.name}</span>
+          ${active ? '' : '<span class="curate-paused-tag">paused</span>'}
+        </label>
         ${t.pi ? `<p class="pi">${t.pi}</p>` : ''}
         <div class="tags">${tags}${t.stage ? `<span class="pill">${t.stage}</span>` : ''}</div>
-        <button class="curate-toggle ${active ? 'on' : 'off'}" onclick="curationToggleTech('${t.id}')">${active ? '● Active' : '◍ Paused'}</button>
       </div>`;
   }
 
@@ -390,8 +396,8 @@
     const cohortSections = grouped.map(({ cohort, buckets: bks }) => {
       const cSt = groupState(techsInCohort(cohort));
       const bucketBlocks = bks.map(({ bucket, techs }) => {
-        const shown = techs.filter(t => techMatchesQuery(t, q));
-        if (!shown.length) return ''; // hide buckets with no match while searching
+        const shown = techs.filter(t => techMatchesQuery(t, q) && (!_curationPausedOnly || _curationWorking.has(t.id)));
+        if (!shown.length) return ''; // hide buckets with nothing to show
         const bSt = groupState(techsInBucketCohort(cohort, bucket));
         const dot = DOMAIN_COLORS[bucket] || '#64748B';
         const icon = DOMAIN_ICONS[bucket] || DOMAIN_ICONS['Research Technologies'];
@@ -404,7 +410,7 @@
               </span>
               <label class="curate-selall"><input type="checkbox" ${bSt === 'active' ? 'checked' : ''} onchange="curationToggleBucketCohort('${escC(cohort)}','${escC(bucket)}', ${bSt !== 'paused'})"> select all</label>
             </div>
-            <div class="tech-grid">${shown.map(curateTechCardHTML).join('')}</div>
+            <div class="curate-grid">${shown.map(curateTechCardHTML).join('')}</div>
           </div>`;
       }).join('');
       if (!bucketBlocks) return ''; // hide cohorts with no matching buckets
@@ -425,12 +431,12 @@
         <p class="section-label">Pause a technology to stop matching it to VCs. Paused techs still appear in the catalog, marked “paused”.</p>
         <div class="curate-toolbar">
           <input id="curateSearch" class="curate-search" placeholder="Search technologies…" value="${escAttr(q)}" oninput="curationSearch(this.value)">
-          <span class="curate-paused-count">${_curationWorking.size} paused</span>
+          <button type="button" class="curate-paused-count${_curationPausedOnly ? ' active' : ''}" onclick="curationTogglePausedView()" title="Click to see only paused technologies">${_curationWorking.size} paused${_curationPausedOnly ? ' · showing only these' : ''}</button>
         </div>
         <p class="section-label">Buckets — all cohorts</p>
         <div class="curate-strip">${bucketStrip}</div>
       </div>
-      ${cohortSections || '<div class="catalog-section"><p class="section-label">No technologies match your search.</p></div>'}
+      ${cohortSections || `<div class="catalog-section"><p class="section-label">${_curationPausedOnly ? 'No technologies are paused.' : 'No technologies match your search.'}</p></div>`}
       <div class="curate-savebar">
         ${(!dirty && _curationNote) ? `<span class="curate-note">${_curationNote}</span>` : ''}
         <button class="btn btn-gold" onclick="curationSave()" ${(!dirty || _curationSaving) ? 'disabled' : ''}>
