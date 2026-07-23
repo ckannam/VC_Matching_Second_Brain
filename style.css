@@ -670,6 +670,22 @@ body.compact-hero .popular-row { display: none; }
 }
 .tech-card.paused { opacity: .6; }
 .tech-card.paused .tech-card-title { color: var(--muted); }
+
+/* Curation page (#/curate) */
+.curate-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 4px; }
+.curate-bucket-chip { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: .82rem;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--paper); cursor: pointer; }
+.curate-bucket-chip.paused { opacity: .55; text-decoration: line-through; }
+.curate-bucket-chip.mixed { border-style: dashed; }
+.curate-chip-state { color: var(--muted); font-size: .72rem; text-transform: uppercase; }
+.curate-bucket { margin: 6px 0 12px; }
+.curate-bucket-head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+.curate-count { color: var(--muted); font-weight: 400; }
+.curate-selall { font-size: .78rem; color: var(--muted); font-weight: 400; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.curate-tech-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 16px; }
+.curate-tech { display: flex; align-items: center; gap: 7px; font-size: .9rem; padding: 3px 0; cursor: pointer; }
+.curate-tech.paused { color: var(--muted); text-decoration: line-through; }
+.curate-savebar { position: sticky; bottom: 0; padding: 12px 0; background: linear-gradient(transparent, #fff 40%); text-align: right; }
 .rel-line {
   display: flex;
   align-items: center;

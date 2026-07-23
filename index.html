@@ -25,6 +25,7 @@
       <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
       <button class="nav-link" onclick="showSavedBriefs()">Saved briefs</button>
       <button class="nav-link" onclick="showBackers()">JHTV backers</button>
+      <button class="nav-link" onclick="showCurate()">Curate</button>
       <button class="nav-link" onclick="showGrantChecker()">Grant checker</button>
     </div>
   </div>
@@ -281,6 +282,121 @@
         <p class="section-label">Firms that have actually written checks into JHTV/Hopkins companies, ranked by companies backed (revealed co-investment).</p>
         <div class="vc-fit-list">${rows}</div>
       </div>`;
+  }
+
+  // ── Curation (#/curate) — pause/resume which techs are matched to VCs ──────
+  let _curationWorking = null; // Set of paused ids being edited (null until first render)
+  let _curationSaving  = false;
+
+  function showCurate() { location.hash = '#/curate'; }
+
+  function curationDirty() {
+    if (!_curationWorking) return false;
+    if (_curationWorking.size !== PAUSED.size) return true;
+    for (const id of _curationWorking) if (!PAUSED.has(id)) return true;
+    return false;
+  }
+  const techsInBucketGlobal = (bucket) => TECHS.filter(t => (t.sectors || []).includes(bucket));
+  const techsInCohort       = (cohort) => TECHS.filter(t => (t.cohort || 'Cohort 1') === cohort);
+  const techsInBucketCohort = (cohort, bucket) => techsInCohort(cohort).filter(t => (t.sectors || []).includes(bucket));
+
+  function _curationSet(ids, pause) { for (const id of ids) pause ? _curationWorking.add(id) : _curationWorking.delete(id); renderCurate(); }
+  function curationToggleTech(id) { _curationWorking.has(id) ? _curationWorking.delete(id) : _curationWorking.add(id); renderCurate(); }
+  function curationToggleBucketGlobal(bucket, pause) { _curationSet(techsInBucketGlobal(bucket).map(t => t.id), pause); }
+  function curationToggleCohort(cohort, pause)       { _curationSet(techsInCohort(cohort).map(t => t.id), pause); }
+  function curationToggleBucketCohort(cohort, bucket, pause) { _curationSet(techsInBucketCohort(cohort, bucket).map(t => t.id), pause); }
+
+  // A group is "active" when none of its techs are paused, "paused" when all are, else "mixed".
+  const groupState = (techs) => {
+    const paused = techs.filter(t => _curationWorking.has(t.id)).length;
+    return paused === 0 ? 'active' : paused === techs.length ? 'paused' : 'mixed';
+  };
+  const escC = (s) => s.replace(/'/g, "\\'");
+
+  async function curationSave() {
+    if (_curationSaving || !curationDirty()) return;
+    _curationSaving = true; renderCurate();
+    try {
+      const res = await fetch(RESEARCH_SERVER + '/api/tech-status', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pausedTechIds: [..._curationWorking] }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      PAUSED = new Set(_curationWorking);       // new authoritative baseline
+      _curationSaving = false; renderCurate();
+    } catch (e) {
+      _curationSaving = false;
+      alert('Save failed: ' + e.message + '\n(The matching server may be waking up — wait ~30s and try again.)');
+      renderCurate();
+    }
+  }
+
+  function renderCurate() {
+    if (!_curationWorking) _curationWorking = new Set(PAUSED);
+    const grouped = groupByCohortBucket(TECHS);
+    const allBuckets = [...new Set(TECHS.flatMap(t => t.sectors || []))].sort();
+
+    const bucketStrip = allBuckets.map(b => {
+      const st = groupState(techsInBucketGlobal(b));
+      const dot = DOMAIN_COLORS[b] || '#64748B';
+      return `<button class="curate-bucket-chip ${st}" onclick="curationToggleBucketGlobal('${escC(b)}', ${st !== 'paused'})">
+                <span class="pill-dot" style="background:${dot}"></span>${b}
+                <span class="curate-chip-state">${st === 'active' ? 'on' : st === 'paused' ? 'off' : 'mixed'}</span>
+              </button>`;
+    }).join('');
+
+    const cohortSections = grouped.map(({ cohort, buckets: bks }) => {
+      const cSt = groupState(techsInCohort(cohort));
+      const bucketBlocks = bks.map(({ bucket, techs }) => {
+        const bSt = groupState(techsInBucketCohort(cohort, bucket));
+        const dot = DOMAIN_COLORS[bucket] || '#64748B';
+        const rows = techs.map(t => {
+          const active = !_curationWorking.has(t.id);
+          return `<label class="curate-tech${active ? '' : ' paused'}">
+                    <input type="checkbox" ${active ? 'checked' : ''} onchange="curationToggleTech('${t.id}')"> ${t.name}
+                  </label>`;
+        }).join('');
+        return `<div class="curate-bucket">
+            <div class="curate-bucket-head">
+              <span><span class="pill-dot" style="background:${dot}"></span>${bucket} <span class="curate-count">(${techs.length})</span></span>
+              <label class="curate-selall"><input type="checkbox" ${bSt === 'active' ? 'checked' : ''} onchange="curationToggleBucketCohort('${escC(cohort)}','${escC(bucket)}', ${bSt !== 'paused'})"> select all</label>
+            </div>
+            <div class="curate-tech-list">${rows}</div>
+          </div>`;
+      }).join('');
+      return `<div class="catalog-section">
+          <div class="catalog-header">
+            <h2>${cohort}</h2>
+            <label class="curate-selall"><input type="checkbox" ${cSt === 'active' ? 'checked' : ''} onchange="curationToggleCohort('${escC(cohort)}', ${cSt !== 'paused'})"> select all in cohort</label>
+          </div>
+          ${bucketBlocks}
+        </div>`;
+    }).join('');
+
+    const dirty = curationDirty();
+    showResults().innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header"><h2>Curate matching</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button></div>
+        <p class="section-label">Uncheck a technology to pause it from VC matching. Paused techs still appear in the catalog, marked “paused”.</p>
+        <p class="section-label">Buckets — all cohorts</p>
+        <div class="curate-strip">${bucketStrip}</div>
+      </div>
+      ${cohortSections}
+      <div class="curate-savebar">
+        <button class="btn btn-gold" onclick="curationSave()" ${(!dirty || _curationSaving) ? 'disabled' : ''}>
+          ${_curationSaving ? 'Saving…' : dirty ? 'Save changes' : 'Saved'}</button>
+      </div>`;
+
+    // Reflect "mixed" cohort/bucket "select all" checkboxes as indeterminate (visual only).
+    const sections = [...document.querySelectorAll('.catalog-section')].slice(1); // skip the header/strip section
+    grouped.forEach(({ cohort, buckets: bks }, ci) => {
+      const secEl = sections[ci]; if (!secEl) return;
+      const cInput = secEl.querySelector('.catalog-header .curate-selall input');
+      if (cInput) cInput.indeterminate = groupState(techsInCohort(cohort)) === 'mixed';
+      const bInputs = secEl.querySelectorAll('.curate-bucket .curate-selall input');
+      bks.forEach((b, bi) => { if (bInputs[bi]) bInputs[bi].indeterminate = groupState(techsInBucketCohort(cohort, b.bucket)) === 'mixed'; });
+    });
   }
 
   function showSavedBriefs() { location.hash = '#/briefs'; }
@@ -691,6 +807,7 @@
     if (h === '#/all')          return renderAllTechs();
     if (h === '#/grants')       return renderGrantChecker(_grantPrefill);
     if (h === '#/backers')      return renderBackers();
+    if (h === '#/curate')       return renderCurate();
     renderHome();
   }
   window.addEventListener('hashchange', dispatchRoute);
