@@ -1,22 +1,6 @@
 {
   "pausedTechIds": [
-    "astropath",
-    "bullfrog-ai",
-    "circlage",
-    "corrie-health",
-    "curiedx",
-    "curveassure",
-    "epiwatch",
-    "junebrain",
-    "lumiinus",
-    "neurologic-solutions",
-    "oncospace",
-    "safetower",
-    "scene-health",
-    "semaphor",
-    "sonavi-labs",
-    "visilant",
-    "wearable-labs"
+    "28bio"
   ],
-  "updatedAt": "2026-07-23T17:45:02.942Z"
+  "updatedAt": "2026-07-23T17:46:22.168Z"
 }
