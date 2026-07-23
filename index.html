@@ -999,12 +999,13 @@
       const alreadyInvested = isBacker && backerNames.has(backerRec.investor);
       const fit = vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id));
       const bonus = relationshipBonus(inBrief, isBacker); // capped, never stacked
+      const tieKey = fit ? fit.depth * techDomainRecency(RECENCY_BY_VC[vc.id] || null, tech) : 0;
       if (fit) {
         if (fit.score >= 0.45 || inBrief || alreadyInvested)
-          rows.push({ vc, fit, inBrief, isBacker, alreadyInvested, backerRec,
+          rows.push({ vc, fit, inBrief, isBacker, alreadyInvested, backerRec, tieKey,
                       sortScore: fit.score + bonus + (alreadyInvested ? 1 : 0) });
       } else if (briefMatch || alreadyInvested) {
-        rows.push({ vc, fit: null, inBrief, isBacker, alreadyInvested, backerRec,
+        rows.push({ vc, fit: null, inBrief, isBacker, alreadyInvested, backerRec, tieKey: 0,
                     sortScore: 0.75 + (alreadyInvested ? 1 : 0) });
       }
     }
@@ -1013,8 +1014,8 @@
     const unprofiledPins = backersForTech(tech)
       .filter(inv => !profiled.has(inv.investor))
       .map(inv => ({ vc: null, fit: null, inBrief: false, isBacker: true, alreadyInvested: true,
-                     backerRec: inv, unprofiledBacker: true, sortScore: 2 }));
-    return [...unprofiledPins, ...rows].sort((a, b) => b.sortScore - a.sortScore);
+                     backerRec: inv, unprofiledBacker: true, tieKey: 0, sortScore: 2 }));
+    return [...unprofiledPins, ...rows].sort((a, b) => b.sortScore - a.sortScore || (b.tieKey || 0) - (a.tieKey || 0));
   }
 
   function toggleMoreFits() {
@@ -1151,7 +1152,7 @@
       if (isBacker && !alreadyInvested) badges.push(`<span class="pill backer-pill">has funded ${backerRec.companyCount} JHTV compan${backerRec.companyCount === 1 ? 'y' : 'ies'}</span>`);
       if (fit) {
         const t = fitTier(fit.score);
-        badges.push(`<span class="pill fit-tier-${t.cls}">${t.label}</span>`);
+        badges.push(`<span class="pill fit-tier-${t.cls}">${t.label} · ${fit.score.toFixed(2)}</span>`);
       }
       const parts = [];
       if (fit && fit.portfolioHits) parts.push(`has ${fit.portfolioHits} portfolio compan${fit.portfolioHits === 1 ? 'y' : 'ies'} like this`);
@@ -1175,8 +1176,13 @@
         </div>` : '';
 
     const prospectLabel = relSection ? 'New prospects' : 'Investor fit';
-    const firstRows = prospects.slice(0, 4).map(fitRowHTML).join('');
-    const moreRows  = prospects.slice(4).map(fitRowHTML).join('');
+    // Up-to-6: extend past 4 only when the trailing firms are genuinely indistinguishable.
+    const prospectRanked = prospects.map(p => ({ ...p, score: p.sortScore, tieKey: p.tieKey || 0 }));
+    const shown = selectWithTies(prospectRanked, { base: 4, max: 6 });
+    const tiedNote = shown.some(x => x.tied)
+      ? `<p class="tied-group">Top ${shown.filter(x => !x.tied).length} are clearly strongest; the rest are equally strong — not rank-ordered.</p>` : '';
+    const firstRows = tiedNote + shown.map(fitRowHTML).join('');
+    const moreRows  = prospects.slice(shown.length).map(fitRowHTML).join('');
 
     const sectorPills = (tech.sectors || []).map(s => {
       const c = DOMAIN_COLORS[s] || '#64748B';
@@ -1209,7 +1215,7 @@
         <div class="vc-fit-list">
           ${firstRows || '<p class="jhu-no-connections">No researched VC in the database fits this technology yet — try researching a firm from the search bar.</p>'}
           ${moreRows ? `<div id="moreVcFits" style="display:none">${moreRows}</div>
-            <button class="btn btn-secondary btn-sm" id="moreVcFitsBtn" data-show-label="Show ${prospects.length - 4} more match${prospects.length - 4 === 1 ? '' : 'es'}" onclick="toggleMoreFits()">Show ${prospects.length - 4} more match${prospects.length - 4 === 1 ? '' : 'es'}</button>` : ''}
+            <button class="btn btn-secondary btn-sm" id="moreVcFitsBtn" data-show-label="Show ${prospects.length - shown.length} more match${prospects.length - shown.length === 1 ? '' : 'es'}" onclick="toggleMoreFits()">Show ${prospects.length - shown.length} more match${prospects.length - shown.length === 1 ? '' : 'es'}</button>` : ''}
         </div>
 
         <div id="techGrantSection" class="profile-section"><p class="section-label">Non-dilutive funding — preliminary screen</p><p class="grant-disclaimer">Checking grant eligibility…</p></div>
