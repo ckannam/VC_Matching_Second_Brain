@@ -2,7 +2,19 @@
   "pausedTechIds": [
     "edac-labs",
     "etch",
-    "geothermal-technologies"
+    "geothermal-technologies",
+    "28bio",
+    "cardiowise",
+    "delfi-diagnostics",
+    "drul",
+    "erada-technology-alliance",
+    "fyodor-biotechnologies",
+    "infinity-bio",
+    "kreftect",
+    "pearl-diagnostics",
+    "previse",
+    "prompt-diagnostics",
+    "sonavex"
   ],
-  "updatedAt": "2026-07-23T16:19:54.188Z"
+  "updatedAt": "2026-07-23T16:24:54.213Z"
 }
