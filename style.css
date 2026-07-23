@@ -678,14 +678,23 @@ body.compact-hero .popular-row { display: none; }
 .curate-bucket-chip.paused { opacity: .55; text-decoration: line-through; }
 .curate-bucket-chip.mixed { border-style: dashed; }
 .curate-chip-state { color: var(--muted); font-size: .72rem; text-transform: uppercase; }
-.curate-bucket { margin: 6px 0 12px; }
-.curate-bucket-head { display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
-.curate-count { color: var(--muted); font-weight: 400; }
+.curate-bucket { margin: 0 0 18px; }
+.curate-bucket-head { display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 6px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+.curate-bucket-title { display: inline-flex; align-items: center; gap: 9px; }
+.curate-bucket-icon { display: inline-flex; }
+.curate-bucket-icon svg { width: 18px; height: 18px; stroke: currentColor; }
+.curate-bucket-name { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--ink, #1a1a1a); }
+.curate-count { font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; color: var(--muted);
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; }
 .curate-selall { font-size: .78rem; color: var(--muted); font-weight: 400; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
-.curate-tech-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px 16px; }
-.curate-tech { display: flex; align-items: center; gap: 7px; font-size: .9rem; padding: 3px 0; cursor: pointer; }
+.curate-tech-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 18px; }
+.curate-tech { display: flex; align-items: center; gap: 8px; font-size: .92rem; padding: 4px 0; cursor: pointer; }
+.curate-tech input { accent-color: var(--blue); width: 15px; height: 15px; }
 .curate-tech.paused { color: var(--muted); text-decoration: line-through; }
-.curate-savebar { position: sticky; bottom: 0; padding: 12px 0; background: linear-gradient(transparent, #fff 40%); text-align: right; }
+.curate-savebar { position: sticky; bottom: 0; padding: 14px 0; margin-top: 8px;
+  background: linear-gradient(transparent, #fff 45%); display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+.curate-note { font-size: .82rem; color: var(--muted); }
 .rel-line {
   display: flex;
   align-items: center;

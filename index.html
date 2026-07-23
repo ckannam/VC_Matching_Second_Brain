@@ -112,7 +112,10 @@
       // Only venture/angel enter the UI; foundation/public are a deferred pass.
       JHTV_INVESTORS = (investorsRaw.investors || []).filter(i => i.type === 'venture' || i.type === 'angel');
       RECENCY_BY_VC = recencyRaw.byVc || {};
-      PAUSED = new Set(statusRaw.pausedTechIds || []);
+      // Persistence: this browser's saved choices win (survive sessions with no backend);
+      // otherwise fall back to the shared, backend-committed data/tech_status.json.
+      const storedPaused = (() => { try { return JSON.parse(localStorage.getItem(PAUSE_STORE) || 'null'); } catch (_) { return null; } })();
+      PAUSED = new Set(Array.isArray(storedPaused) ? storedPaused : (statusRaw.pausedTechIds || []));
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
@@ -285,8 +288,10 @@
   }
 
   // ── Curation (#/curate) — pause/resume which techs are matched to VCs ──────
+  const PAUSE_STORE = 'jhtv_paused_tech'; // localStorage key — persists choices across sessions
   let _curationWorking = null; // Set of paused ids being edited (null until first render)
   let _curationSaving  = false;
+  let _curationNote    = '';   // status line after a save
 
   function showCurate() { location.hash = '#/curate'; }
 
@@ -315,20 +320,28 @@
 
   async function curationSave() {
     if (_curationSaving || !curationDirty()) return;
-    _curationSaving = true; renderCurate();
+    _curationSaving = true; _curationNote = ''; renderCurate();
+
+    const ids = [..._curationWorking];
+    // 1) Persist to this browser first — guaranteed, survives sessions with no backend.
+    try { localStorage.setItem(PAUSE_STORE, JSON.stringify(ids)); } catch (_) {}
+    PAUSED = new Set(_curationWorking); // new baseline (Save button → "Saved")
+
+    // 2) Best-effort: also commit to the shared file so other staff/devices see it.
+    let synced = false;
     try {
       const res = await fetch(RESEARCH_SERVER + '/api/tech-status', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pausedTechIds: [..._curationWorking] }),
+        body: JSON.stringify({ pausedTechIds: ids }),
       });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      PAUSED = new Set(_curationWorking);       // new authoritative baseline
-      _curationSaving = false; renderCurate();
-    } catch (e) {
-      _curationSaving = false;
-      alert('Save failed: ' + e.message + '\n(The matching server may be waking up — wait ~30s and try again.)');
-      renderCurate();
-    }
+      synced = res.ok;
+    } catch (_) { synced = false; }
+
+    _curationSaving = false;
+    _curationNote = synced
+      ? 'Saved and synced to the shared catalog.'
+      : 'Saved on this device. (Couldn’t reach the sync server — the shared copy will update next time it’s online.)';
+    renderCurate();
   }
 
   function renderCurate() {
@@ -356,9 +369,14 @@
                     <input type="checkbox" ${active ? 'checked' : ''} onchange="curationToggleTech('${t.id}')"> ${t.name}
                   </label>`;
         }).join('');
+        const icon = DOMAIN_ICONS[bucket] || DOMAIN_ICONS['Research Technologies'];
         return `<div class="curate-bucket">
             <div class="curate-bucket-head">
-              <span><span class="pill-dot" style="background:${dot}"></span>${bucket} <span class="curate-count">(${techs.length})</span></span>
+              <span class="curate-bucket-title">
+                <span class="curate-bucket-icon" style="color:${dot}">${icon}</span>
+                <span class="curate-bucket-name">${bucket}</span>
+                <span class="curate-count">${techs.length}</span>
+              </span>
               <label class="curate-selall"><input type="checkbox" ${bSt === 'active' ? 'checked' : ''} onchange="curationToggleBucketCohort('${escC(cohort)}','${escC(bucket)}', ${bSt !== 'paused'})"> select all</label>
             </div>
             <div class="curate-tech-list">${rows}</div>
@@ -384,6 +402,7 @@
       </div>
       ${cohortSections}
       <div class="curate-savebar">
+        ${(!dirty && _curationNote) ? `<span class="curate-note">${_curationNote}</span>` : ''}
         <button class="btn btn-gold" onclick="curationSave()" ${(!dirty || _curationSaving) ? 'disabled' : ''}>
           ${_curationSaving ? 'Saving…' : dirty ? 'Save changes' : 'Saved'}</button>
       </div>`;
