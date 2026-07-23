@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-07-23T14:50:33.624Z",
+  "note": "Per-VC per-JHTV-domain recency weight (0.5..1.0) from vc_deals.json dates. Tiebreak-only.",
+  "byVc": {
+    "2048-ventures": {
+      "Medical Devices": 0.976,
+      "Therapeutics": 0.976,
+      "Research Technologies": 0.971,
+      "Digital Health": 0.968,
+      "Diagnostics": 0.912
+    },
+    "8vc": {
+      "Therapeutics": 0.982,
+      "Research Technologies": 0.982,
+      "Digital Health": 0.979,
+      "Clean Tech": 0.964,
+      "Medical Devices": 0.956
+    },
+    "amplify-partners": {
+      "Therapeutics": 0.988,
+      "Research Technologies": 0.988,
+      "Diagnostics": 0.846,
+      "Medical Devices": 0.846
+    },
+    "dimension": {
+      "Research Technologies": 0.998,
+      "Therapeutics": 0.972
+    },
+    "felicis": {
+      "Digital Health": 0.994,
+      "Clean Tech": 0.943,
+      "Therapeutics": 0.941,
+      "Diagnostics": 0.881,
+      "Medical Devices": 0.881,
+      "Research Technologies": 0.868
+    },
+    "frazier-life-sciences": {
+      "Digital Health": 0.997,
+      "Therapeutics": 0.989,
+      "Research Technologies": 0.979,
+      "Medical Devices": 0.961,
+      "Diagnostics": 0.954
+    },
+    "fusion-fund": {
+      "Digital Health": 0.989,
+      "Medical Devices": 0.959,
+      "Therapeutics": 0.925,
+      "Research Technologies": 0.924
+    },
+    "lux-capital": {
+      "Digital Health": 0.998,
+      "Therapeutics": 0.988,
+      "Research Technologies": 0.988,
+      "Medical Devices": 0.933
+    },
+    "nea": {
+      "Therapeutics": 0.906,
+      "Research Technologies": 0.906,
+      "Medical Devices": 0.905,
+      "Digital Health": 0.887
+    }
+  }
+}
