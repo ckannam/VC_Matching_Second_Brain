@@ -23,6 +23,7 @@
     <div class="nav-links">
       <button class="nav-link" onclick="showDomainBrowse()">Catalog</button>
       <button class="nav-link" onclick="showSavedBriefs()">Saved briefs</button>
+      <button class="nav-link" onclick="showBackers()">JHTV backers</button>
       <button class="nav-link" onclick="showGrantChecker()">Grant checker</button>
     </div>
   </div>
@@ -239,6 +240,40 @@
     document.getElementById('domainBrowse').style.display = 'block';
     document.body.classList.remove('compact-hero');
     document.getElementById('vcInput').value = '';
+  }
+
+  function showBackers() { location.hash = '#/backers'; }
+
+  // Ranked catalog of every venture/angel firm that has actually invested in a
+  // JHTV/Hopkins company. Resolved firms link to their VC page; the rest are plain
+  // rows with a "research" action (they aren't profiled in vcs.json yet).
+  function renderBackers() {
+    const rows = JHTV_INVESTORS
+      .slice()
+      .sort((a, b) => b.companyCount - a.companyCount || b.dealCount - a.dealCount)
+      .map(inv => {
+        const vc = vcMatchingName(inv.investor);
+        const money = fmtMoney(inv.totalInvested);
+        const years = [...new Set([(inv.firstDate || '').slice(0, 4), (inv.lastDate || '').slice(0, 4)].filter(Boolean))].join('–');
+        const cos = (inv.companiesBacked || []).slice(0, 8).join(', ') + ((inv.companiesBacked || []).length > 8 ? '…' : '');
+        const safe = inv.investor.replace(/'/g, "\\'");
+        const nameHTML = vc
+          ? `<a href="#/vc/${vc.id}" class="vc-fit-name">${inv.investor}</a>`
+          : `<span class="vc-fit-name">${inv.investor}</span> <button class="rel-chip" onclick="triggerResearch('${safe}')" title="Not yet profiled">research</button>`;
+        const stats = [`${inv.companyCount} JHTV compan${inv.companyCount === 1 ? 'y' : 'ies'}`, `${inv.dealCount} deals`, money, years].filter(Boolean).join(' · ');
+        return `<div class="backer-row"><div class="vc-fit-main">${nameHTML}</div>
+                  <div class="vc-fit-detail">${stats}${cos ? ` — ${cos}` : ''}</div></div>`;
+      }).join('');
+
+    showResults().innerHTML = `
+      <div class="catalog-section">
+        <div class="catalog-header">
+          <h2>JHTV backers — ${JHTV_INVESTORS.length} firms</h2>
+          <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button>
+        </div>
+        <p class="section-label">Firms that have actually written checks into JHTV/Hopkins companies, ranked by companies backed (revealed co-investment).</p>
+        <div class="vc-fit-list">${rows}</div>
+      </div>`;
   }
 
   function showSavedBriefs() { location.hash = '#/briefs'; }
@@ -499,6 +534,25 @@
   // pick and a JHTV backer still gets +0.1 total (not +0.2).
   function relationshipBonus(inBrief, isBacker) { return (inBrief || isBacker) ? 0.1 : 0; }
 
+  function fmtMoney(n) {
+    if (!n) return null;
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    if (n >= 1e6) return '$' + Math.round(n / 1e6) + 'M';
+    return '$' + Math.round(n / 1e3) + 'K';
+  }
+  function backerBadgeHTML(inv) {
+    return `<span class="pill backer-badge">JHTV backer · ${inv.companyCount} compan${inv.companyCount === 1 ? 'y' : 'ies'}</span>`;
+  }
+  function backerDetailHTML(inv) {
+    const money = fmtMoney(inv.totalInvested);
+    const year = (inv.lastDate || '').slice(0, 4);
+    const cos = inv.companiesBacked || [];
+    const shown = cos.slice(0, 6).join(', ');
+    const more = cos.length > 6 ? ` +${cos.length - 6} more` : '';
+    const bits = [`Funded ${shown}${more}`, money ? `${money} total` : '', year ? `last check ${year}` : ''].filter(Boolean);
+    return `<div class="backer-detail">${bits.join(' · ')}</div>`;
+  }
+
   // ── Search ────────────────────────────────────────────────────────────────
   const input = document.getElementById('vcInput');
   input.addEventListener('keydown', e => {
@@ -620,6 +674,7 @@
     if (h === '#/briefs')       return renderSavedBriefs();
     if (h === '#/all')          return renderAllTechs();
     if (h === '#/grants')       return renderGrantChecker(_grantPrefill);
+    if (h === '#/backers')      return renderBackers();
     renderHome();
   }
   window.addEventListener('hashchange', dispatchRoute);
@@ -809,6 +864,7 @@
         <div>
           <h2>${vc.name}</h2>
           <div class="vc-meta">${sectorPills}${stagePills}</div>
+          ${INVESTORS_BY_VC.has(vc.id) ? `<div class="rel-line">${backerBadgeHTML(INVESTORS_BY_VC.get(vc.id))}</div>${backerDetailHTML(INVESTORS_BY_VC.get(vc.id))}` : ''}
           ${REL_BY_VC.has(vc.id) ? `<div class="rel-line">${relBadgeHTML(REL_BY_VC.get(vc.id))}${REL_BY_VC.get(vc.id).note ? `<span class="rel-note">${REL_BY_VC.get(vc.id).note}</span>` : ''}</div>` : ''}
         </div>
         <div class="vc-actions">
@@ -919,18 +975,31 @@
   // via their brief match (fixed 0.75 sort score).
   function findVCsForTech(tech) {
     const rows = [];
+    const backerNames = new Set(backersForTech(tech).map(i => i.investor)); // exact-tech investors
     for (const vc of VCS) {
       const briefMatch = (vc.matchedTechs || []).includes(tech.id);
       const inBrief = !!vc.vcOnePager && briefMatch;
+      const backerRec = INVESTORS_BY_VC.get(vc.id);
+      const isBacker = !!backerRec;
+      const alreadyInvested = isBacker && backerNames.has(backerRec.investor);
       const fit = vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id));
+      const bonus = relationshipBonus(inBrief, isBacker); // capped, never stacked
       if (fit) {
-        if (fit.score >= 0.45 || inBrief)
-          rows.push({ vc, fit, inBrief, sortScore: fit.score + (inBrief ? 0.1 : 0) });
-      } else if (briefMatch) {
-        rows.push({ vc, fit: null, inBrief, sortScore: 0.75 });
+        if (fit.score >= 0.45 || inBrief || alreadyInvested)
+          rows.push({ vc, fit, inBrief, isBacker, alreadyInvested, backerRec,
+                      sortScore: fit.score + bonus + (alreadyInvested ? 1 : 0) });
+      } else if (briefMatch || alreadyInvested) {
+        rows.push({ vc, fit: null, inBrief, isBacker, alreadyInvested, backerRec,
+                    sortScore: 0.75 + (alreadyInvested ? 1 : 0) });
       }
     }
-    return rows.sort((a, b) => b.sortScore - a.sortScore);
+    // Exact-tech investors NOT in vcs.json — pinned, non-scored rows at the very top.
+    const profiled = new Set([...INVESTORS_BY_VC.values()].map(i => i.investor));
+    const unprofiledPins = backersForTech(tech)
+      .filter(inv => !profiled.has(inv.investor))
+      .map(inv => ({ vc: null, fit: null, inBrief: false, isBacker: true, alreadyInvested: true,
+                     backerRec: inv, unprofiledBacker: true, sortScore: 2 }));
+    return [...unprofiledPins, ...rows].sort((a, b) => b.sortScore - a.sortScore);
   }
 
   function toggleMoreFits() {
@@ -1048,11 +1117,23 @@
     if (!tech) { renderHome(); return; }
 
     const picks = findVCsForTech(tech);
-    const fitRowHTML = ({ vc, fit, inBrief }) => {
+    const fitRowHTML = ({ vc, fit, inBrief, isBacker, alreadyInvested, backerRec, unprofiledBacker }) => {
+      // Exact-tech investor not in vcs.json — a pinned, non-scored row.
+      if (unprofiledBacker) {
+        const safe = backerRec.investor.replace(/'/g, "\\'");
+        return `<div class="vc-fit-row"><div class="vc-fit-main">
+            <span class="vc-fit-name">${backerRec.investor}</span>
+            <span class="pill backer-badge">Already invested in ${tech.name}</span>
+            <button class="rel-chip" onclick="triggerResearch('${safe}')" title="Not yet profiled">research</button>
+          </div>
+          <div class="vc-fit-detail">Has funded ${backerRec.companyCount} JHTV compan${backerRec.companyCount === 1 ? 'y' : 'ies'}.</div></div>`;
+      }
       const rel = REL_BY_VC.get(vc.id);
       const badges = [];
+      if (alreadyInvested) badges.push(`<span class="pill backer-badge">Already invested in ${tech.name}</span>`);
       if (rel) badges.push(relBadgeHTML(rel));
       if (inBrief) badges.push('<span class="pill fit-badge-curated">In VC brief</span>');
+      if (isBacker && !alreadyInvested) badges.push(`<span class="pill backer-pill">has funded ${backerRec.companyCount} JHTV compan${backerRec.companyCount === 1 ? 'y' : 'ies'}</span>`);
       if (fit) {
         const t = fitTier(fit.score);
         badges.push(`<span class="pill fit-tier-${t.cls}">${t.label}</span>`);
@@ -1066,8 +1147,8 @@
       return vcFitRowHTML(vc, badges.join(''), detail);
     };
 
-    const rels      = picks.filter(p => REL_BY_VC.has(p.vc.id));
-    const prospects = picks.filter(p => !REL_BY_VC.has(p.vc.id));
+    const rels      = picks.filter(p => p.vc && REL_BY_VC.has(p.vc.id));
+    const prospects = picks.filter(p => !p.vc || !REL_BY_VC.has(p.vc.id));
 
     const relChips = UNMATCHED_RELS.map(rl =>
       `<button class="rel-chip" onclick="triggerResearch('${rl.firm.replace(/'/g, "\\'")}')" title="Not yet profiled — research this firm">${rl.firm}</button>`).join('');

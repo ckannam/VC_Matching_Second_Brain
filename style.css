@@ -637,6 +637,27 @@ body.compact-hero .popular-row { display: none; }
   border-color: var(--navy);
   color: #fff;
 }
+/* JHTV backer (revealed co-investment) — emerald, distinct from gold "In VC brief"
+   and navy relationship badges. */
+.backer-badge {
+  background: #0E9F6E;
+  border-color: #0E9F6E;
+  color: #fff;
+}
+.backer-detail {
+  font-size: .82rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.backer-pill {
+  background: #D1FAE5;
+  border-color: #A7F3D0;
+  color: #065F46;
+}
+.backer-row {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line, #E2E8F0);
+}
 .rel-line {
   display: flex;
   align-items: center;
