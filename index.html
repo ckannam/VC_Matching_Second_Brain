@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="grant_checker.js" defer></script>
   <script src="taxonomy.js" defer></script>
+  <script src="curation.js" defer></script>
   <script src="scoring.js" defer></script>
 </head>
 <body>
@@ -90,12 +91,13 @@
   let JHU_CONNECTIONS = [];
   let PORTFOLIO_BY_VC = new Map();  // vc.id → [{ name, domains[], stage? }] (rubric v2)
   let RECENCY_BY_VC   = {};         // vc.id → { domain: 0.5..1.0 } (matching tiebreak)
+  let PAUSED          = new Set();  // tech ids paused from matching (data/tech_status.json)
   let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
   async function loadData() {
     try {
-      let portfolios, investorsRaw, recencyRaw;
-      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios, investorsRaw, recencyRaw] = await Promise.all([
+      let portfolios, investorsRaw, recencyRaw, statusRaw;
+      [VCS, TECHS, JHU_CONNECTIONS, JHTV_RELATIONSHIPS, portfolios, investorsRaw, recencyRaw, statusRaw] = await Promise.all([
         fetch('data/vcs.json').then(r => r.json()),
         fetch('data/technologies.json').then(r => r.json()),
         fetch('data/jhu_connections.json').then(r => r.json()),
@@ -103,11 +105,13 @@
         fetch('data/vc_portfolios.json').then(r => r.ok ? r.json() : []).catch(() => []),
         fetch('data/jhtv_investors.json').then(r => r.ok ? r.json() : { investors: [] }).catch(() => ({ investors: [] })),
         fetch('data/vc_recency.json').then(r => r.ok ? r.json() : { byVc: {} }).catch(() => ({ byVc: {} })),
+        fetch('data/tech_status.json').then(r => r.ok ? r.json() : { pausedTechIds: [] }).catch(() => ({ pausedTechIds: [] })),
       ]);
       PORTFOLIO_BY_VC = new Map(portfolios.map(e => [e.vcId, e.companies]));
       // Only venture/angel enter the UI; foundation/public are a deferred pass.
       JHTV_INVESTORS = (investorsRaw.investors || []).filter(i => i.type === 'venture' || i.type === 'angel');
       RECENCY_BY_VC = recencyRaw.byVc || {};
+      PAUSED = new Set(statusRaw.pausedTechIds || []);
       renderDomainBrowse();
       const uniqueFirms = new Set(JHU_CONNECTIONS.map(c => c.firm)).size;
       document.getElementById('statLine').textContent =
@@ -630,7 +634,7 @@
   function topTechsForVC(vc) {
     const portfolio = PORTFOLIO_BY_VC.get(vc.id);
     const rec = RECENCY_BY_VC[vc.id] || null;
-    const ranked = TECHS
+    const ranked = activeTechs(TECHS, PAUSED)
       .map(t => { const fit = vcFitScore(vc, t, portfolio); return fit ? { t, score: fit.score, fit, tieKey: fit.depth * techDomainRecency(rec, t) } : null; })
       .filter(Boolean)
       .sort((a, b) => b.score - a.score || b.tieKey - a.tieKey || a.t.name.localeCompare(b.t.name));
@@ -905,9 +909,10 @@
       : `<button class="btn btn-secondary btn-sm" onclick="viewTech('${t.id}')">Funding Profile</button>`;
     const topBorder = accentColor ? `border-top:3px solid ${accentColor}` : '';
 
+    const paused = PAUSED.has(t.id);
     return `
-      <div class="tech-card" style="${topBorder}">
-        <h3 class="tech-card-title" onclick="viewTech('${t.id}')" title="View funding profile">${t.name}${typeof score === 'number' ? ` <span class="tech-score${tied ? ' tied' : ''}">${score.toFixed(2)}</span>` : ''}</h3>
+      <div class="tech-card${paused ? ' paused' : ''}" style="${topBorder}">
+        <h3 class="tech-card-title" onclick="viewTech('${t.id}')" title="View funding profile">${t.name}${typeof score === 'number' ? ` <span class="tech-score${tied ? ' tied' : ''}">${score.toFixed(2)}</span>` : ''}${paused ? ` <span class="paused-badge">Paused — not matching</span>` : ''}</h3>
         ${t.pi          ? `<p class="pi">${t.pi}</p>` : ''}
         ${reason        ? `<p class="match-reason">${reason}</p>` : ''}
         ${t.description ? `<p class="desc">${t.description}</p>` : ''}

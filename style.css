@@ -663,6 +663,13 @@ body.compact-hero .popular-row { display: none; }
 .tech-score.tied { color: #0E9F6E; }
 .tied-group { font-size: .8rem; color: var(--muted); font-style: italic; margin: 4px 0 8px; }
 .score-note { font-size: .72rem; color: var(--muted); font-weight: 400; font-style: italic; }
+.paused-badge {
+  font-size: .68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .03em;
+  color: var(--muted); background: var(--paper); border: 1px solid var(--border);
+  border-radius: 999px; padding: 1px 8px; vertical-align: middle;
+}
+.tech-card.paused { opacity: .6; }
+.tech-card.paused .tech-card-title { color: var(--muted); }
 .rel-line {
   display: flex;
   align-items: center;
