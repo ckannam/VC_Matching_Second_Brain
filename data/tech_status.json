@@ -1,4 +1,8 @@
 {
-  "pausedTechIds": [],
-  "updatedAt": "2026-07-23T15:57:23.473Z"
+  "pausedTechIds": [
+    "avoid",
+    "foragerone",
+    "read-ahead"
+  ],
+  "updatedAt": "2026-07-23T16:08:52.363Z"
 }
