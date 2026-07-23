@@ -292,6 +292,17 @@
   let _curationWorking = null; // Set of paused ids being edited (null until first render)
   let _curationSaving  = false;
   let _curationNote    = '';   // status line after a save
+  let _curationQuery   = '';   // live search filter on the curate page
+
+  // Tech-name match, scoped to a single tech — mirrors the general search bar's
+  // querySuggestions() scoring (prefix > word-prefix > substring).
+  function techMatchesQuery(t, q) {
+    q = q.trim().toLowerCase(); if (q.length < 1) return true;
+    const keys = [t.name.toLowerCase(), ...((t.aliases || []).map(a => a.toLowerCase()))];
+    const words = [...new Set(keys.flatMap(jhuTokenize))];
+    return keys.some(k => k.startsWith(q)) || words.some(w => w.startsWith(q)) || keys.some(k => k.includes(q));
+  }
+  function curationSearch(v) { _curationQuery = v; renderCurate(); }
 
   function showCurate() { location.hash = '#/curate'; }
 
@@ -344,10 +355,28 @@
     renderCurate();
   }
 
+  const escAttr = (s) => String(s).replace(/"/g, '&quot;');
+
+  // A compact catalog-style tech card with an Active/Paused toggle (reuses .tech-card).
+  function curateTechCardHTML(t) {
+    const active = !_curationWorking.has(t.id);
+    const tags = (t.sectors || []).map(s => {
+      const c = DOMAIN_COLORS[s] || '#64748B';
+      return `<span class="pill"><span class="pill-dot" style="background:${c}"></span>${s}</span>`;
+    }).join('');
+    return `<div class="tech-card curate-card${active ? '' : ' paused'}">
+        <h3 class="tech-card-title">${t.name}</h3>
+        ${t.pi ? `<p class="pi">${t.pi}</p>` : ''}
+        <div class="tags">${tags}${t.stage ? `<span class="pill">${t.stage}</span>` : ''}</div>
+        <button class="curate-toggle ${active ? 'on' : 'off'}" onclick="curationToggleTech('${t.id}')">${active ? '● Active' : '◍ Paused'}</button>
+      </div>`;
+  }
+
   function renderCurate() {
     if (!_curationWorking) _curationWorking = new Set(PAUSED);
     const grouped = groupByCohortBucket(TECHS);
     const allBuckets = [...new Set(TECHS.flatMap(t => t.sectors || []))].sort();
+    const q = _curationQuery;
 
     const bucketStrip = allBuckets.map(b => {
       const st = groupState(techsInBucketGlobal(b));
@@ -361,28 +390,25 @@
     const cohortSections = grouped.map(({ cohort, buckets: bks }) => {
       const cSt = groupState(techsInCohort(cohort));
       const bucketBlocks = bks.map(({ bucket, techs }) => {
+        const shown = techs.filter(t => techMatchesQuery(t, q));
+        if (!shown.length) return ''; // hide buckets with no match while searching
         const bSt = groupState(techsInBucketCohort(cohort, bucket));
         const dot = DOMAIN_COLORS[bucket] || '#64748B';
-        const rows = techs.map(t => {
-          const active = !_curationWorking.has(t.id);
-          return `<label class="curate-tech${active ? '' : ' paused'}">
-                    <input type="checkbox" ${active ? 'checked' : ''} onchange="curationToggleTech('${t.id}')"> ${t.name}
-                  </label>`;
-        }).join('');
         const icon = DOMAIN_ICONS[bucket] || DOMAIN_ICONS['Research Technologies'];
-        return `<div class="curate-bucket">
+        return `<div class="curate-bucket" data-cohort="${escAttr(cohort)}" data-bucket="${escAttr(bucket)}">
             <div class="curate-bucket-head">
               <span class="curate-bucket-title">
                 <span class="curate-bucket-icon" style="color:${dot}">${icon}</span>
                 <span class="curate-bucket-name">${bucket}</span>
-                <span class="curate-count">${techs.length}</span>
+                <span class="curate-count">${shown.length}</span>
               </span>
               <label class="curate-selall"><input type="checkbox" ${bSt === 'active' ? 'checked' : ''} onchange="curationToggleBucketCohort('${escC(cohort)}','${escC(bucket)}', ${bSt !== 'paused'})"> select all</label>
             </div>
-            <div class="curate-tech-list">${rows}</div>
+            <div class="tech-grid">${shown.map(curateTechCardHTML).join('')}</div>
           </div>`;
       }).join('');
-      return `<div class="catalog-section">
+      if (!bucketBlocks) return ''; // hide cohorts with no matching buckets
+      return `<div class="catalog-section" data-cohort="${escAttr(cohort)}">
           <div class="catalog-header">
             <h2>${cohort}</h2>
             <label class="curate-selall"><input type="checkbox" ${cSt === 'active' ? 'checked' : ''} onchange="curationToggleCohort('${escC(cohort)}', ${cSt !== 'paused'})"> select all in cohort</label>
@@ -396,11 +422,15 @@
       <div class="catalog-section">
         <div class="catalog-header"><h2>Curate matching</h2>
           <button class="view-all-link" onclick="showDomainBrowse()">← Back to catalog</button></div>
-        <p class="section-label">Uncheck a technology to pause it from VC matching. Paused techs still appear in the catalog, marked “paused”.</p>
+        <p class="section-label">Pause a technology to stop matching it to VCs. Paused techs still appear in the catalog, marked “paused”.</p>
+        <div class="curate-toolbar">
+          <input id="curateSearch" class="curate-search" placeholder="Search technologies…" value="${escAttr(q)}" oninput="curationSearch(this.value)">
+          <span class="curate-paused-count">${_curationWorking.size} paused</span>
+        </div>
         <p class="section-label">Buckets — all cohorts</p>
         <div class="curate-strip">${bucketStrip}</div>
       </div>
-      ${cohortSections}
+      ${cohortSections || '<div class="catalog-section"><p class="section-label">No technologies match your search.</p></div>'}
       <div class="curate-savebar">
         ${(!dirty && _curationNote) ? `<span class="curate-note">${_curationNote}</span>` : ''}
         <button class="btn btn-gold" onclick="curationSave()" ${(!dirty || _curationSaving) ? 'disabled' : ''}>
@@ -408,14 +438,24 @@
       </div>`;
 
     // Reflect "mixed" cohort/bucket "select all" checkboxes as indeterminate (visual only).
-    const sections = [...document.querySelectorAll('.catalog-section')].slice(1); // skip the header/strip section
-    grouped.forEach(({ cohort, buckets: bks }, ci) => {
-      const secEl = sections[ci]; if (!secEl) return;
+    // Match by data-attribute so it's robust when search hides some sections.
+    grouped.forEach(({ cohort, buckets: bks }) => {
+      const secEl = document.querySelector(`.catalog-section[data-cohort="${escAttr(cohort)}"]`);
+      if (!secEl) return;
       const cInput = secEl.querySelector('.catalog-header .curate-selall input');
       if (cInput) cInput.indeterminate = groupState(techsInCohort(cohort)) === 'mixed';
-      const bInputs = secEl.querySelectorAll('.curate-bucket .curate-selall input');
-      bks.forEach((b, bi) => { if (bInputs[bi]) bInputs[bi].indeterminate = groupState(techsInBucketCohort(cohort, b.bucket)) === 'mixed'; });
+      bks.forEach(({ bucket }) => {
+        const bEl = secEl.querySelector(`.curate-bucket[data-bucket="${escAttr(bucket)}"]`);
+        const bInput = bEl && bEl.querySelector('.curate-selall input');
+        if (bInput) bInput.indeterminate = groupState(techsInBucketCohort(cohort, bucket)) === 'mixed';
+      });
     });
+
+    // Preserve search-box focus across the re-render (input is recreated each keystroke).
+    if (_curationQuery) {
+      const si = document.getElementById('curateSearch');
+      if (si) { si.focus(); si.setSelectionRange(si.value.length, si.value.length); }
+    }
   }
 
   function showSavedBriefs() { location.hash = '#/briefs'; }
