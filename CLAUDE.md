@@ -92,7 +92,7 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
 
 **`data/technologies.json`** — 74 entries:
 ```json
-{ "id", "name", "sectors", "stage", "pi", "description", "onePager" }
+{ "id", "name", "sectors", "stage", "pi", "description", "cohort", "onePager" }
 ```
 `sectors[]` uses JHTV's 8 domain names. Three techs are dual-sector (3Dnamics, Biolinco, Infinity Bio). `stage` is a financing round string (e.g. `"Seed"`, `"Series A"`, `"NewCo"`, `"Commercial"`). `onePager` is the bare `.docx` filename.
 
@@ -107,6 +107,8 @@ Provisional entries have `provisional: true`, `vcOnePager: null`, and trigger a 
 { "vcId", "sourceUrl", "scrapedAt", "note", "companies": [{ "name", "domains": [], "stage"? }] }
 ```
 `domains[]` uses JHTV's 8 domain names (empty = out-of-scope, scores 0); `stage` is a round-ladder string (`Seed`/`Series A`/…, omit if unknown → domain-only credit). Currently the **12 curated PDF firms** (160 companies, scraped from firm websites, hand-classified). Not consumed by the backend. Out-of-scope companies add 0 credit and are omitted. Cole can hand-edit this file.
+
+**`data/tech_status.json`** — **tech curation state** (`{ "pausedTechIds": [...], "updatedAt" }`). The single source of pause truth, kept **separate** from `technologies.json` so a catalog rebuild never clobbers it. Fail-soft-loaded in `index.html` → `PAUSED` (Set); missing/empty ⇒ everything active. Paused techs are excluded from matching (`topTechsForVC` ranks over `activeTechs(TECHS, PAUSED)` from `curation.js`) but still shown in the catalog with a muted "Paused — not matching" badge. Written by the boss-facing **`#/curate`** page (nav "Curate"): pause/resume at four scopes — a tech, a bucket within a cohort, a whole cohort, and a bucket across all cohorts — grouped Cohort → bucket via `curation.js`'s `groupByCohortBucket`. "Save changes" POSTs the paused list to `server.js` `POST /api/tech-status`, which commits this file via the same GitHub-contents-PUT path as `commitVcEntry` (needs the Render backend up; ~30s cold start). `technologies.json` now carries a **`cohort`** field on every tech (existing 74 = `"Cohort 1"`). **Add a new cohort:** drop the new `.docx`s → `node scripts/populate_technologies.js` (now *merges by id*, preserving enriched fields; new techs default to `"Cohort 1"`) → set the new techs' `cohort` to the new label → commit.
 
 **`data/vc_recency.json`** — per-VC, per-JHTV-domain recency weight (`{ byVc: { vcId: { domain: 0.5..1.0 } } }`) derived from `data/source/vc_deals.json` deal dates by `scripts/build_vc_recency.js` (`npm run build-vc-recency`). Fail-soft-loaded in `index.html` → `RECENCY_BY_VC`; missing file ⇒ neutral (1.0). **Tiebreak-only** — orders same-score matches by how recently the firm invested in the tech's domain (9 firms with health/bio deals; the other 3 curated firms have none → neutral). Regenerate after refreshing the deals export.
 
