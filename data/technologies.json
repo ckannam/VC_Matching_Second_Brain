@@ -480,7 +480,7 @@
     "pi": "Emily E. Haroz, Ph.D",
     "description": "An EHR-integrated care-planning platform that pairs a conversational AI intake agent (\"June\") with a 63-rule \"TrellisPlan\" engine and a constrained LLM to generate clinician-reviewed, evidence-based care plans — starting with Alzheimer's and related dementias — so practices can capture underused CPT 99483 reimbursement while saving physician time and improving outcomes.",
     "cohort": "Cohort 1",
-    "onePager": "Juneberry_Health_One_Pager.pdf"
+    "onePager": "Juneberry_Health_One_Pager.docx"
   },
   {
     "id": "junebrain",
