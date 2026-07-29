@@ -1268,5 +1268,43 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "osage-university-partners",
+    "name": "Osage University Partners",
+    "aliases": [
+      "OUP",
+      "Osage"
+    ],
+    "focus": "OUP invests exclusively in science-driven startups commercializing breakthrough university research, partnering with 150+ leading research universities that assign their spinout investment rights to OUP in exchange for a share of fund profits.",
+    "sectors": [
+      "Life Sciences",
+      "Therapeutics",
+      "Medtech",
+      "Diagnostics",
+      "Research Tools",
+      "Software",
+      "Hardware",
+      "Climate Tech"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 10
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [
+      "3dnamics",
+      "biolinco",
+      "infinity-bio",
+      "28bio"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
