@@ -5,34 +5,202 @@
     "scrapedAt": "2026-07-16",
     "note": "Dedicated biopharma company-creation + public fund; ~120 therapeutics companies. Representative sample below — essentially the entire portfolio is Therapeutics. Private company-creation names mapped to early rungs; IPO/public to Growth.",
     "companies": [
-      { "name": "Alpha-9 Oncology", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Alentis Therapeutics", "domains": ["Therapeutics"], "stage": "Series C" },
-      { "name": "Aspen Neuroscience", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Attovia Therapeutics", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Braveheart Bio", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Callio Therapeutics", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Diagonal Therapeutics", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Enlaza Therapeutics", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "GondolaBio", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Hillstar Bio", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Immutrin", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Inipharm", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Iolyx Therapeutics", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Radionetics Oncology", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Sidewinder Therapeutics", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Sonoma Biotherapeutics", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Sudo Biosciences", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Vima Therapeutics", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Aptinyx", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Enzo Therapeutics", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Maze Therapeutics", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "MBX Biosciences", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Disc Medicine", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "BridgeBio", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Krystal Biotech", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Palvella Therapeutics", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Avidity Biosciences", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Arcutis Biotherapeutics", "domains": ["Therapeutics"], "stage": "Growth" }
+      {
+        "name": "Alpha-9 Oncology",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Alentis Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Aspen Neuroscience",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Attovia Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Braveheart Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Callio Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Diagonal Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Enlaza Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "GondolaBio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Hillstar Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Immutrin",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Inipharm",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Iolyx Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Radionetics Oncology",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Sidewinder Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Sonoma Biotherapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Sudo Biosciences",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Vima Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Aptinyx",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Enzo Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Maze Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "MBX Biosciences",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Disc Medicine",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "BridgeBio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Krystal Biotech",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Palvella Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Avidity Biosciences",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Arcutis Biotherapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      }
     ]
   },
   {
@@ -41,37 +209,224 @@
     "scrapedAt": "2026-07-16",
     "note": "Pre-seed/seed generalist across Vertical AI, Deep Tech, Bio, Health. Bio/Health/Deep-Tech subset classified; pure Vertical-AI SaaS omitted (no JHTV-domain overlap).",
     "companies": [
-      { "name": "TwoStep Therapeutics", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Neobe Therapeutics", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Humane Genomics", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Immunara", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Caravel Bio", "domains": ["Therapeutics"], "stage": "Pre-Seed" },
-      { "name": "KiraGen Bio", "domains": ["Therapeutics"], "stage": "Pre-Seed" },
-      { "name": "Romix Biosciences", "domains": ["Therapeutics"], "stage": "Pre-Seed" },
-      { "name": "Kascaid", "domains": ["Therapeutics"], "stage": "Pre-Seed" },
-      { "name": "Inso Bio", "domains": ["Therapeutics"], "stage": "Pre-Seed" },
-      { "name": "Nionyx Bio", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Nomic Bio", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Coding.Bio", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "BioBox Analytics", "domains": ["Research Technologies"], "stage": "Pre-Seed" },
-      { "name": "BioLM", "domains": ["Research Technologies"], "stage": "Pre-Seed" },
-      { "name": "Persist AI", "domains": ["Research Technologies"], "stage": "Series A" },
-      { "name": "Aclid", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "Tetsuwan Scientific", "domains": ["Research Technologies"], "stage": "Pre-Seed" },
-      { "name": "Stratagen Bio", "domains": ["Diagnostics"], "stage": "Pre-Seed" },
-      { "name": "Eli Health", "domains": ["Diagnostics", "Digital Health"], "stage": "Series A" },
-      { "name": "Psyrin", "domains": ["Diagnostics"], "stage": "Pre-Seed" },
-      { "name": "Pathspot", "domains": ["Diagnostics"], "stage": "Series A" },
-      { "name": "FemTherapeutics", "domains": ["Medical Devices"], "stage": "Seed" },
-      { "name": "Impilo", "domains": ["Digital Health"], "stage": "Series A" },
-      { "name": "Nimbus Health", "domains": ["Digital Health"], "stage": "Seed" },
-      { "name": "Arrow", "domains": ["Digital Health"], "stage": "Series A" },
-      { "name": "Aviary Health", "domains": ["Digital Health"], "stage": "Series A" },
-      { "name": "Pocket", "domains": ["Digital Health"], "stage": "Pre-Seed" },
-      { "name": "Century Health", "domains": ["Digital Health"], "stage": "Pre-Seed" },
-      { "name": "Colla Health", "domains": ["Digital Health"], "stage": "Seed" },
-      { "name": "VO Health", "domains": ["Digital Health"], "stage": "Pre-Seed" },
-      { "name": "Enurgen", "domains": ["Clean Tech"], "stage": "Seed" }
+      {
+        "name": "TwoStep Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Neobe Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Humane Genomics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Immunara",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Caravel Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "KiraGen Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Romix Biosciences",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Kascaid",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Inso Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Nionyx Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Nomic Bio",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Coding.Bio",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "BioBox Analytics",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "BioLM",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Persist AI",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Aclid",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Tetsuwan Scientific",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Stratagen Bio",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Eli Health",
+        "domains": [
+          "Diagnostics",
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Psyrin",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Pathspot",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "FemTherapeutics",
+        "domains": [
+          "Medical Devices"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Impilo",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Nimbus Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Arrow",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Aviary Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Pocket",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Century Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Colla Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "VO Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Pre-Seed"
+      },
+      {
+        "name": "Enurgen",
+        "domains": [
+          "Clean Tech"
+        ],
+        "stage": "Seed"
+      }
     ]
   },
   {
@@ -80,35 +435,210 @@
     "scrapedAt": "2026-07-16",
     "note": "Generalist (AI, healthcare/life sciences, logistics, defense, fintech). Healthcare/life-sciences + security subset classified; stages from site labels.",
     "companies": [
-      { "name": "Alloy Therapeutics", "domains": ["Research Technologies"], "stage": "Series C" },
-      { "name": "BigHat Biosciences", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Cellares", "domains": ["Research Technologies"], "stage": "Series C" },
-      { "name": "Cellino Bio", "domains": ["Research Technologies"], "stage": "Series A" },
-      { "name": "Cartography Biosciences", "domains": ["Research Technologies"], "stage": "Series A" },
-      { "name": "Mammoth Biosciences", "domains": ["Research Technologies", "Therapeutics"], "stage": "Series C" },
-      { "name": "Model Medicines", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "NewLimit", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Octant", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Resilience", "domains": ["Research Technologies"], "stage": "Series C" },
-      { "name": "Unlearn", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Cellanome", "domains": ["Research Technologies"], "stage": "Series A" },
-      { "name": "CREATE Medicines", "domains": ["Therapeutics"], "stage": "Series A" },
-      { "name": "Dren Bio", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Orca Bio", "domains": ["Therapeutics"], "stage": "Series C" },
-      { "name": "Sonoma Biotherapeutics", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Latus Bio", "domains": ["Therapeutics"], "stage": "Seed" },
-      { "name": "Digital Diagnostics", "domains": ["Diagnostics"], "stage": "Series B" },
-      { "name": "Guardant Health", "domains": ["Diagnostics"], "stage": "Growth" },
-      { "name": "PathAI", "domains": ["Diagnostics"], "stage": "Series C" },
-      { "name": "Digital Surgery", "domains": ["Medical Devices"], "stage": "Series B" },
-      { "name": "Color", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Oscar Health", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Oula", "domains": ["Digital Health"], "stage": "Series A" },
-      { "name": "Harbor Health", "domains": ["Digital Health"], "stage": "Series A" },
-      { "name": "Candid Health", "domains": ["Digital Health"], "stage": "Series B" },
-      { "name": "Commure", "domains": ["Digital Health"], "stage": "Series C" },
-      { "name": "Illumio", "domains": ["Cybersecurity"], "stage": "Growth" },
-      { "name": "Twingate", "domains": ["Cybersecurity"], "stage": "Series B" }
+      {
+        "name": "Alloy Therapeutics",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "BigHat Biosciences",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Cellares",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Cellino Bio",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Cartography Biosciences",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Mammoth Biosciences",
+        "domains": [
+          "Research Technologies",
+          "Therapeutics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Model Medicines",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "NewLimit",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Octant",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Resilience",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Unlearn",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Cellanome",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "CREATE Medicines",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Dren Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Orca Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Sonoma Biotherapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Latus Bio",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Digital Diagnostics",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Guardant Health",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "PathAI",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Digital Surgery",
+        "domains": [
+          "Medical Devices"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Color",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Oscar Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Oula",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Harbor Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Candid Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Commure",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Illumio",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Twingate",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Series B"
+      }
     ]
   },
   {
@@ -117,18 +647,91 @@
     "scrapedAt": "2026-07-16",
     "note": "Large multistage generalist; site shows an illustrative sample (Funds 13-18, as of Sept 2023). Life Sciences + Digital Health subset; these are mostly later-stage.",
     "companies": [
-      { "name": "CRISPR Therapeutics", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Trillium Therapeutics", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "MBX Biosciences", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Escient Pharmaceuticals", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "InterMune", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "NeoTract", "domains": ["Medical Devices"], "stage": "Growth" },
-      { "name": "Tempus", "domains": ["Diagnostics", "Digital Health"], "stage": "Growth" },
-      { "name": "Strive Health", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Radiology Partners", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Marathon Health", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Curana Health", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Comprehensive Pharmacy Services", "domains": ["Digital Health"], "stage": "Growth" }
+      {
+        "name": "CRISPR Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Trillium Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "MBX Biosciences",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Escient Pharmaceuticals",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "InterMune",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "NeoTract",
+        "domains": [
+          "Medical Devices"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Tempus",
+        "domains": [
+          "Diagnostics",
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Strive Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Radiology Partners",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Marathon Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Curana Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Comprehensive Pharmacy Services",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      }
     ]
   },
   {
@@ -137,19 +740,97 @@
     "scrapedAt": "2026-07-16",
     "note": "Generalist (AI, infra, fintech, Health & Bio, Cybersecurity). Health & Bio + security subset classified; enterprise/consumer/fintech omitted.",
     "companies": [
-      { "name": "BioAge Labs", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "Slingshot AI", "domains": ["Therapeutics"], "stage": "Series B" },
-      { "name": "Ginkgo Bioworks", "domains": ["Research Technologies"], "stage": "Growth" },
-      { "name": "Recursion", "domains": ["Research Technologies"], "stage": "Growth" },
-      { "name": "Guardant Health", "domains": ["Diagnostics"], "stage": "Growth" },
-      { "name": "Prenuvo", "domains": ["Diagnostics"], "stage": "Series C" },
-      { "name": "Assort Health", "domains": ["Digital Health"], "stage": "Series B" },
-      { "name": "Komodo Health", "domains": ["Digital Health"], "stage": "Series B" },
-      { "name": "Midi Health", "domains": ["Digital Health"], "stage": "Series B" },
-      { "name": "Corridor", "domains": ["Cybersecurity"], "stage": "Seed" },
-      { "name": "Semgrep", "domains": ["Cybersecurity"], "stage": "Series A" },
-      { "name": "Tines", "domains": ["Cybersecurity"], "stage": "Seed" },
-      { "name": "Verkada", "domains": ["Cybersecurity"], "stage": "Series C" }
+      {
+        "name": "BioAge Labs",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Slingshot AI",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Ginkgo Bioworks",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Recursion",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Guardant Health",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Prenuvo",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Assort Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Komodo Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Midi Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Corridor",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Semgrep",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Tines",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Verkada",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Series C"
+      }
     ]
   },
   {
@@ -158,14 +839,63 @@
     "scrapedAt": "2026-07-16",
     "note": "Deep-tech generalist (aerospace, compute, bio, physical sciences). Bio/health/research subset classified; pure compute/aerospace/AI-infra omitted (no JHTV-domain overlap).",
     "companies": [
-      { "name": "Eikon Therapeutics", "domains": ["Therapeutics", "Research Technologies"], "stage": "Growth" },
-      { "name": "Kallyope", "domains": ["Therapeutics"], "stage": "Growth" },
-      { "name": "eGenesis", "domains": ["Therapeutics"], "stage": "Series C" },
-      { "name": "Recursion Pharmaceuticals", "domains": ["Research Technologies"], "stage": "Growth" },
-      { "name": "Benchling", "domains": ["Research Technologies"], "stage": "Growth" },
-      { "name": "Osmo", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "Valthos", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "Auris Health", "domains": ["Medical Devices"], "stage": "Growth" }
+      {
+        "name": "Eikon Therapeutics",
+        "domains": [
+          "Therapeutics",
+          "Research Technologies"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Kallyope",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "eGenesis",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Recursion Pharmaceuticals",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Benchling",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Osmo",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Valthos",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Auris Health",
+        "domains": [
+          "Medical Devices"
+        ],
+        "stage": "Growth"
+      }
     ]
   },
   {
@@ -174,24 +904,114 @@
     "scrapedAt": "2026-07-16",
     "note": "Early-stage deep-tech/healthcare generalist; site shows logos without stage labels, so stages omitted (companies score by domain-only proximity). Life-sciences/med-device/security subset classified.",
     "companies": [
-      { "name": "Element Biosciences", "domains": ["Research Technologies"] },
-      { "name": "Mission Bio", "domains": ["Research Technologies"] },
-      { "name": "Cellular Intelligence", "domains": ["Research Technologies"] },
-      { "name": "Medra", "domains": ["Research Technologies"] },
-      { "name": "Ruby Bio", "domains": ["Therapeutics"] },
-      { "name": "Therna", "domains": ["Therapeutics"] },
-      { "name": "Theseus", "domains": ["Therapeutics"] },
-      { "name": "Paradromics", "domains": ["Medical Devices"] },
-      { "name": "Sonavex", "domains": ["Medical Devices"] },
-      { "name": "NeuroHarmonics", "domains": ["Medical Devices"] },
-      { "name": "Synaptec", "domains": ["Medical Devices"] },
-      { "name": "Subtle Medical", "domains": ["Diagnostics"] },
-      { "name": "Proscia", "domains": ["Diagnostics"] },
-      { "name": "nView Medical", "domains": ["Diagnostics"] },
-      { "name": "Reality Defender", "domains": ["Cybersecurity"] },
-      { "name": "NeuVector", "domains": ["Cybersecurity"] },
-      { "name": "Portal26", "domains": ["Cybersecurity"] },
-      { "name": "Bright Security", "domains": ["Cybersecurity"] }
+      {
+        "name": "Element Biosciences",
+        "domains": [
+          "Research Technologies"
+        ]
+      },
+      {
+        "name": "Mission Bio",
+        "domains": [
+          "Research Technologies"
+        ]
+      },
+      {
+        "name": "Cellular Intelligence",
+        "domains": [
+          "Research Technologies"
+        ]
+      },
+      {
+        "name": "Medra",
+        "domains": [
+          "Research Technologies"
+        ]
+      },
+      {
+        "name": "Ruby Bio",
+        "domains": [
+          "Therapeutics"
+        ]
+      },
+      {
+        "name": "Therna",
+        "domains": [
+          "Therapeutics"
+        ]
+      },
+      {
+        "name": "Theseus",
+        "domains": [
+          "Therapeutics"
+        ]
+      },
+      {
+        "name": "Paradromics",
+        "domains": [
+          "Medical Devices"
+        ]
+      },
+      {
+        "name": "Sonavex",
+        "domains": [
+          "Medical Devices"
+        ]
+      },
+      {
+        "name": "NeuroHarmonics",
+        "domains": [
+          "Medical Devices"
+        ]
+      },
+      {
+        "name": "Synaptec",
+        "domains": [
+          "Medical Devices"
+        ]
+      },
+      {
+        "name": "Subtle Medical",
+        "domains": [
+          "Diagnostics"
+        ]
+      },
+      {
+        "name": "Proscia",
+        "domains": [
+          "Diagnostics"
+        ]
+      },
+      {
+        "name": "nView Medical",
+        "domains": [
+          "Diagnostics"
+        ]
+      },
+      {
+        "name": "Reality Defender",
+        "domains": [
+          "Cybersecurity"
+        ]
+      },
+      {
+        "name": "NeuVector",
+        "domains": [
+          "Cybersecurity"
+        ]
+      },
+      {
+        "name": "Portal26",
+        "domains": [
+          "Cybersecurity"
+        ]
+      },
+      {
+        "name": "Bright Security",
+        "domains": [
+          "Cybersecurity"
+        ]
+      }
     ]
   },
   {
@@ -200,13 +1020,57 @@
     "scrapedAt": "2026-07-16",
     "note": "AI-first enterprise generalist with semiconductors + Human Health track. Health + security subset classified; enterprise/consumer/semiconductor omitted.",
     "companies": [
-      { "name": "Mammoth Biosciences", "domains": ["Research Technologies", "Therapeutics"], "stage": "Series C" },
-      { "name": "Mirvie", "domains": ["Diagnostics"], "stage": "Series C" },
-      { "name": "iLoF", "domains": ["Diagnostics", "Research Technologies"], "stage": "Series A" },
-      { "name": "Qventus", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Securiti", "domains": ["Cybersecurity"], "stage": "Growth" },
-      { "name": "Exaforce", "domains": ["Cybersecurity"], "stage": "Series B" },
-      { "name": "Versa Networks", "domains": ["Cybersecurity"], "stage": "Growth" }
+      {
+        "name": "Mammoth Biosciences",
+        "domains": [
+          "Research Technologies",
+          "Therapeutics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Mirvie",
+        "domains": [
+          "Diagnostics"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "iLoF",
+        "domains": [
+          "Diagnostics",
+          "Research Technologies"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Qventus",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Securiti",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Exaforce",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Versa Networks",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Growth"
+      }
     ]
   },
   {
@@ -215,12 +1079,49 @@
     "scrapedAt": "2026-07-16",
     "note": "Tech-x-life-sciences fund; ~half the portfolio is in stealth and the portfolio page does not render server-side, so this is a partial list from public reporting (TechCrunch/BioPharma Dive/Endpoints). Drug-discovery + bio-infra focus.",
     "companies": [
-      { "name": "Enveda Biosciences", "domains": ["Therapeutics", "Research Technologies"], "stage": "Series C" },
-      { "name": "Odyssey Therapeutics", "domains": ["Therapeutics"], "stage": "Series D" },
-      { "name": "NewLimit", "domains": ["Research Technologies"], "stage": "Series B" },
-      { "name": "Chai Discovery", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "Kaleidoscope Bio", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "Lamin AI", "domains": ["Research Technologies"], "stage": "Seed" }
+      {
+        "name": "Enveda Biosciences",
+        "domains": [
+          "Therapeutics",
+          "Research Technologies"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Odyssey Therapeutics",
+        "domains": [
+          "Therapeutics"
+        ],
+        "stage": "Series D"
+      },
+      {
+        "name": "NewLimit",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Chai Discovery",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Kaleidoscope Bio",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Lamin AI",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      }
     ]
   },
   {
@@ -229,9 +1130,27 @@
     "scrapedAt": "2026-07-16",
     "note": "Technical/deep-tech fund (dev tools, data, AI infra, security). Limited JHTV-domain overlap — only the bio/health/security names below; the bulk of the portfolio is developer/AI infrastructure with no JHTV-domain match.",
     "companies": [
-      { "name": "Waypoint Bio", "domains": ["Research Technologies"], "stage": "Seed" },
-      { "name": "PicnicHealth", "domains": ["Digital Health"], "stage": "Series C" },
-      { "name": "Chainguard", "domains": ["Cybersecurity"], "stage": "Series C" }
+      {
+        "name": "Waypoint Bio",
+        "domains": [
+          "Research Technologies"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "PicnicHealth",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Chainguard",
+        "domains": [
+          "Cybersecurity"
+        ],
+        "stage": "Series C"
+      }
     ]
   },
   {
@@ -240,8 +1159,20 @@
     "scrapedAt": "2026-07-16",
     "note": "Enterprise-SaaS specialist; 100+ companies, almost all B2B software with no JHTV-domain overlap. Only the two health-adjacent names below map to a JHTV domain.",
     "companies": [
-      { "name": "Doximity", "domains": ["Digital Health"], "stage": "Growth" },
-      { "name": "Veeva Systems", "domains": ["Digital Health"], "stage": "Growth" }
+      {
+        "name": "Doximity",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Veeva Systems",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      }
     ]
   },
   {
@@ -250,9 +1181,438 @@
     "scrapedAt": "2026-07-16",
     "note": "Early-stage AI + software-infrastructure fund (LiveKit, Generalist AI, 1001 AI, Applied Compute). No portfolio companies map to JHTV's 8 domains — correctly yields zero portfolio-fit for JHTV health/deep-tech technologies.",
     "companies": [
-      { "name": "LiveKit", "domains": [] },
-      { "name": "Generalist AI", "domains": [] },
-      { "name": "Applied Compute", "domains": [] }
+      {
+        "name": "LiveKit",
+        "domains": []
+      },
+      {
+        "name": "Generalist AI",
+        "domains": []
+      },
+      {
+        "name": "Applied Compute",
+        "domains": []
+      }
     ]
+  },
+  {
+    "vcId": "town-hall-ventures",
+    "sourceUrl": "https://www.townhallventures.com/",
+    "note": "Value-based care / Medicare-Medicaid portfolio; classified Digital Health. Public web data (firm site + press).",
+    "companies": [
+      {
+        "name": "Cityblock Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series D"
+      },
+      {
+        "name": "Somatus",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series E"
+      },
+      {
+        "name": "Strive Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Eleanor Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Curana Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Unite Us",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "WelbeHealth",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Signify Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Public"
+      },
+      {
+        "name": "VillageMD",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Quilted Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Equality Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Landmark Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "flare-capital-partners",
+    "sourceUrl": "https://www.flarecapital.com/companies/",
+    "note": "Health-IT / care-delivery portfolio; classified Digital Health. Public web data (firm site).",
+    "companies": [
+      {
+        "name": "Isaac Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Suki",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series D"
+      },
+      {
+        "name": "Cohere Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Layer Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "SmarterDx",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Oshi Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Author Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Aetion",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Eden Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Welltok",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "primetime-partners",
+    "sourceUrl": "https://www.primetimepartners.com/portfolio",
+    "note": "Aging / longevity / caregiver portfolio; classified Digital Health. Public web data (firm site).",
+    "companies": [
+      {
+        "name": "BetterBrain",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Tembo Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Aidaly",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Bold",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "DUOS",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Carda Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Spiras Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "NourishedRx",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Rosarium Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Total Life",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Yes Hearing",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "aegis-ventures",
+    "sourceUrl": "https://www.aegisventures.com/",
+    "note": "Healthcare-AI studio (Ascertain / Northwell) portfolio; seed-stage. Public web data (press).",
+    "companies": [
+      {
+        "name": "Ascertain",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Optain",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Playback Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      },
+      {
+        "name": "Prolucent Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Hume",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "susa-ventures",
+    "sourceUrl": "https://www.susaventures.com/portfolio",
+    "note": "Seed/pre-seed digital health subset (care coordination, clinical workflow). Public web data (firm site).",
+    "companies": [
+      {
+        "name": "Viz.ai",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Stedi",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Superpower",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "WellTheory",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Seed"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "f-prime-capital",
+    "sourceUrl": "https://fprimecapital.com/sector/healthcare",
+    "note": "Healthtech + services subset; classified Digital Health. Public web data (firm site).",
+    "companies": [
+      {
+        "name": "Devoted Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Iora Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Quartet Health",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
+  },
+  {
+    "vcId": "general-catalyst-group-management-llc",
+    "sourceUrl": "https://www.generalcatalyst.com/healthcare",
+    "note": "Health Assurance portfolio subset; classified Digital Health. Public web data (firm site + press). Added 2026-07 to lift GC off the stated-only cap.",
+    "companies": [
+      {
+        "name": "Commure",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series C"
+      },
+      {
+        "name": "Hippocratic AI",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series B"
+      },
+      {
+        "name": "Rippl",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Series A"
+      },
+      {
+        "name": "Transcarent",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "Livongo",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Public"
+      },
+      {
+        "name": "Maven Clinic",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      },
+      {
+        "name": "HarmonyCares",
+        "domains": [
+          "Digital Health"
+        ],
+        "stage": "Growth"
+      }
+    ],
+    "scrapedAt": "2026-07-29"
   }
 ]

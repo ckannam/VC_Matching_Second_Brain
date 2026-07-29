@@ -1306,5 +1306,151 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "town-hall-ventures",
+    "name": "Town Hall Ventures",
+    "aliases": [
+      "Town Hall"
+    ],
+    "focus": "Town Hall Ventures, founded by former CMS Administrator Andy Slavitt, invests in tech-enabled healthcare serving Medicare, Medicaid, and underserved populations — the value-based-care models where policy tailwinds drive adoption.",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "flare-capital-partners",
+    "name": "Flare Capital Partners",
+    "aliases": [
+      "Flare Capital",
+      "Flare"
+    ],
+    "focus": "Flare Capital Partners is a healthcare-technology specialist backing early- and growth-stage digital health and health-IT companies, including Isaac Health (virtual dementia care) and Suki (AI clinical documentation).",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 30
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "primetime-partners",
+    "name": "Primetime Partners",
+    "aliases": [
+      "Primetime"
+    ],
+    "focus": "Primetime Partners, co-founded by Alan Patricof and Abby Miller Levy, makes seed and early-stage investments in products, care models, and technologies for aging and longevity — including brain health, dementia, and caregiver support.",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 0.25,
+      "max": 2
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "aegis-ventures",
+    "name": "Aegis Ventures",
+    "aliases": [
+      "Aegis"
+    ],
+    "focus": "Aegis Ventures builds and backs healthcare-AI companies, notably through Ascertain — its $100M venture studio with Northwell Health — developing AI tools that automate clinical and administrative workflows and expand access to care.",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 20
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "susa-ventures",
+    "name": "Susa Ventures",
+    "aliases": [
+      "Susa"
+    ],
+    "focus": "Susa Ventures invests $1–3M at pre-seed and seed across digital health, with specialty areas in care coordination and delivery, clinical infrastructure and workflows, and data and analytics.",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Pre-Seed",
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 3
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
+  },
+  {
+    "id": "f-prime-capital",
+    "name": "F-Prime Capital",
+    "aliases": [
+      "F-Prime",
+      "FPrime"
+    ],
+    "focus": "F-Prime Capital, the venture arm tied to the Fidelity founding family, backs healthtech and health-services companies including Devoted Health (Medicare Advantage) and Iora Health.",
+    "sectors": [
+      "Digital Health"
+    ],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 5,
+      "max": 60
+    },
+    "geographicFocus": "National",
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]

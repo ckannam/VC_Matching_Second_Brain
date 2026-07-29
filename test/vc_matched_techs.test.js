@@ -34,9 +34,14 @@ check('every curated firm yields exactly 4 matched techs (never zero)', () => {
   }
 });
 
-check('enriched firms are NOT provisional and keep matchedTechs + vcOnePager', () => {
+check('PDF-curated portfolio firms are NOT provisional and keep matchedTechs', () => {
+  // The 12 hand-curated firms carry a vcOnePager PDF and must stay first-class.
+  // Web-researched firms may ALSO have a (hand-classified, public-web) portfolio
+  // while remaining provisional — the "no PitchBook, verify before outreach"
+  // caveat still applies; those are identified by vcOnePager === null.
   for (const id of curatedIds) {
     const vc = vcs.find(v => v.id === id);
+    if (!vc.vcOnePager) continue; // web-researched portfolio firm — allowed to be provisional
     assert(!vc.provisional, `${id} was flagged provisional`);
     assert(Array.isArray(vc.matchedTechs), `${id} lost matchedTechs`);
   }
