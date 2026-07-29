@@ -30,7 +30,10 @@
     "checkSize": {
       "min": 0.5,
       "max": 3
-    }
+    },
+    "pinnedTechs": [
+      "juneberry-health"
+    ]
   },
   {
     "id": "8vc",
@@ -1330,7 +1333,10 @@
     "geographicFocus": "National",
     "matchedTechs": [],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": true,
+    "pinnedTechs": [
+      "juneberry-health"
+    ]
   },
   {
     "id": "flare-capital-partners",
@@ -1356,7 +1362,10 @@
     "geographicFocus": "National",
     "matchedTechs": [],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": true,
+    "pinnedTechs": [
+      "juneberry-health"
+    ]
   },
   {
     "id": "primetime-partners",
@@ -1379,7 +1388,10 @@
     "geographicFocus": "National",
     "matchedTechs": [],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": true,
+    "pinnedTechs": [
+      "juneberry-health"
+    ]
   },
   {
     "id": "aegis-ventures",
