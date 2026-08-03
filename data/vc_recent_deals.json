@@ -1,0 +1,4219 @@
+{
+  "2048-ventures": {
+    "dealCount": 31,
+    "deals": [
+      {
+        "date": "2026-06-29",
+        "company": "Nebex",
+        "sector": "Media and Information Services (B2B)",
+        "round": "Seed",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Peri",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-05-19",
+        "company": "Rely",
+        "sector": "Financial Software",
+        "round": "Seed",
+        "sizeMusd": 4.5
+      },
+      {
+        "date": "2026-05-01",
+        "company": "Actor Labs",
+        "sector": "Other Hardware",
+        "round": "Seed",
+        "sizeMusd": 4
+      },
+      {
+        "date": "2026-04-17",
+        "company": "Century Health",
+        "sector": "Decision/Risk Analysis",
+        "round": "Seed",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2026-04-07",
+        "company": "Anomer Bio",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 1.06
+      },
+      {
+        "date": "2026-03-16",
+        "company": "Immunara",
+        "sector": "Research Technologies",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-03-01",
+        "company": "Pocket",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 1.35
+      },
+      {
+        "date": "2026-02-01",
+        "company": "Broome",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-02-01",
+        "company": "Growth Signals",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 19.7
+      }
+    ]
+  },
+  "500-global": {
+    "dealCount": 247,
+    "deals": [
+      {
+        "date": "2026-07-02",
+        "company": "Carevision (Decision/Risk Analysis)",
+        "sector": "Decision/Risk Analysis",
+        "round": "Accelerator/Incubator",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-07-02",
+        "company": "Kami (Movies, Music and Entertainment)",
+        "sector": "Movies, Music and Entertainment",
+        "round": "Accelerator/Incubator (Non-Equity)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Amity Robotics",
+        "sector": "Other Hardware",
+        "round": "Seed",
+        "sizeMusd": 7
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Playabi",
+        "sector": "Entertainment Software",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Zavu",
+        "sector": "Communication Software",
+        "round": "Seed",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2026-06-30",
+        "company": "Resti Cloud",
+        "sector": "Business/Productivity Software",
+        "round": "Accelerator/Incubator",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-25",
+        "company": "Cerberus (Business/Productivity Software)",
+        "sector": "Business/Productivity Software",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-25",
+        "company": "Clinova (Business/Productivity Software)",
+        "sector": "Business/Productivity Software",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-25",
+        "company": "Karpatia Benefits",
+        "sector": "Business/Productivity Software",
+        "round": "Accelerator/Incubator",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-25",
+        "company": "MalCall",
+        "sector": "Business/Productivity Software",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "8vc": {
+    "dealCount": 163,
+    "deals": [
+      {
+        "date": "2026-07-21",
+        "company": "Sila",
+        "sector": "Other Materials",
+        "round": "Growth",
+        "sizeMusd": 300
+      },
+      {
+        "date": "2026-07-16",
+        "company": "Sable AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 45
+      },
+      {
+        "date": "2026-07-15",
+        "company": "Senra Systems",
+        "sector": "Aerospace and Defense",
+        "round": "Series B",
+        "sizeMusd": 65
+      },
+      {
+        "date": "2026-07-09",
+        "company": "Ollama",
+        "sector": "Software Development Applications",
+        "round": "Series B",
+        "sizeMusd": 65
+      },
+      {
+        "date": "2026-07-07",
+        "company": "Agave",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 15
+      },
+      {
+        "date": "2026-07-06",
+        "company": "Bespoke Labs",
+        "sector": "Software Development Applications",
+        "round": "Series A",
+        "sizeMusd": 31.75
+      },
+      {
+        "date": "2026-06-11",
+        "company": "Coram AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2026-06-10",
+        "company": "Minerva (New York)",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-06-05",
+        "company": "Default",
+        "sector": "Business/Productivity Software",
+        "round": "Series C",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-06-04",
+        "company": "Generalist",
+        "sector": "Other Hardware",
+        "round": "Series B",
+        "sizeMusd": 400
+      }
+    ]
+  },
+  "alexandria-venture-investments": {
+    "dealCount": 83,
+    "deals": [
+      {
+        "date": "2026-07-16",
+        "company": "Crystalys Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2026-06-17",
+        "company": "Vedana Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 46
+      },
+      {
+        "date": "2026-06-09",
+        "company": "Proxima (Drug Discovery)",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 91.45
+      },
+      {
+        "date": "2026-06-08",
+        "company": "SonoThera",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 125.45
+      },
+      {
+        "date": "2026-05-06",
+        "company": "Autoimmunity BioSolutions",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 3.21
+      },
+      {
+        "date": "2026-04-27",
+        "company": "Fathom Therapeutics",
+        "sector": "Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 47
+      },
+      {
+        "date": "2026-04-15",
+        "company": "Alloy Therapeutics",
+        "sector": "Research Technologies",
+        "round": "Series E",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2026-03-25",
+        "company": "Sidewinder Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 137
+      },
+      {
+        "date": "2026-03-17",
+        "company": "Neomorph",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-03-13",
+        "company": "Create Medicines",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 122
+      }
+    ]
+  },
+  "alta-partners": {
+    "dealCount": 13,
+    "deals": [
+      {
+        "date": "2025-09-09",
+        "company": "Harbor Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2024-10-01",
+        "company": "Be Biopharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 92
+      },
+      {
+        "date": "2024-09-04",
+        "company": "Egenesis",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 191
+      },
+      {
+        "date": "2024-05-14",
+        "company": "Progentos Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 68.59
+      },
+      {
+        "date": "2024-03-25",
+        "company": "Edgewood Oncology",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2024-03-07",
+        "company": "Amplitude Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-03-06",
+        "company": "Transcarent",
+        "sector": "Digital Health",
+        "round": "Series D",
+        "sizeMusd": 126
+      },
+      {
+        "date": "2024-01-10",
+        "company": "Harbor Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 95.5
+      },
+      {
+        "date": "2023-12-19",
+        "company": "Lassen Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 85
+      },
+      {
+        "date": "2023-11-21",
+        "company": "MBrace Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 85
+      }
+    ]
+  },
+  "amplify-partners": {
+    "dealCount": 49,
+    "deals": [
+      {
+        "date": "2026-07-21",
+        "company": "SkyPilot",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Gradium",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 114.65
+      },
+      {
+        "date": "2026-06-23",
+        "company": "Allium (Database Software)",
+        "sector": "Database Software",
+        "round": "Series B",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2026-06-16",
+        "company": "Taste (Business/Productivity Software)",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 18.5
+      },
+      {
+        "date": "2026-06-10",
+        "company": "Niteshift",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 7
+      },
+      {
+        "date": "2026-06-04",
+        "company": "Reactor (Software Development Applications)",
+        "sector": "Software Development Applications",
+        "round": "Series A",
+        "sizeMusd": 59
+      },
+      {
+        "date": "2026-05-28",
+        "company": "Waypoint Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-05-21",
+        "company": "Arito AI",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 6
+      },
+      {
+        "date": "2026-04-27",
+        "company": "Avoca",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 77.2
+      },
+      {
+        "date": "2026-04-22",
+        "company": "Exe.dev",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 35
+      }
+    ]
+  },
+  "baltimore-angels": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2022-06-06",
+        "company": "EcoMap",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 3.46
+      },
+      {
+        "date": "2021-03-19",
+        "company": "xEthix360",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 4
+      },
+      {
+        "date": "2020-12-30",
+        "company": "Super Coffee",
+        "sector": "Beverages",
+        "round": "Series B",
+        "sizeMusd": 49.28
+      },
+      {
+        "date": "2020-10-20",
+        "company": "Flikshop",
+        "sector": "Other Services (B2C Non-Financial)",
+        "round": "Angel (Individual)",
+        "sizeMusd": 0.06
+      },
+      {
+        "date": "2020-06-17",
+        "company": "Ash & Erie",
+        "sector": "Clothing",
+        "round": "Seed",
+        "sizeMusd": 5.17
+      },
+      {
+        "date": "2019-11-07",
+        "company": "xPinkaloo Technologies",
+        "sector": "Financial Software",
+        "round": "Seed",
+        "sizeMusd": 1.56
+      },
+      {
+        "date": "2019-10-23",
+        "company": "Zest (Beverages)",
+        "sector": "Beverages",
+        "round": "Series B",
+        "sizeMusd": 1.28
+      },
+      {
+        "date": "2019-07-01",
+        "company": "xAnnona",
+        "sector": "Business/Productivity Software",
+        "round": "Angel (Individual)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2019-03-31",
+        "company": "xiFundWomen",
+        "sector": "Other Financial Services",
+        "round": "Seed",
+        "sizeMusd": 2.42
+      },
+      {
+        "date": "2019-02-22",
+        "company": "Real Time Medical Systems",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 10
+      }
+    ]
+  },
+  "barer-son-capital-llc": {
+    "dealCount": 5,
+    "deals": [
+      {
+        "date": "2020-06-24",
+        "company": "xAsclepiX Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2019-06-12",
+        "company": "xViela Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 75
+      },
+      {
+        "date": "2018-11-13",
+        "company": "xAsclepiX Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2018-01-01",
+        "company": "xNeximmune",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 23
+      },
+      {
+        "date": "2017-02-14",
+        "company": "xNeximmune",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "blackbird-laboratories-inc": {
+    "dealCount": 3,
+    "deals": [
+      {
+        "date": "2026-07-09",
+        "company": "Alchemity",
+        "sector": "Other Energy Services",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-06-02",
+        "company": "KaloCyte",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2025-02-18",
+        "company": "Vasarya Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 0.08
+      }
+    ]
+  },
+  "blue-jay-syndicate": {
+    "dealCount": 5,
+    "deals": [
+      {
+        "date": "2017-06-29",
+        "company": "Scene Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 2.52
+      },
+      {
+        "date": "2016-11-07",
+        "company": "xQuantified Care",
+        "sector": "Outcome Management (Healthcare)",
+        "round": "Series A",
+        "sizeMusd": 0.58
+      },
+      {
+        "date": "2016-01-22",
+        "company": "xAtlas (Electronics)",
+        "sector": "Electronics (B2C)",
+        "round": "Series A",
+        "sizeMusd": 1.83
+      },
+      {
+        "date": "2015-09-19",
+        "company": "Sonavex",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 0.32
+      },
+      {
+        "date": "2015-08-06",
+        "company": "Scene Health",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "brown-advisory": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-07-10",
+        "company": "Imperative Care",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 111.27
+      },
+      {
+        "date": "2026-05-01",
+        "company": "The RockCreek Group",
+        "sector": "Asset Management",
+        "round": "Secondary Transaction - Private",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-11-12",
+        "company": "Marylebone Partners",
+        "sector": "Other Financial Services",
+        "round": "Merger/Acquisition",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-08-07",
+        "company": "Phantom Neuro",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 19
+      },
+      {
+        "date": "2023-09-13",
+        "company": "xEquipmentShare",
+        "sector": "Other Commercial Services",
+        "round": "Series E",
+        "sizeMusd": 440
+      },
+      {
+        "date": "2023-05-17",
+        "company": "Kizen",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 17.78
+      },
+      {
+        "date": "2022-07-18",
+        "company": "Delfi Diagnostics",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 225
+      },
+      {
+        "date": "2021-01-01",
+        "company": "Enpro",
+        "sector": "Industrial Supplies and Parts",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2020-09-25",
+        "company": "Clarus (Recreational Goods)",
+        "sector": "Recreational Goods",
+        "round": "Growth",
+        "sizeMusd": 11.48
+      },
+      {
+        "date": "2020-07-24",
+        "company": "xThrive Earlier Detection",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 257
+      }
+    ]
+  },
+  "camden-partners": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-07-17",
+        "company": "Culinary Institute of Barcelona",
+        "sector": "Educational and Training Services (B2C)",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-01",
+        "company": "Pacific Institute of Culinary Arts",
+        "sector": "Educational and Training Services (B2C)",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2023-08-01",
+        "company": "Gecko Hospitality",
+        "sector": "Human Capital Services",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2023-03-02",
+        "company": "Medical Marijuana 411",
+        "sector": "Educational Software",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-11-01",
+        "company": "Bluefin Payment Systems Austria",
+        "sector": "Financial Software",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-06-16",
+        "company": "Celpal",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 21
+      },
+      {
+        "date": "2022-06-06",
+        "company": "Eventcore",
+        "sector": "Business/Productivity Software",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-01-19",
+        "company": "Conquer.io",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 12
+      },
+      {
+        "date": "2022-01-06",
+        "company": "Aventri",
+        "sector": "Business/Productivity Software",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-01-06",
+        "company": "Stova Group",
+        "sector": "Business/Productivity Software",
+        "round": "Growth",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "catalio-capital-management-lp": {
+    "dealCount": 53,
+    "deals": [
+      {
+        "date": "2026-07-31",
+        "company": "Ratio Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 70
+      },
+      {
+        "date": "2026-07-28",
+        "company": "Claris Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 118
+      },
+      {
+        "date": "2026-07-27",
+        "company": "Entera Bio",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 275
+      },
+      {
+        "date": "2026-07-15",
+        "company": "AdvanCell",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 315
+      },
+      {
+        "date": "2026-07-10",
+        "company": "Imperative Care",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 111.27
+      },
+      {
+        "date": "2026-06-23",
+        "company": "Creslon",
+        "sector": "Medical Supplies",
+        "round": "Series A",
+        "sizeMusd": 48.68
+      },
+      {
+        "date": "2026-06-04",
+        "company": "Flourish",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 500
+      },
+      {
+        "date": "2026-06-03",
+        "company": "Sentonix",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-29",
+        "company": "Abridge",
+        "sector": "Digital Health",
+        "round": "Series E",
+        "sizeMusd": 315.93
+      },
+      {
+        "date": "2026-04-01",
+        "company": "b.well",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "cowen-healthcare-investments": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2025-12-24",
+        "company": "Delfi Diagnostics",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 34.3
+      },
+      {
+        "date": "2024-12-12",
+        "company": "xPalvella Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 78.9
+      },
+      {
+        "date": "2024-12-05",
+        "company": "Nuvig Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 161
+      },
+      {
+        "date": "2024-04-26",
+        "company": "Lycia Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 106.6
+      },
+      {
+        "date": "2023-11-28",
+        "company": "Aro Biotherapeutics",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 41.5
+      },
+      {
+        "date": "2023-11-21",
+        "company": "MBrace Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 85
+      },
+      {
+        "date": "2023-10-30",
+        "company": "xMapLight Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 225
+      },
+      {
+        "date": "2023-10-19",
+        "company": "xTourmaline Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 75
+      },
+      {
+        "date": "2023-09-05",
+        "company": "Star Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series C",
+        "sizeMusd": 90
+      },
+      {
+        "date": "2023-05-17",
+        "company": "xEnGene Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 138
+      }
+    ]
+  },
+  "deerfield-management-company-l-p": {
+    "dealCount": 41,
+    "deals": [
+      {
+        "date": "2026-05-13",
+        "company": "METIs TechBio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "IPO",
+        "sizeMusd": 309.77
+      },
+      {
+        "date": "2026-04-21",
+        "company": "Ray Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 125
+      },
+      {
+        "date": "2026-03-17",
+        "company": "Neomorph",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-01-13",
+        "company": "Foghorn Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 13.62
+      },
+      {
+        "date": "2025-12-03",
+        "company": "Excelsior Sciences",
+        "sector": "Other Commercial Services",
+        "round": "Series A",
+        "sizeMusd": 70
+      },
+      {
+        "date": "2025-11-06",
+        "company": "MyLaurel",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 12
+      },
+      {
+        "date": "2025-09-25",
+        "company": "Axon Therapies",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 32
+      },
+      {
+        "date": "2025-09-17",
+        "company": "Reprieve Cardiovascular",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 61
+      },
+      {
+        "date": "2025-08-19",
+        "company": "Elion Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 81
+      },
+      {
+        "date": "2025-08-11",
+        "company": "BridgeBio Oncology Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 261
+      }
+    ]
+  },
+  "dimension": {
+    "dealCount": 21,
+    "deals": [
+      {
+        "date": "2026-07-14",
+        "company": "Chai Discovery",
+        "sector": "Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 400
+      },
+      {
+        "date": "2026-03-19",
+        "company": "Congruence Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 39.5
+      },
+      {
+        "date": "2026-02-26",
+        "company": "Tamarind Bio",
+        "sector": "Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 13.56
+      },
+      {
+        "date": "2025-12-15",
+        "company": "Chai Discovery",
+        "sector": "Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2025-11-04",
+        "company": "Automata",
+        "sector": "Business/Productivity Software",
+        "round": "Series C",
+        "sizeMusd": 46.57
+      },
+      {
+        "date": "2025-10-20",
+        "company": "NewLimit",
+        "sector": "Therapeutics",
+        "round": "Series C",
+        "sizeMusd": 45
+      },
+      {
+        "date": "2025-10-01",
+        "company": "BioRender",
+        "sector": "Multimedia and Design Software",
+        "round": "Series C",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-09-29",
+        "company": "Modal Labs",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 87
+      },
+      {
+        "date": "2025-09-10",
+        "company": "xOdyssey Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series D",
+        "sizeMusd": 213
+      },
+      {
+        "date": "2025-09-04",
+        "company": "Enveda",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 150
+      }
+    ]
+  },
+  "draper-associates": {
+    "dealCount": 246,
+    "deals": [
+      {
+        "date": "2026-08-01",
+        "company": "Synaptic Bionics",
+        "sector": "Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 0.67
+      },
+      {
+        "date": "2026-07-20",
+        "company": "Deep Root Biolabs",
+        "sector": "Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 4.04
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Klinic",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 24.22
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Venus Aerospace",
+        "sector": "Aerospace and Defense",
+        "round": "Series B",
+        "sizeMusd": 91
+      },
+      {
+        "date": "2026-07-03",
+        "company": "Aisa",
+        "sector": "Financial Software",
+        "round": "Seed",
+        "sizeMusd": 6.5
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Secret Key Labs",
+        "sector": "Financial Software",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Terminus Industrials",
+        "sector": "Electrical Equipment",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-21",
+        "company": "Syntax Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 14.4
+      },
+      {
+        "date": "2026-06-10",
+        "company": "OpenYield",
+        "sector": "Financial Software",
+        "round": "Series A",
+        "sizeMusd": 6.1
+      },
+      {
+        "date": "2026-06-08",
+        "company": "The Embryo",
+        "sector": "Other Agriculture",
+        "round": "Seed",
+        "sizeMusd": 4.91
+      }
+    ]
+  },
+  "dreamit-ventures": {
+    "dealCount": 35,
+    "deals": [
+      {
+        "date": "2026-03-15",
+        "company": "Acsense",
+        "sector": "Network Management Software",
+        "round": "Series B",
+        "sizeMusd": 0.5
+      },
+      {
+        "date": "2026-01-21",
+        "company": "AiStrike",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 7
+      },
+      {
+        "date": "2026-01-16",
+        "company": "Daxa",
+        "sector": "Network Management Software",
+        "round": "Series B",
+        "sizeMusd": 0.1
+      },
+      {
+        "date": "2025-12-31",
+        "company": "Abode (Real Estate Services)",
+        "sector": "Real Estate Services (B2C)",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-12-31",
+        "company": "Aurva",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 2.25
+      },
+      {
+        "date": "2025-12-31",
+        "company": "ChaosTrack",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 0.05
+      },
+      {
+        "date": "2025-12-31",
+        "company": "FaceSign",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 0.05
+      },
+      {
+        "date": "2025-12-31",
+        "company": "Inception Cyber",
+        "sector": "Security Services (B2B)",
+        "round": "Seed",
+        "sizeMusd": 0.05
+      },
+      {
+        "date": "2025-12-15",
+        "company": "Cylera",
+        "sector": "Network Management Software",
+        "round": "Series B",
+        "sizeMusd": 0.03
+      },
+      {
+        "date": "2025-10-10",
+        "company": "Bricklayer AI",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 5
+      }
+    ]
+  },
+  "ecphora-capital-management-company": {
+    "dealCount": 21,
+    "deals": [
+      {
+        "date": "2026-05-14",
+        "company": "Astek Diagnostics",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-29",
+        "company": "Sonogen",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-02-27",
+        "company": "JuneBrain",
+        "sector": "Medical Devices, Digital Health",
+        "round": "Seed",
+        "sizeMusd": 0.45
+      },
+      {
+        "date": "2026-01-01",
+        "company": "Gelectric Medical",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-12-29",
+        "company": "Theradaptive",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-12-24",
+        "company": "Nanochon",
+        "sector": "Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 4.1
+      },
+      {
+        "date": "2025-12-23",
+        "company": "Mi-Helper",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 6.5
+      },
+      {
+        "date": "2025-11-13",
+        "company": "ARMR Systems",
+        "sector": "Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 1.09
+      },
+      {
+        "date": "2025-10-16",
+        "company": "Neurava",
+        "sector": "Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 1.6
+      },
+      {
+        "date": "2025-05-28",
+        "company": "CoapTech",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "emerald-development-managers": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-02-05",
+        "company": "Una Software",
+        "sector": "Other Financial Services",
+        "round": "Seed",
+        "sizeMusd": 13
+      },
+      {
+        "date": "2025-12-30",
+        "company": "Random Power",
+        "sector": "Application Specific Semiconductors",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-12-14",
+        "company": "Random Power",
+        "sector": "Application Specific Semiconductors",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-03-04",
+        "company": "Proscia",
+        "sector": "Decision/Risk Analysis",
+        "round": "Series B",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2024-09-02",
+        "company": "Uviquity",
+        "sector": "Application Specific Semiconductors",
+        "round": "Seed",
+        "sizeMusd": 6.67
+      },
+      {
+        "date": "2024-01-11",
+        "company": "Proscia",
+        "sector": "Decision/Risk Analysis",
+        "round": "Series C",
+        "sizeMusd": 46
+      },
+      {
+        "date": "2023-11-14",
+        "company": "Hiboo",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 9.94
+      },
+      {
+        "date": "2023-07-25",
+        "company": "ETCH",
+        "sector": "Energy Exploration",
+        "round": "Seed",
+        "sizeMusd": 7.5
+      },
+      {
+        "date": "2023-06-21",
+        "company": "Cyware",
+        "sector": "Network Management Software",
+        "round": "Series C",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2023-02-23",
+        "company": "xTranscend Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 40
+      }
+    ]
+  },
+  "emergence-capital": {
+    "dealCount": 44,
+    "deals": [
+      {
+        "date": "2026-07-16",
+        "company": "EverSettled",
+        "sector": "Other Services (B2C Non-Financial)",
+        "round": "Seed",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2026-06-22",
+        "company": "Prosper AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-06-16",
+        "company": "Bland AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series C",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2026-06-15",
+        "company": "Radical Numerics",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2026-06-12",
+        "company": "MainFunc",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 485
+      },
+      {
+        "date": "2026-06-12",
+        "company": "The OpenAI Deployment Company",
+        "sector": "Other Commercial Services",
+        "round": "Joint Venture",
+        "sizeMusd": 4000
+      },
+      {
+        "date": "2026-05-30",
+        "company": "Pace",
+        "sector": "Financial Software",
+        "round": "Series B",
+        "sizeMusd": 46
+      },
+      {
+        "date": "2026-03-05",
+        "company": "Together AI",
+        "sector": "Systems and Information Management",
+        "round": "Series C",
+        "sizeMusd": 800
+      },
+      {
+        "date": "2026-02-25",
+        "company": "Harper (Insurance Brokers)",
+        "sector": "Insurance Brokers",
+        "round": "Series A",
+        "sizeMusd": 47
+      },
+      {
+        "date": "2026-02-25",
+        "company": "Rowspace",
+        "sector": "Financial Software",
+        "round": "Series A",
+        "sizeMusd": 40
+      }
+    ]
+  },
+  "felicis": {
+    "dealCount": 116,
+    "deals": [
+      {
+        "date": "2026-07-14",
+        "company": "Singularity (Aerospace and Defense)",
+        "sector": "Aerospace and Defense",
+        "round": "Series A",
+        "sizeMusd": 80
+      },
+      {
+        "date": "2026-07-09",
+        "company": "Verkada",
+        "sector": "Electronic Equipment and Instruments",
+        "round": "Series F",
+        "sizeMusd": 41.23
+      },
+      {
+        "date": "2026-06-24",
+        "company": "Assort Health",
+        "sector": "Digital Health",
+        "round": "Series C",
+        "sizeMusd": 120
+      },
+      {
+        "date": "2026-06-16",
+        "company": "Ent AI",
+        "sector": "Other Commercial Services",
+        "round": "Seed",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-06-12",
+        "company": "Endurance Energy (Energy Production)",
+        "sector": "Energy Production",
+        "round": "Series A",
+        "sizeMusd": 54
+      },
+      {
+        "date": "2026-06-04",
+        "company": "Supabase",
+        "sector": "Software Development Applications",
+        "round": "Series F",
+        "sizeMusd": 500
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Atalanta",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 2.7
+      },
+      {
+        "date": "2026-05-27",
+        "company": "Revel (Business/Productivity Software)",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-05-19",
+        "company": "Armada (San Francisco)",
+        "sector": "Other Commercial Products",
+        "round": "Series B",
+        "sizeMusd": 230
+      },
+      {
+        "date": "2026-05-05",
+        "company": "Fractile",
+        "sector": "Application Specific Semiconductors",
+        "round": "Series B",
+        "sizeMusd": 247.89
+      }
+    ]
+  },
+  "foresite-capital": {
+    "dealCount": 63,
+    "deals": [
+      {
+        "date": "2026-06-08",
+        "company": "Stepful",
+        "sector": "Educational Software",
+        "round": "Series C",
+        "sizeMusd": 55
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Avenzo Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 215
+      },
+      {
+        "date": "2026-05-18",
+        "company": "Quince Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 115
+      },
+      {
+        "date": "2026-04-14",
+        "company": "Obsidian Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 350
+      },
+      {
+        "date": "2026-04-10",
+        "company": "Ametris (Monitoring Equipment)",
+        "sector": "Medical Devices, Digital Health",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-01",
+        "company": "Korsana Biosciences",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 380
+      },
+      {
+        "date": "2026-03-27",
+        "company": "xOnKure Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-03-26",
+        "company": "Pinnacle Medicines",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 89
+      },
+      {
+        "date": "2026-03-09",
+        "company": "xCandid Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 505
+      },
+      {
+        "date": "2026-02-24",
+        "company": "Slate Medicines",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 130
+      }
+    ]
+  },
+  "frazier-life-sciences": {
+    "dealCount": 56,
+    "deals": [
+      {
+        "date": "2026-07-07",
+        "company": "MatrixCare Holdings",
+        "sector": "Digital Health",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-04",
+        "company": "RQ Bio",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 115
+      },
+      {
+        "date": "2026-05-22",
+        "company": "Altruix",
+        "sector": "Distributors (Healthcare)",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-05-05",
+        "company": "CaryRx",
+        "sector": "Digital Health",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-29",
+        "company": "Valneva",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 43.21
+      },
+      {
+        "date": "2026-04-22",
+        "company": "Maze Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-04-21",
+        "company": "Egetis Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 37.46
+      },
+      {
+        "date": "2026-04-16",
+        "company": "Achieve Life Sciences",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 179.63
+      },
+      {
+        "date": "2026-03-25",
+        "company": "Sidewinder Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 137
+      },
+      {
+        "date": "2026-03-24",
+        "company": "Immutrin",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 87.02
+      }
+    ]
+  },
+  "fusion-fund": {
+    "dealCount": 34,
+    "deals": [
+      {
+        "date": "2026-06-02",
+        "company": "Subtle Medical",
+        "sector": "Digital Health",
+        "round": "Series C",
+        "sizeMusd": 33
+      },
+      {
+        "date": "2026-03-20",
+        "company": "Eridu",
+        "sector": "Other Information Technology",
+        "round": "Series A",
+        "sizeMusd": 200
+      },
+      {
+        "date": "2026-03-16",
+        "company": "Memories.ai",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 16
+      },
+      {
+        "date": "2026-01-26",
+        "company": "CVector",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2026-01-22",
+        "company": "NeuroHarmonics",
+        "sector": "Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 2
+      },
+      {
+        "date": "2026-01-20",
+        "company": "AgileRL",
+        "sector": "Software Development Applications",
+        "round": "Seed",
+        "sizeMusd": 7.39
+      },
+      {
+        "date": "2026-01-17",
+        "company": "Zeroport",
+        "sector": "Other Hardware",
+        "round": "Seed",
+        "sizeMusd": 10
+      },
+      {
+        "date": "2025-12-11",
+        "company": "Medra",
+        "sector": "Other Hardware",
+        "round": "Series A",
+        "sizeMusd": 52
+      },
+      {
+        "date": "2025-12-03",
+        "company": "Niobium Microsystems",
+        "sector": "General Purpose Semiconductors",
+        "round": "Seed",
+        "sizeMusd": 35.85
+      },
+      {
+        "date": "2025-11-04",
+        "company": "Portal26",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 9
+      }
+    ]
+  },
+  "hanabi-capital": {
+    "dealCount": 24,
+    "deals": [
+      {
+        "date": "2026-06-04",
+        "company": "Generalist",
+        "sector": "Other Hardware",
+        "round": "Series B",
+        "sizeMusd": 400
+      },
+      {
+        "date": "2026-05-12",
+        "company": "1001 AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-04-08",
+        "company": "Applied Compute",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 80
+      },
+      {
+        "date": "2026-03-11",
+        "company": "Mind Robotics",
+        "sector": "Machinery (B2B)",
+        "round": "Series A",
+        "sizeMusd": 500
+      },
+      {
+        "date": "2026-03-04",
+        "company": "Traversal",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 53
+      },
+      {
+        "date": "2026-02-17",
+        "company": "Onodrim",
+        "sector": "Aerospace and Defense",
+        "round": "Seed",
+        "sizeMusd": 47.33
+      },
+      {
+        "date": "2026-02-12",
+        "company": "Simile",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-02-06",
+        "company": "Foundry Robotics",
+        "sector": "Other Hardware",
+        "round": "Seed",
+        "sizeMusd": 19
+      },
+      {
+        "date": "2025-11-13",
+        "company": "Cursor",
+        "sector": "Software Development Applications",
+        "round": "Series D",
+        "sizeMusd": 2300
+      },
+      {
+        "date": "2025-11-11",
+        "company": "LiveKit",
+        "sector": "Software Development Applications",
+        "round": "Series C",
+        "sizeMusd": 100
+      }
+    ]
+  },
+  "illumina-ventures": {
+    "dealCount": 35,
+    "deals": [
+      {
+        "date": "2026-06-21",
+        "company": "Syntax Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 14.4
+      },
+      {
+        "date": "2026-06-08",
+        "company": "SonoThera",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 125.45
+      },
+      {
+        "date": "2026-02-17",
+        "company": "CubaseBio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 6.98
+      },
+      {
+        "date": "2026-02-17",
+        "company": "Lightcast (Biotechnology)",
+        "sector": "Therapeutics",
+        "round": "Series C",
+        "sizeMusd": 27.12
+      },
+      {
+        "date": "2026-02-01",
+        "company": "Oncko",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-11-18",
+        "company": "Pattern BioSciences",
+        "sector": "Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 43
+      },
+      {
+        "date": "2025-11-10",
+        "company": "Iambic",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2025-11-05",
+        "company": "Hepta",
+        "sector": "Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 6.7
+      },
+      {
+        "date": "2025-11-01",
+        "company": "DeepSeq.AI",
+        "sector": "Research Technologies",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-10-30",
+        "company": "Precede Biosciences",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 83.5
+      }
+    ]
+  },
+  "intermountain-ventures": {
+    "dealCount": 20,
+    "deals": [
+      {
+        "date": "2026-07-29",
+        "company": "Qualified Health",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 125
+      },
+      {
+        "date": "2026-06-08",
+        "company": "Stepful",
+        "sector": "Educational Software",
+        "round": "Series C",
+        "sizeMusd": 55
+      },
+      {
+        "date": "2026-04-22",
+        "company": "Visana Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 24.02
+      },
+      {
+        "date": "2025-12-01",
+        "company": "Artisight",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-10-20",
+        "company": "knownwell",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 26.07
+      },
+      {
+        "date": "2025-10-09",
+        "company": "Foundation Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2025-09-18",
+        "company": "Sevaro",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 39
+      },
+      {
+        "date": "2025-08-11",
+        "company": "Layer Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 29.55
+      },
+      {
+        "date": "2025-06-03",
+        "company": "Matterworks (Healthcare Technology Systems)",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 23
+      },
+      {
+        "date": "2025-04-17",
+        "company": "BigHat Biosciences",
+        "sector": "Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 124
+      }
+    ]
+  },
+  "interwest-partners": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2022-12-22",
+        "company": "Cardiac Dimensions",
+        "sector": "Medical Devices",
+        "round": "Series D",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2022-08-08",
+        "company": "xmParticle",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 6.4
+      },
+      {
+        "date": "2022-01-17",
+        "company": "Chingari",
+        "sector": "Social/Platform Software",
+        "round": "Series A",
+        "sizeMusd": 14.77
+      },
+      {
+        "date": "2021-10-07",
+        "company": "GoCheck Kids",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 10
+      },
+      {
+        "date": "2020-08-26",
+        "company": "Trishula Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2020-07-14",
+        "company": "Bolt (Financial Software)",
+        "sector": "Financial Software",
+        "round": "Series C",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2020-02-27",
+        "company": "xSera Prognostics",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series C",
+        "sizeMusd": 65.74
+      },
+      {
+        "date": "2019-11-13",
+        "company": "xPMV Pharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 61.9
+      },
+      {
+        "date": "2019-07-11",
+        "company": "xWelcome Software",
+        "sector": "Business/Productivity Software",
+        "round": "Series F",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2019-07-05",
+        "company": "Valo",
+        "sector": "Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 100
+      }
+    ]
+  },
+  "jump-start-foundry": {
+    "dealCount": 14,
+    "deals": [
+      {
+        "date": "2026-01-28",
+        "company": "NutraRX",
+        "sector": "Managed Care",
+        "round": "Seed",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2025-08-27",
+        "company": "One Stop Wellness",
+        "sector": "Human Capital Services",
+        "round": "Series B",
+        "sizeMusd": 1
+      },
+      {
+        "date": "2025-06-17",
+        "company": "Lanyard Health",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2025-05-15",
+        "company": "SoHookd",
+        "sector": "Media and Information Services (B2B)",
+        "round": "Series B",
+        "sizeMusd": 2.3
+      },
+      {
+        "date": "2025-03-07",
+        "company": "Boom AI",
+        "sector": "Educational Software",
+        "round": "Seed",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2024-10-09",
+        "company": "MobilityZ Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-10-03",
+        "company": "Advanced Biosimulation Technologies (North Carolina)",
+        "sector": "Digital Health",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": 1.5
+      },
+      {
+        "date": "2024-10-03",
+        "company": "AskSAMIE",
+        "sector": "Medical Devices",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2024-10-03",
+        "company": "Consuss",
+        "sector": "Digital Health",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": 0.15
+      },
+      {
+        "date": "2024-10-03",
+        "company": "MatchRite Care",
+        "sector": "Digital Health",
+        "round": "Accelerator/Incubator (Equity-Based)",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "kairos-ventures": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2025-05-29",
+        "company": "Vivodyne",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2024-12-23",
+        "company": "Linnaeus Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 5.82
+      },
+      {
+        "date": "2024-08-19",
+        "company": "Provivi",
+        "sector": "Agricultural Chemicals",
+        "round": "Growth",
+        "sizeMusd": 10.4
+      },
+      {
+        "date": "2023-11-22",
+        "company": "Vivodyne",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 37.58
+      },
+      {
+        "date": "2023-02-28",
+        "company": "PteroDynamics",
+        "sector": "Aerospace and Defense",
+        "round": "Seed",
+        "sizeMusd": 8.5
+      },
+      {
+        "date": "2023-01-26",
+        "company": "Linnaeus Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 3.09
+      },
+      {
+        "date": "2023-01-01",
+        "company": "xPomelo",
+        "sector": "Other Consumer Non-Durables",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-08-15",
+        "company": "Tembo Health",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 8.91
+      },
+      {
+        "date": "2022-05-19",
+        "company": "Narmi",
+        "sector": "Financial Software",
+        "round": "Series B",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2022-04-04",
+        "company": "Behavioral Signals",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 6
+      }
+    ]
+  },
+  "keiretsu-forum": {
+    "dealCount": 193,
+    "deals": [
+      {
+        "date": "2026-07-16",
+        "company": "React Mobile",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 6.98
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Aline",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 7.8
+      },
+      {
+        "date": "2026-06-24",
+        "company": "MedServ Marketplace",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 3
+      },
+      {
+        "date": "2026-01-01",
+        "company": "Batterypool",
+        "sector": "Other Energy Services",
+        "round": "Series B",
+        "sizeMusd": 0.89
+      },
+      {
+        "date": "2025-12-11",
+        "company": "CellPhire Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2025-10-23",
+        "company": "Apriority",
+        "sector": "Financial Software",
+        "round": "Seed",
+        "sizeMusd": 2.3
+      },
+      {
+        "date": "2025-08-12",
+        "company": "AI Optics",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 14.72
+      },
+      {
+        "date": "2025-07-21",
+        "company": "Berri Organics",
+        "sector": "Beverages",
+        "round": "Series A",
+        "sizeMusd": 1
+      },
+      {
+        "date": "2025-07-08",
+        "company": "ALM Ortho",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 1
+      },
+      {
+        "date": "2025-07-07",
+        "company": "Groopit",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 7.52
+      }
+    ]
+  },
+  "lionbird": {
+    "dealCount": 17,
+    "deals": [
+      {
+        "date": "2026-03-31",
+        "company": "Jimini Health",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 17
+      },
+      {
+        "date": "2025-08-07",
+        "company": "Phantom Neuro",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 19
+      },
+      {
+        "date": "2025-05-22",
+        "company": "Rhino (Medical Records Systems)",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 15
+      },
+      {
+        "date": "2025-05-13",
+        "company": "PhaseV",
+        "sector": "Decision/Risk Analysis",
+        "round": "Series A",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2025-03-15",
+        "company": "Unique Minds",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 3
+      },
+      {
+        "date": "2025-03-01",
+        "company": "Ruby Health",
+        "sector": "Managed Care",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-02-23",
+        "company": "Maverick Medical AI",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 10.42
+      },
+      {
+        "date": "2024-11-19",
+        "company": "Jimini Health",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 8
+      },
+      {
+        "date": "2024-11-13",
+        "company": "Bluespine",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 7.2
+      },
+      {
+        "date": "2024-10-22",
+        "company": "OneStep",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 40.5
+      }
+    ]
+  },
+  "longview-innovation": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-01-01",
+        "company": "Cyrus Biotechnology",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 4.67
+      },
+      {
+        "date": "2023-01-01",
+        "company": "Taktos Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-08-08",
+        "company": "xInnervace",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2022-08-03",
+        "company": "xSomalytics",
+        "sector": "Electronic Equipment and Instruments",
+        "round": "Seed",
+        "sizeMusd": 1.9
+      },
+      {
+        "date": "2022-03-16",
+        "company": "xAptatek Biosciences",
+        "sector": "Medical Devices, Digital Health",
+        "round": "Seed",
+        "sizeMusd": 4
+      },
+      {
+        "date": "2022-01-01",
+        "company": "xCareAlign",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 2.38
+      },
+      {
+        "date": "2021-09-02",
+        "company": "xEnaChip",
+        "sector": "Other Semiconductors",
+        "round": "Seed",
+        "sizeMusd": 7.1
+      },
+      {
+        "date": "2021-07-28",
+        "company": "xAbmeta Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 2
+      },
+      {
+        "date": "2021-07-13",
+        "company": "xMOBILion Systems",
+        "sector": "Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 60
+      },
+      {
+        "date": "2021-03-26",
+        "company": "xEnzymetrics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 1.2
+      }
+    ]
+  },
+  "lux-capital": {
+    "dealCount": 129,
+    "deals": [
+      {
+        "date": "2026-07-21",
+        "company": "SkyPilot",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-07-20",
+        "company": "CuspAI",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 445.13
+      },
+      {
+        "date": "2026-07-14",
+        "company": "Sonata (Clinics/Outpatient Services)",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 7
+      },
+      {
+        "date": "2026-07-07",
+        "company": "Monogram",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2026-06-30",
+        "company": "Higharc",
+        "sector": "Multimedia and Design Software",
+        "round": "Series C",
+        "sizeMusd": 95
+      },
+      {
+        "date": "2026-06-18",
+        "company": "American Perpetuals Exchange",
+        "sector": "Brokerage",
+        "round": "Series A",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-06-17",
+        "company": "Traysar Industries",
+        "sector": "Aerospace and Defense",
+        "round": "Seed",
+        "sizeMusd": 25
+      },
+      {
+        "date": "2026-06-17",
+        "company": "xDOF",
+        "sector": "Other Hardware",
+        "round": "Series A",
+        "sizeMusd": 70
+      },
+      {
+        "date": "2026-06-16",
+        "company": "Copia",
+        "sector": "Business/Productivity Software",
+        "round": "Series C",
+        "sizeMusd": 55
+      },
+      {
+        "date": "2026-06-15",
+        "company": "Interchecks",
+        "sector": "Financial Software",
+        "round": "Series C",
+        "sizeMusd": 50
+      }
+    ]
+  },
+  "mayfield": {
+    "dealCount": 63,
+    "deals": [
+      {
+        "date": "2026-07-06",
+        "company": "Bespoke Labs",
+        "sector": "Software Development Applications",
+        "round": "Series A",
+        "sizeMusd": 31.75
+      },
+      {
+        "date": "2026-06-24",
+        "company": "Hang Ten",
+        "sector": "IT Consulting and Outsourcing",
+        "round": "Seed",
+        "sizeMusd": 32
+      },
+      {
+        "date": "2026-06-22",
+        "company": "Upscale AI",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 390
+      },
+      {
+        "date": "2026-06-15",
+        "company": "AttoTude",
+        "sector": "Business/Productivity Software",
+        "round": "Series C",
+        "sizeMusd": 52
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Brokk (Software Development Applications)",
+        "sector": "Software Development Applications",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Sekai (Multimedia and Design Software)",
+        "sector": "Entertainment Software",
+        "round": "Series A",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2026-05-12",
+        "company": "Exaforce",
+        "sector": "Network Management Software",
+        "round": "Series B",
+        "sizeMusd": 125
+      },
+      {
+        "date": "2026-04-28",
+        "company": "OpenLight",
+        "sector": "Application Specific Semiconductors",
+        "round": "Series A",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2026-04-07",
+        "company": "Mosaic (Multimedia and Design Software)",
+        "sector": "Multimedia and Design Software",
+        "round": "Seed",
+        "sizeMusd": 3.8
+      },
+      {
+        "date": "2026-04-06",
+        "company": "NeuBird",
+        "sector": "Software Development Applications",
+        "round": "Series A",
+        "sizeMusd": 19.3
+      }
+    ]
+  },
+  "medimmune-ventures": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2016-07-01",
+        "company": "G1 Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2015-02-05",
+        "company": "G1 Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 33
+      },
+      {
+        "date": "2013-12-09",
+        "company": "xAesRx",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 1.96
+      },
+      {
+        "date": "2013-11-15",
+        "company": "xAstria Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 32.43
+      },
+      {
+        "date": "2013-10-16",
+        "company": "G1 Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 12.6
+      },
+      {
+        "date": "2013-10-15",
+        "company": "xADC Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2013-09-27",
+        "company": "xInotek Pharmaceuticals",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 13.7
+      },
+      {
+        "date": "2013-06-27",
+        "company": "xAstria Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 9.2
+      },
+      {
+        "date": "2013-05-15",
+        "company": "xAmbit Biosciences",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "IPO",
+        "sizeMusd": 65
+      },
+      {
+        "date": "2012-12-12",
+        "company": "xCerapedics",
+        "sector": "Medical Devices",
+        "round": "Series C",
+        "sizeMusd": 19
+      }
+    ]
+  },
+  "morningside-group": {
+    "dealCount": 70,
+    "deals": [
+      {
+        "date": "2026-07-15",
+        "company": "AdvanCell",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 315
+      },
+      {
+        "date": "2026-07-14",
+        "company": "Mighty Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-06-12",
+        "company": "Dermatic Health",
+        "sector": "Decision/Risk Analysis",
+        "round": "Seed",
+        "sizeMusd": 11.5
+      },
+      {
+        "date": "2026-05-14",
+        "company": "Ampa Health",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-05-05",
+        "company": "Vaitor (Biotechnology)",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-04-07",
+        "company": "SimpliFed",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 10.8
+      },
+      {
+        "date": "2026-03-25",
+        "company": "3X Genetics",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Seed",
+        "sizeMusd": 3.16
+      },
+      {
+        "date": "2026-03-06",
+        "company": "Elementium",
+        "sector": "Other Equipment",
+        "round": "Seed",
+        "sizeMusd": 14
+      },
+      {
+        "date": "2026-03-05",
+        "company": "Cognito Therapeutics",
+        "sector": "Medical Devices",
+        "round": "Series C",
+        "sizeMusd": 109.5
+      },
+      {
+        "date": "2026-01-27",
+        "company": "Angitia Biopharmaceuticals",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 130
+      }
+    ]
+  },
+  "mpm-asset-management-llc": {
+    "dealCount": 20,
+    "deals": [
+      {
+        "date": "2026-04-17",
+        "company": "Adial Nortye",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-03-01",
+        "company": "Crossbow Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 107.25
+      },
+      {
+        "date": "2025-03-31",
+        "company": "Protego Biopharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2025-03-27",
+        "company": "DBV Technologies",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 125.5
+      },
+      {
+        "date": "2025-01-19",
+        "company": "Umoja Biopharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2024-10-11",
+        "company": "Antiva Biosciences",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series E",
+        "sizeMusd": 53
+      },
+      {
+        "date": "2024-09-20",
+        "company": "Aktis Oncology",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 175
+      },
+      {
+        "date": "2024-06-03",
+        "company": "Crane Biotherapeutics",
+        "sector": "Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2024-04-15",
+        "company": "AshiBio",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2024-02-26",
+        "company": "Frontier Medicines",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 100
+      }
+    ]
+  },
+  "nea": {
+    "dealCount": 69,
+    "deals": [
+      {
+        "date": "2026-07-20",
+        "company": "CuspAI",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 445.13
+      },
+      {
+        "date": "2026-07-16",
+        "company": "Wonder (Restaurants, Hotels and Leisure)",
+        "sector": "Other Restaurants, Hotels and Leisure",
+        "round": "Series D",
+        "sizeMusd": 650
+      },
+      {
+        "date": "2026-07-14",
+        "company": "Singularity (Aerospace and Defense)",
+        "sector": "Aerospace and Defense",
+        "round": "Series A",
+        "sizeMusd": 80
+      },
+      {
+        "date": "2026-07-09",
+        "company": "Databento",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 97.03
+      },
+      {
+        "date": "2026-07-03",
+        "company": "Valarian",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2026-07-01",
+        "company": "TwelveLabs",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2025-07-01",
+        "company": "LizzyAI",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2025-06-24",
+        "company": "Wispr Flow",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 53.17
+      },
+      {
+        "date": "2025-06-23",
+        "company": "Aurelian",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 14
+      },
+      {
+        "date": "2025-06-07",
+        "company": "TwelveLabs",
+        "sector": "Business/Productivity Software",
+        "round": "Series B",
+        "sizeMusd": 30
+      }
+    ]
+  },
+  "northpond-ventures": {
+    "dealCount": 32,
+    "deals": [
+      {
+        "date": "2026-07-09",
+        "company": "Scipher Medicine",
+        "sector": "Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-03-17",
+        "company": "Mestag Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2026-03-06",
+        "company": "xTelesis Bio",
+        "sector": "Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 21
+      },
+      {
+        "date": "2026-01-08",
+        "company": "Vizgen",
+        "sector": "Therapeutics",
+        "round": "Series E",
+        "sizeMusd": 48
+      },
+      {
+        "date": "2025-12-16",
+        "company": "Culture Biosciences",
+        "sector": "Research Technologies",
+        "round": "Series C",
+        "sizeMusd": null
+      },
+      {
+        "date": "2025-11-26",
+        "company": "VieCure",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 43
+      },
+      {
+        "date": "2025-11-06",
+        "company": "Elephas",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 42.7
+      },
+      {
+        "date": "2025-07-24",
+        "company": "Slingshot Biosciences",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 26.23
+      },
+      {
+        "date": "2025-05-06",
+        "company": "Outcomes4Me",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 21
+      },
+      {
+        "date": "2025-04-29",
+        "company": "QbDVision",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 13
+      }
+    ]
+  },
+  "novo-holdings": {
+    "dealCount": 131,
+    "deals": [
+      {
+        "date": "2026-07-28",
+        "company": "Claris Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 118
+      },
+      {
+        "date": "2026-07-17",
+        "company": "Subra",
+        "sector": "Clean Tech",
+        "round": "Series A",
+        "sizeMusd": 57.11
+      },
+      {
+        "date": "2026-07-16",
+        "company": "Crystalys Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2026-06-29",
+        "company": "The Protein Brewery",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 55.51
+      },
+      {
+        "date": "2026-06-04",
+        "company": "HST Pathways",
+        "sector": "Digital Health",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-05-14",
+        "company": "Glycomine",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 115
+      },
+      {
+        "date": "2026-05-12",
+        "company": "Cloopen",
+        "sector": "Communication Software",
+        "round": "Growth",
+        "sizeMusd": 162.89
+      },
+      {
+        "date": "2026-05-12",
+        "company": "Windward Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 165
+      },
+      {
+        "date": "2026-05-11",
+        "company": "Khubchandani Properties & Investments (Hospitals)",
+        "sector": "Buildings and Property",
+        "round": "Growth",
+        "sizeMusd": 52.6
+      },
+      {
+        "date": "2026-04-28",
+        "company": "Coultreon Biopharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 125
+      }
+    ]
+  },
+  "orbimed": {
+    "dealCount": 160,
+    "deals": [
+      {
+        "date": "2026-07-30",
+        "company": "Alpheus Medical",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 60.48
+      },
+      {
+        "date": "2026-07-15",
+        "company": "TytoCare",
+        "sector": "Medical Devices, Digital Health",
+        "round": "Series B",
+        "sizeMusd": 25
+      },
+      {
+        "date": "2026-07-09",
+        "company": "Iswarya Fertility Center",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 37.37
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Fore Biotherapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 182.6
+      },
+      {
+        "date": "2026-06-16",
+        "company": "TruNativ",
+        "sector": "Food Products",
+        "round": "Series B",
+        "sizeMusd": 30
+      },
+      {
+        "date": "2026-06-12",
+        "company": "Lycia Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 75
+      },
+      {
+        "date": "2026-06-05",
+        "company": "Longbio Pharma",
+        "sector": "Therapeutics",
+        "round": "IPO",
+        "sizeMusd": 174.04
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Avenzo Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 215
+      },
+      {
+        "date": "2026-05-27",
+        "company": "Q32 Bio",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 55
+      },
+      {
+        "date": "2026-05-18",
+        "company": "Accro Bioscience",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 50
+      }
+    ]
+  },
+  "osage-university-partners": {
+    "dealCount": 24,
+    "deals": [
+      {
+        "date": "2026-05-06",
+        "company": "Tessera Labs",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 60
+      },
+      {
+        "date": "2026-04-15",
+        "company": "Terremoto Biosciences",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Series C",
+        "sizeMusd": 108
+      },
+      {
+        "date": "2026-03-20",
+        "company": "Eridu",
+        "sector": "Other Information Technology",
+        "round": "Series A",
+        "sizeMusd": 200
+      },
+      {
+        "date": "2026-01-07",
+        "company": "Nocion Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 93
+      },
+      {
+        "date": "2025-12-11",
+        "company": "Addition Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 28
+      },
+      {
+        "date": "2025-11-24",
+        "company": "EnaChip",
+        "sector": "Other Semiconductors",
+        "round": "Seed",
+        "sizeMusd": 3.5
+      },
+      {
+        "date": "2025-10-30",
+        "company": "Precede Biosciences",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 83.5
+      },
+      {
+        "date": "2025-09-24",
+        "company": "Normunity",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 75
+      },
+      {
+        "date": "2025-07-09",
+        "company": "Neuros Medical",
+        "sector": "Medical Devices",
+        "round": "Series D",
+        "sizeMusd": 56
+      },
+      {
+        "date": "2025-07-02",
+        "company": "Tessera Labs",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 6.7
+      }
+    ]
+  },
+  "perceptive-advisors": {
+    "dealCount": 79,
+    "deals": [
+      {
+        "date": "2026-07-27",
+        "company": "Entera Bio",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 275
+      },
+      {
+        "date": "2026-07-20",
+        "company": "Freenome",
+        "sector": "Decision/Risk Analysis",
+        "round": "Growth",
+        "sizeMusd": 240
+      },
+      {
+        "date": "2026-07-16",
+        "company": "Crystalys Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2026-07-10",
+        "company": "Imperative Care",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 111.27
+      },
+      {
+        "date": "2026-06-04",
+        "company": "CereVasc",
+        "sector": "Medical Devices",
+        "round": "Series C",
+        "sizeMusd": 84.58
+      },
+      {
+        "date": "2026-05-19",
+        "company": "Mentari Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 290
+      },
+      {
+        "date": "2026-05-18",
+        "company": "Quince Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 115
+      },
+      {
+        "date": "2026-04-29",
+        "company": "Valneva",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 43.21
+      },
+      {
+        "date": "2026-04-17",
+        "company": "Adial Nortye",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-04-06",
+        "company": "Klora Pharmaceuticals",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 24
+      }
+    ]
+  },
+  "pfizer-ventures": {
+    "dealCount": 32,
+    "deals": [
+      {
+        "date": "2026-06-30",
+        "company": "Flare Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 85
+      },
+      {
+        "date": "2026-06-25",
+        "company": "Oblenio Bio",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 62
+      },
+      {
+        "date": "2026-06-23",
+        "company": "TRIMTECH Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 47.63
+      },
+      {
+        "date": "2026-06-18",
+        "company": "Cour",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2026-04-16",
+        "company": "STORM Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 56.57
+      },
+      {
+        "date": "2026-03-01",
+        "company": "Crossbow Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 107.25
+      },
+      {
+        "date": "2026-01-12",
+        "company": "Vibrant Therapeutics",
+        "sector": "Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 61
+      },
+      {
+        "date": "2026-01-08",
+        "company": "Enodia Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 24.28
+      },
+      {
+        "date": "2025-12-18",
+        "company": "FoRx Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 50
+      },
+      {
+        "date": "2025-11-26",
+        "company": "TRIANA Biomedicines",
+        "sector": "Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 120.06
+      }
+    ]
+  },
+  "piedmont-capital-partners": {
+    "dealCount": 8,
+    "deals": [
+      {
+        "date": "2022-02-25",
+        "company": "xFocal Medical (Drug Delivery)",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 13.5
+      },
+      {
+        "date": "2020-06-24",
+        "company": "xAsclepiX Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2018-11-13",
+        "company": "xAsclepiX Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 5
+      },
+      {
+        "date": "2018-01-01",
+        "company": "xNeximmune",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 23
+      },
+      {
+        "date": "2017-06-01",
+        "company": "CardioNXT",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 2.1
+      },
+      {
+        "date": "2015-11-20",
+        "company": "Pharmatrophix",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 15.55
+      },
+      {
+        "date": "2014-08-14",
+        "company": "xAegis Surgical",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2014-03-19",
+        "company": "Carbon (Hardware)",
+        "sector": "Other Hardware",
+        "round": "Series A",
+        "sizeMusd": 11
+      }
+    ]
+  },
+  "ptx-capital": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-07-22",
+        "company": "Inner Logic",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 11.5
+      },
+      {
+        "date": "2025-10-01",
+        "company": "Infinity Bio",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 8
+      },
+      {
+        "date": "2025-01-01",
+        "company": "OmniScience",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2023-10-19",
+        "company": "Pair Team",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 19.68
+      },
+      {
+        "date": "2023-06-23",
+        "company": "Infinity Bio",
+        "sector": "Therapeutics",
+        "round": "Seed",
+        "sizeMusd": 4.52
+      },
+      {
+        "date": "2023-04-11",
+        "company": "Scene Health",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 16.69
+      },
+      {
+        "date": "2022-07-18",
+        "company": "Delfi Diagnostics",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 225
+      },
+      {
+        "date": "2022-03-03",
+        "company": "ArrePath",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Seed",
+        "sizeMusd": 20
+      },
+      {
+        "date": "2021-06-15",
+        "company": "xAdvocatia Solutions",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2021-05-31",
+        "company": "Sonavi Labs",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series A",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "redmile-group": {
+    "dealCount": 43,
+    "deals": [
+      {
+        "date": "2026-06-24",
+        "company": "Absci",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-04-28",
+        "company": "Climb Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 110
+      },
+      {
+        "date": "2026-04-14",
+        "company": "Obsidian Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 350
+      },
+      {
+        "date": "2026-03-31",
+        "company": "Ambrosia Biosciences",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2026-02-04",
+        "company": "Specialist Management Solutions",
+        "sector": "Managed Care",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-01-30",
+        "company": "ALX Oncology",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2026-01-28",
+        "company": "Sensorion",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 60
+      },
+      {
+        "date": "2025-12-10",
+        "company": "Impulse Dynamics",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 242.13
+      },
+      {
+        "date": "2025-10-31",
+        "company": "Bambusa Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2025-10-30",
+        "company": "xSaluda Medical",
+        "sector": "Medical Devices",
+        "round": "Growth",
+        "sizeMusd": 35
+      }
+    ]
+  },
+  "riptide-ventures": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-07-27",
+        "company": "Frenos",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 6.4
+      },
+      {
+        "date": "2026-07-09",
+        "company": "Flagright",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 12.5
+      },
+      {
+        "date": "2026-05-14",
+        "company": "Icarus (Therapeutic Devices)",
+        "sector": "Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 12.5
+      },
+      {
+        "date": "2025-04-23",
+        "company": "Scamnetic",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 13
+      },
+      {
+        "date": "2024-10-25",
+        "company": "Sonavex",
+        "sector": "Diagnostics, Medical Devices",
+        "round": "Series A",
+        "sizeMusd": 15
+      },
+      {
+        "date": "2024-06-01",
+        "company": "NeuroIntact",
+        "sector": "Medical Devices",
+        "round": "Angel (individual)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-05-14",
+        "company": "Poppy",
+        "sector": "Other Consumer Non-Durables",
+        "round": "Series A",
+        "sizeMusd": 7.35
+      },
+      {
+        "date": "2023-12-05",
+        "company": "xBark Social",
+        "sector": "Other Services (B2C Non-Financial)",
+        "round": "Seed",
+        "sizeMusd": 10.71
+      },
+      {
+        "date": "2023-10-01",
+        "company": "ReGelTec",
+        "sector": "Medical Devices",
+        "round": "Angel (individual)",
+        "sizeMusd": null
+      },
+      {
+        "date": "2023-07-01",
+        "company": "Ally Behavior Centers",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "rock-spring-capital": {
+    "dealCount": 12,
+    "deals": [
+      {
+        "date": "2026-06-04",
+        "company": "City Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 99.5
+      },
+      {
+        "date": "2026-01-06",
+        "company": "xParabilis Medicines",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series F",
+        "sizeMusd": 305
+      },
+      {
+        "date": "2025-10-27",
+        "company": "xHemab Therapeutics Holdings",
+        "sector": "Holding Companies",
+        "round": "Series C",
+        "sizeMusd": 159.12
+      },
+      {
+        "date": "2025-09-10",
+        "company": "Talphera",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 17
+      },
+      {
+        "date": "2025-09-01",
+        "company": "xTreeline Biosciences Holdings",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 621.78
+      },
+      {
+        "date": "2025-07-22",
+        "company": "xAvalyn Pharma",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2025-03-25",
+        "company": "xAclaris Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 100
+      },
+      {
+        "date": "2025-03-17",
+        "company": "Latigo Bio",
+        "sector": "Therapeutics",
+        "round": "Series B",
+        "sizeMusd": 150
+      },
+      {
+        "date": "2025-01-23",
+        "company": "xParabilis Medicines",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series E",
+        "sizeMusd": 145
+      },
+      {
+        "date": "2024-10-08",
+        "company": "City Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 135
+      }
+    ]
+  },
+  "rre-ventures": {
+    "dealCount": 41,
+    "deals": [
+      {
+        "date": "2026-06-12",
+        "company": "Concentrate AI",
+        "sector": "Other Commercial Services",
+        "round": "Seed",
+        "sizeMusd": 5.1
+      },
+      {
+        "date": "2026-05-13",
+        "company": "Anomaly (Enterprise Systems)",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 17
+      },
+      {
+        "date": "2026-04-14",
+        "company": "Sygaidry",
+        "sector": "Computers, Parts and Peripherals",
+        "round": "Series A",
+        "sizeMusd": 139.03
+      },
+      {
+        "date": "2026-04-02",
+        "company": "Soma Energy",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-03-30",
+        "company": "Midas Software",
+        "sector": "Financial Software",
+        "round": "Series A",
+        "sizeMusd": 57.87
+      },
+      {
+        "date": "2026-02-26",
+        "company": "Science (Therapeutic Devices)",
+        "sector": "Medical Devices",
+        "round": "Series C",
+        "sizeMusd": 230
+      },
+      {
+        "date": "2026-02-05",
+        "company": "Fundamental",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 225
+      },
+      {
+        "date": "2026-02-02",
+        "company": "BizTrip",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 1.5
+      },
+      {
+        "date": "2026-01-19",
+        "company": "Anto Biosciences",
+        "sector": "Other Business Products and Services",
+        "round": "Series A",
+        "sizeMusd": 0.1
+      },
+      {
+        "date": "2026-01-10",
+        "company": "xBark (US)",
+        "sector": "Other Consumer Durables",
+        "round": "Growth",
+        "sizeMusd": null
+      }
+    ]
+  },
+  "s-r-one-ltd": {
+    "dealCount": 45,
+    "deals": [
+      {
+        "date": "2026-07-16",
+        "company": "Crystalys Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 130
+      },
+      {
+        "date": "2026-07-14",
+        "company": "Draig Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 86.47
+      },
+      {
+        "date": "2026-07-08",
+        "company": "Fore Biotherapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 182.6
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Avenzo Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 215
+      },
+      {
+        "date": "2026-05-12",
+        "company": "Windward Bio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 165
+      },
+      {
+        "date": "2026-04-01",
+        "company": "Korsana Biosciences",
+        "sector": "Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 380
+      },
+      {
+        "date": "2026-03-24",
+        "company": "Immutrin",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 87.02
+      },
+      {
+        "date": "2026-03-03",
+        "company": "Poplar Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 95
+      },
+      {
+        "date": "2026-01-21",
+        "company": "CORXEL Pharmaceuticals",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 287
+      },
+      {
+        "date": "2026-01-09",
+        "company": "AirNexis Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 200
+      }
+    ]
+  },
+  "sands-capital-ventures": {
+    "dealCount": 65,
+    "deals": [
+      {
+        "date": "2026-07-30",
+        "company": "K2 Space",
+        "sector": "Aerospace and Defense",
+        "round": "Series D",
+        "sizeMusd": 500
+      },
+      {
+        "date": "2026-07-29",
+        "company": "Ellyan",
+        "sector": "Application Specific Semiconductors",
+        "round": "Series C",
+        "sizeMusd": 145
+      },
+      {
+        "date": "2026-06-22",
+        "company": "Baseten",
+        "sector": "Software Development Applications",
+        "round": "Series F",
+        "sizeMusd": 1500
+      },
+      {
+        "date": "2026-06-15",
+        "company": "Quanta Services",
+        "sector": "Energy Infrastructure",
+        "round": "Growth",
+        "sizeMusd": 243
+      },
+      {
+        "date": "2026-06-04",
+        "company": "Ramp",
+        "sector": "Financial Software",
+        "round": "Series F",
+        "sizeMusd": 782
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Avenzo Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 215
+      },
+      {
+        "date": "2026-05-27",
+        "company": "RevEng.ai",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 15
+      },
+      {
+        "date": "2026-04-30",
+        "company": "Legora",
+        "sector": "Business/Productivity Software",
+        "round": "Series D",
+        "sizeMusd": 600
+      },
+      {
+        "date": "2026-04-16",
+        "company": "Keebler Health",
+        "sector": "Digital Health",
+        "round": "Series A",
+        "sizeMusd": 16.2
+      },
+      {
+        "date": "2026-04-07",
+        "company": "Chuic Technologies",
+        "sector": "Other Semiconductors",
+        "round": "Seed",
+        "sizeMusd": 3.46
+      }
+    ]
+  },
+  "tcp-venture-capital": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2025-10-01",
+        "company": "Infinity Bio",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 8
+      },
+      {
+        "date": "2025-06-23",
+        "company": "Qualytics",
+        "sector": "Network Management Software",
+        "round": "Series A",
+        "sizeMusd": 10
+      },
+      {
+        "date": "2025-05-22",
+        "company": "Pixee",
+        "sector": "Network Management Software",
+        "round": "Seed",
+        "sizeMusd": 15
+      },
+      {
+        "date": "2024-04-10",
+        "company": "Indicio (Business/Productivity Software)",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": 3.1
+      },
+      {
+        "date": "2024-02-27",
+        "company": "Minnowtech",
+        "sector": "Business/Productivity Software",
+        "round": "Series A",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-02-05",
+        "company": "Impruvon",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": 3
+      },
+      {
+        "date": "2023-07-31",
+        "company": "EcoMap",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 3.5
+      },
+      {
+        "date": "2023-01-01",
+        "company": "xRocket Doctor",
+        "sector": "Digital Health",
+        "round": "Seed",
+        "sizeMusd": null
+      },
+      {
+        "date": "2022-10-07",
+        "company": "xLink Labs",
+        "sector": "Business/Productivity Software",
+        "round": "Growth",
+        "sizeMusd": 9.24
+      },
+      {
+        "date": "2022-06-06",
+        "company": "EcoMap",
+        "sector": "Business/Productivity Software",
+        "round": "Seed",
+        "sizeMusd": 3.46
+      }
+    ]
+  },
+  "third-rock-ventures": {
+    "dealCount": 24,
+    "deals": [
+      {
+        "date": "2026-06-30",
+        "company": "Flare Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 85
+      },
+      {
+        "date": "2026-04-15",
+        "company": "Terremoto Biosciences",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Series C",
+        "sizeMusd": 108
+      },
+      {
+        "date": "2025-12-02",
+        "company": "Syremis Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 165
+      },
+      {
+        "date": "2025-10-30",
+        "company": "Azalea Therapeutics",
+        "sector": "Therapeutics",
+        "round": "Series A",
+        "sizeMusd": 65
+      },
+      {
+        "date": "2025-07-29",
+        "company": "Artbio",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 132
+      },
+      {
+        "date": "2025-06-17",
+        "company": "Corvia Medical (Therapeutic Devices)",
+        "sector": "Medical Devices",
+        "round": "Series B",
+        "sizeMusd": 55
+      },
+      {
+        "date": "2025-04-08",
+        "company": "Merida Biosciences",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series A",
+        "sizeMusd": 121
+      },
+      {
+        "date": "2024-11-26",
+        "company": "xMaze Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 115
+      },
+      {
+        "date": "2024-11-12",
+        "company": "Trace Neuroscience",
+        "sector": "Research Technologies, Diagnostics",
+        "round": "Series A",
+        "sizeMusd": 101
+      },
+      {
+        "date": "2024-10-18",
+        "company": "xSeaport Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 225.9
+      }
+    ]
+  },
+  "vivo-capital": {
+    "dealCount": 63,
+    "deals": [
+      {
+        "date": "2026-07-29",
+        "company": "Caldera Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 278
+      },
+      {
+        "date": "2026-07-28",
+        "company": "Celta Ingenieros",
+        "sector": "Distributors (Healthcare)",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-07-27",
+        "company": "Entera Bio",
+        "sector": "Medical Devices, Therapeutics",
+        "round": "Growth",
+        "sizeMusd": 275
+      },
+      {
+        "date": "2026-07-22",
+        "company": "Mentari Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 200
+      },
+      {
+        "date": "2026-07-01",
+        "company": "Dominique Dutscher",
+        "sector": "Distributors/Wholesale",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2026-06-22",
+        "company": "Serapha Bio",
+        "sector": "Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 230
+      },
+      {
+        "date": "2026-06-08",
+        "company": "SonoThera",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 125.45
+      },
+      {
+        "date": "2026-06-01",
+        "company": "Avenzo Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 215
+      },
+      {
+        "date": "2026-05-19",
+        "company": "Mentari Therapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Growth",
+        "sizeMusd": 290
+      },
+      {
+        "date": "2026-05-18",
+        "company": "Full-Life Technologies",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 146.68
+      }
+    ]
+  },
+  "windham-venture-partners": {
+    "dealCount": 10,
+    "deals": [
+      {
+        "date": "2026-07-08",
+        "company": "Fore Biotherapeutics",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series D",
+        "sizeMusd": 182.6
+      },
+      {
+        "date": "2025-08-22",
+        "company": "PainTEQ",
+        "sector": "Medical Devices",
+        "round": "Growth",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-11-21",
+        "company": "TailorMed Medical",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 40
+      },
+      {
+        "date": "2024-07-17",
+        "company": "Delfi Diagnostics",
+        "sector": "Therapeutics",
+        "round": "Secondary Transaction - Private",
+        "sizeMusd": null
+      },
+      {
+        "date": "2024-06-18",
+        "company": "Neuspera",
+        "sector": "Medical Devices",
+        "round": "Series D",
+        "sizeMusd": 24.2
+      },
+      {
+        "date": "2023-11-20",
+        "company": "xAlto Neuroscience",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series C",
+        "sizeMusd": 45
+      },
+      {
+        "date": "2023-09-29",
+        "company": "Clever Care Health Plan",
+        "sector": "Digital Health",
+        "round": "Series C",
+        "sizeMusd": 92
+      },
+      {
+        "date": "2023-01-30",
+        "company": "xAlto Neuroscience",
+        "sector": "Therapeutics, Research Technologies",
+        "round": "Series B",
+        "sizeMusd": 60
+      },
+      {
+        "date": "2022-10-20",
+        "company": "xSubjectWell",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 35
+      },
+      {
+        "date": "2022-10-07",
+        "company": "xValera Health",
+        "sector": "Digital Health",
+        "round": "Series B",
+        "sizeMusd": 44.54
+      }
+    ]
+  }
+}

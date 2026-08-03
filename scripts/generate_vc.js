@@ -11,7 +11,7 @@
 'use strict';
 
 const Anthropic = require('@anthropic-ai/sdk');
-const { vcFitScore, mapFocusToDomains } = require('../scoring.js');
+const { scoreVC, mapFocusToDomains } = require('../scoring.js');
 
 // ── Claude research (exported) ────────────────────────────────────────────────
 
@@ -94,7 +94,7 @@ function buildEntry(vcProfile, techs) {
   const { primary, secondary } = mapFocusToDomains(vcProfile.investmentFocus);
   const matched = new Set([...primary, ...secondary]);
   const scored = techs
-    .map(t => ({ tech: t, score: (vcFitScore(vc, t) || { score: 0 }).score }))
+    .map(t => ({ tech: t, score: (scoreVC(vc, t, undefined) || { score: 0 }).score }))
     .sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
       return b.tech.sectors.filter(d => matched.has(d)).length
@@ -147,7 +147,7 @@ if (require.main === module) {
       geographicFocus: vcProfile.geographicFocus,
     };
     const scored = techs
-      .map(t => ({ tech: t, score: (vcFitScore(vc, t) || { score: 0 }).score }))
+      .map(t => ({ tech: t, score: (scoreVC(vc, t, undefined) || { score: 0 }).score }))
       .sort((a, b) => b.score - a.score);
     console.log(`\n🎯 Top 4 matches:`);
     scored.slice(0, 4).forEach(({ tech, score }) => {

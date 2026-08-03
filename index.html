@@ -92,6 +92,7 @@
   let JHU_CONNECTIONS = [];
   let PORTFOLIO_BY_VC = new Map();  // vc.id → [{ name, domains[], stage? }] (rubric v2)
   let RECENCY_BY_VC   = {};         // vc.id → { domain: 0.5..1.0 } (matching tiebreak)
+  let RECENT_BY_VC    = {};         // vc.id → recent-deals record (consumed by Task 7)
   let PAUSED          = new Set();  // tech ids paused from matching (data/tech_status.json)
   let _grantPrefill = null; // set by "Refine eligibility" before routing to #/grants
 
@@ -112,6 +113,7 @@
       // Only venture/angel enter the UI; foundation/public are a deferred pass.
       JHTV_INVESTORS = (investorsRaw.investors || []).filter(i => i.type === 'venture' || i.type === 'angel');
       RECENCY_BY_VC = recencyRaw.byVc || {};
+      RECENT_BY_VC = await fetch('data/vc_recent_deals.json').then(r => r.ok ? r.json() : {}).catch(() => ({}));
       // Persistence: this browser's saved choices win (survive sessions with no backend);
       // otherwise fall back to the shared, backend-committed data/tech_status.json.
       const storedPaused = (() => { try { return JSON.parse(localStorage.getItem(PAUSE_STORE) || 'null'); } catch (_) { return null; } })();
@@ -823,7 +825,7 @@
     const rec = RECENCY_BY_VC[vc.id] || null;
     const bySc = (a, b) => b.score - a.score || b.tieKey - a.tieKey || a.t.name.localeCompare(b.t.name);
     const ranked = activeTechs(TECHS, PAUSED)
-      .map(t => { const fit = vcFitScore(vc, t, portfolio); return fit ? { t, score: fit.score, fit, tieKey: fit.depth * techDomainRecency(rec, t) } : null; })
+      .map(t => { const fit = scoreVC(vc, t, portfolio); return fit ? { t, score: fit.score, fit, tieKey: (fit.depth || 0) * techDomainRecency(rec, t) } : null; })
       .filter(Boolean)
       .sort(bySc);
     const pinned = new Set(vc.pinnedTechs || []);
@@ -1084,12 +1086,23 @@
           ${downloadAllBtn}
         </div>
       </div>
+      ${recentActivityHTML(vc.id)}
       ${jhuSection}
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}
         <span class="score-note">— fit scores are model outputs (0–1), not probabilities</span></p>
       ${techs.some(x => x.tied) ? `<p class="tied-group">Top ${techs.filter(x => !x.tied).length} are clearly strongest; the rest are equally strong — not rank-ordered.</p>` : ''}
       <div class="tech-grid">${techs.map(x => techCardHTML(x.t, null, matchReason(vc, x.t), x.score, x.tied)).join('')}</div>
     `;
+  }
+
+  function recentActivityHTML(vcId) {
+    const rec = RECENT_BY_VC[vcId]; if (!rec) return '';
+    const fmt = d => { const [y,m]=d.split('-'); return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y; };
+    const rows = rec.deals.map(d => `<tr><td>${fmt(d.date)}</td><td>${d.company}</td><td>${d.sector||''}</td><td>${d.round}</td><td>${d.sizeMusd!=null?'$'+d.sizeMusd+'M':''}</td></tr>`).join('');
+    const caveat = rec.dealCount < 10 ? `<p class="ra-caveat">Based on ${rec.dealCount} deals — all PitchBook logged.</p>` : '';
+    return `<details class="recent-activity"><summary>Recent activity</summary>
+    <table><thead><tr><th>Date</th><th>Company</th><th>Sector</th><th>Round</th><th>Size</th></tr></thead>
+    <tbody>${rows}</tbody></table>${caveat}</details>`;
   }
 
   function techCardHTML(t, accentColor, reason, score, tied) {
@@ -1197,9 +1210,9 @@
       const backerRec = INVESTORS_BY_VC.get(vc.id);
       const isBacker = !!backerRec;
       const alreadyInvested = isBacker && backerNames.has(backerRec.investor);
-      const fit = vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id));
+      const fit = scoreVC(vc, tech, PORTFOLIO_BY_VC.get(vc.id));
       const bonus = relationshipBonus(inBrief, isBacker); // capped, never stacked
-      const tieKey = fit ? fit.depth * techDomainRecency(RECENCY_BY_VC[vc.id] || null, tech) : 0;
+      const tieKey = fit ? (fit.depth || 0) * techDomainRecency(RECENCY_BY_VC[vc.id] || null, tech) : 0;
       if (fit) {
         if (fit.score >= 0.45 || inBrief || alreadyInvested)
           rows.push({ vc, fit, inBrief, isBacker, alreadyInvested, backerRec, tieKey,
@@ -1356,7 +1369,7 @@
       }
       const parts = [];
       if (fit && fit.portfolioHits) parts.push(`has ${fit.portfolioHits} portfolio compan${fit.portfolioHits === 1 ? 'y' : 'ies'} like this`);
-      if (fit && fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
+      if (fit && fit.sharedDomains && fit.sharedDomains.length) parts.push(`invests in ${fit.sharedDomains.join(' & ')}`);
       if (fit && fit.stageOk) parts.push(`backs ${tech.stage || 'this'}-stage companies`);
       const detail = [parts.length ? `${vc.name.split(' ')[0]} ${parts.join(' and ')}.` : '', rel && rel.note ? rel.note : '']
         .filter(Boolean).join(' · ');

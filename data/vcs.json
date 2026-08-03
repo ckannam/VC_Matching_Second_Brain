@@ -366,7 +366,6 @@
       "Healthcare AI"
     ],
     "stage": [
-      "Seed",
       "Series A",
       "Series B",
       "Growth"
@@ -382,7 +381,7 @@
       "28bio"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "andreessen-horowitz",
@@ -390,7 +389,7 @@
     "aliases": [
       "a16z"
     ],
-    "focus": "a16z backs visionary founders building in industries undergoing major technological disruption, guided by the conviction that technology is the most powerful force driving societal progress. The firm focuses on key architectures of the future—AI, crypto, and bio—offering a full-stack operating platform alongside capital across all stages.",
+    "focus": "a16z backs visionary founders building in industries undergoing major technological disruption, guided by the conviction that technology is the most powerful force driving societal progress. The firm focuses on key architectures of the future\u2014AI, crypto, and bio\u2014offering a full-stack operating platform alongside capital across all stages.",
     "sectors": [
       "Artificial Intelligence",
       "Crypto/Blockchain",
@@ -476,7 +475,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Growth"
     ],
     "checkSize": {
       "min": 1,
@@ -489,7 +489,7 @@
       "circlage"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "tola-capital-management-llc",
@@ -498,7 +498,7 @@
       "Tola Capital",
       "Tola"
     ],
-    "focus": "Tola Capital practices hypothesis-based investing in the next generation of enterprise software companies enabled by artificial intelligence, partnering long-term with founders building transformational products powered by new data and cloud platforms. The firm targets companies with 'real invention'—the right team, technology, large addressable market, and culture to build category-leading, multibillion-dollar businesses.",
+    "focus": "Tola Capital practices hypothesis-based investing in the next generation of enterprise software companies enabled by artificial intelligence, partnering long-term with founders building transformational products powered by new data and cloud platforms. The firm targets companies with 'real invention'\u2014the right team, technology, large addressable market, and culture to build category-leading, multibillion-dollar businesses.",
     "sectors": [
       "Enterprise Software",
       "Artificial Intelligence/ML",
@@ -768,7 +768,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
     "checkSize": {
       "min": 1,
@@ -782,7 +783,7 @@
       "accelevir"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "bridgebio-pharma-inc",
@@ -1015,7 +1016,7 @@
       "blocksynop"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "forerunner-ventures",
@@ -1218,7 +1219,6 @@
       "AI-Enabled Healthcare"
     ],
     "stage": [
-      "Seed",
       "Series A",
       "Series B",
       "Growth"
@@ -1235,7 +1235,7 @@
       "blocksynop"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "ecphora-capital-management-company",
@@ -1256,7 +1256,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
     "checkSize": {
       "min": 1,
@@ -1270,7 +1271,7 @@
       "accelevir"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "osage-university-partners",
@@ -1308,7 +1309,7 @@
       "28bio"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "town-hall-ventures",
@@ -1316,7 +1317,7 @@
     "aliases": [
       "Town Hall"
     ],
-    "focus": "Town Hall Ventures, founded by former CMS Administrator Andy Slavitt, invests in tech-enabled healthcare serving Medicare, Medicaid, and underserved populations — the value-based-care models where policy tailwinds drive adoption.",
+    "focus": "Town Hall Ventures, founded by former CMS Administrator Andy Slavitt, invests in tech-enabled healthcare serving Medicare, Medicaid, and underserved populations \u2014 the value-based-care models where policy tailwinds drive adoption.",
     "sectors": [
       "Digital Health"
     ],
@@ -1373,7 +1374,7 @@
     "aliases": [
       "Primetime"
     ],
-    "focus": "Primetime Partners, co-founded by Alan Patricof and Abby Miller Levy, makes seed and early-stage investments in products, care models, and technologies for aging and longevity — including brain health, dementia, and caregiver support.",
+    "focus": "Primetime Partners, co-founded by Alan Patricof and Abby Miller Levy, makes seed and early-stage investments in products, care models, and technologies for aging and longevity \u2014 including brain health, dementia, and caregiver support.",
     "sectors": [
       "Digital Health"
     ],
@@ -1399,7 +1400,7 @@
     "aliases": [
       "Aegis"
     ],
-    "focus": "Aegis Ventures builds and backs healthcare-AI companies, notably through Ascertain — its $100M venture studio with Northwell Health — developing AI tools that automate clinical and administrative workflows and expand access to care.",
+    "focus": "Aegis Ventures builds and backs healthcare-AI companies, notably through Ascertain \u2014 its $100M venture studio with Northwell Health \u2014 developing AI tools that automate clinical and administrative workflows and expand access to care.",
     "sectors": [
       "Digital Health"
     ],
@@ -1422,7 +1423,7 @@
     "aliases": [
       "Susa"
     ],
-    "focus": "Susa Ventures invests $1–3M at pre-seed and seed across digital health, with specialty areas in care coordination and delivery, clinical infrastructure and workflows, and data and analytics.",
+    "focus": "Susa Ventures invests $1\u20133M at pre-seed and seed across digital health, with specialty areas in care coordination and delivery, clinical infrastructure and workflows, and data and analytics.",
     "sectors": [
       "Digital Health"
     ],
@@ -1466,8 +1467,198 @@
     "provisional": true
   },
   {
-    "id": "dreamit-ventures-llc",
-    "name": "Dreamit Ventures LLC",
+    "id": "500-global",
+    "name": "500 Global",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "alexandria-venture-investments",
+    "name": "Alexandria Venture Investments",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "alta-partners",
+    "name": "Alta Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "baltimore-angels",
+    "name": "Baltimore Angels",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "barer-son-capital-llc",
+    "name": "Barer & Son Capital, LLC",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "blue-jay-syndicate",
+    "name": "Blue Jay Syndicate",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "brown-advisory",
+    "name": "Brown Advisory",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "camden-partners",
+    "name": "Camden Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "cowen-healthcare-investments",
+    "name": "Cowen Healthcare Investments",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "draper-associates",
+    "name": "Draper Associates",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "dreamit-ventures",
+    "name": "Dreamit Ventures",
     "aliases": [
       "Dreamit",
       "DreamIt"
@@ -1485,13 +1676,9 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
-    "checkSize": {
-      "min": 0.5,
-      "max": 1.5
-    },
-    "geographicFocus": "East Coast",
     "matchedTechs": [
       "astropath",
       "avoid",
@@ -1499,6 +1686,541 @@
       "corrie-health"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "geographicFocus": "East Coast",
+    "checkSize": {
+      "min": 0.5,
+      "max": 1.5
+    }
+  },
+  {
+    "id": "emerald-development-managers",
+    "name": "Emerald Development Managers",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "foresite-capital",
+    "name": "Foresite Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "illumina-ventures",
+    "name": "Illumina Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "intermountain-ventures",
+    "name": "Intermountain Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "interwest-partners",
+    "name": "Interwest Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "jump-start-foundry",
+    "name": "Jump Start Foundry",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "kairos-ventures",
+    "name": "Kairos Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "keiretsu-forum",
+    "name": "Keiretsu Forum",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "lionbird",
+    "name": "LionBird",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "longview-innovation",
+    "name": "Longview Innovation",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "mpm-asset-management-llc",
+    "name": "MPM Asset Management, LLC",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "medimmune-ventures",
+    "name": "MedImmune Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "morningside-group",
+    "name": "Morningside Group",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "northpond-ventures",
+    "name": "Northpond Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "novo-holdings",
+    "name": "Novo Holdings",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "orbimed",
+    "name": "OrbiMed",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "perceptive-advisors",
+    "name": "Perceptive Advisors",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "pfizer-ventures",
+    "name": "Pfizer Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "piedmont-capital-partners",
+    "name": "Piedmont Capital Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "rre-ventures",
+    "name": "RRE Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "redmile-group",
+    "name": "Redmile Group",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "riptide-ventures",
+    "name": "Riptide Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "rock-spring-capital",
+    "name": "Rock Spring Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "s-r-one-ltd",
+    "name": "S.R. One, Ltd.",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "sands-capital-ventures",
+    "name": "Sands Capital Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "third-rock-ventures",
+    "name": "Third Rock Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "vivo-capital",
+    "name": "Vivo Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "windham-venture-partners",
+    "name": "Windham Venture Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
   }
 ]

@@ -203,5 +203,29 @@ check('selectWithTies uses tieKey to break a score tie (no extension)', () => {
   assert(out.every(x => x.tied === false));
 });
 
+// ── scoreVC dispatcher + vcFitScoreV1 ────────────────────────────────
+const { scoreVC, vcFitScoreV1, vcFitScore: vcFitScoreAlias } = require('../scoring');
+const dispatchTech = { id:'t', name:'T', sectors:['Diagnostics & Devices'], stage:'Series A' };
+const vcStated = { id:'v', sectors:['diagnostics'], stage:['Series A'], checkSize:{min:1,max:20}, geographicFocus:'Mid-Atlantic' };
+
+check('scoreVC with no portfolio → v1 (basis v1, score in (0,1])', () => {
+  const s1 = scoreVC(vcStated, dispatchTech, undefined);
+  assert.strictEqual(s1.basis, 'v1');
+  assert.ok(s1.score > 0 && s1.score <= 1);
+});
+
+check('scoreVC v1 path equals vcFitScoreV1 directly', () => {
+  const s1 = scoreVC(vcStated, dispatchTech, undefined);
+  assert.ok(Math.abs(vcFitScoreV1(vcStated, dispatchTech).score - s1.score) < 1e-9);
+});
+
+check('scoreVC with portfolio → v2 (basis is not v1)', () => {
+  const pf = [{ name:'Co', domains:['Diagnostics & Devices'], stage:'Series A' }];
+  const s2 = scoreVC(vcStated, dispatchTech, pf);
+  assert.notStrictEqual(s2.basis, 'v1');
+});
+
+console.log('scoreVC dispatch OK');
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
