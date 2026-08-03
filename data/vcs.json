@@ -382,7 +382,7 @@
       "28bio"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "andreessen-horowitz",
@@ -489,7 +489,7 @@
       "circlage"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "tola-capital-management-llc",
@@ -782,7 +782,7 @@
       "accelevir"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "bridgebio-pharma-inc",
@@ -1015,7 +1015,7 @@
       "blocksynop"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "forerunner-ventures",
@@ -1235,7 +1235,7 @@
       "blocksynop"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "ecphora-capital-management-company",
@@ -1270,7 +1270,7 @@
       "accelevir"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "osage-university-partners",
@@ -1308,7 +1308,7 @@
       "28bio"
     ],
     "vcOnePager": null,
-    "provisional": true
+    "provisional": false
   },
   {
     "id": "town-hall-ventures",
@@ -1464,5 +1464,590 @@
     "matchedTechs": [],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "500-global",
+    "name": "500 Global",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "alexandria-venture-investments",
+    "name": "Alexandria Venture Investments",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "alta-partners",
+    "name": "Alta Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "baltimore-angels",
+    "name": "Baltimore Angels",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "barer-son-capital-llc",
+    "name": "Barer & Son Capital, LLC",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "blue-jay-syndicate",
+    "name": "Blue Jay Syndicate",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "brown-advisory",
+    "name": "Brown Advisory",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "camden-partners",
+    "name": "Camden Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "cowen-healthcare-investments",
+    "name": "Cowen Healthcare Investments",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "draper-associates",
+    "name": "Draper Associates",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "dreamit-ventures",
+    "name": "Dreamit Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "emerald-development-managers",
+    "name": "Emerald Development Managers",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "foresite-capital",
+    "name": "Foresite Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "illumina-ventures",
+    "name": "Illumina Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "intermountain-ventures",
+    "name": "Intermountain Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "interwest-partners",
+    "name": "Interwest Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "jump-start-foundry",
+    "name": "Jump Start Foundry",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "kairos-ventures",
+    "name": "Kairos Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "keiretsu-forum",
+    "name": "Keiretsu Forum",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "lionbird",
+    "name": "LionBird",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "longview-innovation",
+    "name": "Longview Innovation",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "mpm-asset-management-llc",
+    "name": "MPM Asset Management, LLC",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "medimmune-ventures",
+    "name": "MedImmune Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "morningside-group",
+    "name": "Morningside Group",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "northpond-ventures",
+    "name": "Northpond Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "novo-holdings",
+    "name": "Novo Holdings",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "orbimed",
+    "name": "OrbiMed",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "perceptive-advisors",
+    "name": "Perceptive Advisors",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "pfizer-ventures",
+    "name": "Pfizer Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "piedmont-capital-partners",
+    "name": "Piedmont Capital Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "rre-ventures",
+    "name": "RRE Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "redmile-group",
+    "name": "Redmile Group",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "riptide-ventures",
+    "name": "Riptide Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "rock-spring-capital",
+    "name": "Rock Spring Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "s-r-one-ltd",
+    "name": "S.R. One, Ltd.",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "sands-capital-ventures",
+    "name": "Sands Capital Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "third-rock-ventures",
+    "name": "Third Rock Ventures",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "vivo-capital",
+    "name": "Vivo Capital",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
+  },
+  {
+    "id": "windham-venture-partners",
+    "name": "Windham Venture Partners",
+    "aliases": [],
+    "focus": "",
+    "sectors": [],
+    "stage": [],
+    "matchedTechs": [],
+    "vcOnePager": null,
+    "geographicFocus": "",
+    "checkSize": {
+      "min": null,
+      "max": null
+    }
   }
 ]
