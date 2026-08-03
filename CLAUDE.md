@@ -83,7 +83,8 @@ Cross-repo dependency: renaming/moving `grant_engine.js` or changing `getGrants(
 - `stageCheck = 0.5·techStageScore + 0.5·checkSizeScore` (both prior heuristics, extracted; PitchBook round benchmarks slot into `checkSizeScore` later behind a data-present guard).
 - **sector**: `mapFocusToDomains` returns `{ primary, secondary, matchesAll }`; **primary-bucket overlap → 1.0, secondary-only overlap → 0.5**, catch-all-only → 0.5, none → 0. Multi-domain techs are not penalized (v1's `hits/length` fraction is gone). The keyword dictionary is now the **324-keyword venture taxonomy** (`taxonomy.js`, see "Sector taxonomy" below), NOT the old inline `INDUSTRY_TO_DOMAIN` table.
 - `fitTier()` (≥0.80 Strong / ≥0.60 Good / else Possible) and `DOMAIN_MATURITY` live in `scoring.js`; the sector keyword map + crosswalk live in `taxonomy.js`. Tests: `test/scoring.test.js`, `test/taxonomy.test.js`, `test/generate_vc.buildentry.test.js`.
-- The backend `generate_vc.js` calls `vcFitScore(vc, tech)` without a portfolio (new firms have none) → the capped `'stated'` path; buildEntry still picks top-4 `matchedTechs`.
+- The backend `generate_vc.js` calls `scoreVC(vc, tech, undefined)` — no portfolio for new firms → routes to v1 path; buildEntry still picks top-4 `matchedTechs`.
+- **Two-rubric dispatch (SHIPPED):** `scoreVC(vc, tech, portfolioCompanies)` in `scoring.js` routes firms WITH a non-empty portfolio array to v2 (`vcFitScore`), and firms WITHOUT to the ported v1 (`vcFitScoreV1`). v1 uses the four-dimension formula `0.375·Industry + 0.30·Stage + 0.225·Check + 0.10·Geography` with its own frozen `INDUSTRY_TO_DOMAIN` table (the pre-taxonomy snapshot). The prior degraded-v2 "stated" path for no-portfolio firms is retired. Both `index.html` (`topTechsForVC`, `findVCsForTech`) and `scripts/generate_vc.js` call `scoreVC`. Note: the v1 code is intentionally duplicated — `scoring.js` holds the live/tunable copy; `scripts/generate_v1_baseline.js` holds a frozen copy for offline comparison artifact stability. Do NOT DRY them.
 - **VC→techs direction (`topTechsForVC(vc, n=4)` in `index.html`):** the VC page's "matched technologies" is now **rubric-driven** — it ranks ALL techs by `vcFitScore(vc, tech, PORTFOLIO_BY_VC.get(vc.id))` and takes the top n with **no floor cutoff**, so it always returns 4 (never zero). Pure data: the static `vc.matchedTechs` no longer drives this list (it still powers the tech-side "In VC brief" badge). The 8 JHTV **domain names round-trip** through `mapFocusToDomains` (guarded by a test) since enriched `sectors` are written as those names.
   - **`vc.pinnedTechs` (optional, hand-curated override):** an array of tech ids that must always appear on that firm's page even when the rubric ranks them outside the top 4 — used when a firm is a curated *target investor* for a tech (reciprocal to the tech's own top-firm list). Pins keep their **real fit score** and are ordered by score among the shown set (nothing is misrepresented); the rubric fills the remaining slots to 4. Currently set to `["juneberry-health"]` on the 4 firms surfaced as Juneberry's top matches (Town Hall, Flare Capital, Primetime, 2048 Ventures).
 
@@ -108,6 +109,15 @@ Provisional entries have `provisional: true`, `vcOnePager: null`, and trigger a 
 { "vcId", "sourceUrl", "scrapedAt", "note", "companies": [{ "name", "domains": [], "stage"? }] }
 ```
 `domains[]` uses JHTV's 8 domain names (empty = out-of-scope, scores 0); `stage` is a round-ladder string (`Seed`/`Series A`/…, omit if unknown → domain-only credit). Currently the **12 curated PDF firms** (160 companies, scraped from firm websites, hand-classified). Not consumed by the backend. Out-of-scope companies add 0 credit and are omitted. Cole can hand-edit this file.
+
+**`data/vc_recent_deals.json`** — 10 newest deals per firm, keyed by `vcId`:
+```json
+{ "vcId": { "dealCount": 31, "deals": [{ "date", "company", "sector", "round", "sizeMusd" }] } }
+```
+Covers the 58 deal-data firms. Fail-soft-loaded in `index.html` → `RECENT_BY_VC`. Powers the collapsed "Recent activity" block on VC pages (deal-data firms only). When `dealCount < 10`, the block shows a "Based on N deals — all PitchBook logged." caveat. Written by `scripts/build_deal_derived.js`.
+
+**Deal-data pipeline (rerunnable):**
+`vc json deal histories/by_firm/*.json` (gitignored staging JSON from PitchBook export) → `scripts/merge_backer_deals.js` → `data/source/vc_deals.json` (committed source of truth, 58 firms / 2 872 deals) → `scripts/build_deal_derived.js` → derived `data/vc_portfolios.json` entries (46 derived with `sourceUrl:'pitchbook-deals'`; the 19 hand-classified entries with real URLs are PRESERVED), `vcs.json` `stage` for derived firms, and `data/vc_recent_deals.json`. Shared derivation logic in `scripts/lib/deal_mapping.js`; firm-name → vc-id map in `scripts/lib/deals_firm_to_vcid.js`. Rerun `build_deal_derived.js` only when deal data changes — adding new TECHS needs no re-derivation (matching recomputes client-side).
 
 **`data/tech_status.json`** — **tech curation state** (`{ "pausedTechIds": [...], "updatedAt" }`). The single source of pause truth, kept **separate** from `technologies.json` so a catalog rebuild never clobbers it. Fail-soft-loaded in `index.html` → `PAUSED` (Set); missing/empty ⇒ everything active. Paused techs are excluded from matching (`topTechsForVC` ranks over `activeTechs(TECHS, PAUSED)` from `curation.js`) but still shown in the catalog with a muted "Paused — not matching" badge. Written by the boss-facing **`#/curate`** page (nav "Curate"): pause/resume at four scopes — a tech, a bucket within a cohort, a whole cohort, and a bucket across all cohorts — grouped Cohort → bucket via `curation.js`'s `groupByCohortBucket`. "Save changes" POSTs the paused list to `server.js` `POST /api/tech-status`, which commits this file via the same GitHub-contents-PUT path as `commitVcEntry` (needs the Render backend up; ~30s cold start). `technologies.json` now carries a **`cohort`** field on every tech (existing 74 = `"Cohort 1"`). **Add a new cohort:** drop the new `.docx`s → `node scripts/populate_technologies.js` (now *merges by id*, preserving enriched fields; new techs default to `"Cohort 1"`) → set the new techs' `cohort` to the new label → commit.
 
@@ -136,6 +146,12 @@ node scripts/populate_vcs.js            # rebuilds vcs.json from VC PDFs (requir
 node scripts/generate_vc.js "Firm Name" # CLI: research one VC and append to vcs.json
 node scripts/enrich_tech_data.js        # re-extract stage/pi/description from .docx via Claude Haiku
 node scripts/enrich_curated_vcs.js      # one-time: fill profile data on PDF-curated VCs (preserves matchedTechs)
+
+# Deal-data pipeline (rerun when deal data changes; new techs need no re-derivation):
+node scripts/merge_backer_deals.js      # merges by_firm/*.json into data/source/vc_deals.json (idempotent)
+node scripts/build_deal_derived.js      # derives vc_portfolios.json + vcs.json stage + vc_recent_deals.json
+#   └── lib/deal_mapping.js             #   PB_INDUSTRY_TO_DOMAIN, dealTypeToStage, deriveStageFocus
+#   └── lib/deals_firm_to_vcid.js       #   firm-name → vc-id lookup used by build_deal_derived.js
 
 node test/grant_checker.test.js         # grant schema ↔ engine contract test (requires sibling ../Grant Finder checkout)
 
