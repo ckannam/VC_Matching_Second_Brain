@@ -389,7 +389,7 @@
     "aliases": [
       "a16z"
     ],
-    "focus": "a16z backs visionary founders building in industries undergoing major technological disruption, guided by the conviction that technology is the most powerful force driving societal progress. The firm focuses on key architectures of the future\u2014AI, crypto, and bio\u2014offering a full-stack operating platform alongside capital across all stages.",
+    "focus": "a16z backs visionary founders building in industries undergoing major technological disruption, guided by the conviction that technology is the most powerful force driving societal progress. The firm focuses on key architectures of the future—AI, crypto, and bio—offering a full-stack operating platform alongside capital across all stages.",
     "sectors": [
       "Artificial Intelligence",
       "Crypto/Blockchain",
@@ -498,7 +498,7 @@
       "Tola Capital",
       "Tola"
     ],
-    "focus": "Tola Capital practices hypothesis-based investing in the next generation of enterprise software companies enabled by artificial intelligence, partnering long-term with founders building transformational products powered by new data and cloud platforms. The firm targets companies with 'real invention'\u2014the right team, technology, large addressable market, and culture to build category-leading, multibillion-dollar businesses.",
+    "focus": "Tola Capital practices hypothesis-based investing in the next generation of enterprise software companies enabled by artificial intelligence, partnering long-term with founders building transformational products powered by new data and cloud platforms. The firm targets companies with 'real invention'—the right team, technology, large addressable market, and culture to build category-leading, multibillion-dollar businesses.",
     "sectors": [
       "Enterprise Software",
       "Artificial Intelligence/ML",
@@ -1317,7 +1317,7 @@
     "aliases": [
       "Town Hall"
     ],
-    "focus": "Town Hall Ventures, founded by former CMS Administrator Andy Slavitt, invests in tech-enabled healthcare serving Medicare, Medicaid, and underserved populations \u2014 the value-based-care models where policy tailwinds drive adoption.",
+    "focus": "Town Hall Ventures, founded by former CMS Administrator Andy Slavitt, invests in tech-enabled healthcare serving Medicare, Medicaid, and underserved populations — the value-based-care models where policy tailwinds drive adoption.",
     "sectors": [
       "Digital Health"
     ],
@@ -1374,7 +1374,7 @@
     "aliases": [
       "Primetime"
     ],
-    "focus": "Primetime Partners, co-founded by Alan Patricof and Abby Miller Levy, makes seed and early-stage investments in products, care models, and technologies for aging and longevity \u2014 including brain health, dementia, and caregiver support.",
+    "focus": "Primetime Partners, co-founded by Alan Patricof and Abby Miller Levy, makes seed and early-stage investments in products, care models, and technologies for aging and longevity — including brain health, dementia, and caregiver support.",
     "sectors": [
       "Digital Health"
     ],
@@ -1400,7 +1400,7 @@
     "aliases": [
       "Aegis"
     ],
-    "focus": "Aegis Ventures builds and backs healthcare-AI companies, notably through Ascertain \u2014 its $100M venture studio with Northwell Health \u2014 developing AI tools that automate clinical and administrative workflows and expand access to care.",
+    "focus": "Aegis Ventures builds and backs healthcare-AI companies, notably through Ascertain — its $100M venture studio with Northwell Health — developing AI tools that automate clinical and administrative workflows and expand access to care.",
     "sectors": [
       "Digital Health"
     ],
@@ -1423,7 +1423,7 @@
     "aliases": [
       "Susa"
     ],
-    "focus": "Susa Ventures invests $1\u20133M at pre-seed and seed across digital health, with specialty areas in care coordination and delivery, clinical infrastructure and workflows, and data and analytics.",
+    "focus": "Susa Ventures invests $1–3M at pre-seed and seed across digital health, with specialty areas in care coordination and delivery, clinical infrastructure and workflows, and data and analytics.",
     "sectors": [
       "Digital Health"
     ],
@@ -2222,5 +2222,40 @@
       "min": null,
       "max": null
     }
+  },
+  {
+    "id": "adaptive-capital-partners",
+    "name": "Adaptive Capital Partners",
+    "aliases": [
+      "Adaptive Capital",
+      "ACP"
+    ],
+    "focus": "Adaptive Capital Partners invests in high-conviction, disruptive technology startups with a predominant focus on HealthTech/MedTech and Southeast Asian B2B tech-enabled companies. Backed by an evergreen fund, the firm leverages operator and research expertise to support founders through their defining challenges.",
+    "sectors": [
+      "HealthTech",
+      "MedTech",
+      "Life Sciences",
+      "Diagnostics",
+      "Digital Health",
+      "B2B Tech-Enabled"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "28bio",
+      "astropath",
+      "blocksynop",
+      "brainbox-solutions"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
