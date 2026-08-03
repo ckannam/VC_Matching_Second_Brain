@@ -271,9 +271,156 @@ function fitTier(score) {
   return { label: 'Possible fit', cls: 'possible' };
 }
 
+// ── v1 rubric (live, tunable copy — see scripts/generate_v1_baseline.js for the FROZEN copy) ──
+// Ported verbatim from generate_v1_baseline.js so scoring.js can dispatch to v1 for
+// firms without portfolio data. Do NOT DRY these into a shared module — the baseline
+// script's copy is intentionally frozen for offline comparison artifact stability.
+
+const V1_WEIGHTS = { industry: 0.375, stage: 0.30, check: 0.225, geo: 0.10 };
+
+// FROZEN snapshot of the original scoring.js INDUSTRY_TO_DOMAIN (8 domains). Do not
+// "upgrade" this — the whole point is a fixed pre-taxonomy baseline.
+const INDUSTRY_TO_DOMAIN = {
+  'life sciences':       ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
+  'life science':        ['Therapeutics','Diagnostics','Digital Health','Medical Devices'],
+  'biotech':             ['Therapeutics','Diagnostics','Research Technologies'],
+  'biotechnology':       ['Therapeutics','Diagnostics','Research Technologies'],
+  'biopharma':           ['Therapeutics','Diagnostics'],
+  'pharma':              ['Therapeutics'],
+  'drug discovery':      ['Therapeutics','Research Technologies'],
+  'therapeutics':        ['Therapeutics'],
+  'diagnostics':         ['Diagnostics'],
+  'digital health':      ['Digital Health'],
+  'healthcare it':       ['Digital Health'],
+  'health it':           ['Digital Health'],
+  'healthtech':          ['Digital Health'],
+  'health tech':         ['Digital Health'],
+  'medtech':             ['Medical Devices'],
+  'medical device':      ['Medical Devices'],
+  'medical technology':  ['Medical Devices'],
+  'surgical':            ['Medical Devices'],
+  'oncology':            ['Diagnostics','Therapeutics'],
+  'cancer':              ['Diagnostics','Therapeutics'],
+  'neurology':           ['Medical Devices','Digital Health'],
+  'neurotech':           ['Medical Devices','Digital Health'],
+  'cardiovascular':      ['Medical Devices','Diagnostics'],
+  'cardiology':          ['Medical Devices','Diagnostics'],
+  'cleantech':           ['Clean Tech'],
+  'clean tech':          ['Clean Tech'],
+  'climate':             ['Clean Tech'],
+  'sustainability':      ['Clean Tech'],
+  'energy':              ['Clean Tech'],
+  'agtech':              ['Agricultural Tech'],
+  'agriculture':         ['Agricultural Tech'],
+  'food tech':           ['Agricultural Tech'],
+  'cybersecurity':       ['Cybersecurity'],
+  'security':            ['Cybersecurity'],
+  'infosec':             ['Cybersecurity'],
+  'research tools':      ['Research Technologies','Diagnostics'],
+  'research technologies':['Research Technologies'],
+  'research technology': ['Research Technologies'],
+  'lab tech':            ['Research Technologies'],
+  'agricultural tech':   ['Agricultural Tech'],
+  'agricultural technology':['Agricultural Tech'],
+  'ai in healthcare':    ['Digital Health','Medical Devices'],
+  'ai health':           ['Digital Health'],
+  'deep tech':           null,
+  'healthcare':          null,
+  'health care':         null,
+};
+
+// v1 focus → domains (flat set + broad-term flag).
+function v1MapFocus(focusStrings) {
+  const matched = new Set();
+  let matchesAll = false;
+  for (const f of focusStrings || []) {
+    const fl = (f || '').toLowerCase();
+    for (const [keyword, domains] of Object.entries(INDUSTRY_TO_DOMAIN)) {
+      if (fl.includes(keyword)) {
+        if (domains === null) matchesAll = true;
+        else domains.forEach(d => matched.add(d));
+      }
+    }
+  }
+  return { matched, matchesAll };
+}
+
+// 1. Industry (37.5%): fraction of the tech's sectors the VC's domains cover;
+//    broad-terms-only → flat 0.3.
+function v1Industry(matched, matchesAll, techDomains) {
+  const overlap = techDomains.filter(d => matched.has(d));
+  if (overlap.length) return { score: overlap.length / techDomains.length, overlaps: overlap.length };
+  if (matchesAll)     return { score: 0.3, overlaps: 0 };
+  return { score: 0, overlaps: 0 };
+}
+
+// 2. Stage (30%): v1 ladder — compatible 1.0, incompatible 0.2, tech stage absent 0.5.
+const V1_STAGE_MAP = {
+  'seed':       ['newco','pre-seed','seed','pre-clinical','concept','early'],
+  'series a':   ['seed','series a','mvp','pilot','phase i','phase 1','phase ii','phase 2'],
+  'series b':   ['series a','series b','clinical','commercial','phase ii','phase 2','phase iii','phase 3','fda'],
+  'growth':     ['series b','series c','series d','growth','commercial','revenue','scale','fda'],
+  'late stage': ['series b','series c','series d','growth','commercial','revenue','scale','public'],
+};
+function v1Stage(vcStages, techStage) {
+  if (!techStage) return 0.5;
+  const t = techStage.toLowerCase();
+  for (const vs of vcStages || []) {
+    const compat = V1_STAGE_MAP[vs.toLowerCase()] || [];
+    if (compat.some(s => t.includes(s))) return 1;
+  }
+  return 0.2;
+}
+
+// 3. Check size (22.5%): domain-maturity proxy on the tech's first domain.
+function v1Check(vc, techDomains) {
+  const maturity = DOMAIN_MATURITY[techDomains[0]] || 'mid';
+  const min = vc.checkSize ? vc.checkSize.min : undefined;
+  const max = vc.checkSize ? vc.checkSize.max : undefined;
+  if (maturity === 'early' && max <= 15) return 1;
+  if (maturity === 'mid' && min >= 1 && max <= 50) return 1;
+  return 0.4;
+}
+
+// 4. Geography (10%): same for every tech — purely the VC's stated focus.
+function v1Geo(vc) {
+  const g = (vc.geographicFocus || '').toLowerCase();
+  if (!g) return 0.7;
+  if (g.includes('mid-atlantic') || g.includes('east coast')) return 1.0;
+  if (g.includes('national')) return 0.8;
+  if (g.includes('west') || g.includes('international')) return 0.4;
+  return 0.7;
+}
+
+function v1Fit(vc, tech) {
+  const focus = (vc.sectors && vc.sectors.length) ? vc.sectors : (vc.focus ? [vc.focus] : []);
+  const { matched, matchesAll } = v1MapFocus(focus);
+  const techDomains = tech.sectors || [];
+  const ind = v1Industry(matched, matchesAll, techDomains);
+  const stage = v1Stage(vc.stage || [], tech.stage);
+  const check = v1Check(vc, techDomains);
+  const geo = v1Geo(vc);
+  const score = V1_WEIGHTS.industry * ind.score + V1_WEIGHTS.stage * stage
+              + V1_WEIGHTS.check * check + V1_WEIGHTS.geo * geo;
+  return { score, industry: ind.score, overlaps: ind.overlaps, stage, check, geo };
+}
+
+function vcFitScoreV1(vc, tech) {
+  const f = v1Fit(vc, tech);
+  return { score: f.score, industry: f.industry, stage: f.stage, check: f.check, geo: f.geo, basis: 'v1' };
+}
+
+// Single dispatch point: deal-data firms (portfolio present) → v2, else → v1.
+function scoreVC(vc, tech, portfolioCompanies) {
+  if (Array.isArray(portfolioCompanies) && portfolioCompanies.length)
+    return vcFitScore(vc, tech, portfolioCompanies);
+  return vcFitScoreV1(vc, tech);
+}
+
 if (typeof module !== 'undefined' && module.exports)
   module.exports = {
     WEIGHTS, PORTFOLIO_K, STATED_MAX, DOMAIN_MATURITY,
     mapFocusToDomains, normalizeFocus, techStageScore, techStageToRung, portfolioFit,
     checkSizeScore, vcFitScore, fitTier, selectWithTies,
+    vcFitScoreV1, scoreVC,
   };
