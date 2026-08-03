@@ -1464,5 +1464,41 @@
     "matchedTechs": [],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "dreamit-ventures-llc",
+    "name": "Dreamit Ventures LLC",
+    "aliases": [
+      "Dreamit",
+      "DreamIt"
+    ],
+    "focus": "Dreamit is a pre-Series A specialist that invests in and accelerates healthtech and securetech startups with existing revenue or pilots that are ready to scale, bridging the gap between seed and Series A by providing structured access to enterprise customers and follow-on investors.",
+    "sectors": [
+      "Digital Health",
+      "Healthtech",
+      "Cybersecurity",
+      "Securetech",
+      "PropTech",
+      "Urbantech",
+      "Physical Security",
+      "Defense Technology"
+    ],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
+    "checkSize": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "geographicFocus": "East Coast",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "circlage",
+      "corrie-health"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
