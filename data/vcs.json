@@ -366,7 +366,6 @@
       "Healthcare AI"
     ],
     "stage": [
-      "Seed",
       "Series A",
       "Series B",
       "Growth"
@@ -476,7 +475,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Growth"
     ],
     "checkSize": {
       "min": 1,
@@ -768,7 +768,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
     "checkSize": {
       "min": 1,
@@ -1218,7 +1219,6 @@
       "AI-Enabled Healthcare"
     ],
     "stage": [
-      "Seed",
       "Series A",
       "Series B",
       "Growth"
@@ -1256,7 +1256,8 @@
     ],
     "stage": [
       "Seed",
-      "Series A"
+      "Series A",
+      "Series B"
     ],
     "checkSize": {
       "min": 1,
@@ -1471,7 +1472,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1486,7 +1491,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1501,7 +1511,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1516,7 +1530,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1531,7 +1549,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1546,7 +1568,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1561,7 +1587,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1576,7 +1607,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1591,7 +1625,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1606,7 +1643,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1621,7 +1662,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1636,7 +1681,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1651,7 +1701,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1666,7 +1720,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1681,7 +1739,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1696,7 +1759,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1711,7 +1778,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1726,7 +1796,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1741,7 +1816,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1756,7 +1835,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1771,7 +1853,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1786,7 +1873,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1801,7 +1893,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1816,7 +1912,12 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1831,7 +1932,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1846,7 +1951,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1861,7 +1970,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1876,7 +1989,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1891,7 +2008,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1906,7 +2027,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1921,7 +2045,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1936,7 +2064,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1951,7 +2082,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Seed",
+      "Series A"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1966,7 +2100,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1981,7 +2119,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -1996,7 +2138,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -2011,7 +2157,11 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -2026,7 +2176,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
@@ -2041,7 +2194,10 @@
     "aliases": [],
     "focus": "",
     "sectors": [],
-    "stage": [],
+    "stage": [
+      "Series B",
+      "Growth"
+    ],
     "matchedTechs": [],
     "vcOnePager": null,
     "geographicFocus": "",
