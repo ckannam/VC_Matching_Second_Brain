@@ -276,7 +276,10 @@ function fitTier(score) {
 // firms without portfolio data. Do NOT DRY these into a shared module — the baseline
 // script's copy is intentionally frozen for offline comparison artifact stability.
 
-const V1_WEIGHTS = { industry: 0.375, stage: 0.30, check: 0.225, geo: 0.10 };
+// Reweighted 2026-08-03: geography + check-size (both weak/proxy signals) removed and
+// redistributed to Sector + Stage. Sector dominant (0.60) so off-domain firms fall below
+// the 0.45 floor; stage (0.40) is the refinement. (Live copy only; baseline stays frozen.)
+const V1_WEIGHTS = { industry: 0.60, stage: 0.40 };
 
 // FROZEN snapshot of the original scoring.js INDUSTRY_TO_DOMAIN (8 domains). Do not
 // "upgrade" this — the whole point is a fixed pre-taxonomy baseline.
@@ -373,41 +376,19 @@ function v1Stage(vcStages, techStage) {
 }
 
 // 3. Check size (22.5%): domain-maturity proxy on the tech's first domain.
-function v1Check(vc, techDomains) {
-  const maturity = DOMAIN_MATURITY[techDomains[0]] || 'mid';
-  const min = vc.checkSize ? vc.checkSize.min : undefined;
-  const max = vc.checkSize ? vc.checkSize.max : undefined;
-  if (maturity === 'early' && max <= 15) return 1;
-  if (maturity === 'mid' && min >= 1 && max <= 50) return 1;
-  return 0.4;
-}
-
-// 4. Geography (10%): same for every tech — purely the VC's stated focus.
-function v1Geo(vc) {
-  const g = (vc.geographicFocus || '').toLowerCase();
-  if (!g) return 0.7;
-  if (g.includes('mid-atlantic') || g.includes('east coast')) return 1.0;
-  if (g.includes('national')) return 0.8;
-  if (g.includes('west') || g.includes('international')) return 0.4;
-  return 0.7;
-}
-
 function v1Fit(vc, tech) {
   const focus = (vc.sectors && vc.sectors.length) ? vc.sectors : (vc.focus ? [vc.focus] : []);
   const { matched, matchesAll } = v1MapFocus(focus);
   const techDomains = tech.sectors || [];
   const ind = v1Industry(matched, matchesAll, techDomains);
   const stage = v1Stage(vc.stage || [], tech.stage);
-  const check = v1Check(vc, techDomains);
-  const geo = v1Geo(vc);
-  const score = V1_WEIGHTS.industry * ind.score + V1_WEIGHTS.stage * stage
-              + V1_WEIGHTS.check * check + V1_WEIGHTS.geo * geo;
-  return { score, industry: ind.score, overlaps: ind.overlaps, stage, check, geo };
+  const score = V1_WEIGHTS.industry * ind.score + V1_WEIGHTS.stage * stage;
+  return { score, industry: ind.score, overlaps: ind.overlaps, stage };
 }
 
 function vcFitScoreV1(vc, tech) {
   const f = v1Fit(vc, tech);
-  return { score: f.score, industry: f.industry, stage: f.stage, check: f.check, geo: f.geo, basis: 'v1' };
+  return { score: f.score, industry: f.industry, stage: f.stage, basis: 'v1' };
 }
 
 // Single dispatch point: deal-data firms (portfolio present) → v2, else → v1.
