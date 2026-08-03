@@ -61,5 +61,14 @@ check('no-portfolio-overlap enriched firm still scores > 0 (stage×check makes u
   assert(top[0].s > 0, `top score was ${top[0].s}`);
 });
 
+// ── Dispatch test: v1 path (no portfolio) ──────────────────────────────────
+const { scoreVC } = require('../scoring');
+const noPortfolioVC = { id: 'z', sectors: ['Diagnostics'], stage: ['Series A'], checkSize: { min: 1, max: 20 }, geographicFocus: 'National' };
+const scored = techs.map(t => scoreVC(noPortfolioVC, t, undefined)).filter(Boolean);
+check('index dispatch (v1 path) — no-portfolio VC returns scores for all techs with basis v1', () => {
+  assert.ok(scored.length === techs.length && scored.every(s => s.basis === 'v1'),
+    `expected ${techs.length} v1 results, got ${scored.length} (non-v1: ${scored.filter(s => s.basis !== 'v1').map(s => s.basis).join(',')})`);
+});
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
