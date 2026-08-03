@@ -3,6 +3,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { buildEntry } = require('../scripts/generate_vc.js');
+const { scoreVC } = require('../scoring');
 
 const techs = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/technologies.json'), 'utf8'));
 let pass = 0, fail = 0;
@@ -20,6 +21,11 @@ check('buildEntry produces a 4-tech provisional entry via shared scoring', () =>
   assert.strictEqual(e.matchedTechs.length, 4, `got ${e.matchedTechs.length}`);
   assert.deepStrictEqual(e.checkSize, { min: 1, max: 10 });
   assert(e.matchedTechs.every(id => techs.some(t => t.id === id)), 'matchedTechs are real ids');
+});
+
+check('fresh VC with no portfolio scores via v1 basis', () => {
+  const fresh = { id:'new', sectors:['Diagnostics'], stage:['Series A'], checkSize:{min:1,max:15}, geographicFocus:'National' };
+  assert.strictEqual(scoreVC(fresh, techs[0], undefined).basis, 'v1');
 });
 
 console.log(`\n${pass} passed, ${fail} failed`);
