@@ -745,6 +745,7 @@ body.compact-hero .popular-row { display: none; }
 .fit-tier-strong   { background: #EBF3EC; border-color: #BFD8C4; color: #1E5B31; }
 .fit-tier-good     { background: #EBF1F7; border-color: #BFD2E2; color: var(--blue); }
 .fit-tier-possible { background: var(--paper); border-color: var(--border); color: var(--muted); }
+.fit-prelim        { background: transparent; border: 1px dashed var(--border); color: var(--muted); font-weight: 500; font-size: 0.72rem; letter-spacing: .02em; }
 #moreVcFits {
   display: flex;
   flex-direction: column;

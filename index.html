@@ -1100,7 +1100,8 @@
     const fmt = d => { const [y,m]=d.split('-'); return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y; };
     const rows = rec.deals.map(d => `<tr><td>${fmt(d.date)}</td><td>${d.company}</td><td>${d.sector||''}</td><td>${d.round}</td><td>${d.sizeMusd!=null?'$'+d.sizeMusd+'M':''}</td></tr>`).join('');
     const caveat = rec.dealCount < 10 ? `<p class="ra-caveat">Based on ${rec.dealCount} deals — all PitchBook logged.</p>` : '';
-    return `<details class="recent-activity"><summary>Recent activity</summary>
+    const label = `Last ${rec.deals.length} investment${rec.deals.length === 1 ? '' : 's'}`;
+    return `<details class="recent-activity"><summary>${label}</summary>
     <table><thead><tr><th>Date</th><th>Company</th><th>Sector</th><th>Round</th><th>Size</th></tr></thead>
     <tbody>${rows}</tbody></table>${caveat}</details>`;
   }
@@ -1228,7 +1229,12 @@
       .filter(inv => !profiled.has(inv.investor))
       .map(inv => ({ vc: null, fit: null, inBrief: false, isBacker: true, alreadyInvested: true,
                      backerRec: inv, unprofiledBacker: true, tieKey: 0, sortScore: 2 }));
-    return [...unprofiledPins, ...rows].sort((a, b) => b.sortScore - a.sortScore || (b.tieKey || 0) - (a.tieKey || 0));
+    // Ordering bands: already-invested pins (2) > deal-verified v2 / in-brief (1) > preliminary v1 (0).
+    // With ~60 firms in v2, this makes the initial recommendations deal-verified whenever enough clear the floor.
+    const fitBand = r => (r.alreadyInvested || r.unprofiledBacker) ? 2
+                       : ((r.fit && r.fit.basis !== 'v1') || r.inBrief) ? 1 : 0;
+    return [...unprofiledPins, ...rows].sort((a, b) =>
+      fitBand(b) - fitBand(a) || b.sortScore - a.sortScore || (b.tieKey || 0) - (a.tieKey || 0));
   }
 
   function toggleMoreFits() {
@@ -1366,6 +1372,7 @@
       if (fit) {
         const t = fitTier(fit.score);
         badges.push(`<span class="pill fit-tier-${t.cls}">${t.label} · ${fit.score.toFixed(2)}</span>`);
+        if (fit.basis === 'v1') badges.push('<span class="pill fit-prelim" title="Scored from the firm\'s stated profile — no deal history yet">preliminary</span>');
       }
       const parts = [];
       if (fit && fit.portfolioHits) parts.push(`has ${fit.portfolioHits} portfolio compan${fit.portfolioHits === 1 ? 'y' : 'ies'} like this`);
