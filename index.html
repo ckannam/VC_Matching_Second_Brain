@@ -1086,12 +1086,23 @@
           ${downloadAllBtn}
         </div>
       </div>
+      ${recentActivityHTML(vc.id)}
       ${jhuSection}
       <p class="section-label">${techs.length} matched technolog${techs.length === 1 ? 'y' : 'ies'}
         <span class="score-note">— fit scores are model outputs (0–1), not probabilities</span></p>
       ${techs.some(x => x.tied) ? `<p class="tied-group">Top ${techs.filter(x => !x.tied).length} are clearly strongest; the rest are equally strong — not rank-ordered.</p>` : ''}
       <div class="tech-grid">${techs.map(x => techCardHTML(x.t, null, matchReason(vc, x.t), x.score, x.tied)).join('')}</div>
     `;
+  }
+
+  function recentActivityHTML(vcId) {
+    const rec = RECENT_BY_VC[vcId]; if (!rec) return '';
+    const fmt = d => { const [y,m]=d.split('-'); return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y; };
+    const rows = rec.deals.map(d => `<tr><td>${fmt(d.date)}</td><td>${d.company}</td><td>${d.sector||''}</td><td>${d.round}</td><td>${d.sizeMusd!=null?'$'+d.sizeMusd+'M':''}</td></tr>`).join('');
+    const caveat = rec.dealCount < 10 ? `<p class="ra-caveat">Based on ${rec.dealCount} deals — all PitchBook logged.</p>` : '';
+    return `<details class="recent-activity"><summary>Recent activity</summary>
+    <table><thead><tr><th>Date</th><th>Company</th><th>Sector</th><th>Round</th><th>Size</th></tr></thead>
+    <tbody>${rows}</tbody></table>${caveat}</details>`;
   }
 
   function techCardHTML(t, accentColor, reason, score, tied) {

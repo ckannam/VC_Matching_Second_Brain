@@ -13,3 +13,11 @@ for (const firm of new Set(deals.map(d => d.firm))) {
   assert.ok(ids.has(MAP[firm]), `vcId "${MAP[firm]}" (for "${firm}") missing from vcs.json`);
 }
 console.log('firm→vcId resolution OK');
+
+const recent = require('../data/vc_recent_deals.json');
+for (const [vcId, rec] of Object.entries(recent)) {
+  assert.ok(typeof rec.dealCount === 'number');
+  assert.ok(rec.deals.length <= 10);
+  rec.deals.forEach(d => { assert.ok(d.date && d.company && d.round); });
+}
+console.log('vc_recent_deals shape OK');

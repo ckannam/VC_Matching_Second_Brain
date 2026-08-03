@@ -973,4 +973,12 @@ body.compact-hero .popular-row { display: none; }
 .gf-field select, .gf-field input[type=number] { width:100%; padding:7px 9px; border:1px solid var(--border); border-radius:3px; font:14px var(--sans); background:#fff; }
 .gf-radios { display:flex; gap:14px; flex-wrap:wrap; }
 .gf-radio { font:13px var(--sans); color:var(--text); display:flex; align-items:center; gap:5px; }
+
+/* Recent activity block */
+.recent-activity { margin: 12px 0; font-size: 0.85rem; }
+.recent-activity > summary { color: #003B6F; font-weight: 600; cursor: pointer; }
+.recent-activity table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.recent-activity th { text-align: left; color: #005A9C; font-weight: 600; border-bottom: 2px solid #C8973A; padding: 4px 8px; }
+.recent-activity td { padding: 4px 8px; border-bottom: 1px solid #eee; color: #444; }
+.recent-activity .ra-caveat { color: #888; font-style: italic; margin-top: 6px; }
 .gf-empty { color:var(--muted); font:13px var(--sans); margin:10px 0; }
