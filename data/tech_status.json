@@ -1,4 +1,6 @@
 {
-  "pausedTechIds": [],
-  "updatedAt": "2026-08-03T16:05:39.669Z"
+  "pausedTechIds": [
+    "deep-root-biolabs"
+  ],
+  "updatedAt": "2026-08-05T19:10:01.876Z"
 }
