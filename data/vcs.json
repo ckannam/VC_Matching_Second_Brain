@@ -2257,5 +2257,42 @@
     ],
     "vcOnePager": null,
     "provisional": true
+  },
+  {
+    "id": "stepstone-group-inc",
+    "name": "StepStone Group Inc.",
+    "aliases": [
+      "StepStone",
+      "STEP"
+    ],
+    "focus": "As one of the largest and most active global allocators to venture capital and growth equity, StepStone acts as a value-added, lifecycle partner to venture managers and entrepreneurs across an integrated program spanning seed to growth equity through primary, direct, and secondary investments. It leverages deep GP relationships and a proprietary data platform to finance innovation across the technology and healthcare-driven innovation economy.",
+    "sectors": [
+      "Software / SaaS",
+      "Artificial Intelligence",
+      "Cybersecurity",
+      "Fintech",
+      "HealthTech",
+      "Clean Tech / Climate Tech",
+      "Enterprise Technology"
+    ],
+    "stage": [
+      "Seed",
+      "Series A",
+      "Series B",
+      "Growth"
+    ],
+    "checkSize": {
+      "min": 1,
+      "max": 25
+    },
+    "geographicFocus": "International",
+    "matchedTechs": [
+      "astropath",
+      "avoid",
+      "bullfrog-ai",
+      "circlage"
+    ],
+    "vcOnePager": null,
+    "provisional": true
   }
 ]
